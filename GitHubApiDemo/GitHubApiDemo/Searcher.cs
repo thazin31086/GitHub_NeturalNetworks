@@ -396,7 +396,7 @@ namespace GitHubApiDemo
                 #region Issues 
 
                 XmlDocument xmlDoc = new XmlDocument();
-                xmlDoc.Load("C:\\PhD\\Workbrench\\GitHubApiDemo\\Roslyn\\IssueResultsSVF.xml");
+                xmlDoc.Load("C:\\PhD\\Workbrench\\GitHub_NeturalNetworks\\Datasets\\IssueResultsRoslyn_20102019.xml");
                 XmlNode rootNode = xmlDoc["Issues"];
 
                 foreach (var item in items)
@@ -433,7 +433,7 @@ namespace GitHubApiDemo
                         rootNode.AppendChild(IssueNode);
                     }
                 }
-                xmlDoc.Save("C:\\PhD\\Workbrench\\GitHubApiDemo\\Roslyn\\IssueResultsSVF.xml");
+                xmlDoc.Save("C:\\PhD\\Workbrench\\GitHub_NeturalNetworks\\Datasets\\IssueResultsRoslyn_20102019.xml");
                 #endregion Issues
             }
             #endregion // Constructors
