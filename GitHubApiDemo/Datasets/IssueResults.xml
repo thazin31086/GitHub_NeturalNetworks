@@ -1,0 +1,44 @@
+<Issues>
+  <Issue>
+    <IssueID>9047</IssueID>
+    <RepoID>1</RepoID>
+    <Title>CompilationWithAnalyzerOptions ctor must remove breaking change</Title>
+    <Description>Consider this commit:  https://github.com/dotnet/roslyn/commit/deeb46ecd3f215564f344f0f42bba90adff255e5
+
+It changed the parameters on `CompilationWithAnalyzerOptions`.  This is a breaking change from update 1.  It needs to be adjusted to maintain the old constructors in addition to the new ones to maintain binary compat.  
+</Description>
+    <CreatedDate>23/02/2016</CreatedDate>
+    <ClosedDate>02/03/2016</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>2825</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Right-click SuppressMessage in source file puts [SuppressMessage] attribute above XML doc comments</Title>
+    <Description>I have some CA1001 warnings about types holding disposables should implement IDisposable.  When I right-click on the error (treats warnings as errors is enable), VS puts the attribute _above_ the doc comments.  
+
+``` C#
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1001:TypesThatOwnDisposableFieldsShouldBeDisposable")]
+    /// &lt;summary&gt;
+    ///              Implements a node, the building block of a &lt;see cref="XTree"/&gt;.
+    /// &lt;/summary&gt;
+    ///...
+    public class Node {
+```
+
+This generates an editor error (red squiggle) at start of XML doc comment saying the XML comment has not been placed on a valid language element.
+
+Once I moved the attribute below the XML doc comment and just above the class declaration the editor was happy again.
+</Description>
+    <CreatedDate>16/05/2015</CreatedDate>
+    <ClosedDate>21/05/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>14565</IssueID>
+    <RepoID>1</RepoID>
+    <Title>[XAML] Explicitly opt into Roslyn functionality</Title>
+    <Description>XAML documents participated in too many incompatible language features. This caused many commands to be handled by Roslyn that should have been handled by Visual Studio. The fix is to opt out of RoslynContentType and explicitly opt into the features supported by XAML.
+</Description>
+    <CreatedDate>17/10/2016</CreatedDate>
+    <ClosedDate>02/11/2016</ClosedDate>
+  </Issue>
+</Issues>

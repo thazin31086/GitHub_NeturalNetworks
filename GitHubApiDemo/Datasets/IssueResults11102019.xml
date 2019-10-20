@@ -1,0 +1,1788 @@
+<Issues>
+  <Issue>
+    <IssueID>35373</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Use more robust initialization for TypeWithAnnotations.Builder</Title>
+    <Description>FYI @jaredpar @agocke @stephentoub 
+
+May fix https://github.com/dotnet/roslyn/issues/35290 </Description>
+    <CreatedDate>30/04/2019</CreatedDate>
+    <ClosedDate>01/05/2019</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>4958</IssueID>
+    <RepoID>1</RepoID>
+    <Title>TypeNameDecoder.GetTypeSymbol doesn't distinguish between SZArray and MDArray of rank 1.</Title>
+    <Description>
+    </Description>
+    <CreatedDate>02/09/2015</CreatedDate>
+    <ClosedDate>08/03/2017</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>8018</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Import should not respect IsOptional on out parameters</Title>
+    <Description>The compiler should be ignoring the `IsOptional` flag on imported parameters when the parameter is also marked as `out`.  This comes up when using COM APIs such as ADODB.  Example:
+
+```
+using ADODB;
+
+class Program
+{
+    static void Main()
+    {
+        Command c = null;
+        c.Execute();
+    }
+}
+```
+
+Compile that code with a reference to `adodb.dll` and it produces conflicting information:
+1. All of the parameters to `Execute` are seen as optional.
+2. The compiler errors because there is no valid overload of `Execute` that takes 0 parameters. 
+
+Ported from [VSO 101209](https://devdiv.visualstudio.com/DefaultCollection/DevDiv/Managed%20Languages%20IDE/_workitems#_a=edit&amp;id=101209&amp;triage=true)
+
+`
+</Description>
+    <CreatedDate>18/01/2016</CreatedDate>
+    <ClosedDate>16/02/2017</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>871</IssueID>
+    <RepoID>1</RepoID>
+    <Title>DebuggerDisplayAttribute and ImmutableArray&lt;&gt; bug</Title>
+    <Description>1. Create a default Console Application in a MSVS 2015 CTP 6.
+2. Add reference to a System.Collections.Immutable.1.1.33-beta
+3. Replace code in Program.cs to:
+   
+   ``` cs
+   using System.Collections.Immutable;
+   using System.Diagnostics;
+   
+   static class Program
+   {
+     static void Main() {
+       var test = new Test();
+     } // Set breakpoint here
+   }
+   
+   [DebuggerDisplay("Items = {Items.Length}")]
+   class Test
+   {
+     private ImmutableArray&lt;int&gt; Items { get; } = ImmutableArray.Create(1);
+   }
+   ```
+4. Run debugger.
+5. When debugger stops at breakpoint, move mouse pointer over a "test" variable. Tooltip shows
+   
+   &gt; "test = Items = The debugger is unable to evaluate this expression".
+
+Should be
+
+&gt; "test = Items = 1".
+</Description>
+    <CreatedDate>25/02/2015</CreatedDate>
+    <ClosedDate>13/05/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>4037</IssueID>
+    <RepoID>1</RepoID>
+    <Title>IDE0004 - incorrectly suggest to remove cast in string interpolation</Title>
+    <Description>Visual Studio info:
+
+Microsoft Visual Studio Enterprise 2015
+Version 14.0.23107.0 D14REL
+Microsoft .NET Framework
+Version 4.6.00079
+
+OS info:
+
+Microsoft Windows 10 Pro / Version 10.0.10240 Build 10240
+
+Repro case:
+
+``` C#
+using System;
+
+class Sample 
+{
+    public enum State: ushort
+    {
+        None = 0x00,
+        State1 = 1 &lt;&lt; 0,
+    }
+
+    public static void Main() 
+    {
+        State alarmState = State.State1;
+
+        string str = $"State: {alarmState} [{(ushort)alarmState:X4}]";
+
+        Console.WriteLine(str);
+    }
+}
+```
+
+Visual Studio incorrectly suggest to remove cast to **(ushort)**, 
+
+![example](https://cloud.githubusercontent.com/assets/2722498/8813072/23baee22-3009-11e5-9709-6aaef57a3fef.png)
+
+so code becomes:
+
+``` C#
+string str = $"State: {alarmState} [{alarmState:X4}]";
+```
+
+this leads to System.FormatException during execution since string (Enum.ToString) can't be formated as numeric value:
+
+``` C#
+   in System.Enum.ToString(String format)
+   in System.Text.StringBuilder.AppendFormatHelper(IFormatProvider provider, String format, ParamsArray args)
+   in System.String.FormatHelper(IFormatProvider provider, String format, ParamsArray args)
+   in System.String.Format(String format, Object arg0, Object arg1)
+   in Sample.Main()
+```
+
+[Microsoft Connect Entry](https://connect.microsoft.com/VisualStudio/feedback/details/1489559/ide0004-incorrectly-suggest-to-remove-cast-in-string-interpolation)
+</Description>
+    <CreatedDate>21/07/2015</CreatedDate>
+    <ClosedDate>09/09/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>5002</IssueID>
+    <RepoID>1</RepoID>
+    <Title>C# autocomplete uses full namespace rather than alias from using statement</Title>
+    <Description>**Steps to Reproduce**
+1. Copy the code below.
+2. Complete the line `v = new` with autocomplete.
+
+``` csharp
+using MSG = Microsoft.Structures.Geometry3d;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            MSG.Vector v = new
+        }
+    }
+}
+
+namespace Microsoft.Structures.Geometry3d
+{
+    class Vector
+    {
+    }
+}
+```
+
+**Expected**
+`MSG.Vector v = new MSG.Vector();`
+**Actual**
+`MSG.Vector v = new Microsoft.Structures.Geometry3d.Vector();`
+
+EDIT: The "Actual" used to say "MSG.Structures.Geometry3d.Vector", but the actual displayed/inserted text is "Microsoft.Structures.Geometry3d.Vector"
+</Description>
+    <CreatedDate>04/09/2015</CreatedDate>
+    <ClosedDate>07/10/2016</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>7659</IssueID>
+    <RepoID>1</RepoID>
+    <Title>WithEvents in heritance chain</Title>
+    <Description>If you define three handlers of the same event using Visual Basic `WithEvents` and `Handles` keywords, one of the handlers will not be called. I encountered this issue in Visual Studio 2015. After Update 1 it still remains.
+
+I have written a [test solution](https://github.com/dotnet/roslyn/files/69472/WithEventsTest.zip) and posted this issue on [stackoverflow](http://stackoverflow.com/questions/33608936/withevents-bug-in-visual-studio-2015).
+</Description>
+    <CreatedDate>22/12/2015</CreatedDate>
+    <ClosedDate>27/09/2016</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>9850</IssueID>
+    <RepoID>1</RepoID>
+    <Title>It should be possible to access inherited nested types through an unbound generic type in typeof expression</Title>
+    <Description>This is port of http://vstfdevdiv:8080/DevDiv2/DevDiv/_workitems/edit/542581.
+It was resolved as "No Repro", but the unit-test (Microsoft.CodeAnalysis.VisualBasic.UnitTests.CodeGenGetTypeOperator.CodeGen_GetType_InheritedNestedTypeThroughUnboundGeneric) remained skipped. It looks like the behavior got regressed.
+
+---
+
+``` cs
+using System;
+
+class C
+{
+    public class E { }
+
+    static void Main()
+    {
+        Console.WriteLine(typeof(D&lt;&gt;.E));
+    }
+}
+
+class D&lt;T&gt; : C { }
+```
+
+**ACTUAL RESULT**: error CS0426: The type name 'E' does not exist in the type 'D&lt;&lt;Error&gt;&gt;'
+
+**EXPECTED RESULT**: no errors, prints C+E
+
+See test `Roslyn.Compilers.CSharp.UnitTests.CodeGen.CodeGenTests.TestTypeofInheritedNestedTypeThroughUnboundGeneric`
+</Description>
+    <CreatedDate>17/03/2016</CreatedDate>
+    <ClosedDate>20/09/2016</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>9581</IssueID>
+    <RepoID>1</RepoID>
+    <Title>A missing definite assignment error for a 'using' local.</Title>
+    <Description>```
+class C
+{
+    static void Main()
+    {
+        using (System.IDisposable x = x)
+        {
+        }
+    }
+}
+```
+
+Observed:
+No errors or warnings.
+
+Expected (VS2013 behavior):
+
+```
+(5,35): warning CS1717: Assignment made to same variable; did you mean to assign something else?
+(5,39): error CS0165: Use of unassigned local variable 'x'
+```
+</Description>
+    <CreatedDate>08/03/2016</CreatedDate>
+    <ClosedDate>19/09/2016</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>557</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Type inference fails in lambda in incomplete object initializer</Title>
+    <Description>Source: (note trailing comma)
+
+``` C#
+var x = new {
+    X = "".Select(c =&gt; c.
+    Y = 0,
+};
+```
+
+IntelliSense will not show any members for `c.`.
+</Description>
+    <CreatedDate>17/02/2015</CreatedDate>
+    <ClosedDate>13/06/2016</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>5498</IssueID>
+    <RepoID>1</RepoID>
+    <Title>No intellisense on lambda parameter before variable declaration</Title>
+    <Description>``` C#
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        var z = args.Select(a =&gt; a.$$
+        var foo = 
+    }
+}
+```
+
+There's no intellisense at the caret.
+</Description>
+    <CreatedDate>28/09/2015</CreatedDate>
+    <ClosedDate>13/06/2016</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>9759</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Microsoft.CodeAnalysis.Editor.CSharp.UnitTests.Diagnostics.RemoveUnnecessaryUsings.RemoveUnnecessaryUsingsTests.TestFixAllInDocument failed</Title>
+    <Description>http://dotnet-ci.cloudapp.net/job/roslyn_future-stabilization_win_rel_unit64/22/testReport/junit/Microsoft.CodeAnalysis.Editor.CSharp.UnitTests.Diagnostics.RemoveUnnecessaryUsings/RemoveUnnecessaryUsingsTests/TestFixAllInDocument/
+
+Microsoft.CodeAnalysis.Editor.CSharp.UnitTests.Diagnostics.RemoveUnnecessaryUsings.RemoveUnnecessaryUsingsTests.TestFixAllInDocument (from Roslyn.Services.Editor.CSharp.UnitTests)
+
+Failing for the past 1 build (Since Failed#22 )
+Took 40 ms.
+Stacktrace
+
+MESSAGE:
+Expected 0 items but found 1: Found analyzer exception diagnostics\r\nItems:\r\n warning AD0001: Analyzer 'Microsoft.CodeAnalysis.CSharp.Diagnostics.RemoveUnnecessaryImports.CSharpRemoveUnnecessaryImportsDiagnosticAnalyzer' threw an exception of type 'System.InvalidOperationException' with message 'Cannot enqueue data after PromiseNotToEnqueue.'.\r\nExpected: False\r\nActual: True
++++++++++++++++++++
+STACK TRACE:
+at Roslyn.Test.Utilities.AssertEx.Empty[T](IEnumerable`1 items, String message) in d:\j\workspace\roslyn_future---afce58fd\src\Test\Utilities\Shared\Assert\AssertEx.cs:line 501 at Microsoft.CodeAnalysis.Editor.UnitTests.Diagnostics.AbstractDiagnosticProviderBasedUserDiagnosticTest.&lt;GetDiagnosticAndFixesAsync&gt;d__5.MoveNext() in d:\j\workspace\roslyn_future---afce58fd\src\EditorFeatures\Test\Diagnostics\AbstractDiagnosticProviderBasedUserDiagnosticTest.cs:line 75 --- End of stack trace from previous location where exception was thrown --- at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task) at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task) at Microsoft.CodeAnalysis.Editor.UnitTests.Diagnostics.AbstractUserDiagnosticTest.&lt;GetDiagnosticAndFixAsync&gt;d__3.MoveNext() in d:\j\workspace\roslyn_future---afce58fd\src\EditorFeatures\Test\Diagnostics\AbstractUserDiagnosticTest.cs:line 44 --- End of stack trace from previous location where exception was thrown --- at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task) at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task) at Microsoft.CodeAnalysis.Editor.UnitTests.Diagnostics.AbstractUserDiagnosticTest.&lt;GetCodeActionsWorkerAsync&gt;d__2.MoveNext() in d:\j\workspace\roslyn_future---afce58fd\src\EditorFeatures\Test\Diagnostics\AbstractUserDiagnosticTest.cs:line 37 --- End of stack trace from previous location where exception was thrown --- at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task) at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task) at Microsoft.CodeAnalysis.Editor.UnitTests.CodeActions.AbstractCodeActionOrUserDiagnosticTest.&lt;GetCodeActionsAsync&gt;d__7.MoveNext() in d:\j\workspace\roslyn_future---afce58fd\src\EditorFeatures\Test\CodeActions\AbstractCodeActionOrUserDiagnosticTest.cs:line 96 --- End of stack trace from previous location where exception was thrown --- at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task) at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task) at Microsoft.CodeAnalysis.Editor.UnitTests.CodeActions.AbstractCodeActionOrUserDiagnosticTest.&lt;TestAsync&gt;d__14.MoveNext() in d:\j\workspace\roslyn_future---afce58fd\src\EditorFeatures\Test\CodeActions\AbstractCodeActionOrUserDiagnosticTest.cs:line 191 --- End of stack trace from previous location where exception was thrown --- at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task) at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task) at Microsoft.CodeAnalysis.Editor.UnitTests.CodeActions.AbstractCodeActionOrUserDiagnosticTest.&lt;TestAsync&gt;d__12.MoveNext() in d:\j\workspace\roslyn_future---afce58fd\src\EditorFeatures\Test\CodeActions\AbstractCodeActionOrUserDiagnosticTest.cs:line 154 --- End of stack trace from previous location where exception was thrown --- at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task) at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task) at Microsoft.CodeAnalysis.Editor.CSharp.UnitTests.Diagnostics.RemoveUnnecessaryUsings.RemoveUnnecessaryUsingsTests.&lt;TestFixAllInDocument&gt;d__45.MoveNext() in d:\j\workspace\roslyn_future---afce58fd\src\EditorFeatures\CSharpTest\Diagnostics\RemoveUnnecessaryUsings\RemoveUnnecessaryUsingsTests_FixAllTests.cs:line 87 --- End of stack trace from previous location where exception was thrown --- at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task) at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task) --- End of stack trace from previous location where exception was thrown --- at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task) at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task) --- End of stack trace from previous location where exception was thrown --- at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task) at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+</Description>
+    <CreatedDate>15/03/2016</CreatedDate>
+    <ClosedDate>17/03/2016</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>9759</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Microsoft.CodeAnalysis.Editor.CSharp.UnitTests.Diagnostics.RemoveUnnecessaryUsings.RemoveUnnecessaryUsingsTests.TestFixAllInDocument failed</Title>
+    <Description>http://dotnet-ci.cloudapp.net/job/roslyn_future-stabilization_win_rel_unit64/22/testReport/junit/Microsoft.CodeAnalysis.Editor.CSharp.UnitTests.Diagnostics.RemoveUnnecessaryUsings/RemoveUnnecessaryUsingsTests/TestFixAllInDocument/
+
+Microsoft.CodeAnalysis.Editor.CSharp.UnitTests.Diagnostics.RemoveUnnecessaryUsings.RemoveUnnecessaryUsingsTests.TestFixAllInDocument (from Roslyn.Services.Editor.CSharp.UnitTests)
+
+Failing for the past 1 build (Since Failed#22 )
+Took 40 ms.
+Stacktrace
+
+MESSAGE:
+Expected 0 items but found 1: Found analyzer exception diagnostics\r\nItems:\r\n warning AD0001: Analyzer 'Microsoft.CodeAnalysis.CSharp.Diagnostics.RemoveUnnecessaryImports.CSharpRemoveUnnecessaryImportsDiagnosticAnalyzer' threw an exception of type 'System.InvalidOperationException' with message 'Cannot enqueue data after PromiseNotToEnqueue.'.\r\nExpected: False\r\nActual: True
++++++++++++++++++++
+STACK TRACE:
+at Roslyn.Test.Utilities.AssertEx.Empty[T](IEnumerable`1 items, String message) in d:\j\workspace\roslyn_future---afce58fd\src\Test\Utilities\Shared\Assert\AssertEx.cs:line 501 at Microsoft.CodeAnalysis.Editor.UnitTests.Diagnostics.AbstractDiagnosticProviderBasedUserDiagnosticTest.&lt;GetDiagnosticAndFixesAsync&gt;d__5.MoveNext() in d:\j\workspace\roslyn_future---afce58fd\src\EditorFeatures\Test\Diagnostics\AbstractDiagnosticProviderBasedUserDiagnosticTest.cs:line 75 --- End of stack trace from previous location where exception was thrown --- at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task) at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task) at Microsoft.CodeAnalysis.Editor.UnitTests.Diagnostics.AbstractUserDiagnosticTest.&lt;GetDiagnosticAndFixAsync&gt;d__3.MoveNext() in d:\j\workspace\roslyn_future---afce58fd\src\EditorFeatures\Test\Diagnostics\AbstractUserDiagnosticTest.cs:line 44 --- End of stack trace from previous location where exception was thrown --- at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task) at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task) at Microsoft.CodeAnalysis.Editor.UnitTests.Diagnostics.AbstractUserDiagnosticTest.&lt;GetCodeActionsWorkerAsync&gt;d__2.MoveNext() in d:\j\workspace\roslyn_future---afce58fd\src\EditorFeatures\Test\Diagnostics\AbstractUserDiagnosticTest.cs:line 37 --- End of stack trace from previous location where exception was thrown --- at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task) at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task) at Microsoft.CodeAnalysis.Editor.UnitTests.CodeActions.AbstractCodeActionOrUserDiagnosticTest.&lt;GetCodeActionsAsync&gt;d__7.MoveNext() in d:\j\workspace\roslyn_future---afce58fd\src\EditorFeatures\Test\CodeActions\AbstractCodeActionOrUserDiagnosticTest.cs:line 96 --- End of stack trace from previous location where exception was thrown --- at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task) at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task) at Microsoft.CodeAnalysis.Editor.UnitTests.CodeActions.AbstractCodeActionOrUserDiagnosticTest.&lt;TestAsync&gt;d__14.MoveNext() in d:\j\workspace\roslyn_future---afce58fd\src\EditorFeatures\Test\CodeActions\AbstractCodeActionOrUserDiagnosticTest.cs:line 191 --- End of stack trace from previous location where exception was thrown --- at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task) at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task) at Microsoft.CodeAnalysis.Editor.UnitTests.CodeActions.AbstractCodeActionOrUserDiagnosticTest.&lt;TestAsync&gt;d__12.MoveNext() in d:\j\workspace\roslyn_future---afce58fd\src\EditorFeatures\Test\CodeActions\AbstractCodeActionOrUserDiagnosticTest.cs:line 154 --- End of stack trace from previous location where exception was thrown --- at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task) at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task) at Microsoft.CodeAnalysis.Editor.CSharp.UnitTests.Diagnostics.RemoveUnnecessaryUsings.RemoveUnnecessaryUsingsTests.&lt;TestFixAllInDocument&gt;d__45.MoveNext() in d:\j\workspace\roslyn_future---afce58fd\src\EditorFeatures\CSharpTest\Diagnostics\RemoveUnnecessaryUsings\RemoveUnnecessaryUsingsTests_FixAllTests.cs:line 87 --- End of stack trace from previous location where exception was thrown --- at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task) at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task) --- End of stack trace from previous location where exception was thrown --- at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task) at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task) --- End of stack trace from previous location where exception was thrown --- at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task) at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+</Description>
+    <CreatedDate>15/03/2016</CreatedDate>
+    <ClosedDate>17/03/2016</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>9047</IssueID>
+    <RepoID>1</RepoID>
+    <Title>CompilationWithAnalyzerOptions ctor must remove breaking change</Title>
+    <Description>Consider this commit:  https://github.com/dotnet/roslyn/commit/deeb46ecd3f215564f344f0f42bba90adff255e5
+
+It changed the parameters on `CompilationWithAnalyzerOptions`.  This is a breaking change from update 1.  It needs to be adjusted to maintain the old constructors in addition to the new ones to maintain binary compat.  
+</Description>
+    <CreatedDate>23/02/2016</CreatedDate>
+    <ClosedDate>02/03/2016</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>7477</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Duplicate compilation events for partial methods</Title>
+    <Description>Partial methods in C# currently result in duplicate compilation events.
+</Description>
+    <CreatedDate>15/12/2015</CreatedDate>
+    <ClosedDate>26/02/2016</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>8178</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Crash in diagnostics analyzer</Title>
+    <Description>Was editing in roslyn when i got this:
+
+```
+Framework Version: v4.0.30319
+Description: The application requested process termination through System.Environment.FailFast(string message).
+Message: System.InvalidOperationException: Cannot call Enqueue when the queue is already completed.
+   at Microsoft.CodeAnalysis.Diagnostics.AsyncQueue`1.Enqueue(TElement value)
+   at Microsoft.CodeAnalysis.CSharp.CSharpCompilation.SymbolDeclaredEvent(Symbol symbol)
+   at Microsoft.CodeAnalysis.CSharp.Symbols.SourceNamespaceSymbol.GetNameToMembersMap()
+   at Microsoft.CodeAnalysis.CSharp.Symbols.SourceNamespaceSymbol.GetMembers(String name)
+   at Microsoft.CodeAnalysis.CSharp.SyntaxTreeSemanticModel.GetDeclaredMember(NamespaceOrTypeSymbol container, TextSpan declarationSpan, String name)
+   at Microsoft.CodeAnalysis.CSharp.SyntaxTreeSemanticModel.GetDeclaredNamedType(CSharpSyntaxNode declarationSyntax, String name)
+   at Microsoft.CodeAnalysis.CSharp.SyntaxTreeSemanticModel.GetDeclaredType(BaseTypeDeclarationSyntax declarationSyntax)
+   at Microsoft.CodeAnalysis.CSharp.SyntaxTreeSemanticModel.GetDeclaredSymbol(BaseTypeDeclarationSyntax declarationSyntax, CancellationToken cancellationToken)
+   at Microsoft.CodeAnalysis.CSharp.CSharpSemanticModel.GetDeclaredSymbolCore(SyntaxNode declaration, CancellationToken cancellationToken)
+   at Microsoft.CodeAnalysis.DeclarationComputer.GetDeclaredSymbol(SemanticModel model, SyntaxNode node, Boolean getSymbol, CancellationToken cancellationToken)
+   at Microsoft.CodeAnalysis.DeclarationComputer.GetDeclarationInfo(SemanticModel model, SyntaxNode node, Boolean getSymbol, IEnumerable`1 executableCodeBlocks, CancellationToken cancellationToken)
+   at Microsoft.CodeAnalysis.DeclarationComputer.GetDeclarationInfo(SemanticModel model, SyntaxNode node, Boolean getSymbol, CancellationToken cancellationToken)
+   at Microsoft.CodeAnalysis.CSharp.CSharpDeclarationComputer.ComputeDeclarations(SemanticModel model, SyntaxNode node, Func`3 shouldSkip, Boolean getSymbol, List`1 builder, Nullable`1 levelsToCompute, CancellationToken cancellationToken)
+   at Microsoft.CodeAnalysis.CSharp.CSharpDeclarationComputer.ComputeDeclarations(SemanticModel model, SyntaxNode node, Func`3 shouldSkip, Boolean getSymbol, List`1 builder, Nullable`1 levelsToCompute, CancellationToken cancellationToken)
+   at Microsoft.CodeAnalysis.CSharp.CSharpDeclarationComputer.ComputeDeclarationsInNode(SemanticModel model, SyntaxNode node, Boolean getSymbol, List`1 builder, CancellationToken cancellationToken, Nullable`1 levelsToCompute)
+   at Microsoft.CodeAnalysis.CSharp.CSharpSemanticModel.ComputeDeclarationsInNode(SyntaxNode node, Boolean getSymbol, List`1 builder, CancellationToken cancellationToken, Nullable`1 levelsToCompute)
+   at Microsoft.CodeAnalysis.Diagnostics.AnalyzerDriver`1.ComputeDeclarationAnalysisData(ISymbol symbol, SyntaxReference declaration, SemanticModel semanticModel, Boolean shouldExecuteSyntaxNodeActions, AnalysisScope analysisScope, Func`1 allocateData, CancellationToken cancellationToken)
+   at Microsoft.CodeAnalysis.Diagnostics.AnalyzerDriver`1.&lt;&gt;c__DisplayClass37_0.&lt;ExecuteDeclaringReferenceActions&gt;b__0(Func`1 allocateData)
+   at Microsoft.CodeAnalysis.Diagnostics.AnalyzerDriver.CompilationData.GetOrComputeDeclarationAnalysisData(SyntaxReference declaration, Func`2 computeDeclarationAnalysisData, Boolean cacheAnalysisData)
+   at Microsoft.CodeAnalysis.Diagnostics.AnalyzerDriver`1.ExecuteDeclaringReferenceActions(SyntaxReference decl, Int32 declarationIndex, SymbolDeclaredCompilationEvent symbolEvent, AnalysisScope analysisScope, AnalysisState analysisStateOpt, Boolean shouldExecuteSyntaxNodeActions, Boolean shouldExecuteOperationActions, Boolean shouldExecuteCodeBlockActions, Boolean shouldExecuteOperationBlockActions, Boolean isInGeneratedCode, CancellationToken cancellationToken)
+   at Microsoft.CodeAnalysis.Diagnostics.AnalyzerDriver`1.ExecuteDeclaringReferenceActions(SymbolDeclaredCompilationEvent symbolEvent, AnalysisScope analysisScope, AnalysisState analysisStateOpt, Boolean isGeneratedCodeSymbol, CancellationToken cancellationToken)
+   at Microsoft.CodeAnalysis.Diagnostics.AnalyzerDriver.ProcessSymbolDeclared(SymbolDeclaredCompilationEvent symbolEvent, AnalysisScope analysisScope, AnalysisState analysisStateOpt, CancellationToken cancellationToken)
+   at Microsoft.CodeAnalysis.Diagnostics.AnalyzerDriver.ProcessEventCore(CompilationEvent e, AnalysisScope analysisScope, AnalysisState analysisStateOpt, CancellationToken cancellationToken)
+   at Microsoft.CodeAnalysis.Diagnostics.AnalyzerDriver.&lt;ProcessCompilationEventsCoreAsync&gt;d__64.MoveNext()
+Stack:
+   at System.Environment.FailFast(System.String, System.Exception)
+   at Microsoft.CodeAnalysis.FatalError.Report(System.Exception, System.Action`1&lt;System.Exception&gt;)
+   at Microsoft.CodeAnalysis.FatalError.ReportUnlessCanceled(System.Exception)
+   at Microsoft.CodeAnalysis.Diagnostics.AnalyzerDriver+&lt;ProcessCompilationEventsCoreAsync&gt;d__64.MoveNext()
+   at Microsoft.CodeAnalysis.Diagnostics.AsyncQueue`1[[System.__Canon, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]].Enqueue(System.__Canon)
+   at Microsoft.CodeAnalysis.CSharp.CSharpCompilation.SymbolDeclaredEvent(Microsoft.CodeAnalysis.CSharp.Symbol)
+   at Microsoft.CodeAnalysis.CSharp.Symbols.SourceNamespaceSymbol.GetNameToMembersMap()
+   at Microsoft.CodeAnalysis.CSharp.Symbols.SourceNamespaceSymbol.GetMembers(System.String)
+   at Microsoft.CodeAnalysis.CSharp.SyntaxTreeSemanticModel.GetDeclaredMember(Microsoft.CodeAnalysis.CSharp.Symbols.NamespaceOrTypeSymbol, Microsoft.CodeAnalysis.Text.TextSpan, System.String)
+   at Microsoft.CodeAnalysis.CSharp.SyntaxTreeSemanticModel.GetDeclaredNamedType(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, System.String)
+   at Microsoft.CodeAnalysis.CSharp.SyntaxTreeSemanticModel.GetDeclaredType(Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax)
+   at Microsoft.CodeAnalysis.CSharp.SyntaxTreeSemanticModel.GetDeclaredSymbol(Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax, System.Threading.CancellationToken)
+   at Microsoft.CodeAnalysis.CSharp.CSharpSemanticModel.GetDeclaredSymbolCore(Microsoft.CodeAnalysis.SyntaxNode, System.Threading.CancellationToken)
+   at Microsoft.CodeAnalysis.DeclarationComputer.GetDeclaredSymbol(Microsoft.CodeAnalysis.SemanticModel, Microsoft.CodeAnalysis.SyntaxNode, Boolean, System.Threading.CancellationToken)
+   at Microsoft.CodeAnalysis.DeclarationComputer.GetDeclarationInfo(Microsoft.CodeAnalysis.SemanticModel, Microsoft.CodeAnalysis.SyntaxNode, Boolean, System.Collections.Generic.IEnumerable`1&lt;Microsoft.CodeAnalysis.SyntaxNode&gt;, System.Threading.CancellationToken)
+   at Microsoft.CodeAnalysis.DeclarationComputer.GetDeclarationInfo(Microsoft.CodeAnalysis.SemanticModel, Microsoft.CodeAnalysis.SyntaxNode, Boolean, System.Threading.CancellationToken)
+   at Microsoft.CodeAnalysis.CSharp.CSharpDeclarationComputer.ComputeDeclarations(Microsoft.CodeAnalysis.SemanticModel, Microsoft.CodeAnalysis.SyntaxNode, System.Func`3&lt;Microsoft.CodeAnalysis.SyntaxNode,System.Nullable`1&lt;Int32&gt;,Boolean&gt;, Boolean, System.Collections.Generic.List`1&lt;Microsoft.CodeAnalysis.DeclarationInfo&gt;, System.Nullable`1&lt;Int32&gt;, System.Threading.CancellationToken)
+   at Microsoft.CodeAnalysis.CSharp.CSharpDeclarationComputer.ComputeDeclarations(Microsoft.CodeAnalysis.SemanticModel, Microsoft.CodeAnalysis.SyntaxNode, System.Func`3&lt;Microsoft.CodeAnalysis.SyntaxNode,System.Nullable`1&lt;Int32&gt;,Boolean&gt;, Boolean, System.Collections.Generic.List`1&lt;Microsoft.CodeAnalysis.DeclarationInfo&gt;, System.Nullable`1&lt;Int32&gt;, System.Threading.CancellationToken)
+   at Microsoft.CodeAnalysis.CSharp.CSharpDeclarationComputer.ComputeDeclarationsInNode(Microsoft.CodeAnalysis.SemanticModel, Microsoft.CodeAnalysis.SyntaxNode, Boolean, System.Collections.Generic.List`1&lt;Microsoft.CodeAnalysis.DeclarationInfo&gt;, System.Threading.CancellationToken, System.Nullable`1&lt;Int32&gt;)
+   at Microsoft.CodeAnalysis.CSharp.CSharpSemanticModel.ComputeDeclarationsInNode(Microsoft.CodeAnalysis.SyntaxNode, Boolean, System.Collections.Generic.List`1&lt;Microsoft.CodeAnalysis.DeclarationInfo&gt;, System.Threading.CancellationToken, System.Nullable`1&lt;Int32&gt;)
+   at Microsoft.CodeAnalysis.Diagnostics.AnalyzerDriver`1[[Microsoft.CodeAnalysis.CSharp.SyntaxKind, Microsoft.CodeAnalysis.CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]].ComputeDeclarationAnalysisData(Microsoft.CodeAnalysis.ISymbol, Microsoft.CodeAnalysis.SyntaxReference, Microsoft.CodeAnalysis.SemanticModel, Boolean, Microsoft.CodeAnalysis.Diagnostics.AnalysisScope, System.Func`1&lt;DeclarationAnalysisData&gt;, System.Threading.CancellationToken)
+   at Microsoft.CodeAnalysis.Diagnostics.AnalyzerDriver`1+&lt;&gt;c__DisplayClass37_0[[Microsoft.CodeAnalysis.CSharp.SyntaxKind, Microsoft.CodeAnalysis.CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]].&lt;ExecuteDeclaringReferenceActions&gt;b__0(System.Func`1&lt;DeclarationAnalysisData&gt;)
+   at Microsoft.CodeAnalysis.Diagnostics.AnalyzerDriver+CompilationData.GetOrComputeDeclarationAnalysisData(Microsoft.CodeAnalysis.SyntaxReference, System.Func`2&lt;System.Func`1&lt;DeclarationAnalysisData&gt;,DeclarationAnalysisData&gt;, Boolean)
+   at Microsoft.CodeAnalysis.Diagnostics.AnalyzerDriver`1[[Microsoft.CodeAnalysis.CSharp.SyntaxKind, Microsoft.CodeAnalysis.CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]].ExecuteDeclaringReferenceActions(Microsoft.CodeAnalysis.SyntaxReference, Int32, Microsoft.CodeAnalysis.Diagnostics.SymbolDeclaredCompilationEvent, Microsoft.CodeAnalysis.Diagnostics.AnalysisScope, Microsoft.CodeAnalysis.Diagnostics.AnalysisState, Boolean, Boolean, Boolean, Boolean, Boolean, System.Threading.CancellationToken)
+   at Microsoft.CodeAnalysis.Diagnostics.AnalyzerDriver`1[[Microsoft.CodeAnalysis.CSharp.SyntaxKind, Microsoft.CodeAnalysis.CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]].ExecuteDeclaringReferenceActions(Microsoft.CodeAnalysis.Diagnostics.SymbolDeclaredCompilationEvent, Microsoft.CodeAnalysis.Diagnostics.AnalysisScope, Microsoft.CodeAnalysis.Diagnostics.AnalysisState, Boolean, System.Threading.CancellationToken)
+   at Microsoft.CodeAnalysis.Diagnostics.AnalyzerDriver.ProcessSymbolDeclared(Microsoft.CodeAnalysis.Diagnostics.SymbolDeclaredCompilationEvent, Microsoft.CodeAnalysis.Diagnostics.AnalysisScope, Microsoft.CodeAnalysis.Diagnostics.AnalysisState, System.Threading.CancellationToken)
+   at Microsoft.CodeAnalysis.Diagnostics.AnalyzerDriver.ProcessEventCore(Microsoft.CodeAnalysis.Diagnostics.CompilationEvent, Microsoft.CodeAnalysis.Diagnostics.AnalysisScope, Microsoft.CodeAnalysis.Diagnostics.AnalysisState, System.Threading.CancellationToken)
+   at Microsoft.CodeAnalysis.Diagnostics.AnalyzerDriver+&lt;ProcessCompilationEventsCoreAsync&gt;d__64.MoveNext()
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1[[System.__Canon, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]].Start[[Microsoft.CodeAnalysis.Diagnostics.AnalyzerDriver+&lt;ProcessCompilationEventsCoreAsync&gt;d__64, Microsoft.CodeAnalysis, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]](&lt;ProcessCompilationEventsCoreAsync&gt;d__64 ByRef)
+   at Microsoft.CodeAnalysis.Diagnostics.AnalyzerDriver.ProcessCompilationEventsCoreAsync(Microsoft.CodeAnalysis.Diagnostics.AnalysisScope, Microsoft.CodeAnalysis.Diagnostics.AnalysisState, Boolean, System.Threading.CancellationToken)
+   at Microsoft.CodeAnalysis.Diagnostics.AnalyzerDriver+&lt;&gt;c__DisplayClass63_0+&lt;&lt;ProcessCompilationEventsAsync&gt;b__0&gt;d.MoveNext()
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1[[System.__Canon, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]].Start[[Microsoft.CodeAnalysis.Diagnostics.AnalyzerDriver+&lt;&gt;c__DisplayClass63_0+&lt;&lt;ProcessCompilationEventsAsync&gt;b__0&gt;d, Microsoft.CodeAnalysis, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]](&lt;&lt;ProcessCompilationEventsAsync&gt;b__0&gt;d ByRef)
+   at Microsoft.CodeAnalysis.Diagnostics.AnalyzerDriver+&lt;&gt;c__DisplayClass63_0.&lt;ProcessCompilationEventsAsync&gt;b__0()
+   at System.Threading.Tasks.Task`1[[System.__Canon, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]].InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   at System.Threading.ExecutionContext.RunInternal(System.Threading.ExecutionContext, System.Threading.ContextCallback, System.Object, Boolean)
+   at System.Threading.ExecutionContext.Run(System.Threading.ExecutionContext, System.Threading.ContextCallback, System.Object, Boolean)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(System.Threading.Tasks.Task ByRef)
+   at System.Threading.Tasks.Task.ExecuteEntry(Boolean)
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+```
+</Description>
+    <CreatedDate>26/01/2016</CreatedDate>
+    <ClosedDate>15/03/2016</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>8119</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Inline Temporary Variable fails in VB when references exist with varying casing</Title>
+    <Description>Paste VB (note the lowercase "list" on the `Banana` line):
+
+``` VB
+Class C
+    Sub M()
+        Dim List As New List(Of String)
+        List.Add("Apple")
+        list.Add("Banana")
+    End Sub
+End Class
+```
+
+Ctrl+. on the declaration of `List` causes `InlineTemporaryCodeRefactoringProvider` to fail and show the infobar.
+</Description>
+    <CreatedDate>22/01/2016</CreatedDate>
+    <ClosedDate>02/02/2016</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>8307</IssueID>
+    <RepoID>1</RepoID>
+    <Title>VB: NullReferenceException thrown when adding second dot in Handles clause</Title>
+    <Description>Type '.' at $$ to get NullReferenceException
+
+``` VB
+Imports System
+Imports System.Collections.Generic
+Imports System.Linq
+
+Module Program
+    Sub Main(args As String())
+
+    End Sub
+End Module
+
+
+Class C
+    Public Event E As EventHandler
+End Class
+
+Class D
+    WithEvents c As New C
+
+    Sub OnE(sender As Object, e As EventArgs) Handles c.E$$
+
+    End Sub
+End Class
+```
+</Description>
+    <CreatedDate>02/02/2016</CreatedDate>
+    <ClosedDate>02/02/2016</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>6966</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Invalid "Remove Unnecessary Cast" code fix for null-initialized implicitly typed array</Title>
+    <Description>I'm creating an implicitly typed array and `null`-initialize it with some values. To have a type for the array, one of the `null`s needs to be cast, but VS insists the cast is invalid, while the code fix already shows the red error squgglies.
+
+![invalidcast](https://cloud.githubusercontent.com/assets/1947968/11333632/7b35974c-91cf-11e5-853c-16bb4f04734f.png)
+</Description>
+    <CreatedDate>23/11/2015</CreatedDate>
+    <ClosedDate>09/12/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>7262</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Constant propagation uses wrong floating-point precision</Title>
+    <Description>Edit: Deleted first example, because it's almost certainly covered by §4.1.6 allowing that "Floating-point operations may be performed with higher precision than the result type of the operation. ... Other than delivering more precise results, this rarely has any measurable effects." 
+
+I'm assuming this means that a constant expression `(int) (23334800f / 5.5f)` is allowed to be performed with double-precision arithmetic (and not coerced to a `float`) before the truncation to `int`.
+</Description>
+    <CreatedDate>06/12/2015</CreatedDate>
+    <ClosedDate>14/12/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>6927</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Outlining: Need to handle newlines in type parameter lists of parameter types better</Title>
+    <Description>![image](https://cloud.githubusercontent.com/assets/312835/11290631/5b0d9d96-8eed-11e5-81f8-49db660f214b.png)
+</Description>
+    <CreatedDate>20/11/2015</CreatedDate>
+    <ClosedDate>09/12/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>7216</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Code Model: deleting a Code Element does not immediately remove it from the CleanableWeakComHandleTable</Title>
+    <Description>Deleting an element and then immediately adding it will throw an exception in the CleanableWeakComHandleTable. This breaks especially bad in WinForms when changing a member in a way that the designer removes and re-adds it -- for example, changing the "Modifiers" property on a control to have difference access than the default.
+</Description>
+    <CreatedDate>03/12/2015</CreatedDate>
+    <ClosedDate>04/12/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>7210</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Code Model: CodeParameter2 in DTE code model has no value for Name after Update 1</Title>
+    <Description>This appears to have regressed in Update 1.
+</Description>
+    <CreatedDate>03/12/2015</CreatedDate>
+    <ClosedDate>04/12/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>7179</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Code Model: Stack overflow in CodeModel.MetadataNameHelpers.AppendNamedType</Title>
+    <Description>**Repro Steps**:
+1. Create a WinForms application and Save All.
+2. Add service reference to http://services.odata.org/OData/OData.svc.
+3. Open data source window.
+4. Drag table 'Advertisements' to designer.
+5. Drag table 'Categories' to designer. (Note: You must drop the second table to repro)
+</Description>
+    <CreatedDate>02/12/2015</CreatedDate>
+    <ClosedDate>03/12/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>5515</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Object Browser does not produce correct query strings for F1 Help</Title>
+    <Description>
+    </Description>
+    <CreatedDate>29/09/2015</CreatedDate>
+    <ClosedDate>29/09/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>5314</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Remove Unnecessary Cast: Removing boxing conversion in conditional expression breaks code</Title>
+    <Description>``` C#
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        var x = Convert(true, 42);
+        Console.WriteLine(x.GetType());
+    }
+
+    static object Convert(bool cond, ulong value)
+    {
+        return cond ? (object)(uint)value : value;
+    }
+}
+```
+
+The above program should output `System.UInt32`. If the cast to `(object)` is removed, it prints `System.UInt64`.
+</Description>
+    <CreatedDate>17/09/2015</CreatedDate>
+    <ClosedDate>18/09/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>4037</IssueID>
+    <RepoID>1</RepoID>
+    <Title>IDE0004 - incorrectly suggest to remove cast in string interpolation</Title>
+    <Description>Visual Studio info:
+
+Microsoft Visual Studio Enterprise 2015
+Version 14.0.23107.0 D14REL
+Microsoft .NET Framework
+Version 4.6.00079
+
+OS info:
+
+Microsoft Windows 10 Pro / Version 10.0.10240 Build 10240
+
+Repro case:
+
+``` C#
+using System;
+
+class Sample 
+{
+    public enum State: ushort
+    {
+        None = 0x00,
+        State1 = 1 &lt;&lt; 0,
+    }
+
+    public static void Main() 
+    {
+        State alarmState = State.State1;
+
+        string str = $"State: {alarmState} [{(ushort)alarmState:X4}]";
+
+        Console.WriteLine(str);
+    }
+}
+```
+
+Visual Studio incorrectly suggest to remove cast to **(ushort)**, 
+
+![example](https://cloud.githubusercontent.com/assets/2722498/8813072/23baee22-3009-11e5-9709-6aaef57a3fef.png)
+
+so code becomes:
+
+``` C#
+string str = $"State: {alarmState} [{alarmState:X4}]";
+```
+
+this leads to System.FormatException during execution since string (Enum.ToString) can't be formated as numeric value:
+
+``` C#
+   in System.Enum.ToString(String format)
+   in System.Text.StringBuilder.AppendFormatHelper(IFormatProvider provider, String format, ParamsArray args)
+   in System.String.FormatHelper(IFormatProvider provider, String format, ParamsArray args)
+   in System.String.Format(String format, Object arg0, Object arg1)
+   in Sample.Main()
+```
+
+[Microsoft Connect Entry](https://connect.microsoft.com/VisualStudio/feedback/details/1489559/ide0004-incorrectly-suggest-to-remove-cast-in-string-interpolation)
+</Description>
+    <CreatedDate>21/07/2015</CreatedDate>
+    <ClosedDate>09/09/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>4250</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Doc comment on SpecialType refers to a document on an internal share</Title>
+    <Description>The `remarks` doc comment on the `SpecialType` enum refers to a document on an internal Microsoft share. Either make the document public or remove the comment.
+
+&lt;!---
+@huboard:{"order":4363.0,"milestone_order":4250,"custom_state":""}
+--&gt;
+</Description>
+    <CreatedDate>31/07/2015</CreatedDate>
+    <ClosedDate>17/08/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>3923</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Nameof of method group in expression tree triggers debug assert failure</Title>
+    <Description>This assert fails: https://github.com/dotnet/roslyn/blob/cedbe7b83c22ec64c872cd0622d8fe2b359c5ae1/src/Compilers/CSharp/Portable/Lowering/DiagnosticsPass_ExpressionTrees.cs#L526
+
+``` csharp
+using System;
+using System.Linq.Expressions;
+
+class Program
+{
+    static void Main()
+    {
+        Expression&lt;Func&lt;string&gt;&gt; func = () =&gt; nameof(Main);
+    }
+}
+```
+
+&lt;!---
+@huboard:{"order":47.53125,"milestone_order":3923,"custom_state":""}
+--&gt;
+</Description>
+    <CreatedDate>13/07/2015</CreatedDate>
+    <ClosedDate>14/08/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>3295</IssueID>
+    <RepoID>1</RepoID>
+    <Title>EnC could skip next statement when active statement is commented out</Title>
+    <Description>Internally tracked as 1171881.
+
+Repro: 
+F5, comment out "Stop" statement, F10:
+
+``` VB
+Module Module1                
+Sub Main()                          
+   Stop                                
+   Console.WriteLine(1)       
+   Console.WriteLine(2)          
+End Sub
+End Module
+```
+
+The debugger skips "Console.WriteLine(1)" and ends up stopping on "Console.WriteLine(2)".
+</Description>
+    <CreatedDate>03/06/2015</CreatedDate>
+    <ClosedDate>16/06/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>3347</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Roslyn changed how Analyzer assemblies are loaded.  TypeScript analyzers no longer loading.</Title>
+    <Description>PR https://github.com/dotnet/roslyn/pull/2882 switched the code for loading Analyzer assemblies from:
+
+``` c#
+                    var type = analyzerAssembly.GetType(typeName);
+                    if (DerivesFromDiagnosticAnalyzer(type))
+                    {
+                        analyzer = (DiagnosticAnalyzer)Activator.CreateInstance(type);
+                    }
+```
+
+To:
+
+``` c#
+                    type = Type.GetType(typeName + ", " + analyzerAssembly.FullName, throwOnError: true);
+```
+
+However, this now fails to load the TypeScript as we are not in any binding path.  This is high pri as all TypeScript diagnostic scenarios (squiggles/error-list) are broken.
+</Description>
+    <CreatedDate>05/06/2015</CreatedDate>
+    <ClosedDate>08/06/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>3423</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Pass (IntPtr)(-1) to ThrowExceptionForHR calls to ignore existing error info</Title>
+    <Description>Fixes TFS bug 961110
+
+**Customer scenario:**
+Customer has a VS package which hooks the "OnBeginBuild" event in order to generate a unique name for every build. It does this by renaming one of the source files.
+ In Dev12 this works. In Dev14, this throws an exception with the confusing message "The data necessary to complete this operation is not yet available."
+
+**Root cause**
+As part of the rename, the project system asks for an Intellisense build but, since we've just started a full build, MSBuild throws a ComException with the HRESULT of E_PENDING. This HRESULT is ignored, but then the project system calls into Roslyn FileCodeModel to make the rename. Roslyn's FileCodeModel, for compatibility reasons, attempts to return E_NOTIMPL to the caller by calling Marshal.ThrowExceptionForHR(E_NOTIMPL). However, since there's already an unreported exception on this thread, the runtime ignores E_NOTIMPL and returns E_PENDING instead. E_NOTIMPL is handled very specially by the project system (ultimately resulting in S_OK), but E_PENDING is not, so that result is returned to the caller.
+
+**Fix**
+The fix is to call the 2-argument overload of ThrowExceptionForHR and pass (IntPtr)(-1) for the 2nd arg which tells the runtime to ignore any existing IErrorInfo and use the HRESULT passed in the 1st arg.
+
+**Testing**
+Manual testing so far.
+</Description>
+    <CreatedDate>10/06/2015</CreatedDate>
+    <ClosedDate>10/06/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>3147</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Wrong result of 'introduce local' for interpolated string target typed to FormattableString</Title>
+    <Description>``` c#
+static void Main(string[] args)
+{
+    string s = FormattableString.Invariant($"");
+}
+```
+
+(Needs .NET 4.6 for availability of `FormattableString`). 
+
+Select `$""`, and control-dot to "Introduce local".
+
+The result:
+
+``` c#
+static void Main(string[] args)
+{
+    var v = $"";
+    string s = FormattableString.Invariant((FormattableString)v);
+}
+```
+
+With a red squiggle under `(FormattableString)v`. This is wrong. The extraction should have been:
+
+``` c#
+static void Main(string[] args)
+{
+    FormattableString v = $"";
+    string s = FormattableString.Invariant(v);
+}
+```
+
+So that the interpolated string continues to be correctly target typed to `FormattableString`.
+</Description>
+    <CreatedDate>28/05/2015</CreatedDate>
+    <ClosedDate>29/05/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>2893</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Calls to Project.CodeModel.AddNamespace crashes VS2015</Title>
+    <Description>How to reproduce:
+
+``` C#
+        private EnvDTE.CodeClass GenerateCodeClassFile(EnvDTE.Project project, /* other unrelated stuff */)
+        {
+            string project_path = project.Properties.Item("FullPath").Value.ToString();
+            string file_path    = System.IO.Path.Combine(project_path, className + ".cs");
+            string file_header = @"using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;";
+
+
+            System.IO.File.WriteAllText(file_path, file_header);
+
+            var proj_item = project.ProjectItems.AddFromFile(file_path);
+
+        /* Crashes here */
+            var code_namespace  = project.CodeModel.AddNamespace(project.Properties.Item("DefaultNamespace").Value.ToString(), file_path, Type.Missing);
+```
+
+Exception thrown:
+
+```
+System.InvalidOperationException was unhandled
+  HResult=-2146233079
+  Message=Nullable object must have a value.
+  Source=EnvDTE
+  StackTrace:
+       at System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+       at Microsoft.VisualStudio.LanguageServices.Implementation.CodeModel.RootCodeModel.GetFileCodeModel(Object location)
+       at Microsoft.VisualStudio.LanguageServices.Implementation.CodeModel.RootCodeModel.AddNamespace(String name, Object location, Object position)
+       at EnvDTE.CodeModel.AddNamespace(String Name, Object Location, Object Position)
+       at Trinity.VSExtension.Wizards.GraphEngineAppWizard.GenerateCodeClassFile(Project project, String ref_namespace, String className, List`1 baseTypeGenericParams, String baseName)
+       at Trinity.VSExtension.Wizards.GraphEngineAppWizard.GenerateMain(Project project, List`1 servers, List`1 proxies, String ref_namespace, Boolean stubsGenerated)
+       at Trinity.VSExtension.Wizards.GraphEngineAppWizard.WizardWindowClosed(Object sender, EventArgs e)
+       at System.Windows.Window.OnClosed(EventArgs e)
+       at System.Windows.Window.WmDestroy()
+       at System.Windows.Window.WindowFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean&amp; handled)
+       at System.Windows.Interop.HwndSource.PublicHooksFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean&amp; handled)
+       at MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean&amp; handled)
+       at MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+       at System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+       at System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+       at System.Windows.Threading.Dispatcher.LegacyInvokeImpl(DispatcherPriority priority, TimeSpan timeout, Delegate method, Object args, Int32 numArgs)
+       at MS.Win32.HwndSubclass.SubclassWndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+  InnerException: 
+
+```
+
+The stack trace indicates that the problem is related to the second parameter Location, which is the file path. I also tried to extract relative path from the item I just created through AddFromFile but it produces the same exception.
+</Description>
+    <CreatedDate>19/05/2015</CreatedDate>
+    <ClosedDate>21/05/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>2825</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Right-click SuppressMessage in source file puts [SuppressMessage] attribute above XML doc comments</Title>
+    <Description>I have some CA1001 warnings about types holding disposables should implement IDisposable.  When I right-click on the error (treats warnings as errors is enable), VS puts the attribute _above_ the doc comments.  
+
+``` C#
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1001:TypesThatOwnDisposableFieldsShouldBeDisposable")]
+    /// &lt;summary&gt;
+    ///              Implements a node, the building block of a &lt;see cref="XTree"/&gt;.
+    /// &lt;/summary&gt;
+    ///...
+    public class Node {
+```
+
+This generates an editor error (red squiggle) at start of XML doc comment saying the XML comment has not been placed on a valid language element.
+
+Once I moved the attribute below the XML doc comment and just above the class declaration the editor was happy again.
+</Description>
+    <CreatedDate>16/05/2015</CreatedDate>
+    <ClosedDate>21/05/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>2736</IssueID>
+    <RepoID>1</RepoID>
+    <Title>VB: superfluous sequence point in iterator function</Title>
+    <Description>In the following console app, place breakpoint as indicated, step once.
+
+``` VB
+Module Module1
+    Iterator Function F() As IEnumerable(Of Integer)    ' place breakpoint here
+        Dim Q = 1
+        Yield 2
+        Console.WriteLine(2)
+        Console.WriteLine(Q)
+    End Function
+
+    Sub Main()
+        F().ToArray()
+    End Sub
+End Module
+```
+
+Actual:
+The current IP doesn't move. Next step moves it to "Dim Q = 1"
+
+Expected:
+The current IP is at "Dim Q = 1".
+</Description>
+    <CreatedDate>13/05/2015</CreatedDate>
+    <ClosedDate>14/05/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>2567</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Await in catch causing Assert in Async rewriter</Title>
+    <Description>The Assert fired at line 140 of AsyncExceptionHandlerRewriter, which is:
+Debug.Assert(tryStatementSyntax.IsKind(SyntaxKind.TryStatement));
+
+There is an assumption here that the syntax node associated with the bound try node is a TryStatementSytnax, but in this case it is a UsingSyntax.
+
+This simpler repro will cause it to fail:
+
+```
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+class Program : IDisposable
+{
+    static void Main(string[] args)
+    {
+    }
+
+    static async Task&lt;bool&gt; DoSomethingWithRetryAsync()
+    {
+        int count = 0;
+
+        retry:
+
+        try
+        {
+            using (new Program())
+            { 
+                return await DoSomethingAsync().ConfigureAwait(false);
+            }
+        }
+        catch (System.OperationCanceledException)
+        {
+            throw;
+        }
+        catch (System.IO.IOException e)
+        {
+            if (++count &lt; 5)
+            {
+                await Task.Delay(200).ConfigureAwait(false);
+                goto retry;
+            }
+
+            return false;
+        }
+        catch (System.IO.InvalidDataException)
+        {
+            return false;
+        }
+    }
+
+    static Task&lt;bool&gt; DoSomethingAsync()
+    {
+        return Task.FromResult(true);
+    }
+
+    public void Dispose()
+    {
+        throw new NotImplementedException();
+    }
+}
+```
+
+&lt;!---
+@huboard:{"order":2695.0,"milestone_order":2567,"custom_state":""}
+--&gt;
+</Description>
+    <CreatedDate>06/05/2015</CreatedDate>
+    <ClosedDate>14/05/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>2631</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Crash with IndexOutOfRangeException in OverloadResolution.IsApplicable during SimplifyTypeNamesDiagnosticAnalyzer analysis</Title>
+    <Description>Paste C# code:
+
+``` C#
+class C
+{
+    void M()
+    {
+        System.Console.WriteLine("", arg0: 0, arg1: 0, arg2: 0, );
+    }
+}
+```
+
+There's an assert and a crashing exception, both pasted below. First, the assert:
+
+```
+System.Exception: ASSERT FAILED 
+5/10/2015 4:31:38 PM
+Source:    at Roslyn.Editor.TestApp.OutputWindowTraceListener.Fail(String message, String detailMessage) in C:\Roslyn\Main\Closed\Hosting\EditorTestApp\UI\ToolWindows\Output\OutputWindowTraceListener.cs:line 50
+   at System.Diagnostics.TraceListener.Fail(String message)
+   at System.Diagnostics.TraceInternal.Fail(String message)
+   at System.Diagnostics.Debug.Assert(Boolean condition)
+   at Microsoft.CodeAnalysis.CSharp.OverloadResolution.IsApplicable(Symbol candidate, EffectiveParameters parameters, AnalyzedArguments arguments, ImmutableArray`1 argsToParameters, Boolean isVararg, Boolean hasAnyRefOmittedArgument, Boolean ignoreOpenTypes, HashSet`1&amp; useSiteDiagnostics) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Semantics\OverloadResolution\OverloadResolution.cs:line 2582
+   at Microsoft.CodeAnalysis.CSharp.OverloadResolution.IsApplicable[TMember](TMember member, TMember leastOverriddenMember, ArrayBuilder`1 typeArgumentsBuilder, AnalyzedArguments arguments, EffectiveParameters originalEffectiveParameters, EffectiveParameters constructedEffectiveParameters, ImmutableArray`1 argsToParamsMap, Boolean hasAnyRefOmittedArgument, HashSet`1&amp; useSiteDiagnostics, Boolean inferWithDynamic) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Semantics\OverloadResolution\OverloadResolution.cs:line 2504
+   at Microsoft.CodeAnalysis.CSharp.OverloadResolution.IsMemberApplicableInNormalForm[TMember](TMember member, TMember leastOverriddenMember, ArrayBuilder`1 typeArguments, AnalyzedArguments arguments, Boolean isMethodGroupConversion, Boolean allowRefOmittedArguments, Boolean inferWithDynamic, HashSet`1&amp; useSiteDiagnostics) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Semantics\OverloadResolution\OverloadResolution.cs:line 2325
+   at Microsoft.CodeAnalysis.CSharp.OverloadResolution.AddMemberToCandidateSet[TMember](TMember member, ArrayBuilder`1 results, ArrayBuilder`1 members, ArrayBuilder`1 typeArguments, AnalyzedArguments arguments, Boolean completeResults, Boolean isMethodGroupConversion, Boolean allowRefOmittedArguments, Dictionary`2 containingTypeMapOpt, Boolean inferWithDynamic, HashSet`1&amp; useSiteDiagnostics, Boolean allowUnexpandedForm) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Semantics\OverloadResolution\OverloadResolution.cs:line 495
+   at Microsoft.CodeAnalysis.CSharp.OverloadResolution.PerformMemberOverloadResolution[TMember](ArrayBuilder`1 results, ArrayBuilder`1 members, ArrayBuilder`1 typeArguments, AnalyzedArguments arguments, Boolean completeResults, Boolean isMethodGroupConversion, Boolean allowRefOmittedArguments, HashSet`1&amp; useSiteDiagnostics, Boolean inferWithDynamic, Boolean allowUnexpandedForm) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Semantics\OverloadResolution\OverloadResolution.cs:line 233
+   at Microsoft.CodeAnalysis.CSharp.OverloadResolution.MethodOrPropertyOverloadResolution[TMember](ArrayBuilder`1 members, ArrayBuilder`1 typeArguments, AnalyzedArguments arguments, OverloadResolutionResult`1 result, Boolean isMethodGroupConversion, Boolean allowRefOmittedArguments, HashSet`1&amp; useSiteDiagnostics, Boolean inferWithDynamic, Boolean allowUnexpandedForm) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Semantics\OverloadResolution\OverloadResolution.cs:line 136
+   at Microsoft.CodeAnalysis.CSharp.OverloadResolution.MethodInvocationOverloadResolution(ArrayBuilder`1 methods, ArrayBuilder`1 typeArguments, AnalyzedArguments arguments, OverloadResolutionResult`1 result, HashSet`1&amp; useSiteDiagnostics, Boolean isMethodGroupConversion, Boolean allowRefOmittedArguments, Boolean inferWithDynamic, Boolean allowUnexpandedForm) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Semantics\OverloadResolution\OverloadResolution.cs:line 101
+   at Microsoft.CodeAnalysis.CSharp.Binder.ResolveDefaultMethodGroup(BoundMethodGroup node, AnalyzedArguments analyzedArguments, Boolean isMethodGroupConversion, HashSet`1&amp; useSiteDiagnostics, Boolean inferWithDynamic, Boolean allowUnexpandedForm) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Expressions.cs:line 6254
+   at Microsoft.CodeAnalysis.CSharp.Binder.ResolveMethodGroupInternal(BoundMethodGroup methodGroup, CSharpSyntaxNode expression, String methodName, AnalyzedArguments analyzedArguments, Boolean isMethodGroupConversion, HashSet`1&amp; useSiteDiagnostics, Boolean inferWithDynamic, Boolean allowUnexpandedForm) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Expressions.cs:line 6147
+   at Microsoft.CodeAnalysis.CSharp.Binder.ResolveMethodGroup(BoundMethodGroup node, CSharpSyntaxNode expression, String methodName, AnalyzedArguments analyzedArguments, Boolean isMethodGroupConversion, HashSet`1&amp; useSiteDiagnostics, Boolean inferWithDynamic, Boolean allowUnexpandedForm) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Expressions.cs:line 6122
+   at Microsoft.CodeAnalysis.CSharp.Binder.BindMethodGroupInvocation(CSharpSyntaxNode syntax, CSharpSyntaxNode expression, String methodName, BoundMethodGroup methodGroup, AnalyzedArguments analyzedArguments, DiagnosticBag diagnostics, CSharpSyntaxNode queryClause, Boolean allowUnexpandedForm) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Invocation.cs:line 452
+   at Microsoft.CodeAnalysis.CSharp.Binder.BindInvocationExpression(CSharpSyntaxNode node, CSharpSyntaxNode expression, String methodName, BoundExpression boundExpression, AnalyzedArguments analyzedArguments, DiagnosticBag diagnostics, CSharpSyntaxNode queryClause, Boolean allowUnexpandedForm) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Invocation.cs:line 222
+   at Microsoft.CodeAnalysis.CSharp.Binder.BindInvocationExpression(InvocationExpressionSyntax node, DiagnosticBag diagnostics) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Invocation.cs:line 165
+   at Microsoft.CodeAnalysis.CSharp.Binder.BindExpressionInternal(ExpressionSyntax node, DiagnosticBag diagnostics, Boolean invoked, Boolean indexed) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Expressions.cs:line 408
+   at Microsoft.CodeAnalysis.CSharp.Binder.BindExpression(ExpressionSyntax node, DiagnosticBag diagnostics, Boolean invoked, Boolean indexed) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Expressions.cs:line 353
+   at Microsoft.CodeAnalysis.CSharp.Binder.BindValue(ExpressionSyntax node, DiagnosticBag diagnostics, BindValueKind valueKind) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Expressions.cs:line 288
+   at Microsoft.CodeAnalysis.CSharp.Binder.BindExpressionStatement(CSharpSyntaxNode node, ExpressionSyntax syntax, Boolean allowsAnyExpression, DiagnosticBag diagnostics) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Statements.cs:line 418
+   at Microsoft.CodeAnalysis.CSharp.Binder.BindExpressionStatement(ExpressionStatementSyntax node, DiagnosticBag diagnostics) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Statements.cs:line 411
+   at Microsoft.CodeAnalysis.CSharp.Binder.BindStatement(StatementSyntax node, DiagnosticBag diagnostics) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Statements.cs:line 49
+   at Microsoft.CodeAnalysis.CSharp.MemberSemanticModel.IncrementalBinder.BindStatement(StatementSyntax node, DiagnosticBag diagnostics) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Compilation\MemberSemanticModel.cs:line 1639
+   at Microsoft.CodeAnalysis.CSharp.CSharpSemanticModel.Bind(Binder binder, CSharpSyntaxNode node, DiagnosticBag diagnostics) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Compilation\CSharpSemanticModel.cs:line 1996
+   at Microsoft.CodeAnalysis.CSharp.MethodBodySemanticModel.Bind(Binder binder, CSharpSyntaxNode node, DiagnosticBag diagnostics) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Compilation\MethodBodySemanticModel.cs:line 48
+   at Microsoft.CodeAnalysis.CSharp.MemberSemanticModel.GetBoundNodes(CSharpSyntaxNode node) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Compilation\MemberSemanticModel.cs:line 1397
+   at Microsoft.CodeAnalysis.CSharp.MemberSemanticModel.GetLowerBoundNode(CSharpSyntaxNode node) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Compilation\MemberSemanticModel.cs:line 369
+   at Microsoft.CodeAnalysis.CSharp.MemberSemanticModel.GetBoundNodes(CSharpSyntaxNode node, CSharpSyntaxNode&amp; bindableNode, BoundNode&amp; lowestBoundNode, BoundNode&amp; highestBoundNode, BoundNode&amp; boundParent) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Compilation\MemberSemanticModel.cs:line 896
+   at Microsoft.CodeAnalysis.CSharp.MemberSemanticModel.GetSymbolInfoWorker(CSharpSyntaxNode node, SymbolInfoOptions options, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Compilation\MemberSemanticModel.cs:line 775
+   at Microsoft.CodeAnalysis.CSharp.SyntaxTreeSemanticModel.GetSymbolInfoWorker(CSharpSyntaxNode node, SymbolInfoOptions options, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Compilation\SyntaxTreeSemanticModel.cs:line 173
+   at Microsoft.CodeAnalysis.CSharp.CSharpSemanticModel.GetSymbolInfo(ExpressionSyntax expression, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Compilation\CSharpSemanticModel.cs:line 504
+   at Microsoft.CodeAnalysis.CSharp.CSharpExtensions.GetSymbolInfo(SemanticModel semanticModel, ExpressionSyntax expression, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\CSharpExtensions.cs:line 443
+   at Microsoft.CodeAnalysis.CSharp.Extensions.ExpressionSyntaxExtensions.TryReplaceWithAlias(ExpressionSyntax node, SemanticModel semanticModel, Boolean preferAliasToQualifiedName, CancellationToken cancellationToken, IAliasSymbol&amp; aliasReplacement) in C:\Roslyn\Main\Open\src\Workspaces\CSharp\Portable\Extensions\ExpressionSyntaxExtensions.cs:line 868
+   at Microsoft.CodeAnalysis.CSharp.Extensions.ExpressionSyntaxExtensions.TryReduce(MemberAccessExpressionSyntax memberAccess, SemanticModel semanticModel, TypeSyntax&amp; replacementNode, TextSpan&amp; issueSpan, OptionSet optionSet, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Workspaces\CSharp\Portable\Extensions\ExpressionSyntaxExtensions.cs:line 722
+   at Microsoft.CodeAnalysis.CSharp.Extensions.ExpressionSyntaxExtensions.TryReduceExplicitName(ExpressionSyntax expression, SemanticModel semanticModel, TypeSyntax&amp; replacementNode, TextSpan&amp; issueSpan, OptionSet optionSet, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Workspaces\CSharp\Portable\Extensions\ExpressionSyntaxExtensions.cs:line 665
+   at Microsoft.CodeAnalysis.CSharp.Extensions.ExpressionSyntaxExtensions.TryReduceOrSimplifyExplicitName(ExpressionSyntax expression, SemanticModel semanticModel, ExpressionSyntax&amp; replacementNode, TextSpan&amp; issueSpan, OptionSet optionSet, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Workspaces\CSharp\Portable\Extensions\ExpressionSyntaxExtensions.cs:line 637
+   at Microsoft.CodeAnalysis.CSharp.Diagnostics.SimplifyTypeNames.CSharpSimplifyTypeNamesDiagnosticAnalyzer.CanSimplifyTypeNameExpression(SemanticModel model, SyntaxNode node, OptionSet optionSet, TextSpan&amp; issueSpan, String&amp; diagnosticId, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Features\CSharp\Diagnostics\Analyzers\CSharpSimplifyTypeNamesDiagnosticAnalyzer.cs:line 132
+   at Microsoft.CodeAnalysis.CSharp.Diagnostics.SimplifyTypeNames.CSharpSimplifyTypeNamesDiagnosticAnalyzer.CanSimplifyTypeNameExpressionCore(SemanticModel model, SyntaxNode node, OptionSet optionSet, TextSpan&amp; issueSpan, String&amp; diagnosticId, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Features\CSharp\Diagnostics\Analyzers\CSharpSimplifyTypeNamesDiagnosticAnalyzer.cs:line 93
+   at Microsoft.CodeAnalysis.Diagnostics.SimplifyTypeNames.SimplifyTypeNamesDiagnosticAnalyzerBase`1.TrySimplifyTypeNameExpression(SemanticModel model, SyntaxNode node, AnalyzerOptions analyzerOptions, Diagnostic&amp; diagnostic, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Features\Core\Diagnostics\Analyzers\SimplifyTypeNamesDiagnosticAnalyzerBase.cs:line 83
+   at Microsoft.CodeAnalysis.CSharp.Diagnostics.SimplifyTypeNames.CSharpSimplifyTypeNamesDiagnosticAnalyzer.&lt;&gt;c__DisplayClass2_0.&lt;AnalyzeNode&gt;b__1(SyntaxNode n) in C:\Roslyn\Main\Open\src\Features\CSharp\Diagnostics\Analyzers\CSharpSimplifyTypeNamesDiagnosticAnalyzer.cs:line 47
+   at Microsoft.CodeAnalysis.SyntaxNode.ChildSyntaxListEnumeratorStack..ctor(SyntaxNode startingNode, Func`2 descendIntoChildren) in C:\Roslyn\Main\Open\src\Compilers\Core\Portable\Syntax\SyntaxNode.Iterators.cs:line 50
+   at Microsoft.CodeAnalysis.SyntaxNode.&lt;DescendantNodesOnly&gt;d__157.MoveNext() in C:\Roslyn\Main\Open\src\Compilers\Core\Portable\Syntax\SyntaxNode.Iterators.cs:line 378
+   at Microsoft.CodeAnalysis.CSharp.Diagnostics.SimplifyTypeNames.CSharpSimplifyTypeNamesDiagnosticAnalyzer.AnalyzeNode(SyntaxNodeAnalysisContext context) in C:\Roslyn\Main\Open\src\Features\CSharp\Diagnostics\Analyzers\CSharpSimplifyTypeNamesDiagnosticAnalyzer.cs:line 58
+   at Microsoft.CodeAnalysis.Diagnostics.AnalyzerExecutor.&lt;&gt;c__DisplayClass32_0`1.&lt;ExecuteSyntaxNodeAction&gt;b__1() in C:\Roslyn\Main\Open\src\Compilers\Core\AnalyzerDriver\AnalyzerExecutor.cs:line 298
+   at Microsoft.CodeAnalysis.Diagnostics.AnalyzerExecutor.ExecuteAndCatchIfThrows(DiagnosticAnalyzer analyzer, Action analyze, Action`3 onAnalyzerException, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Compilers\Core\AnalyzerDriver\AnalyzerExecutor.cs:line 501
+   at Microsoft.CodeAnalysis.Diagnostics.AnalyzerExecutor.ExecuteAndCatchIfThrows(DiagnosticAnalyzer analyzer, Action analyze) in C:\Roslyn\Main\Open\src\Compilers\Core\AnalyzerDriver\AnalyzerExecutor.cs:line 489
+   at Microsoft.CodeAnalysis.Diagnostics.AnalyzerExecutor.ExecuteSyntaxNodeAction[TLanguageKindEnum](SyntaxNodeAnalyzerAction`1 syntaxNodeAction, SyntaxNode node, SemanticModel semanticModel) in C:\Roslyn\Main\Open\src\Compilers\Core\AnalyzerDriver\AnalyzerExecutor.cs:line 298
+   at Microsoft.CodeAnalysis.Diagnostics.AnalyzerExecutor.ExecuteSyntaxNodeActions[TLanguageKindEnum](AnalyzerActions actions, IEnumerable`1 nodes, SemanticModel semanticModel, Func`2 getKind) in C:\Roslyn\Main\Open\src\Compilers\Core\AnalyzerDriver\AnalyzerExecutor.cs:line 284
+   at Microsoft.CodeAnalysis.Diagnostics.EngineV1.AbstractSyntaxNodeAnalyzerService`1.ExecuteSyntaxNodeActions(AnalyzerActions actions, IEnumerable`1 descendantNodes, SemanticModel semanticModel, AnalyzerExecutor analyzerExecutor) in C:\Roslyn\Main\Open\src\Features\Core\Diagnostics\EngineV1\AbstractSyntaxNodeAnalyzerService.cs:line 25
+   at Microsoft.CodeAnalysis.Diagnostics.EngineV1.DiagnosticAnalyzerDriver.&lt;GetSemanticDiagnosticsAsync&gt;d__40.MoveNext() in C:\Roslyn\Main\Open\src\Features\Core\Diagnostics\EngineV1\DiagnosticAnalyzerDriver.cs:line 378
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Start[TStateMachine](TStateMachine&amp; stateMachine)
+   at Microsoft.CodeAnalysis.Diagnostics.EngineV1.DiagnosticAnalyzerDriver.GetSemanticDiagnosticsAsync(DiagnosticAnalyzer analyzer)
+   at Microsoft.CodeAnalysis.Diagnostics.EngineV1.DiagnosticIncrementalAnalyzer.&lt;GetSemanticDiagnosticsAsync&gt;d__81.MoveNext() in C:\Roslyn\Main\Open\src\Features\Core\Diagnostics\EngineV1\DiagnosticIncrementalAnalyzer.cs:line 828
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Start[TStateMachine](TStateMachine&amp; stateMachine)
+   at Microsoft.CodeAnalysis.Diagnostics.EngineV1.DiagnosticIncrementalAnalyzer.GetSemanticDiagnosticsAsync(DiagnosticAnalyzerDriver userDiagnosticDriver, DiagnosticAnalyzer analyzer)
+   at Microsoft.CodeAnalysis.Diagnostics.EngineV1.DiagnosticIncrementalAnalyzer.AnalyzerExecutor.&lt;GetDocumentAnalysisDataAsync&gt;d__3.MoveNext() in C:\Roslyn\Main\Open\src\Features\Core\Diagnostics\EngineV1\DiagnosticIncrementalAnalyzer.AnalyzerExecutor.cs:line 70
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Start[TStateMachine](TStateMachine&amp; stateMachine)
+   at Microsoft.CodeAnalysis.Diagnostics.EngineV1.DiagnosticIncrementalAnalyzer.AnalyzerExecutor.GetDocumentAnalysisDataAsync(DiagnosticAnalyzerDriver analyzerDriver, StateSet stateSet, VersionArgument versions)
+   at Microsoft.CodeAnalysis.Diagnostics.EngineV1.DiagnosticIncrementalAnalyzer.&lt;AnalyzeDocumentAsync&gt;d__52.MoveNext() in C:\Roslyn\Main\Open\src\Features\Core\Diagnostics\EngineV1\DiagnosticIncrementalAnalyzer.cs:line 278
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder.Start[TStateMachine](TStateMachine&amp; stateMachine)
+   at Microsoft.CodeAnalysis.Diagnostics.EngineV1.DiagnosticIncrementalAnalyzer.AnalyzeDocumentAsync(Document document, VersionArgument versions, ImmutableHashSet`1 diagnosticIds, Boolean skipClosedFileChecks, CancellationToken cancellationToken)
+   at Microsoft.CodeAnalysis.Diagnostics.EngineV1.DiagnosticIncrementalAnalyzer.&lt;AnalyzeDocumentAsync&gt;d__50.MoveNext() in C:\Roslyn\Main\Open\src\Features\Core\Diagnostics\EngineV1\DiagnosticIncrementalAnalyzer.cs:line 194
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder.Start[TStateMachine](TStateMachine&amp; stateMachine)
+   at Microsoft.CodeAnalysis.Diagnostics.EngineV1.DiagnosticIncrementalAnalyzer.AnalyzeDocumentAsync(Document document, SyntaxNode bodyOpt, ImmutableHashSet`1 diagnosticIds, Boolean skipClosedFileChecks, CancellationToken cancellationToken)
+   at Microsoft.CodeAnalysis.Diagnostics.EngineV1.DiagnosticIncrementalAnalyzer.&lt;AnalyzeDocumentAsync&gt;d__49.MoveNext() in C:\Roslyn\Main\Open\src\Features\Core\Diagnostics\EngineV1\DiagnosticIncrementalAnalyzer.cs:line 175
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder.Start[TStateMachine](TStateMachine&amp; stateMachine)
+   at Microsoft.CodeAnalysis.Diagnostics.EngineV1.DiagnosticIncrementalAnalyzer.AnalyzeDocumentAsync(Document document, SyntaxNode bodyOpt, CancellationToken cancellationToken)
+   at Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzerService.IncrementalAnalyzerDelegatee.AnalyzeDocumentAsync(Document document, SyntaxNode bodyOpt, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Features\Core\Diagnostics\DiagnosticAnalyzerService_IncrementalAnalyzer.cs:line 86
+   at Microsoft.CodeAnalysis.SolutionCrawler.SolutionCrawlerRegistrationService.WorkCoordinator.IncrementalAnalyzerProcessor.&lt;&gt;c.&lt;ProcessDocumentAnalyzersAsync&gt;b__26_1(IIncrementalAnalyzer a, Document d, CancellationToken c) in C:\Roslyn\Main\Open\src\Features\Core\SolutionCrawler\WorkCoordinator.IncrementalAnalyzerProcessor.cs:line 175
+   at Microsoft.CodeAnalysis.SolutionCrawler.SolutionCrawlerRegistrationService.WorkCoordinator.IncrementalAnalyzerProcessor.&lt;&gt;c__DisplayClass27_1`1.&lt;&lt;RunAnalyzersAsync&gt;b__0&gt;d.MoveNext() in C:\Roslyn\Main\Open\src\Features\Core\SolutionCrawler\WorkCoordinator.IncrementalAnalyzerProcessor.cs:line 197
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Start[TStateMachine](TStateMachine&amp; stateMachine)
+   at Microsoft.CodeAnalysis.SolutionCrawler.SolutionCrawlerRegistrationService.WorkCoordinator.IncrementalAnalyzerProcessor.&lt;&gt;c__DisplayClass27_1`1.&lt;RunAnalyzersAsync&gt;b__0(T v, CancellationToken c)
+   at Microsoft.CodeAnalysis.SolutionCrawler.SolutionCrawlerRegistrationService.WorkCoordinator.IncrementalAnalyzerProcessor.&lt;GetOrDefaultAsync&gt;d__29`2.MoveNext() in C:\Roslyn\Main\Open\src\Features\Core\SolutionCrawler\WorkCoordinator.IncrementalAnalyzerProcessor.cs:line 240
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Start[TStateMachine](TStateMachine&amp; stateMachine)
+   at Microsoft.CodeAnalysis.SolutionCrawler.SolutionCrawlerRegistrationService.WorkCoordinator.IncrementalAnalyzerProcessor.GetOrDefaultAsync[TData,TResult](TData value, Func`3 funcAsync, CancellationToken cancellationToken)
+   at Microsoft.CodeAnalysis.SolutionCrawler.SolutionCrawlerRegistrationService.WorkCoordinator.IncrementalAnalyzerProcessor.&lt;RunAnalyzersAsync&gt;d__27`1.MoveNext() in C:\Roslyn\Main\Open\src\Features\Core\SolutionCrawler\WorkCoordinator.IncrementalAnalyzerProcessor.cs:line 195
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder.Start[TStateMachine](TStateMachine&amp; stateMachine)
+   at Microsoft.CodeAnalysis.SolutionCrawler.SolutionCrawlerRegistrationService.WorkCoordinator.IncrementalAnalyzerProcessor.RunAnalyzersAsync[T](ImmutableArray`1 analyzers, T value, Func`4 runnerAsync, CancellationToken cancellationToken)
+   at Microsoft.CodeAnalysis.SolutionCrawler.SolutionCrawlerRegistrationService.WorkCoordinator.IncrementalAnalyzerProcessor.&lt;ProcessDocumentAnalyzersAsync&gt;d__26.MoveNext() in C:\Roslyn\Main\Open\src\Features\Core\SolutionCrawler\WorkCoordinator.IncrementalAnalyzerProcessor.cs:line 175
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.InvokeMoveNext(Object stateMachine)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.Run()
+   at System.Threading.Tasks.AwaitTaskContinuation.RunOrScheduleAction(Action action, Boolean allowInlining, Task&amp; currentTask)
+   at System.Threading.Tasks.Task.FinishContinuations()
+   at System.Threading.Tasks.Task.FinishStageThree()
+   at System.Threading.Tasks.Task`1.TrySetResult(TResult result)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.SetResult(TResult result)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder.SetResult()
+   at Microsoft.CodeAnalysis.SolutionCrawler.SolutionCrawlerRegistrationService.WorkCoordinator.IncrementalAnalyzerProcessor.&lt;RunAnalyzersAsync&gt;d__27`1.MoveNext() in C:\Roslyn\Main\Open\src\Features\Core\SolutionCrawler\WorkCoordinator.IncrementalAnalyzerProcessor.cs:line 201
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.InvokeMoveNext(Object stateMachine)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.Run()
+   at System.Threading.Tasks.AwaitTaskContinuation.RunOrScheduleAction(Action action, Boolean allowInlining, Task&amp; currentTask)
+   at System.Threading.Tasks.Task.FinishContinuations()
+   at System.Threading.Tasks.Task.FinishStageThree()
+   at System.Threading.Tasks.Task`1.TrySetResult(TResult result)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.SetResult(TResult result)
+   at Microsoft.CodeAnalysis.SolutionCrawler.SolutionCrawlerRegistrationService.WorkCoordinator.IncrementalAnalyzerProcessor.&lt;GetOrDefaultAsync&gt;d__29`2.MoveNext() in C:\Roslyn\Main\Open\src\Features\Core\SolutionCrawler\WorkCoordinator.IncrementalAnalyzerProcessor.cs:line 255
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.InvokeMoveNext(Object stateMachine)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.Run()
+   at System.Threading.Tasks.AwaitTaskContinuation.RunOrScheduleAction(Action action, Boolean allowInlining, Task&amp; currentTask)
+   at System.Threading.Tasks.Task.FinishContinuations()
+   at System.Threading.Tasks.Task.FinishStageThree()
+   at System.Threading.Tasks.Task`1.TrySetResult(TResult result)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.SetResult(TResult result)
+   at Microsoft.CodeAnalysis.SolutionCrawler.SolutionCrawlerRegistrationService.WorkCoordinator.IncrementalAnalyzerProcessor.&lt;&gt;c__DisplayClass27_1`1.&lt;&lt;RunAnalyzersAsync&gt;b__0&gt;d.MoveNext() in C:\Roslyn\Main\Open\src\Features\Core\SolutionCrawler\WorkCoordinator.IncrementalAnalyzerProcessor.cs:line 199
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.InvokeMoveNext(Object stateMachine)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.Run()
+   at System.Threading.Tasks.AwaitTaskContinuation.RunOrScheduleAction(Action action, Boolean allowInlining, Task&amp; currentTask)
+   at System.Threading.Tasks.Task.FinishContinuations()
+   at System.Threading.Tasks.Task.FinishStageThree()
+   at System.Threading.Tasks.Task`1.TrySetResult(TResult result)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.SetResult(TResult result)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder.SetResult()
+   at Microsoft.CodeAnalysis.Diagnostics.EngineV1.DiagnosticIncrementalAnalyzer.&lt;AnalyzeSyntaxAsync&gt;d__47.MoveNext() in C:\Roslyn\Main\Open\src\Features\Core\Diagnostics\EngineV1\DiagnosticIncrementalAnalyzer.cs:line 122
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.InvokeMoveNext(Object stateMachine)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.Run()
+   at System.Threading.Tasks.AwaitTaskContinuation.RunOrScheduleAction(Action action, Boolean allowInlining, Task&amp; currentTask)
+   at System.Threading.Tasks.Task.FinishContinuations()
+   at System.Threading.Tasks.Task.FinishStageThree()
+   at System.Threading.Tasks.Task`1.TrySetResult(TResult result)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.SetResult(TResult result)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder.SetResult()
+   at Microsoft.CodeAnalysis.Diagnostics.EngineV1.DiagnosticIncrementalAnalyzer.&lt;AnalyzeSyntaxAsync&gt;d__48.MoveNext() in C:\Roslyn\Main\Open\src\Features\Core\Diagnostics\EngineV1\DiagnosticIncrementalAnalyzer.cs:line 171
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.InvokeMoveNext(Object stateMachine)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.Run()
+   at System.Threading.Tasks.AwaitTaskContinuation.RunOrScheduleAction(Action action, Boolean allowInlining, Task&amp; currentTask)
+   at System.Threading.Tasks.Task.FinishContinuations()
+   at System.Threading.Tasks.Task.FinishStageThree()
+   at System.Threading.Tasks.Task`1.TrySetResult(TResult result)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.SetResult(TResult result)
+   at Microsoft.CodeAnalysis.Diagnostics.EngineV1.DiagnosticIncrementalAnalyzer.&lt;ShouldRunAnalyzerForStateTypeAsync&gt;d__62.MoveNext() in C:\Roslyn\Main\Open\src\Features\Core\Diagnostics\EngineV1\DiagnosticIncrementalAnalyzer.cs:line 486
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.InvokeMoveNext(Object stateMachine)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.Run()
+   at System.Threading.Tasks.AwaitTaskContinuation.RunOrScheduleAction(Action action, Boolean allowInlining, Task&amp; currentTask)
+   at System.Threading.Tasks.Task.FinishContinuations()
+   at System.Threading.Tasks.Task.FinishStageThree()
+   at System.Threading.Tasks.Task`1.TrySetResult(TResult result)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.SetResult(TResult result)
+   at Microsoft.CodeAnalysis.Diagnostics.EngineV1.DiagnosticIncrementalAnalyzer.&lt;ShouldRunAnalyzerForStateTypeAsync&gt;d__63.MoveNext() in C:\Roslyn\Main\Open\src\Features\Core\Diagnostics\EngineV1\DiagnosticIncrementalAnalyzer.cs:line 512
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.InvokeMoveNext(Object stateMachine)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.Run()
+   at System.Threading.Tasks.AwaitTaskContinuation.RunOrScheduleAction(Action action, Boolean allowInlining, Task&amp; currentTask)
+   at System.Threading.Tasks.Task.FinishContinuations()
+   at System.Threading.Tasks.Task.FinishStageThree()
+   at System.Threading.Tasks.Task`1.TrySetResult(TResult result)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.SetResult(TResult result)
+   at Microsoft.CodeAnalysis.Shared.Extensions.DiagnosticAnalyzerExtensions.&lt;SupportsSyntaxDiagnosticAnalysisAsync&gt;d__2.MoveNext() in C:\Roslyn\Main\Open\src\Features\Core\Shared\Extensions\DiagnosticAnalyzerExtensions.cs:line 84
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.InvokeMoveNext(Object stateMachine)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.Run()
+   at System.Threading.Tasks.AwaitTaskContinuation.RunOrScheduleAction(Action action, Boolean allowInlining, Task&amp; currentTask)
+   at System.Threading.Tasks.Task.FinishContinuations()
+   at System.Threading.Tasks.Task.FinishStageThree()
+   at System.Threading.Tasks.Task`1.TrySetResult(TResult result)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.SetResult(TResult result)
+   at Microsoft.CodeAnalysis.Shared.Extensions.DiagnosticAnalyzerExtensions.&lt;GetDiagnosticAnalyzerCategoryAsync&gt;d__0.MoveNext() in C:\Roslyn\Main\Open\src\Features\Core\Shared\Extensions\DiagnosticAnalyzerExtensions.cs:line 69
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.InvokeMoveNext(Object stateMachine)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.Run()
+   at System.Threading.Tasks.AwaitTaskContinuation.RunOrScheduleAction(Action action, Boolean allowInlining, Task&amp; currentTask)
+   at System.Threading.Tasks.Task.FinishContinuations()
+   at System.Threading.Tasks.Task.FinishStageThree()
+   at System.Threading.Tasks.Task`1.TrySetResult(TResult result)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.SetResult(TResult result)
+   at Microsoft.CodeAnalysis.Diagnostics.EngineV1.DiagnosticAnalyzerDriver.&lt;GetAnalyzerActionsAsync&gt;d__37.MoveNext() in C:\Roslyn\Main\Open\src\Features\Core\Diagnostics\EngineV1\DiagnosticAnalyzerDriver.cs:line 302
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.InvokeMoveNext(Object stateMachine)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.Run()
+   at System.Threading.Tasks.AwaitTaskContinuation.RunOrScheduleAction(Action action, Boolean allowInlining, Task&amp; currentTask)
+   at System.Threading.Tasks.Task.FinishContinuations()
+   at System.Threading.Tasks.Task.FinishStageThree()
+   at System.Threading.Tasks.Task`1.TrySetResult(TResult result)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.SetResult(TResult result)
+   at Microsoft.CodeAnalysis.Diagnostics.EngineV1.DiagnosticAnalyzerDriver.&lt;GetAnalyzerActionsAsync&gt;d__39.MoveNext() in C:\Roslyn\Main\Open\src\Features\Core\Diagnostics\EngineV1\DiagnosticAnalyzerDriver.cs:line 321
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.InvokeMoveNext(Object stateMachine)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.Run()
+   at System.Threading.Tasks.AwaitTaskContinuation.RunOrScheduleAction(Action action, Boolean allowInlining, Task&amp; currentTask)
+   at System.Threading.Tasks.Task.FinishContinuations()
+   at System.Threading.Tasks.Task.FinishStageThree()
+   at System.Threading.Tasks.Task`1.TrySetResult(TResult result)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.SetResult(TResult result)
+   at Microsoft.CodeAnalysis.Diagnostics.AnalyzerManager.&lt;GetAnalyzerActionsAsync&gt;d__8.MoveNext() in C:\Roslyn\Main\Open\src\Compilers\Core\AnalyzerDriver\AnalyzerManager.cs:line 149
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.InvokeMoveNext(Object stateMachine)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.Run()
+   at System.Threading.Tasks.AwaitTaskContinuation.RunOrScheduleAction(Action action, Boolean allowInlining, Task&amp; currentTask)
+   at System.Threading.Tasks.Task.FinishContinuations()
+   at System.Threading.Tasks.Task.FinishStageThree()
+   at System.Threading.Tasks.Task`1.TrySetResult(TResult result)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.SetResult(TResult result)
+   at Microsoft.CodeAnalysis.Diagnostics.AnalyzerManager.&lt;GetCompilationAnalysisScopeAsync&gt;d__5.MoveNext() in C:\Roslyn\Main\Open\src\Compilers\Core\AnalyzerDriver\AnalyzerManager.cs:line 95
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.InvokeMoveNext(Object stateMachine)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.Run()
+   at System.Threading.Tasks.AwaitTaskContinuation.RunOrScheduleAction(Action action, Boolean allowInlining, Task&amp; currentTask)
+   at System.Threading.Tasks.Task.FinishContinuations()
+   at System.Threading.Tasks.Task.FinishStageThree()
+   at System.Threading.Tasks.Task.FinishStageTwo()
+   at System.Threading.Tasks.Task.Finish(Boolean bUserDelegateExecuted)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task&amp; currentTaskSlot)
+   at System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   at System.Threading.Tasks.Task.System.Threading.IThreadPoolWorkItem.ExecuteWorkItem()
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+   at System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+
+StackTrace: 
+```
+
+And then the crashing exception:
+
+```
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at System.Collections.Immutable.ImmutableArray`1.Builder.get_Item(Int32 index)
+   at Microsoft.CodeAnalysis.ArrayBuilder`1.get_Item(Int32 index) in C:\Roslyn\Main\Open\src\Compilers\Core\SharedCollections\ArrayBuilder.cs:line 83
+   at Microsoft.CodeAnalysis.CSharp.AnalyzedArguments.Argument(Int32 i) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Semantics\OverloadResolution\AnalyzedArguments.cs:line 37
+   at Microsoft.CodeAnalysis.CSharp.OverloadResolution.IsApplicable(Symbol candidate, EffectiveParameters parameters, AnalyzedArguments arguments, ImmutableArray`1 argsToParameters, Boolean isVararg, Boolean hasAnyRefOmittedArgument, Boolean ignoreOpenTypes, HashSet`1&amp; useSiteDiagnostics) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Semantics\OverloadResolution\OverloadResolution.cs:line 2594
+   at Microsoft.CodeAnalysis.CSharp.OverloadResolution.IsApplicable[TMember](TMember member, TMember leastOverriddenMember, ArrayBuilder`1 typeArgumentsBuilder, AnalyzedArguments arguments, EffectiveParameters originalEffectiveParameters, EffectiveParameters constructedEffectiveParameters, ImmutableArray`1 argsToParamsMap, Boolean hasAnyRefOmittedArgument, HashSet`1&amp; useSiteDiagnostics, Boolean inferWithDynamic) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Semantics\OverloadResolution\OverloadResolution.cs:line 2504
+   at Microsoft.CodeAnalysis.CSharp.OverloadResolution.IsMemberApplicableInNormalForm[TMember](TMember member, TMember leastOverriddenMember, ArrayBuilder`1 typeArguments, AnalyzedArguments arguments, Boolean isMethodGroupConversion, Boolean allowRefOmittedArguments, Boolean inferWithDynamic, HashSet`1&amp; useSiteDiagnostics) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Semantics\OverloadResolution\OverloadResolution.cs:line 2325
+   at Microsoft.CodeAnalysis.CSharp.OverloadResolution.AddMemberToCandidateSet[TMember](TMember member, ArrayBuilder`1 results, ArrayBuilder`1 members, ArrayBuilder`1 typeArguments, AnalyzedArguments arguments, Boolean completeResults, Boolean isMethodGroupConversion, Boolean allowRefOmittedArguments, Dictionary`2 containingTypeMapOpt, Boolean inferWithDynamic, HashSet`1&amp; useSiteDiagnostics, Boolean allowUnexpandedForm) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Semantics\OverloadResolution\OverloadResolution.cs:line 495
+   at Microsoft.CodeAnalysis.CSharp.OverloadResolution.PerformMemberOverloadResolution[TMember](ArrayBuilder`1 results, ArrayBuilder`1 members, ArrayBuilder`1 typeArguments, AnalyzedArguments arguments, Boolean completeResults, Boolean isMethodGroupConversion, Boolean allowRefOmittedArguments, HashSet`1&amp; useSiteDiagnostics, Boolean inferWithDynamic, Boolean allowUnexpandedForm) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Semantics\OverloadResolution\OverloadResolution.cs:line 233
+   at Microsoft.CodeAnalysis.CSharp.OverloadResolution.MethodOrPropertyOverloadResolution[TMember](ArrayBuilder`1 members, ArrayBuilder`1 typeArguments, AnalyzedArguments arguments, OverloadResolutionResult`1 result, Boolean isMethodGroupConversion, Boolean allowRefOmittedArguments, HashSet`1&amp; useSiteDiagnostics, Boolean inferWithDynamic, Boolean allowUnexpandedForm) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Semantics\OverloadResolution\OverloadResolution.cs:line 136
+   at Microsoft.CodeAnalysis.CSharp.OverloadResolution.MethodInvocationOverloadResolution(ArrayBuilder`1 methods, ArrayBuilder`1 typeArguments, AnalyzedArguments arguments, OverloadResolutionResult`1 result, HashSet`1&amp; useSiteDiagnostics, Boolean isMethodGroupConversion, Boolean allowRefOmittedArguments, Boolean inferWithDynamic, Boolean allowUnexpandedForm) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Semantics\OverloadResolution\OverloadResolution.cs:line 101
+   at Microsoft.CodeAnalysis.CSharp.Binder.ResolveDefaultMethodGroup(BoundMethodGroup node, AnalyzedArguments analyzedArguments, Boolean isMethodGroupConversion, HashSet`1&amp; useSiteDiagnostics, Boolean inferWithDynamic, Boolean allowUnexpandedForm) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Expressions.cs:line 6254
+   at Microsoft.CodeAnalysis.CSharp.Binder.ResolveMethodGroupInternal(BoundMethodGroup methodGroup, CSharpSyntaxNode expression, String methodName, AnalyzedArguments analyzedArguments, Boolean isMethodGroupConversion, HashSet`1&amp; useSiteDiagnostics, Boolean inferWithDynamic, Boolean allowUnexpandedForm) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Expressions.cs:line 6147
+   at Microsoft.CodeAnalysis.CSharp.Binder.ResolveMethodGroup(BoundMethodGroup node, CSharpSyntaxNode expression, String methodName, AnalyzedArguments analyzedArguments, Boolean isMethodGroupConversion, HashSet`1&amp; useSiteDiagnostics, Boolean inferWithDynamic, Boolean allowUnexpandedForm) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Expressions.cs:line 6122
+   at Microsoft.CodeAnalysis.CSharp.Binder.BindMethodGroupInvocation(CSharpSyntaxNode syntax, CSharpSyntaxNode expression, String methodName, BoundMethodGroup methodGroup, AnalyzedArguments analyzedArguments, DiagnosticBag diagnostics, CSharpSyntaxNode queryClause, Boolean allowUnexpandedForm) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Invocation.cs:line 452
+   at Microsoft.CodeAnalysis.CSharp.Binder.BindInvocationExpression(CSharpSyntaxNode node, CSharpSyntaxNode expression, String methodName, BoundExpression boundExpression, AnalyzedArguments analyzedArguments, DiagnosticBag diagnostics, CSharpSyntaxNode queryClause, Boolean allowUnexpandedForm) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Invocation.cs:line 222
+   at Microsoft.CodeAnalysis.CSharp.Binder.BindInvocationExpression(InvocationExpressionSyntax node, DiagnosticBag diagnostics) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Invocation.cs:line 165
+   at Microsoft.CodeAnalysis.CSharp.Binder.BindExpressionInternal(ExpressionSyntax node, DiagnosticBag diagnostics, Boolean invoked, Boolean indexed) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Expressions.cs:line 408
+   at Microsoft.CodeAnalysis.CSharp.Binder.BindExpression(ExpressionSyntax node, DiagnosticBag diagnostics, Boolean invoked, Boolean indexed) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Expressions.cs:line 353
+   at Microsoft.CodeAnalysis.CSharp.Binder.BindValue(ExpressionSyntax node, DiagnosticBag diagnostics, BindValueKind valueKind) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Expressions.cs:line 288
+   at Microsoft.CodeAnalysis.CSharp.Binder.BindExpressionStatement(CSharpSyntaxNode node, ExpressionSyntax syntax, Boolean allowsAnyExpression, DiagnosticBag diagnostics) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Statements.cs:line 418
+   at Microsoft.CodeAnalysis.CSharp.Binder.BindExpressionStatement(ExpressionStatementSyntax node, DiagnosticBag diagnostics) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Statements.cs:line 411
+   at Microsoft.CodeAnalysis.CSharp.Binder.BindStatement(StatementSyntax node, DiagnosticBag diagnostics) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Statements.cs:line 49
+   at Microsoft.CodeAnalysis.CSharp.MemberSemanticModel.IncrementalBinder.BindStatement(StatementSyntax node, DiagnosticBag diagnostics) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Compilation\MemberSemanticModel.cs:line 1639
+   at Microsoft.CodeAnalysis.CSharp.CSharpSemanticModel.Bind(Binder binder, CSharpSyntaxNode node, DiagnosticBag diagnostics) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Compilation\CSharpSemanticModel.cs:line 1996
+   at Microsoft.CodeAnalysis.CSharp.MethodBodySemanticModel.Bind(Binder binder, CSharpSyntaxNode node, DiagnosticBag diagnostics) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Compilation\MethodBodySemanticModel.cs:line 48
+   at Microsoft.CodeAnalysis.CSharp.MemberSemanticModel.GetBoundNodes(CSharpSyntaxNode node) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Compilation\MemberSemanticModel.cs:line 1397
+   at Microsoft.CodeAnalysis.CSharp.MemberSemanticModel.GetLowerBoundNode(CSharpSyntaxNode node) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Compilation\MemberSemanticModel.cs:line 369
+   at Microsoft.CodeAnalysis.CSharp.MemberSemanticModel.GetBoundNodes(CSharpSyntaxNode node, CSharpSyntaxNode&amp; bindableNode, BoundNode&amp; lowestBoundNode, BoundNode&amp; highestBoundNode, BoundNode&amp; boundParent) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Compilation\MemberSemanticModel.cs:line 896
+   at Microsoft.CodeAnalysis.CSharp.MemberSemanticModel.GetSymbolInfoWorker(CSharpSyntaxNode node, SymbolInfoOptions options, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Compilation\MemberSemanticModel.cs:line 775
+   at Microsoft.CodeAnalysis.CSharp.SyntaxTreeSemanticModel.GetSymbolInfoWorker(CSharpSyntaxNode node, SymbolInfoOptions options, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Compilation\SyntaxTreeSemanticModel.cs:line 173
+   at Microsoft.CodeAnalysis.CSharp.CSharpSemanticModel.GetSymbolInfo(ExpressionSyntax expression, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Compilation\CSharpSemanticModel.cs:line 504
+   at Microsoft.CodeAnalysis.CSharp.CSharpExtensions.GetSymbolInfo(SemanticModel semanticModel, ExpressionSyntax expression, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\CSharpExtensions.cs:line 443
+   at Microsoft.CodeAnalysis.CSharp.Extensions.ExpressionSyntaxExtensions.TryReplaceWithAlias(ExpressionSyntax node, SemanticModel semanticModel, Boolean preferAliasToQualifiedName, CancellationToken cancellationToken, IAliasSymbol&amp; aliasReplacement) in C:\Roslyn\Main\Open\src\Workspaces\CSharp\Portable\Extensions\ExpressionSyntaxExtensions.cs:line 868
+   at Microsoft.CodeAnalysis.CSharp.Extensions.ExpressionSyntaxExtensions.TryReduce(MemberAccessExpressionSyntax memberAccess, SemanticModel semanticModel, TypeSyntax&amp; replacementNode, TextSpan&amp; issueSpan, OptionSet optionSet, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Workspaces\CSharp\Portable\Extensions\ExpressionSyntaxExtensions.cs:line 722
+   at Microsoft.CodeAnalysis.CSharp.Extensions.ExpressionSyntaxExtensions.TryReduceExplicitName(ExpressionSyntax expression, SemanticModel semanticModel, TypeSyntax&amp; replacementNode, TextSpan&amp; issueSpan, OptionSet optionSet, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Workspaces\CSharp\Portable\Extensions\ExpressionSyntaxExtensions.cs:line 665
+   at Microsoft.CodeAnalysis.CSharp.Extensions.ExpressionSyntaxExtensions.TryReduceOrSimplifyExplicitName(ExpressionSyntax expression, SemanticModel semanticModel, ExpressionSyntax&amp; replacementNode, TextSpan&amp; issueSpan, OptionSet optionSet, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Workspaces\CSharp\Portable\Extensions\ExpressionSyntaxExtensions.cs:line 637
+   at Microsoft.CodeAnalysis.CSharp.Diagnostics.SimplifyTypeNames.CSharpSimplifyTypeNamesDiagnosticAnalyzer.CanSimplifyTypeNameExpression(SemanticModel model, SyntaxNode node, OptionSet optionSet, TextSpan&amp; issueSpan, String&amp; diagnosticId, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Features\CSharp\Diagnostics\Analyzers\CSharpSimplifyTypeNamesDiagnosticAnalyzer.cs:line 132
+   at Microsoft.CodeAnalysis.CSharp.Diagnostics.SimplifyTypeNames.CSharpSimplifyTypeNamesDiagnosticAnalyzer.CanSimplifyTypeNameExpressionCore(SemanticModel model, SyntaxNode node, OptionSet optionSet, TextSpan&amp; issueSpan, String&amp; diagnosticId, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Features\CSharp\Diagnostics\Analyzers\CSharpSimplifyTypeNamesDiagnosticAnalyzer.cs:line 93
+   at Microsoft.CodeAnalysis.Diagnostics.SimplifyTypeNames.SimplifyTypeNamesDiagnosticAnalyzerBase`1.TrySimplifyTypeNameExpression(SemanticModel model, SyntaxNode node, AnalyzerOptions analyzerOptions, Diagnostic&amp; diagnostic, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Features\Core\Diagnostics\Analyzers\SimplifyTypeNamesDiagnosticAnalyzerBase.cs:line 83
+   at Microsoft.CodeAnalysis.CSharp.Diagnostics.SimplifyTypeNames.CSharpSimplifyTypeNamesDiagnosticAnalyzer.&lt;&gt;c__DisplayClass2_0.&lt;AnalyzeNode&gt;b__1(SyntaxNode n) in C:\Roslyn\Main\Open\src\Features\CSharp\Diagnostics\Analyzers\CSharpSimplifyTypeNamesDiagnosticAnalyzer.cs:line 47
+   at Microsoft.CodeAnalysis.SyntaxNode.ChildSyntaxListEnumeratorStack..ctor(SyntaxNode startingNode, Func`2 descendIntoChildren) in C:\Roslyn\Main\Open\src\Compilers\Core\Portable\Syntax\SyntaxNode.Iterators.cs:line 50
+   at Microsoft.CodeAnalysis.SyntaxNode.&lt;DescendantNodesOnly&gt;d__157.MoveNext() in C:\Roslyn\Main\Open\src\Compilers\Core\Portable\Syntax\SyntaxNode.Iterators.cs:line 378
+   at Microsoft.CodeAnalysis.CSharp.Diagnostics.SimplifyTypeNames.CSharpSimplifyTypeNamesDiagnosticAnalyzer.AnalyzeNode(SyntaxNodeAnalysisContext context) in C:\Roslyn\Main\Open\src\Features\CSharp\Diagnostics\Analyzers\CSharpSimplifyTypeNamesDiagnosticAnalyzer.cs:line 58
+   at Microsoft.CodeAnalysis.Diagnostics.AnalyzerExecutor.&lt;&gt;c__DisplayClass32_0`1.&lt;ExecuteSyntaxNodeAction&gt;b__1() in C:\Roslyn\Main\Open\src\Compilers\Core\AnalyzerDriver\AnalyzerExecutor.cs:line 298
+   at Microsoft.CodeAnalysis.Diagnostics.AnalyzerExecutor.ExecuteAndCatchIfThrows(DiagnosticAnalyzer analyzer, Action analyze, Action`3 onAnalyzerException, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Compilers\Core\AnalyzerDriver\AnalyzerExecutor.cs:line 501
+5/10/2015 4:31:38 PM
+Source: First chance exception: System.Collections.Immutable
+StackTrace:    at System.Collections.Immutable.ImmutableArray`1.Builder.get_Item(Int32 index)
+   at Microsoft.CodeAnalysis.ArrayBuilder`1.get_Item(Int32 index) in C:\Roslyn\Main\Open\src\Compilers\Core\SharedCollections\ArrayBuilder.cs:line 83
+   at Microsoft.CodeAnalysis.CSharp.AnalyzedArguments.Argument(Int32 i) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Semantics\OverloadResolution\AnalyzedArguments.cs:line 37
+   at Microsoft.CodeAnalysis.CSharp.OverloadResolution.IsApplicable(Symbol candidate, EffectiveParameters parameters, AnalyzedArguments arguments, ImmutableArray`1 argsToParameters, Boolean isVararg, Boolean hasAnyRefOmittedArgument, Boolean ignoreOpenTypes, HashSet`1&amp; useSiteDiagnostics) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Semantics\OverloadResolution\OverloadResolution.cs:line 2594
+   at Microsoft.CodeAnalysis.CSharp.OverloadResolution.IsApplicable[TMember](TMember member, TMember leastOverriddenMember, ArrayBuilder`1 typeArgumentsBuilder, AnalyzedArguments arguments, EffectiveParameters originalEffectiveParameters, EffectiveParameters constructedEffectiveParameters, ImmutableArray`1 argsToParamsMap, Boolean hasAnyRefOmittedArgument, HashSet`1&amp; useSiteDiagnostics, Boolean inferWithDynamic) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Semantics\OverloadResolution\OverloadResolution.cs:line 2504
+   at Microsoft.CodeAnalysis.CSharp.OverloadResolution.IsMemberApplicableInNormalForm[TMember](TMember member, TMember leastOverriddenMember, ArrayBuilder`1 typeArguments, AnalyzedArguments arguments, Boolean isMethodGroupConversion, Boolean allowRefOmittedArguments, Boolean inferWithDynamic, HashSet`1&amp; useSiteDiagnostics) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Semantics\OverloadResolution\OverloadResolution.cs:line 2325
+   at Microsoft.CodeAnalysis.CSharp.OverloadResolution.AddMemberToCandidateSet[TMember](TMember member, ArrayBuilder`1 results, ArrayBuilder`1 members, ArrayBuilder`1 typeArguments, AnalyzedArguments arguments, Boolean completeResults, Boolean isMethodGroupConversion, Boolean allowRefOmittedArguments, Dictionary`2 containingTypeMapOpt, Boolean inferWithDynamic, HashSet`1&amp; useSiteDiagnostics, Boolean allowUnexpandedForm) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Semantics\OverloadResolution\OverloadResolution.cs:line 495
+   at Microsoft.CodeAnalysis.CSharp.OverloadResolution.PerformMemberOverloadResolution[TMember](ArrayBuilder`1 results, ArrayBuilder`1 members, ArrayBuilder`1 typeArguments, AnalyzedArguments arguments, Boolean completeResults, Boolean isMethodGroupConversion, Boolean allowRefOmittedArguments, HashSet`1&amp; useSiteDiagnostics, Boolean inferWithDynamic, Boolean allowUnexpandedForm) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Semantics\OverloadResolution\OverloadResolution.cs:line 233
+   at Microsoft.CodeAnalysis.CSharp.OverloadResolution.MethodOrPropertyOverloadResolution[TMember](ArrayBuilder`1 members, ArrayBuilder`1 typeArguments, AnalyzedArguments arguments, OverloadResolutionResult`1 result, Boolean isMethodGroupConversion, Boolean allowRefOmittedArguments, HashSet`1&amp; useSiteDiagnostics, Boolean inferWithDynamic, Boolean allowUnexpandedForm) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Semantics\OverloadResolution\OverloadResolution.cs:line 136
+   at Microsoft.CodeAnalysis.CSharp.OverloadResolution.MethodInvocationOverloadResolution(ArrayBuilder`1 methods, ArrayBuilder`1 typeArguments, AnalyzedArguments arguments, OverloadResolutionResult`1 result, HashSet`1&amp; useSiteDiagnostics, Boolean isMethodGroupConversion, Boolean allowRefOmittedArguments, Boolean inferWithDynamic, Boolean allowUnexpandedForm) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Semantics\OverloadResolution\OverloadResolution.cs:line 101
+   at Microsoft.CodeAnalysis.CSharp.Binder.ResolveDefaultMethodGroup(BoundMethodGroup node, AnalyzedArguments analyzedArguments, Boolean isMethodGroupConversion, HashSet`1&amp; useSiteDiagnostics, Boolean inferWithDynamic, Boolean allowUnexpandedForm) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Expressions.cs:line 6254
+   at Microsoft.CodeAnalysis.CSharp.Binder.ResolveMethodGroupInternal(BoundMethodGroup methodGroup, CSharpSyntaxNode expression, String methodName, AnalyzedArguments analyzedArguments, Boolean isMethodGroupConversion, HashSet`1&amp; useSiteDiagnostics, Boolean inferWithDynamic, Boolean allowUnexpandedForm) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Expressions.cs:line 6147
+   at Microsoft.CodeAnalysis.CSharp.Binder.ResolveMethodGroup(BoundMethodGroup node, CSharpSyntaxNode expression, String methodName, AnalyzedArguments analyzedArguments, Boolean isMethodGroupConversion, HashSet`1&amp; useSiteDiagnostics, Boolean inferWithDynamic, Boolean allowUnexpandedForm) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Expressions.cs:line 6122
+   at Microsoft.CodeAnalysis.CSharp.Binder.BindMethodGroupInvocation(CSharpSyntaxNode syntax, CSharpSyntaxNode expression, String methodName, BoundMethodGroup methodGroup, AnalyzedArguments analyzedArguments, DiagnosticBag diagnostics, CSharpSyntaxNode queryClause, Boolean allowUnexpandedForm) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Invocation.cs:line 452
+   at Microsoft.CodeAnalysis.CSharp.Binder.BindInvocationExpression(CSharpSyntaxNode node, CSharpSyntaxNode expression, String methodName, BoundExpression boundExpression, AnalyzedArguments analyzedArguments, DiagnosticBag diagnostics, CSharpSyntaxNode queryClause, Boolean allowUnexpandedForm) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Invocation.cs:line 222
+   at Microsoft.CodeAnalysis.CSharp.Binder.BindInvocationExpression(InvocationExpressionSyntax node, DiagnosticBag diagnostics) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Invocation.cs:line 165
+   at Microsoft.CodeAnalysis.CSharp.Binder.BindExpressionInternal(ExpressionSyntax node, DiagnosticBag diagnostics, Boolean invoked, Boolean indexed) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Expressions.cs:line 408
+   at Microsoft.CodeAnalysis.CSharp.Binder.BindExpression(ExpressionSyntax node, DiagnosticBag diagnostics, Boolean invoked, Boolean indexed) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Expressions.cs:line 353
+   at Microsoft.CodeAnalysis.CSharp.Binder.BindValue(ExpressionSyntax node, DiagnosticBag diagnostics, BindValueKind valueKind) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Expressions.cs:line 288
+   at Microsoft.CodeAnalysis.CSharp.Binder.BindExpressionStatement(CSharpSyntaxNode node, ExpressionSyntax syntax, Boolean allowsAnyExpression, DiagnosticBag diagnostics) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Statements.cs:line 418
+   at Microsoft.CodeAnalysis.CSharp.Binder.BindExpressionStatement(ExpressionStatementSyntax node, DiagnosticBag diagnostics) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Statements.cs:line 411
+   at Microsoft.CodeAnalysis.CSharp.Binder.BindStatement(StatementSyntax node, DiagnosticBag diagnostics) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Binder\Binder_Statements.cs:line 49
+   at Microsoft.CodeAnalysis.CSharp.MemberSemanticModel.IncrementalBinder.BindStatement(StatementSyntax node, DiagnosticBag diagnostics) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Compilation\MemberSemanticModel.cs:line 1639
+   at Microsoft.CodeAnalysis.CSharp.CSharpSemanticModel.Bind(Binder binder, CSharpSyntaxNode node, DiagnosticBag diagnostics) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Compilation\CSharpSemanticModel.cs:line 1996
+   at Microsoft.CodeAnalysis.CSharp.MethodBodySemanticModel.Bind(Binder binder, CSharpSyntaxNode node, DiagnosticBag diagnostics) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Compilation\MethodBodySemanticModel.cs:line 48
+   at Microsoft.CodeAnalysis.CSharp.MemberSemanticModel.GetBoundNodes(CSharpSyntaxNode node) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Compilation\MemberSemanticModel.cs:line 1397
+   at Microsoft.CodeAnalysis.CSharp.MemberSemanticModel.GetLowerBoundNode(CSharpSyntaxNode node) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Compilation\MemberSemanticModel.cs:line 369
+   at Microsoft.CodeAnalysis.CSharp.MemberSemanticModel.GetBoundNodes(CSharpSyntaxNode node, CSharpSyntaxNode&amp; bindableNode, BoundNode&amp; lowestBoundNode, BoundNode&amp; highestBoundNode, BoundNode&amp; boundParent) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Compilation\MemberSemanticModel.cs:line 896
+   at Microsoft.CodeAnalysis.CSharp.MemberSemanticModel.GetSymbolInfoWorker(CSharpSyntaxNode node, SymbolInfoOptions options, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Compilation\MemberSemanticModel.cs:line 775
+   at Microsoft.CodeAnalysis.CSharp.SyntaxTreeSemanticModel.GetSymbolInfoWorker(CSharpSyntaxNode node, SymbolInfoOptions options, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Compilation\SyntaxTreeSemanticModel.cs:line 173
+   at Microsoft.CodeAnalysis.CSharp.CSharpSemanticModel.GetSymbolInfo(ExpressionSyntax expression, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\Compilation\CSharpSemanticModel.cs:line 504
+   at Microsoft.CodeAnalysis.CSharp.CSharpExtensions.GetSymbolInfo(SemanticModel semanticModel, ExpressionSyntax expression, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Compilers\CSharp\Portable\CSharpExtensions.cs:line 443
+   at Microsoft.CodeAnalysis.CSharp.Extensions.ExpressionSyntaxExtensions.TryReplaceWithAlias(ExpressionSyntax node, SemanticModel semanticModel, Boolean preferAliasToQualifiedName, CancellationToken cancellationToken, IAliasSymbol&amp; aliasReplacement) in C:\Roslyn\Main\Open\src\Workspaces\CSharp\Portable\Extensions\ExpressionSyntaxExtensions.cs:line 868
+   at Microsoft.CodeAnalysis.CSharp.Extensions.ExpressionSyntaxExtensions.TryReduce(MemberAccessExpressionSyntax memberAccess, SemanticModel semanticModel, TypeSyntax&amp; replacementNode, TextSpan&amp; issueSpan, OptionSet optionSet, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Workspaces\CSharp\Portable\Extensions\ExpressionSyntaxExtensions.cs:line 722
+   at Microsoft.CodeAnalysis.CSharp.Extensions.ExpressionSyntaxExtensions.TryReduceExplicitName(ExpressionSyntax expression, SemanticModel semanticModel, TypeSyntax&amp; replacementNode, TextSpan&amp; issueSpan, OptionSet optionSet, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Workspaces\CSharp\Portable\Extensions\ExpressionSyntaxExtensions.cs:line 665
+   at Microsoft.CodeAnalysis.CSharp.Extensions.ExpressionSyntaxExtensions.TryReduceOrSimplifyExplicitName(ExpressionSyntax expression, SemanticModel semanticModel, ExpressionSyntax&amp; replacementNode, TextSpan&amp; issueSpan, OptionSet optionSet, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Workspaces\CSharp\Portable\Extensions\ExpressionSyntaxExtensions.cs:line 637
+   at Microsoft.CodeAnalysis.CSharp.Diagnostics.SimplifyTypeNames.CSharpSimplifyTypeNamesDiagnosticAnalyzer.CanSimplifyTypeNameExpression(SemanticModel model, SyntaxNode node, OptionSet optionSet, TextSpan&amp; issueSpan, String&amp; diagnosticId, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Features\CSharp\Diagnostics\Analyzers\CSharpSimplifyTypeNamesDiagnosticAnalyzer.cs:line 132
+   at Microsoft.CodeAnalysis.CSharp.Diagnostics.SimplifyTypeNames.CSharpSimplifyTypeNamesDiagnosticAnalyzer.CanSimplifyTypeNameExpressionCore(SemanticModel model, SyntaxNode node, OptionSet optionSet, TextSpan&amp; issueSpan, String&amp; diagnosticId, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Features\CSharp\Diagnostics\Analyzers\CSharpSimplifyTypeNamesDiagnosticAnalyzer.cs:line 93
+   at Microsoft.CodeAnalysis.Diagnostics.SimplifyTypeNames.SimplifyTypeNamesDiagnosticAnalyzerBase`1.TrySimplifyTypeNameExpression(SemanticModel model, SyntaxNode node, AnalyzerOptions analyzerOptions, Diagnostic&amp; diagnostic, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Features\Core\Diagnostics\Analyzers\SimplifyTypeNamesDiagnosticAnalyzerBase.cs:line 83
+   at Microsoft.CodeAnalysis.CSharp.Diagnostics.SimplifyTypeNames.CSharpSimplifyTypeNamesDiagnosticAnalyzer.&lt;&gt;c__DisplayClass2_0.&lt;AnalyzeNode&gt;b__1(SyntaxNode n) in C:\Roslyn\Main\Open\src\Features\CSharp\Diagnostics\Analyzers\CSharpSimplifyTypeNamesDiagnosticAnalyzer.cs:line 47
+   at Microsoft.CodeAnalysis.SyntaxNode.ChildSyntaxListEnumeratorStack..ctor(SyntaxNode startingNode, Func`2 descendIntoChildren) in C:\Roslyn\Main\Open\src\Compilers\Core\Portable\Syntax\SyntaxNode.Iterators.cs:line 50
+   at Microsoft.CodeAnalysis.SyntaxNode.&lt;DescendantNodesOnly&gt;d__157.MoveNext() in C:\Roslyn\Main\Open\src\Compilers\Core\Portable\Syntax\SyntaxNode.Iterators.cs:line 378
+   at Microsoft.CodeAnalysis.CSharp.Diagnostics.SimplifyTypeNames.CSharpSimplifyTypeNamesDiagnosticAnalyzer.AnalyzeNode(SyntaxNodeAnalysisContext context) in C:\Roslyn\Main\Open\src\Features\CSharp\Diagnostics\Analyzers\CSharpSimplifyTypeNamesDiagnosticAnalyzer.cs:line 58
+   at Microsoft.CodeAnalysis.Diagnostics.AnalyzerExecutor.&lt;&gt;c__DisplayClass32_0`1.&lt;ExecuteSyntaxNodeAction&gt;b__1() in C:\Roslyn\Main\Open\src\Compilers\Core\AnalyzerDriver\AnalyzerExecutor.cs:line 298
+   at Microsoft.CodeAnalysis.Diagnostics.AnalyzerExecutor.ExecuteAndCatchIfThrows(DiagnosticAnalyzer analyzer, Action analyze, Action`3 onAnalyzerException, CancellationToken cancellationToken) in C:\Roslyn\Main\Open\src\Compilers\Core\AnalyzerDriver\AnalyzerExecutor.cs:line 501
+```
+
+&lt;!---
+@huboard:{"order":2603.5,"milestone_order":2631,"custom_state":""}
+--&gt;
+</Description>
+    <CreatedDate>10/05/2015</CreatedDate>
+    <ClosedDate>13/05/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>1440</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Ordering of synthesized delegates in metadata should be deterministic</Title>
+    <Description>Ordering of synthesized delegates in metadata should be deterministic. See SynthesizedDelegateMetadataOrder test.
+
+&lt;!---
+@huboard:{"order":2159.0,"milestone_order":1440.0,"custom_state":""}
+--&gt;
+</Description>
+    <CreatedDate>20/03/2015</CreatedDate>
+    <ClosedDate>23/04/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>818</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Roslyn.VisualStudio.Services.UnitTests.dll - 138 tests fail with Russian language set as primary with localized resources present</Title>
+    <Description>Ported from TFS WorkItem: **1101390**
+
+---
+
+**Repro Steps:**
+
+**Steps to reproduce (likely to&amp;nbsp;repro with other languages):**&lt;BR&gt;
+1. Follow three steps described at [http://windows.microsoft.com/en-us/windows-8/using-multiple-languages](http://windows.microsoft.com/en-us/windows-8/using-multiple-languages)&amp;nbsp;to install Russian language pack and make Russian the primary language.
+
+&amp;nbsp;
+1. Queue Main-PerCheckin-Debug build with pseudo localization for Russian language (go to the Parameters tab in the Queue Build dialog and change Localization Languages value to RUS)
+
+&amp;nbsp;
+1. Wait for the drop. Copy binaries to the machine prepared on step 1. Copy localize\RUS folder from the drop location next to the binaries and rename it to 'ru'. Verify that output of command line compilers is localized.
+
+&amp;nbsp;
+1. Run tests. I simply copy bits over to Binaries\Debug folder on the previous step and run 'test' script.
+
+&amp;nbsp;
+
+The test log is attached.
+
+---
+
+**Revisions:**
+
+1) Created By Aleksey Tsingauz (1/2/2015 10:30:31 AM)
+
+---
+
+2) Edited By Jason Malinowski (1/5/2015 3:11:13 PM)
+
+Brett, can you look at Microsoft.VisualStudio.LanguageServices.UnitTests.ProjectSystemShim.VisualStudioAnalyzerTests.AnalyzerErrorsAreUpdated : Assert.Contains() failure: Not found: !hOPPn!Unable to load Analyzer assembly C:\Users\alekseyt\AppData\Local\Temp\tmp4910.tmp: ЁЧЫюр! In value: !hOPPn!Unable to load Analyzer assembly C:\Users\alekseyt\AppData\Local\Temp\tmp4910.tmp: Image is too small. ЁЧЫюр! to see if there's a problem there?
+
+---
+
+3) Edited By Brett Forsgren (1/14/2015 2:15:12 PM)
+
+I've checked the failures and they're all due to tests using hard-coded English strings.&amp;nbsp; The specific case mentioned below (AnalyzerErrorsAreUpdated) is due to the fact that loc strings get a prefix and a suffix so the string &amp;quot;!abcd!Unable to load Analyzer assembly !suffix!&amp;quot; understandable cannot be found in &amp;quot;!abcd!Unable to load Analyzer assembly &amp;lt;some assembly&amp;gt;!suffix!&amp;quot;.&amp;nbsp; The proper fix for that test would be for the String.Format() call to not pass 'Nothing' into the loc string, but rather pass the appropriate assembly path.
+
+&amp;nbsp;
+
+Moving bug to RTM since it's only tests that need to properly use the loc strings and not a product bug.
+
+---
+</Description>
+    <CreatedDate>24/02/2015</CreatedDate>
+    <ClosedDate>03/03/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>820</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Roslyn.Services.Editor.UnitTests.dll - 77 tests fail with Russian language set as primary with localized resources present</Title>
+    <Description>Ported from TFS WorkItem: **1101387**
+
+---
+
+**Repro Steps:**
+
+**Steps to reproduce (likely to&amp;nbsp;repro with other languages):**&lt;BR&gt;
+1. Follow three steps described at [http://windows.microsoft.com/en-us/windows-8/using-multiple-languages](http://windows.microsoft.com/en-us/windows-8/using-multiple-languages)&amp;nbsp;to install Russian language pack and make Russian the primary language.
+
+&amp;nbsp;
+1. Queue Main-PerCheckin-Debug build with pseudo localization for Russian language (go to the Parameters tab in the Queue Build dialog and change Localization Languages value to RUS)
+
+&amp;nbsp;
+1. Wait for the drop. Copy binaries to the machine prepared on step 1. Copy localize\RUS folder from the drop location next to the binaries and rename it to 'ru'. Verify that output of command line compilers is localized.
+
+&amp;nbsp;
+1. Run tests. I simply copy bits over to Binaries\Debug folder on the previous step and run 'test' script.
+
+&amp;nbsp;
+
+The test log is attached.
+
+---
+
+**Revisions:**
+
+1) Created By Aleksey Tsingauz (1/2/2015 10:16:39 AM)
+
+---
+
+2) Edited By Jason Malinowski (1/5/2015 3:11:13 PM)
+
+Looking through the log, these all appear to be test defects where the test needs to be updated to use the resource string in the asserted baseline. Marking CherryPick if we do have time to look at these.
+
+---
+</Description>
+    <CreatedDate>24/02/2015</CreatedDate>
+    <ClosedDate>03/03/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>699</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Signature help is missing generic parameters</Title>
+    <Description>Ported from TFS WorkItem: **1068424**
+
+---
+
+**Repro Steps:**
+
+**&lt;FONT size=3&gt;Repro Steps:&lt;/FONT&gt;**
+
+```
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Foo(""
+        }
+
+        static void Foo&lt;T&gt;(T a) { }
+        static void Foo&lt;T, U&gt;(T a, U b) { }
+   }
+}
+```
+
+&lt;FONT size=3&gt;Invoke Sig help for Foo(&lt;/FONT&gt;
+
+&lt;FONT size=3&gt;&amp;nbsp;
+
+&lt;FONT size=3&gt;**EXPECTED:**&lt;/FONT&gt;
+
+&amp;nbsp;
+
+We show Foo&amp;lt;string&amp;gt;(
+
+&amp;nbsp;
+
+&lt;FONT size=3&gt;**ACTUAL:**&lt;/FONT&gt;
+
+We show Foo&amp;lt;T&amp;gt;(
+
+&amp;nbsp;
+&lt;/FONT&gt;
+
+---
+
+**Revisions:**
+
+1) Created By Kayle Hinkle (10/22/2014 11:31:21 AM)
+
+Copied from [Bug 541322](x-mvwit:workitem/541322).
+
+---
+
+2) Edited By Kayle Hinkle (10/22/2014 11:31:31 AM)
+
+reported by Jason Freeman
+
+---
+
+3) Edited By Kevin Pilch-Bisson (10/23/2014 9:12:39 AM)
+
+This works as expected in quick info.&amp;nbsp; Are we using OriginalDefinition or something in SIgHelp now?
+
+---
+
+4) Edited By Kevin Pilch-Bisson (2/16/2015 12:28:41 PM)
+
+Do you still have the fix for this?
+
+---
+</Description>
+    <CreatedDate>19/02/2015</CreatedDate>
+    <ClosedDate>21/04/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>42</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Method generic type parameters are out of parameter list scope for 'nameof' expression</Title>
+    <Description>``` c#
+[A(nameof(U))] // ok
+class Test&lt;U&gt; {
+  void M&lt;T&gt;(
+    T t = default(T), // ok
+    string s = nameof(T) // error CS0103: The name 'T' does not exist in the current context
+  ) { }
+}
+
+class A : System.Attribute {
+    public A(string s) { }
+}
+```
+
+It compiles as expected in CTP4, but fails in current 'master'. Maybe related to #40.
+
+&lt;!---
+@huboard:{"order":2.8125,"milestone_order":42,"custom_state":""}
+--&gt;
+</Description>
+    <CreatedDate>19/01/2015</CreatedDate>
+    <ClosedDate>17/02/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>345</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Roslyn fails to diagnose static type as type argument, reports "Failed to emit module".</Title>
+    <Description>The following program should fail to compile (a static type is used as a type argument), but Roslyn does not diagnose the problem during binding and fails in emit with a useless diagnostic.
+
+```
+error CS7038: Failed to emit module 'CSharpSample1'.
+```
+
+``` cs
+using System;
+using System.Linq;
+using System.Runtime.CompilerServices;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        M(default(C));
+    }
+    public static void M&lt;T&gt;(T t)
+    {
+    }
+}
+
+static class C
+{
+}
+```
+
+&lt;!---
+@huboard:{"order":169.5}
+--&gt;
+</Description>
+    <CreatedDate>10/02/2015</CreatedDate>
+    <ClosedDate>18/02/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>511</IssueID>
+    <RepoID>1</RepoID>
+    <Title>C# Breaking change diagnosing constraint on static type as type arg in dynamic invocation</Title>
+    <Description>While fixing #345, I discovered that we had a breaking change. The following code passes the native compiler but fails to compile in Roslyn.
+
+``` cs
+static class S {}
+class C
+{
+    static unsafe void M()
+    {
+        dynamic d1 = 123;
+        d1.N&lt;S&gt;(); // The dev11 compiler does not diagnose this
+    }
+    static void Main() {}
+}
+```
+
+Although the language spec requires a diagnostic here, perhaps Roslyn should also let this pass.
+
+Whichever we do, this should be documented in the compiler spec.
+
+&lt;!---
+@huboard:{"order":586.25,"milestone_order":511,"custom_state":""}
+--&gt;
+</Description>
+    <CreatedDate>14/02/2015</CreatedDate>
+    <ClosedDate>22/02/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>306</IssueID>
+    <RepoID>1</RepoID>
+    <Title>String interpolation: new difference in dynamic/static overload resolution</Title>
+    <Description>``` c#
+using System;
+
+class Foo {
+    void M(object[] xs) {
+        IFormattable s1 = $"{null}"; // Create("{0}", new object[1])
+        IFormattable s2 = $"{xs}";   // Create("{0}", new object[] { xs })
+
+        dynamic nil = null, ys = xs;
+        IFormattable d1 = $"{nil}";  // Create("{0}", (object[]) null)
+        IFormattable d2 = $"{ys}";   // Create("{0}", (object[]) xs)
+    }
+}
+
+namespace System.Runtime.CompilerServices {
+    public static class FormattableStringFactory {
+        public static IFormattable Create(string format, params object[] xs) =&gt; null;
+    }
+}
+```
+
+Can this be solved with current `dynamic` codegen? Maybe with some flags...
+
+&lt;!---
+@huboard:{"order":6.375,"milestone_order":306,"custom_state":""}
+--&gt;
+</Description>
+    <CreatedDate>08/02/2015</CreatedDate>
+    <ClosedDate>09/02/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>308</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Internal compiler error: string interpolation + dynamic + expression trees</Title>
+    <Description>Continue of #306 story:
+
+``` c#
+using System;
+using System.Linq.Expressions;
+
+class Foo {
+    Expression&lt;Func&lt;string&gt;&gt; M(dynamic d) {
+        return () =&gt; $"Dynamic: {d}";
+    }
+}
+```
+
+&gt; Unexpected value 'Sequence' of type 'Microsoft.CodeAnalysis.CSharp.BoundKind'
+&gt; 
+&gt;    at Microsoft.CodeAnalysis.CSharp.ExpressionLambdaRewriter.VisitInternal(BoundExpression node)
+&gt;    at Microsoft.CodeAnalysis.CSharp.ExpressionLambdaRewriter.Visit(BoundExpression node)
+&gt;    at Microsoft.CodeAnalysis.CSharp.ExpressionLambdaRewriter.TranslateLambdaBody(BoundBlock block)
+&gt;    at Microsoft.CodeAnalysis.CSharp.ExpressionLambdaRewriter.VisitLambdaInternal(BoundLambda node)
+&gt;    at Microsoft.CodeAnalysis.CSharp.ExpressionLambdaRewriter.RewriteLambda(BoundLambda node, TypeCompilationState compilationState, TypeMap typeMap, DiagnosticBag diagnostics)
+&gt;    at Microsoft.CodeAnalysis.CSharp.LambdaRewriter.RewriteLambdaConversion(BoundLambda node)
+&gt;    at Microsoft.CodeAnalysis.CSharp.LambdaRewriter.VisitConversion(BoundConversion conversion)
+&gt;    at Microsoft.CodeAnalysis.CSharp.BoundConversion.Accept(BoundTreeVisitor visitor)
+&gt;    at Microsoft.CodeAnalysis.CSharp.BoundTreeVisitor.Visit(BoundNode node)
+&gt;    at Microsoft.CodeAnalysis.CSharp.BoundTreeRewriter.VisitReturnStatement(BoundReturnStatement node)
+&gt;    at Microsoft.CodeAnalysis.CSharp.BoundReturnStatement.Accept(BoundTreeVisitor visitor)
+&gt;    at Microsoft.CodeAnalysis.CSharp.BoundTreeVisitor.Visit(BoundNode node)
+&gt;    at Microsoft.CodeAnalysis.CSharp.BoundTreeRewriter.VisitSequencePoint(BoundSequencePoint node)
+&gt;    at Microsoft.CodeAnalysis.CSharp.BoundSequencePoint.Accept(BoundTreeVisitor visitor)
+&gt;    at Microsoft.CodeAnalysis.CSharp.BoundTreeVisitor.Visit(BoundNode node)
+&gt;    at Microsoft.CodeAnalysis.CSharp.LambdaRewriter.RewriteBlock(BoundBlock node, ArrayBuilder`1 prologue, ArrayBuilder`1 newLocals)
+&gt;    at Microsoft.CodeAnalysis.CSharp.LambdaRewriter.&lt;&gt;c__DisplayClass45_0.&lt;VisitBlock&gt;b__0(ArrayBuilder`1 prologue, ArrayBuilder`1 newLocals)
+&gt;    at Microsoft.CodeAnalysis.CSharp.LambdaRewriter.IntroduceFrame[T](BoundNode node, LambdaFrame frame, Func`3 F)
+&gt;    at Microsoft.CodeAnalysis.CSharp.LambdaRewriter.VisitBlock(BoundBlock node)
+&gt;    at Microsoft.CodeAnalysis.CSharp.BoundBlock.Accept(BoundTreeVisitor visitor)
+&gt;    at Microsoft.CodeAnalysis.CSharp.BoundTreeVisitor.Visit(BoundNode node)
+&gt;    at Microsoft.CodeAnalysis.CSharp.LambdaRewriter.Rewrite(BoundStatement loweredBody, NamedTypeSymbol thisType, ParameterSymbol thisParameter, MethodSymbol method, Int32 methodOrdinal, ArrayBuilder`1 lambdaDebugInfoBuilder, ArrayBuilder`1 closureDebugInfoBuilder, VariableSlotAllocator slotAllocatorOpt, TypeCompilationState compilationState, DiagnosticBag diagnostics, Boolean assignLocals)
+&gt;    at Microsoft.CodeAnalysis.CSharp.MethodCompiler.LowerBodyOrInitializer(MethodSymbol method, Int32 methodOrdinal, BoundStatement body, SynthesizedSubmissionFields previousSubmissionFields, TypeCompilationState compilationState, DiagnosticBag diagnostics, VariableSlotAllocator&amp; lazyVariableSlotAllocator, ArrayBuilder`1 lambdaDebugInfoBuilder, ArrayBuilder`1 closureDebugInfoBuilder, StateMachineTypeSymbol&amp; stateMachineTypeOpt)
+&gt;    at Microsoft.CodeAnalysis.CSharp.MethodCompiler.CompileMethod(MethodSymbol methodSymbol, Int32 methodOrdinal, ProcessedFieldInitializers&amp; processedInitializers, SynthesizedSubmissionFields previousSubmissionFields, TypeCompilationState compilationState)
+&gt;    at Microsoft.CodeAnalysis.CSharp.MethodCompiler.CompileNamedType(NamedTypeSymbol symbol)
+&gt;    at Microsoft.CodeAnalysis.CSharp.MethodCompiler.&lt;&gt;c__DisplayClass21_0.&lt;CompileNamedTypeAsTask&gt;b__0()
+&gt;    at Roslyn.Utilities.UICultureUtilities.&lt;&gt;c__DisplayClass5_0.&lt;WithCurrentUICulture&gt;b__0()
+
+&lt;!---
+@huboard:{"order":4.25,"milestone_order":308,"custom_state":""}
+--&gt;
+</Description>
+    <CreatedDate>08/02/2015</CreatedDate>
+    <ClosedDate>09/02/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>57</IssueID>
+    <RepoID>1</RepoID>
+    <Title>SimpleDiagnostic GetHashCode is inconsistent</Title>
+    <Description>To make Microsoft.CodeAnalysis.Diagnostic work with Sets and other data structures that requires GetHashCode to be implemented correctly you have to have a GetHashCode method with this property:  
+`x.Equals(y) \implies x.GetHashCode() == y.GetHashCode() \forall x,y`
+
+Currently SimpleDiagnostic's GetHashCode combines the hash codes of its properties including a GetHashCode on the object[] messageArgs which is using the reference to that array, not its contents to generate the hash code. Equals however is comparing the objects in the array (using Enumerable.SequenceEqual) . So currently you can have two diagnostics that are Equal in terms of IEquatable&lt;Diagnostic&gt;.Equals but with GetHashCode returning different values.
+http://source.roslyn.codeplex.com/#Microsoft.CodeAnalysis/Diagnostic/Diagnostic_SimpleDiagnostic.cs,134
+http://source.roslyn.codeplex.com/#Microsoft.CodeAnalysis/Diagnostic/Diagnostic_SimpleDiagnostic.cs,120
+
+&lt;!---
+@huboard:{"order":326.875,"milestone_order":57,"custom_state":""}
+--&gt;
+</Description>
+    <CreatedDate>22/01/2015</CreatedDate>
+    <ClosedDate>11/02/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>38</IssueID>
+    <RepoID>1</RepoID>
+    <Title>Grammar issue in SourceTextContainer exception message</Title>
+    <Description>`TextEditorResources.TextcontainerIsNotAnSource` in EditorFeatures.Text reads
+
+&gt; textContainer is not an SourceTextContainer that was created from an ITextBuffer.
+
+That should be `a`, not `an`.  (I assume it used to be an interface)
+</Description>
+    <CreatedDate>19/01/2015</CreatedDate>
+    <ClosedDate>17/02/2015</ClosedDate>
+  </Issue>
+  <Issue>
+    <IssueID>295</IssueID>
+    <RepoID>1</RepoID>
+    <Title>SyntaxGenerator.AsPublicInterfaceImplementation doesn't set the accessibility to public in VB</Title>
+    <Description>Repro:
+
+``` csharp
+SyntaxGenerator generator = SyntaxGenerator.GetGenerator(document);
+var method = generator.MethodDeclaration("Test");
+method = generator.AsPublicInterfaceImplementation(method, generator.IdentifierName("IDisposable"));
+var acc = generator.GetAccessibility(method);
+```
+
+In VB, the method gets the Implements clause but is not made public. In C#, the method is made public.
+</Description>
+    <CreatedDate>07/02/2015</CreatedDate>
+    <ClosedDate>10/02/2015</ClosedDate>
+  </Issue>
+</Issues>

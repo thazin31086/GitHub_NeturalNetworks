@@ -1,0 +1,740 @@
+<PullRequests>
+  <PullRequest>
+    <PullRequestID>38348</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Bind some syntax nodes even in error recovery scenarios.</Title>
+    <PullRequestDescription>Fixes #27060</PullRequestDescription>
+    <CreatedDate>28/08/2019</CreatedDate>
+    <ClosedDate>31/08/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>38232</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>A switch expression only has a common type if all arms can be converted to that type.</Title>
+    <PullRequestDescription>Fixes #38226</PullRequestDescription>
+    <CreatedDate>23/08/2019</CreatedDate>
+    <ClosedDate>12/09/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>38196</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>When a synthetic ref local is captured, variables referenced in its initializer must be captured too</Title>
+    <PullRequestDescription>Fixes #36443</PullRequestDescription>
+    <CreatedDate>21/08/2019</CreatedDate>
+    <ClosedDate>30/08/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>38177</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Prevent static local functions from capturing local functions</Title>
+    <PullRequestDescription>Fixes https://github.com/dotnet/roslyn/issues/38129.
+
+Also fixes a typo in a comment that I found when looking for tests that check for CS8421.</PullRequestDescription>
+    <CreatedDate>21/08/2019</CreatedDate>
+    <ClosedDate>22/08/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>38135</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Give LangVersion error when type is generic due to parent type</Title>
+    <PullRequestDescription>Closes #38105</PullRequestDescription>
+    <CreatedDate>20/08/2019</CreatedDate>
+    <ClosedDate>20/08/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>38113</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Give LangVersion error when type is generic due to containing type</Title>
+    <PullRequestDescription>Closes #38105
+</PullRequestDescription>
+    <CreatedDate>19/08/2019</CreatedDate>
+    <ClosedDate>20/08/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>38037</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>TypeImportCompletionItem.GetCompletionDescriptionAsync should not return null</Title>
+    <PullRequestDescription>Fixes https://github.com/dotnet/roslyn/issues/36381
+At least I could not find other provider returning null.
+
+@genlu please let me know if you see an option to add a unit test here.</PullRequestDescription>
+    <CreatedDate>15/08/2019</CreatedDate>
+    <ClosedDate>16/08/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>38014</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Fix crash in nullable Equals analysis</Title>
+    <PullRequestDescription>Closes #38010.
+
+/cc @agocke
+
+This fixes a crash when we successfully resolve the overload of the Equals method being called but there are not enough arguments to it. In practice this means that only object.ReferenceEquals which is not overloaded would crash VS. Also fixes the same issue in CompareExchange analysis which could crash if it was only declared it with one overload.</PullRequestDescription>
+    <CreatedDate>15/08/2019</CreatedDate>
+    <ClosedDate>16/08/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>37915</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Reduce memory consumption for string concatenation from O(n^2) to O(n)</Title>
+    <PullRequestDescription>Fixes #7398
+Fixes #37572
+Relates to https://github.com/aspnet/Razor/issues/614 and many other customer accomodations that are no longer needed.
+
+History of this bug:  When constant folding a long sequence of string concatentations, there is an intermediate constant value for every left-hand operand.  So the total memory consumed to compute the whole concatenation was *O(n^2)*.  The compiler would simply perform this work and eventually run out of memory, simply crashing with no useful diagnostic.  Later, the concatenation implementation was instrumented so it would detect when it was likely to run out of memory soon, and would instead report a diagnostic at the last step. See https://github.com/dotnet/roslyn/commit/f177077665a5bef862014f1898b961d1759c9248.  Test `Bug529600()` was added to demonstrate that we produced a diagnostic.  However, the compiler still consumed *O(n^2)* memory for the concatenation and this test used to consume so much memory that it would cause other tests running in parallel to fail because they might not have enough memory to succeed.  So the test was disabled and eventually removed.  The compiler would still crash with programs containing large string concatenations, or consume huge amounts of memory and take a long time before reporting a diagnostic, so the underlying problem had not been addressed.
+
+Here we have revised the implementation of constant folding string concatenations so that it requires *O(n)* memory and remove the old instrumentation.  As a consequence the test `Bug529600()` now runs very quickly and does not consume gobs of memory.
+</PullRequestDescription>
+    <CreatedDate>12/08/2019</CreatedDate>
+    <ClosedDate>15/08/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>37818</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Handle hoisted temporary variables of the switch expression pattern-matching machinery.</Title>
+    <PullRequestDescription>Fixes #37713
+
+Note that before this bug fix we produce bad code for the added tests (we fail to hoist a needed temp or hoist a restricted type).
+</PullRequestDescription>
+    <CreatedDate>07/08/2019</CreatedDate>
+    <ClosedDate>20/08/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>37772</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Eliminate host dependence for constant folding floating-point to integral conversions.</Title>
+    <PullRequestDescription>Fixes #37527
+</PullRequestDescription>
+    <CreatedDate>06/08/2019</CreatedDate>
+    <ClosedDate>30/08/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>37691</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>UniqueItem is not triggered when completion is initiated by backspace</Title>
+    <PullRequestDescription>Fixes https://github.com/dotnet/roslyn/issues/37231</PullRequestDescription>
+    <CreatedDate>03/08/2019</CreatedDate>
+    <ClosedDate>09/08/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>37493</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Don't drop a token passed to a syntax factory method.</Title>
+    <PullRequestDescription>Fixes #37467
+
+@dotnet/roslyn-compiler May I please have a couple of reviews for this one-line bug fix for 16.3?
+</PullRequestDescription>
+    <CreatedDate>26/07/2019</CreatedDate>
+    <ClosedDate>26/07/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>37450</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Fix region tracking for regions with local functions</Title>
+    <PullRequestDescription>Fixes #37427
+
+/cc @agocke
+@CyrusNajmabadi I suspect this will address the anomaly you are seeing in your PR.</PullRequestDescription>
+    <CreatedDate>24/07/2019</CreatedDate>
+    <ClosedDate>26/07/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>37095</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>fix for insert a new line on pressing Enter if the suggested word was typed completely</Title>
+    <PullRequestDescription>fixes https://github.com/dotnet/roslyn/issues/37082
+
+Scenario:
+1. The CompletionOptions.EnterKeyBehavior option is set to EnterKeyRule.AfterFullyTypedWord
+2. Start completion and type the full word (like the whole `Length`).
+3. Type Enter
+
+**Expected**
+The item has been committed and a new line has been added.
+
+**Actual**
+The item has been committed and **no** new line has been added.</PullRequestDescription>
+    <CreatedDate>10/07/2019</CreatedDate>
+    <ClosedDate>30/07/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>36940</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Hang on applying code action on a single unopened file</Title>
+    <PullRequestDescription>Fixes https://github.com/dotnet/roslyn/issues/36938
+
+`Microsoft.CodeAnalysis.EditorFeatures.Wpf.dll!Microsoft.CodeAnalysis.Editor.Implementation.Suggestions.SuggestedAction.InvokeWorker(System.Func&lt;Microsoft.CodeAnalysis.Document&gt; getFromDocument, Microsoft.CodeAnalysis.Shared.Utilities.IProgressTracker progressTracker, System.Threading.CancellationToken cancellationToken) `
+calls
+`EditHandler.Apply(Async)`
+
+ApplyAsync has the only asynchronous call to 
+```
+// ConfigureAwait(true) so we come back to the same thread as 	                
+// we do all application on the UI thread.
+var text = await singleChangedDocument.GetTextAsync(cancellationToken).ConfigureAwait(true);
+```
+which could lead to a deadlock with the caller.
+  </PullRequestDescription>
+    <CreatedDate>02/07/2019</CreatedDate>
+    <ClosedDate>03/07/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>36678</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Don't treat zero-length deconstruction as an error when binding patterns.</Title>
+    <PullRequestDescription>Fixes #36496
+
+This is a tiny bug fix for a compiler "crash".
+@dotnet/roslyn-compiler Please review.
+</PullRequestDescription>
+    <CreatedDate>21/06/2019</CreatedDate>
+    <ClosedDate>28/06/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>36669</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Guard against runaway parsing of the switch expression arms.</Title>
+    <PullRequestDescription>Fixes #36427
+In DEBUG builds it will fail an assertion in offending scenarios allowing us to diagnose the underlying issue.
+There are no tests as I do not know how to reproduce the customer-reported issue.
+But the stack trace suggests that this change is likely to paper over the symptoms until diagnosed.</PullRequestDescription>
+    <CreatedDate>21/06/2019</CreatedDate>
+    <ClosedDate>21/06/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>36640</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Intellisense changes existing, correct variable to differently capitalized type of the same name</Title>
+    <PullRequestDescription>Fixes https://github.com/dotnet/roslyn/issues/36513
+
+```
+void M()
+{
+        Structure structure;
+        structure.$$
+}
+```
+Typing backspace at $$ starts completion for `structure`. It should prefer the one matches the case of the text already typed, i.e. `structure` rather than `Structure`. 
+
+We have the issue in the old completion as well. Thank you, @mqudsi for pointing to this!</PullRequestDescription>
+    <CreatedDate>21/06/2019</CreatedDate>
+    <ClosedDate>24/06/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>36542</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>For To Foreach Bug CS1656</Title>
+    <PullRequestDescription>Fixes https://github.com/dotnet/roslyn/issues/36506</PullRequestDescription>
+    <CreatedDate>18/06/2019</CreatedDate>
+    <ClosedDate>09/07/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>36331</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>completion: CTRL+Space is not applicable in Delete/Backspace triggered session</Title>
+    <PullRequestDescription>Fixes https://github.com/dotnet/roslyn/issues/35301</PullRequestDescription>
+    <CreatedDate>11/06/2019</CreatedDate>
+    <ClosedDate>18/06/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>36293</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>IntelliSense not shown for overloaded methods, one with enums</Title>
+    <PullRequestDescription>Fixes https://github.com/dotnet/roslyn/issues/36187</PullRequestDescription>
+    <CreatedDate>11/06/2019</CreatedDate>
+    <ClosedDate>11/06/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>36040</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>supporting types from params in intellisense</Title>
+    <PullRequestDescription>Fixes https://github.com/dotnet/roslyn/issues/36029</PullRequestDescription>
+    <CreatedDate>29/05/2019</CreatedDate>
+    <ClosedDate>03/06/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>35962</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title> crash on ClassifyUpdate for EventFields</Title>
+    <PullRequestDescription>Fixes https://github.com/dotnet/roslyn/issues/32889</PullRequestDescription>
+    <CreatedDate>25/05/2019</CreatedDate>
+    <ClosedDate>18/06/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>35878</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Fix #33560 Handle tokens being equal for same line</Title>
+    <PullRequestDescription>Fixes #33560 - If tokens are equal (i.e. a single token), then directly check for line break. </PullRequestDescription>
+    <CreatedDate>22/05/2019</CreatedDate>
+    <ClosedDate>05/06/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>35780</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Elide an emit optimization that produces bad code near a stackalloc.</Title>
+    <PullRequestDescription>Fixes #35764
+Also fix the type of a bound node (argument to a ctor) so it agrees with the corresponding parameter.
+
+@jcouv @jaredpar Should this be patched on some other branch?
+</PullRequestDescription>
+    <CreatedDate>17/05/2019</CreatedDate>
+    <ClosedDate>21/05/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>35664</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Fix bug where pattern-matching treats a type parameter as if it is a reference (which it might not be)</Title>
+    <PullRequestDescription>Fixes #35584
+
+@agocke @cston @jcouv for review.  This is a serious bad-code-gen regression and should be fixed in 16.1.  I'm not certain that I am targeting the correct branch.
+
+**Customer and scenario info**
+
+**Who is impacted by this bug?**
+Customers who use pattern-matching in C# 7 in VS2019.
+
+**What is the customer scenario and impact of the bug?**
+The scenario is a pattern-matching operation where the input is a type parameter and it is being matched into a variable of type `object` or some reference base type of the type parameter.  The compiler produces unverifiable code, omitting a necessary `box` instruction on the input.  This causes a runtime crash when the type parameter is instantiated with a value type.
+
+**What is the workaround?**
+None
+
+**How was the bug found?**
+Customer-reported
+
+**If this fix is for a regression - what had regressed, when was the regression introduced, and why was the regression originally missed?**
+
+This is a regression in VS2019 versus previous VS2017.  We rewrote the code generation for pattern-matching from scratch in VS2019 in order to add other (experimental for C# 8) pattern-matching features, and this particular interaction was missed in testing.  The test gap is fixed here.
+
+Dual-checkin for 16.2p1: https://github.com/dotnet/roslyn/pull/35709
+VSTS issue for ask-mode: https://devdiv.visualstudio.com/DevDiv/_workitems/edit/892715</PullRequestDescription>
+    <CreatedDate>11/05/2019</CreatedDate>
+    <ClosedDate>14/05/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>35463</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Fix lambda lowering for cast to generic ReadOnlySpan&lt;T&gt;</Title>
+    <PullRequestDescription>Fixes #31685
+
+The problem to be solved is to generate good code for
+``` c#
+ReadOnlySpan&lt;byte&gt; s = new byte[] { 1, 2, 3 };
+```
+
+There is an implicit conversion operator declared in `ReadOnlySpan&lt;T&gt;` that converts from `T[]` to `ReadOnlySpan&lt;T&gt;`.  However, in the particular case above we would like to elide creation of the array and create a read-only span that wraps the underlying data in the assembly.  There are primitives for doing this.
+
+This was previously done in the compiler by eliding the lowering of the conversion to a bound call.  Lowering would instead preserve the user-defined conversion in the tree.  Then, in emit we would recognize that particular conversion and either perform the optimization if possible, or simply produce a call to the conversion method.  However, that had an unfortunate side-effect (bug), which this PR addresses.
+
+Normally, the lowering phase would translate an invocation of a user-defined conversion operator into a `BoundCall`.  Subsequent phases of the compiler that need to rewrite symbols (such as lambda lowering and iterator rewriting, when the enclosing method is generic) would inherit the proper handling of rewriting symbols from the bound tree rewriter that is generated from `BoundNodes.xml`.  Unfortunately, the symbol appearing inside the conversion is not rewritten by that generated code, and there is no simple way to make it do so.  The bug report #31685 describes symptoms of this underlying issue.
+
+There are a number of approaches one could take to address this issue:
+1. Attempt to rehabilitate the original approach by extending the generated rewriter to handle conversions that may contain symbols.  That would require extending a few internal APIs and the bound tree rewriter.
+2. Have the emit phase recognize a call to this particular conversion operator, and perform the optimization on that basis.
+3. Add a new `BoundNode` that represents this particular optimizable pattern (which we would lower to), and let the generated bound node rewriter handle the contained symbol in subsequent phases where needed.
+
+The approach here takes the third approach.  We back out the implementation of the optimization and add a new implementation based on a newly added bound node.
+</PullRequestDescription>
+    <CreatedDate>03/05/2019</CreatedDate>
+    <ClosedDate>07/05/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>35411</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Use more robust initialization for TypeWithAnnotations.Builder (#35373)</Title>
+    <PullRequestDescription>(cherry picked from commit c421f1249d1c2ba94e7703037ec49b4341f3b9f4)</PullRequestDescription>
+    <CreatedDate>01/05/2019</CreatedDate>
+    <ClosedDate>01/05/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>35148</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Add version check to enable the pattern-based Index &amp; Range indexers</Title>
+    <PullRequestDescription>This is a "forward compatibility" bug, where a user could write code in an older language version that works when it should have failed, thus causing them to accidentally break users on older compiler versions.</PullRequestDescription>
+    <CreatedDate>19/04/2019</CreatedDate>
+    <ClosedDate>20/04/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>35120</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Fix sorting of import completion items</Title>
+    <PullRequestDescription>Make sure type with shorter name shows first, e,g, `SomeType` before `SomeTypeWithLongerName`. Current implementation would show "SomeTypeWithLongerName" first.
+
+
+Thanks @Dreamescaper for dogfooding and reporting the issue :)
+
+@dotnet/roslyn-ide @CyrusNajmabadi 
+</PullRequestDescription>
+    <CreatedDate>18/04/2019</CreatedDate>
+    <ClosedDate>22/04/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>35067</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Intellisense broken inside of methods that have delegates as arguments</Title>
+    <PullRequestDescription>Fix https://github.com/dotnet/roslyn/issues/35027</PullRequestDescription>
+    <CreatedDate>17/04/2019</CreatedDate>
+    <ClosedDate>19/04/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>35014</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Fix regression for switching on a constant value</Title>
+    <PullRequestDescription>We made a change in #32818 to restore compatibility with C# 7.x
+in rejecting certain switch statements even when we could prove
+completeness with the new switch analysis. It looks like that
+change just went a little too far, as we could do the analysis
+if the argument to the switch expression was a constant. This
+change removes the compat clause for switches with constant
+values
+
+Fixes #35011</PullRequestDescription>
+    <CreatedDate>16/04/2019</CreatedDate>
+    <ClosedDate>17/04/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>34988</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Regex Completion + Async Completion = Failure to trigger on `[` in VB</Title>
+    <PullRequestDescription>Fix https://github.com/dotnet/roslyn/issues/33852</PullRequestDescription>
+    <CreatedDate>15/04/2019</CreatedDate>
+    <ClosedDate>19/04/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>34920</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Switch on enum type nested in generic type produces LangVersion error</Title>
+    <PullRequestDescription>Fixes #34905
+
+This change was already reviewed for dev16.1-preview2 and integrated there.  I am cherry picking it for the master branch.
+</PullRequestDescription>
+    <CreatedDate>10/04/2019</CreatedDate>
+    <ClosedDate>11/04/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>34911</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Switch on enum type nested in generic type produces LangVersion error</Title>
+    <PullRequestDescription>Fixes #34905
+
+@dotnet/roslyn-compiler This is a fix for a serious regression that would be introduced in 16.1p2 (mea culpa) if not for this bug fix.
+</PullRequestDescription>
+    <CreatedDate>10/04/2019</CreatedDate>
+    <ClosedDate>10/04/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>34657</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Async Completion - Ctrl+Space isn't filtering the list (when non-unique)</Title>
+    <PullRequestDescription>Fix https://github.com/dotnet/roslyn/issues/34601</PullRequestDescription>
+    <CreatedDate>01/04/2019</CreatedDate>
+    <ClosedDate>04/04/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>34316</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Check reachability when looking at uninitialized non-null fields</Title>
+    <PullRequestDescription>If the end of a constructor is unreachable we shouldn't warn about
+fields which are uninitialized at the end.
+
+Fixes #25529</PullRequestDescription>
+    <CreatedDate>21/03/2019</CreatedDate>
+    <ClosedDate>02/04/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>34292</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Don't track uninitialized non-null struct fields</Title>
+    <PullRequestDescription>It's already an error to fail to initialize a field of a struct, so
+this warning is just a duplication of a more serious error condition
+
+Fixes #30022</PullRequestDescription>
+    <CreatedDate>20/03/2019</CreatedDate>
+    <ClosedDate>20/03/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>34266</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Completion gets in the way attempting to line up arguments</Title>
+    <PullRequestDescription>Fixes https://github.com/dotnet/roslyn/issues/34237</PullRequestDescription>
+    <CreatedDate>19/03/2019</CreatedDate>
+    <ClosedDate>26/03/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>34219</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Report uninitialized fields on field if ctor is default</Title>
+    <PullRequestDescription>It's not clear that reporting warnings for unitialized non-null fields
+on the field location is better in all cases (instead of the ctor) but
+it seems a Pareto improvement for default constructors, specifically.
+
+Fixes #32444</PullRequestDescription>
+    <CreatedDate>18/03/2019</CreatedDate>
+    <ClosedDate>20/03/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>34174</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Do not skip emit if errors are suppressed</Title>
+    <PullRequestDescription>In the command line compilation we try to discover when to stop the
+compilation stages based on if an error is produced. If the error was
+produced by /warnaserror, then suppressed, this should not be considered
+a compilation-halting error.
+
+Fixes #34101</PullRequestDescription>
+    <CreatedDate>15/03/2019</CreatedDate>
+    <ClosedDate>19/03/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>34050</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Specify RuntimeIdentifiers for CompilerBenchmarks</Title>
+    <PullRequestDescription>Fixes Error NETSDK1047 Assets file 'C:\dev\roslyn\artifacts\obj\CompilerBenchmarks\project.assets.json' doesn't have a target for '.NETCoreApp,Version=v2.1/win-x64'. Ensure that restore has run and that you have included 'netcoreapp2.1' in the TargetFrameworks for your project. You may also need to include 'win-x64' in your project's RuntimeIdentifiers.</PullRequestDescription>
+    <CreatedDate>12/03/2019</CreatedDate>
+    <ClosedDate>13/03/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>34021</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>The default label is considered reachable in a traditional switch statement</Title>
+    <PullRequestDescription>This fixes a compatibility bug (the new compiler complains about unreachable code, but if you remove it the old compiler complains about a switch fall-through).
+
+Fixes #33783</PullRequestDescription>
+    <CreatedDate>11/03/2019</CreatedDate>
+    <ClosedDate>12/03/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>33899</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Disable VirtualMemoryNotificationListener for Server GC</Title>
+    <PullRequestDescription>
+    </PullRequestDescription>
+    <CreatedDate>06/03/2019</CreatedDate>
+    <ClosedDate>06/03/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>33875</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Completion does not work in the Immediate Window after expression evaluation</Title>
+    <PullRequestDescription>Fixes https://devdiv.visualstudio.com/DevDiv/_workitems/edit/809625
+Fixes https://developercommunity.visualstudio.com/content/problem/478452/intellisense-in-immediate-window-does-not-work-sec.html</PullRequestDescription>
+    <CreatedDate>05/03/2019</CreatedDate>
+    <ClosedDate>06/03/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>33870</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Regression test for suppression on ref-returns</Title>
+    <PullRequestDescription>Verifies that the current implementation matches the latest
+LDM decisions on nullable suppression and out variables
+
+Closes #27522</PullRequestDescription>
+    <CreatedDate>05/03/2019</CreatedDate>
+    <ClosedDate>05/03/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>33745</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>16.0 Preview 4. Up and down key do not work for editor if the old completion is turned on</Title>
+    <PullRequestDescription>Fixes: https://github.com/dotnet/roslyn/issues/33744
+</PullRequestDescription>
+    <CreatedDate>28/02/2019</CreatedDate>
+    <ClosedDate>01/03/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>33697</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Correct parsing of a parenthesized constant pattern expression in switch expression arm</Title>
+    <PullRequestDescription>Fixes #33675
+</PullRequestDescription>
+    <CreatedDate>26/02/2019</CreatedDate>
+    <ClosedDate>11/03/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>33682</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Roslyn recommends hard selection in async completion, breaking suggetion mode</Title>
+    <PullRequestDescription>Fixes https://devdiv.visualstudio.com/DevDiv/_workitems/edit/787151</PullRequestDescription>
+    <CreatedDate>26/02/2019</CreatedDate>
+    <ClosedDate>27/02/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>33666</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>async completion: eats existing code on commit</Title>
+    <PullRequestDescription>Fixes #33626</PullRequestDescription>
+    <CreatedDate>25/02/2019</CreatedDate>
+    <ClosedDate>27/02/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>33588</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>F# Typing '.' after fully typing out a symbol does not trigger completion</Title>
+    <PullRequestDescription>### Customer scenario
+Typing `System.` in F#
+
+**Expected**
+Have a completion for dot
+
+**Actual**
+Have no completion for dot
+
+![image](https://user-images.githubusercontent.com/5455484/53211839-7f460400-35f7-11e9-8cc3-fa663c4c9e13.png)
+
+### Bugs this fixes
+https://github.com/Microsoft/visualfsharp/issues/6266
+
+### Workarounds, if any
+None
+
+### Risk
+Low
+
+### Performance impact
+None
+
+### Is this a regression from a previous update?
+None
+
+### Root cause analysis
+Dot (as some other characters) is a potential commit character in F# but it is removed from actual commit characters. Roslyn does not provide a correct support for such situations in the new completion because Roslyn does not have such cases in C# and VB. Priorities of Commit vs Filter differ between the old completion and the new completion. This causes the issue.
+
+### How was the bug found?
+Internal customers</PullRequestDescription>
+    <CreatedDate>22/02/2019</CreatedDate>
+    <ClosedDate>27/02/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>33494</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Convert to struct has errors on uninitiated members</Title>
+    <PullRequestDescription>### Customer scenario
+1. Have code
+
+```cs
+public class Class
+{
+    void MyMethod()
+    {
+        var tuple = (3, "string");
+    }
+```
+
+2. Place cursor before open parenthesis and type (Ctrl+.) to open codefixes
+3. Choose "convert to struct" and run the refactoring.
+
+**Expected**
+The code generated is valid.
+
+**Actual**
+The code generated is invalid: it misses definitions for fields corresponding to non-named in the tuple such as Item1, Item2 and so on.
+
+### Bugs this fixes
+#33407
+
+### Workarounds, if any
+Manually add code for those fields.
+
+### Risk
+Low
+
+### Performance impact
+None
+
+### Is this a regression from a previous update?
+This is a new feature just added. It was added with this defect.
+
+### Root cause analysis
+Test cases actually covered the situation but code provided in those tests cases contained errors. We may need to consider adding a validation of code generated in test scenarios.
+
+### How was the bug found?
+Internal customers</PullRequestDescription>
+    <CreatedDate>19/02/2019</CreatedDate>
+    <ClosedDate>21/02/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>33401</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Changes are not allowed while code is running shows while ENC about VB framework app</Title>
+    <PullRequestDescription>Fixes https://github.com/dotnet/roslyn/issues/32247</PullRequestDescription>
+    <CreatedDate>14/02/2019</CreatedDate>
+    <ClosedDate>15/02/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>33300</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Bad code for consecutive interface type tests with a when clause in a switch (dev16.0)</Title>
+    <PullRequestDescription>Fixes #32774
+
+This was previously reviewed and approved by reviewers at #32808
+
+See also https://devdiv.visualstudio.com/DevDiv/_workitems/edit/792969 for shiproom purposes.
+
+/cc @jaredpar </PullRequestDescription>
+    <CreatedDate>11/02/2019</CreatedDate>
+    <ClosedDate>15/02/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>33279</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Fix parsing regression of expressions involving parens when used as a case expression or a constant pattern.</Title>
+    <PullRequestDescription>- Fix parsing regression of expressions involving parens when used as a case expression or a constant pattern.
+Fixes #33054
+Fixes #33208
+- Incidentally also correct and test the precedence of the switch expression
+See https://github.com/dotnet/csharplang/blob/master/proposals/patterns.md#switch-expression for the spec.
+- Fix terminology to match the spec - "conditional expression" rather than "ternary expression".
+
+See also https://devdiv.visualstudio.com/DevDiv/_workitems/edit/792975 for shiproom purposes.
+
+@dotnet/roslyn-compiler May I please have a couple of reviews of this parsing regression?
+</PullRequestDescription>
+    <CreatedDate>11/02/2019</CreatedDate>
+    <ClosedDate>15/02/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>33196</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>completion and signature help ordering</Title>
+    <PullRequestDescription>fixes https://github.com/dotnet/roslyn/issues/32940</PullRequestDescription>
+    <CreatedDate>07/02/2019</CreatedDate>
+    <ClosedDate>21/02/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>32818</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Simulate the C# 7 compiler's behavior on traditional switch statements with old language versions</Title>
+    <PullRequestDescription>Fixes #32806
+This was a "forward compatibility" bug, where new compilers would accept code in old language versions that the older compilers would not have accepted.</PullRequestDescription>
+    <CreatedDate>26/01/2019</CreatedDate>
+    <ClosedDate>29/01/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>32808</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Bad code for consecutive interface type tests with a when clause in a switch</Title>
+    <PullRequestDescription>Fixes #32774
+
+@dotnet/roslyn-compiler May I please have a couple of reviews for this bad code fix targeting preview 3?
+</PullRequestDescription>
+    <CreatedDate>25/01/2019</CreatedDate>
+    <ClosedDate>09/02/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>32771</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Merge master into features/nested-stackalloc</Title>
+    <PullRequestDescription>
+    </PullRequestDescription>
+    <CreatedDate>25/01/2019</CreatedDate>
+    <ClosedDate>29/01/2019</ClosedDate>
+  </PullRequest>
+  <PullRequest>
+    <PullRequestID>32449</PullRequestID>
+    <RepoID>1</RepoID>
+    <Title>Make array Range indexer expression an rvalue</Title>
+    <PullRequestDescription>Fixes #31889</PullRequestDescription>
+    <CreatedDate>14/01/2019</CreatedDate>
+    <ClosedDate>17/01/2019</ClosedDate>
+  </PullRequest>
+</PullRequests>
