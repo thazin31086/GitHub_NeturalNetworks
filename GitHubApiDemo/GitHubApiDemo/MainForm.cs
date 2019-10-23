@@ -217,6 +217,7 @@ namespace GitHubApiDemo
             {
                 EndWork("Operation failed.");
                 return;
+
             }
 
             detailPropertyGrid.SelectedObject = new TypeBroker(fullDetail);
@@ -552,7 +553,7 @@ namespace GitHubApiDemo
                     if (dialog.ShowDialog(this) == DialogResult.OK)
                     {
                         CreateClient(dialog.Credentials);
-                       GetIssueDetails();
+                       //GetIssueDetails();
                     }
                     else
                     {
@@ -705,7 +706,7 @@ namespace GitHubApiDemo
                     #region Issues 
 
                     XmlDocument xmlDoc = new XmlDocument();
-                    xmlDoc.Load("C:\\PhD\\Workbrench\\GitHub_NeturalNetworks\\Datasets\\IssueDetailscorefx_Single_20102019.xml");
+                    xmlDoc.Load("C:\\PhD\\Workbrench\\GitHub_NeturalNetworks\\Datasets\\IssueDetailsRoslyn_23102019.xml");
                     XmlNode rootNode = xmlDoc["IssueDetails"];
 
                     foreach (var item in issueslists)
@@ -810,7 +811,7 @@ namespace GitHubApiDemo
 
                     }
 
-                    xmlDoc.Save("C:\\PhD\\Workbrench\\GitHub_NeturalNetworks\\Datasets\\IssueDetailscorefx_Single_20102019.xml");
+                    xmlDoc.Save("C:\\PhD\\Workbrench\\GitHub_NeturalNetworks\\Datasets\\IssueDetailsRoslyn_23102019_5.xml");
                     MessageBox.Show("Done");
                     #endregion Issues
                 }
