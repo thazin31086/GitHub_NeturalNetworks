@@ -110,8 +110,7 @@ namespace GitHubApiDemo
 		/// Create a searcher.
 		/// </summary>
 		/// <returns>The searcher that is created.</returns>
-		public override Searcher CreateSearcher(
-            GitHubClient client, int maximumCount)
+		public override Searcher CreateSearcher( GitHubClient client, int maximumCount)
 		{
 			previous = this;
 			return new CodeSearcher(client, maximumCount, CreateRequest());

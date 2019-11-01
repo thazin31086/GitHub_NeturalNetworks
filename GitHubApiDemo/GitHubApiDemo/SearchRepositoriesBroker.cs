@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Drawing.Design;
 using Octokit;
-
+using System;
 namespace GitHubApiDemo
 {
 	/// <summary>
@@ -116,7 +116,28 @@ namespace GitHubApiDemo
 		public override Searcher CreateSearcher(GitHubClient client, int maximumCount)
         {
 			previous = this;
-			return new RepositorySearcher(client, maximumCount, CreateRequest());
+            
+            List<DateTime> dates = new List<DateTime>(); 
+            int year = 2015; 
+          
+            while(year < 2020){
+                int i = 1; 
+                while(i < 13){
+                    dates.Add(new DateTime(year,i,1));
+                    i++;
+                };
+                year++;
+            }
+
+            var request = CreateRequest();
+            foreach(var d in dates)
+            {                 
+                DateRange range = new DateRange(d,new DateTime(d.Year,d.Month,1).AddMonths(1).AddDays(-1));
+                request.Created = range;
+			    var result =  new RepositorySearcher(client, maximumCount, request);
+            }
+           // return new RepositorySearcher(client, maximumCount, request);
+           throw new NotImplementedException();
 		}
 
 		/// <summary>

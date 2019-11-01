@@ -106,6 +106,7 @@ namespace GitHubApiDemo
         /// Gets the type of entity that is the target of this search.
         /// </summary>
         public abstract string Type { get; }
+
         #endregion // Properties
 
         #region Public methods
@@ -396,7 +397,7 @@ namespace GitHubApiDemo
                 #region Issues 
 
                 XmlDocument xmlDoc = new XmlDocument();
-                xmlDoc.Load("C:\\PhD\\Workbrench\\GitHub_NeturalNetworks\\Datasets\\IssueResultsRoslyn_23102019_9.xml");
+                xmlDoc.Load("C:\\PhD\\Workbrench\\GitHub_NeturalNetworks\\Datasets\\IssueResultsRoslyn_23102019_10.xml");
                 XmlNode rootNode = xmlDoc["Issues"];
 
                 foreach (var item in items)
@@ -410,30 +411,30 @@ namespace GitHubApiDemo
                         elemID.InnerText = m.Number.ToString();
                         IssueNode.AppendChild(elemID);
 
-                        XmlElement elemRepoID = xmlDoc.CreateElement("RepoID");
-                        elemRepoID.InnerText = 1.ToString();
-                        IssueNode.AppendChild(elemRepoID);
+                        //XmlElement elemRepoID = xmlDoc.CreateElement("RepoID");
+                        //elemRepoID.InnerText = 1.ToString();
+                        //IssueNode.AppendChild(elemRepoID);
 
-                        XmlElement elemTitle = xmlDoc.CreateElement("Title");
-                        elemTitle.InnerText = m.Title?.ToString();
-                        IssueNode.AppendChild(elemTitle);
+                        //XmlElement elemTitle = xmlDoc.CreateElement("Title");
+                        //elemTitle.InnerText = m.Title?.ToString();
+                        //IssueNode.AppendChild(elemTitle);
 
-                        XmlElement elemDescription = xmlDoc.CreateElement("Description");
-                        elemDescription.InnerText = m.Body?.ToString();
-                        IssueNode.AppendChild(elemDescription);
+                        //XmlElement elemDescription = xmlDoc.CreateElement("Description");
+                        //elemDescription.InnerText = m.Body?.ToString();
+                        //IssueNode.AppendChild(elemDescription);
 
-                        XmlElement elemOpenedAt = xmlDoc.CreateElement("CreatedDate");
-                        elemOpenedAt.InnerText = m.CreatedAt.ToString("dd/MM/yyyy");
-                        IssueNode.AppendChild(elemOpenedAt);
+                        //XmlElement elemOpenedAt = xmlDoc.CreateElement("CreatedDate");
+                        //elemOpenedAt.InnerText = m.CreatedAt.ToString("dd/MM/yyyy");
+                        //IssueNode.AppendChild(elemOpenedAt);
 
-                        XmlElement elemClosedAt = xmlDoc.CreateElement("ClosedDate");
-                        elemClosedAt.InnerText = m.ClosedAt?.ToString("dd/MM/yyyy");
-                        IssueNode.AppendChild(elemClosedAt);
+                        //XmlElement elemClosedAt = xmlDoc.CreateElement("ClosedDate");
+                        //elemClosedAt.InnerText = m.ClosedAt?.ToString("dd/MM/yyyy");
+                        //IssueNode.AppendChild(elemClosedAt);
 
                         rootNode.AppendChild(IssueNode);
                     }
                 }
-                xmlDoc.Save("C:\\PhD\\Workbrench\\GitHub_NeturalNetworks\\Datasets\\IssueResultsRoslyn_23102019_9.xml");
+                xmlDoc.Save("C:\\PhD\\Workbrench\\GitHub_NeturalNetworks\\Datasets\\IssueResultsRoslyn_23102019_10.xml");
                 #endregion Issues
             }
             #endregion // Constructors

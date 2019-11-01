@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Collections.Generic;
 using System.Drawing.Design;
+using System;
 using Octokit;
 
 namespace GitHubApiDemo
@@ -216,8 +217,8 @@ namespace GitHubApiDemo
 		/// <returns>The searcher that is created.</returns>
 		public override Searcher CreateSearcher(GitHubClient client, int maximumCount)
 		{
-			previous = this;
-			return new IssueSearcher(client, maximumCount, CreateRequest());
+			previous = this; 
+            return new IssueSearcher(client, maximumCount, CreateRequest());
 		}
 
 		/// <summary>

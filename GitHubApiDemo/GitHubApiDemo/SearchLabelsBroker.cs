@@ -1,5 +1,8 @@
 ﻿using System.ComponentModel;
 using Octokit;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace GitHubApiDemo
 {
@@ -53,7 +56,7 @@ namespace GitHubApiDemo
 		/// <returns>The searcher that is created.</returns>
 		public override Searcher CreateSearcher(GitHubClient client, int maximumCount)
 		{
-			previous = this;
+			previous = this;            
 			return new LabelSearcher(client, maximumCount, CreateRequest());
 		}
 
