@@ -689,9 +689,11 @@ namespace GitHubApiDemo
             string owner = "dotnet";
             string name = "roslyn";
 
-           // string owner = "SVF-tools";
+            // string owner = "SVF-tools";
             //string name = "SVF";
-
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load("C:\\PhD\\Workbrench\\GitHub_NeturalNetworks\\Datasets\\IssueDetailsRoslyn_02112019_2.xml");
+            XmlNode rootNode = xmlDoc["IssueDetails"];
             try
             {
                 var Contributors = GetContributors(owner, name);
@@ -707,9 +709,7 @@ namespace GitHubApiDemo
 
                     #region Issues 
 
-                    XmlDocument xmlDoc = new XmlDocument();
-                    xmlDoc.Load("C:\\PhD\\Workbrench\\GitHub_NeturalNetworks\\Datasets\\IssueDetailsRoslyn_02112019.xml");
-                    XmlNode rootNode = xmlDoc["IssueDetails"];
+                   
 
                     foreach (var item in issueslists)
                     {
@@ -813,7 +813,7 @@ namespace GitHubApiDemo
 
                     }
 
-                    xmlDoc.Save("C:\\PhD\\Workbrench\\GitHub_NeturalNetworks\\Datasets\\IssueDetailsRoslyn_02112019.xml");
+                    xmlDoc.Save("C:\\PhD\\Workbrench\\GitHub_NeturalNetworks\\Datasets\\IssueDetailsRoslyn_02112019_2.xml");
                     MessageBox.Show("Done");
                     #endregion Issues
                 }
@@ -821,6 +821,7 @@ namespace GitHubApiDemo
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+                xmlDoc.Save("C:\\PhD\\Workbrench\\GitHub_NeturalNetworks\\Datasets\\IssueDetailsRoslyn_02112019_2.xml");
             }
 
 
