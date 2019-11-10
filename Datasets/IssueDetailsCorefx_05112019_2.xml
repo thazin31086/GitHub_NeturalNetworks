@@ -1,0 +1,11 @@
+<IssueDetails>
+  <IssueDetail>
+    <IssueLabelID>10760</IssueLabelID>
+    <Title>Exception thrown when trying to encrypt an EnvelopedCms with a Diffie-Hellman certificate if it uses AES as the symmetric cipher</Title>
+    <Description>Currently the only test that there is using a Diffie-Hellman certificate for encryption is using the default cipher Triple DES CBC. However if the cipher used is changed to any of the AES variants the Windows implementation throws Internal.Cryptography.CryptoThrowHelper+WindowsCryptographicException : The parameter is incorrect. within method Internal.Cryptography.Pal.Windows.PkcsPalWindows.EncodeHelpers.CreateCryptMsgHandleToEncode
+</Description>
+    <Title_Description>Exception thrown when trying to encrypt an EnvelopedCms with a Diffie-Hellman certificate if it uses AES as the symmetric cipher Currently the only test that there is using a Diffie-Hellman certificate for encryption is using the default cipher Triple DES CBC. However if the cipher used is changed to any of the AES variants the Windows implementation throws Internal.Cryptography.CryptoThrowHelper+WindowsCryptographicException : The parameter is incorrect. within method Internal.Cryptography.Pal.Windows.PkcsPalWindows.EncodeHelpers.CreateCryptMsgHandleToEncode
+</Title_Description>
+    <Label>area-System.Security</Label>
+  </IssueDetail>
+</IssueDetails>
