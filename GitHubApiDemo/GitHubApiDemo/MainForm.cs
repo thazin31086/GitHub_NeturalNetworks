@@ -556,8 +556,8 @@ namespace GitHubApiDemo
                     if (dialog.ShowDialog(this) == DialogResult.OK)
                     {
                         CreateClient(dialog.Credentials);
-                        GetIssueDetails();
-                       // RemoveCodeFromText();
+                       // GetIssueDetails();
+                        RemoveCodeFromText();
                     }
                     else
                     {
@@ -890,7 +890,7 @@ namespace GitHubApiDemo
 
         public void RemoveCodeFromText()
         {
-            string xmlPath = @"C:\PhD\Workbrench\GitHub_NeturalNetworks\Datasets\IssueDetailsorleans_19112019_RemoveCode.xml";
+            string xmlPath = @"C:\PhD\Workbrench\GitHub_NeturalNetworks\Datasets\IssueDetailscli_19112019_RemoveCode.xml";
             System.IO.StreamReader xmlStreamReader =
                 new System.IO.StreamReader(xmlPath);
             System.Xml.XmlDocument xmlDoc = new System.Xml.XmlDocument();
@@ -929,7 +929,7 @@ namespace GitHubApiDemo
                         node.ChildNodes[3].InnerText = _value;
                     }
                 }
-                xmlDoc.Save(@"C:\PhD\Workbrench\GitHub_NeturalNetworks\Datasets\IssueDetailsorleans_19112019_RemoveCode.xml");
+                xmlDoc.Save(@"C:\PhD\Workbrench\GitHub_NeturalNetworks\Datasets\IssueDetailscli_19112019_RemoveCode.xml");
             }
             MessageBox.Show("Done!");           
         }
