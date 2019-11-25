@@ -1,0 +1,1 @@
+GitHub Neural Networks is an assignee-label recommendation system based ondeep  neural  networks  (DNN)  with  self-attention  mechanisms  to  assist  theallocation of most relevant labels and developers for GitHub issues. 
