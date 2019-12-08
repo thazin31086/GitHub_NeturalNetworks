@@ -556,8 +556,9 @@ namespace GitHubApiDemo
                     if (dialog.ShowDialog(this) == DialogResult.OK)
                     {
                         CreateClient(dialog.Credentials);
-                       // GetIssueDetails();
-                        RemoveCodeFromText();
+                        // GetIssueDetails();
+                        // RemoveCodeFromText();
+                        CounteNoofIssueswithCodes();
                     }
                     else
                     {
@@ -890,7 +891,7 @@ namespace GitHubApiDemo
 
         public void RemoveCodeFromText()
         {
-            string xmlPath = @"C:\PhD\Workbrench\GitHub_NeturalNetworks\Datasets\IssueDetailscli_19112019_RemoveCode.xml";
+            string xmlPath = @"C:\PhD\Workbrench\GitHub_NeturalNetworks\Datasets\IssueDetailsRoslyn_02112019_3_RemoveCode.xml";
             System.IO.StreamReader xmlStreamReader =
                 new System.IO.StreamReader(xmlPath);
             System.Xml.XmlDocument xmlDoc = new System.Xml.XmlDocument();
@@ -906,8 +907,8 @@ namespace GitHubApiDemo
                     /*Remove Code from Description*/
                     var _valueD = node.ChildNodes[2].InnerText;
 
-                    int startIndex_D = _valueD.IndexOf("`");
-                    int endIndex_D = _valueD.LastIndexOf("`");
+                    int startIndex_D = _valueD.IndexOf("```");
+                    int endIndex_D = _valueD.LastIndexOf("```");
                     int length_D = endIndex_D - startIndex_D + 1;
 
                     if (startIndex_D > -1 && endIndex_D > -1)
@@ -919,8 +920,8 @@ namespace GitHubApiDemo
                     /*Remove Code From Title_Description*/
                     var _value = node.ChildNodes[3].InnerText;
 
-                    int startIndex = _value.IndexOf("`");
-                    int endIndex = _value.LastIndexOf("`");
+                    int startIndex = _value.IndexOf("```");
+                    int endIndex = _value.LastIndexOf("```");
                     int length = endIndex - startIndex + 1;
 
                     if (startIndex > -1 && endIndex > -1)
@@ -929,12 +930,47 @@ namespace GitHubApiDemo
                         node.ChildNodes[3].InnerText = _value;
                     }
                 }
-                xmlDoc.Save(@"C:\PhD\Workbrench\GitHub_NeturalNetworks\Datasets\IssueDetailscli_19112019_RemoveCode.xml");
+                xmlDoc.Save(@"C:\PhD\Workbrench\GitHub_NeturalNetworks\Datasets\IssueDetailsRoslyn_02112019_3_RemoveCode.xml");
             }
             MessageBox.Show("Done!");           
         }
 
- 
+
+        public void CounteNoofIssueswithCodes()
+        {
+            string xmlPath = @"C:\PhD\Workbrench\GitHub_NeturalNetworks\Datasets\IssueDetailsorleans_19112019.xml";
+            System.IO.StreamReader xmlStreamReader =
+                new System.IO.StreamReader(xmlPath);
+            System.Xml.XmlDocument xmlDoc = new System.Xml.XmlDocument();
+
+            xmlDoc.Load(xmlStreamReader);
+            xmlStreamReader.Close();
+            var rulesDescNodes = xmlDoc.DocumentElement.GetElementsByTagName("IssueDetail");
+            int countofcode = 0;
+            if (rulesDescNodes != null)
+            {                
+                foreach (XmlNode node in rulesDescNodes)
+                {
+                    /* Code From Title_Description*/
+                    var _value = node.ChildNodes[3].InnerText;
+
+                    int startIndex = _value.IndexOf("```");
+                    int endIndex = _value.LastIndexOf("```");
+                    int length = endIndex - startIndex + 1;
+
+                    if (startIndex > -1 && endIndex > -1)
+                    {
+                        _value = _value.Remove(startIndex, length);
+                        node.ChildNodes[3].InnerText = _value;
+                        countofcode = countofcode +1;
+                    }
+                }
+
+                MessageBox.Show("Count : " + countofcode);
+            }
+           
+        }
+
         #endregion // Private methods
 
         #region Private enums
