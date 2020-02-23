@@ -10,6 +10,8 @@ using GitHubApiDemo.Properties;
 using System.Xml;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using System.Text.RegularExpressions;
+using System.Collections;
 
 namespace GitHubApiDemo
 {
@@ -31,6 +33,7 @@ namespace GitHubApiDemo
             // Trick to make read-only properties display using regular text color
             // See: https://social.msdn.microsoft.com/Forums/windows/en-US/9fd7591d-8925-43e4-bdf1-988c9bb5ca5e/changing-font-color-on-readonly-fields-in-propertygrid?forum=winforms
             detailPropertyGrid.ViewForeColor = Color.FromArgb(0, 0, 1);
+           
         }
         #endregion // Constructors
 
@@ -51,7 +54,7 @@ namespace GitHubApiDemo
         private SearchResult searchResult;
         private Searcher activeSearcher;
         private Searcher searcher;
-        private GitHubClient client;
+        private static GitHubClient client;
         private User currentUser;
         private object fullDetail;
         private int maximumCount = 1000;
@@ -558,7 +561,7 @@ namespace GitHubApiDemo
                         CreateClient(dialog.Credentials);
                         // GetIssueDetails();
                         // RemoveCodeFromText();
-                        CounteNoofIssueswithCodes();
+                        //CounteNoofIssueswithCodes();
                     }
                     else
                     {
@@ -836,7 +839,7 @@ namespace GitHubApiDemo
         }
 
 
-        public async Task<object> GetIssue(string owner, string name, int item)
+        public static async Task<object> GetIssue(string owner, string name, int item)
         {
             try
             {
@@ -883,6 +886,18 @@ namespace GitHubApiDemo
 
             }
             catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public static async Task<object> GetPullRequestFiles(string owner, string name, int item)
+        {
+            try
+            {
+                return await client.PullRequest.Files(owner, name, item);
+            }
+            catch (Exception)
             {
                 return null;
             }
@@ -935,7 +950,6 @@ namespace GitHubApiDemo
             MessageBox.Show("Done!");           
         }
 
-
         public void CounteNoofIssueswithCodes()
         {
             string xmlPath = @"C:\PhD\Workbrench\GitHub_NeturalNetworks\Datasets\IssueDetailsorleans_19112019.xml";
@@ -969,7 +983,7 @@ namespace GitHubApiDemo
                 MessageBox.Show("Count : " + countofcode);
             }
            
-        }
+        }             
 
         #endregion // Private methods
 

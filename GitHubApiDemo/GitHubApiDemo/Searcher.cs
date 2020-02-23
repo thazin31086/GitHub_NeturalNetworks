@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
@@ -311,94 +312,21 @@ namespace GitHubApiDemo
                 IncompleteResults = incompleteResults;
                 TotalCount = totalCount;
                 Items = items;
+                ExportPullRequestToXML(items);
+            }
+            #endregion // Constructors
 
-                //#region Pull Requests
-                //if (!File.Exists("C:\\PhD\\Research Play Zone\\PCI_WebTrace\\Roslyn\\PullResults.xml"))
-                //{
-                //    XmlDocument xmlDoc = new XmlDocument();
-                //    XmlNode rootNode = xmlDoc.CreateElement("PullResults");
-                //    xmlDoc.AppendChild(rootNode);
-
-                //    foreach (var item in items)
-                //    {
-                //        Octokit.Issue m = item as Octokit.Issue;
-                //        if (m != null)
-                //        {
-                //            XmlNode pullRequestNode = xmlDoc.CreateElement("PullRequest");
-                //            XmlAttribute attribute = xmlDoc.CreateAttribute("ID");
-                //            attribute.Value = m.Number.ToString();
-                //            pullRequestNode.Attributes.Append(attribute);
-                //            XmlAttribute attribute2 = xmlDoc.CreateAttribute("Title");
-                //            attribute2.Value = m.Title?.ToString();
-                //            pullRequestNode.Attributes.Append(attribute2);
-                //            XmlAttribute attribute3 = xmlDoc.CreateAttribute("Body");
-                //            attribute3.Value = m.Body?.ToString();
-                //            pullRequestNode.Attributes.Append(attribute3);
-                //            pullRequestNode.InnerText = m.Id.ToString();
-                //            rootNode.AppendChild(pullRequestNode);
-                //        }
-                //    }
-                //    xmlDoc.Save("C:\\PhD\\Research Play Zone\\PCI_WebTrace\\Roslyn\\PullResults.xml");
-                //}
-                //else
-                //{
-                //    XmlDocument xmlDoc = new XmlDocument();
-                //    xmlDoc.Load("C:\\PhD\\Research Play Zone\\PCI_WebTrace\\Roslyn\\PullResults.xml");
-                //    XmlNode rootNode = xmlDoc["PullRequests"];
-
-                //    foreach (var item in items)
-                //    {
-                //        Octokit.Issue m = item as Octokit.Issue;
-
-                //        if (m != null)
-                //        {
-                //            XmlNode pullRequestNode = xmlDoc.CreateElement("PullRequest");
-                //            XmlElement elemID = xmlDoc.CreateElement("PullRequestID");
-                //            elemID.InnerText = m.Number.ToString();
-                //            //Add the node to the document.
-                //            pullRequestNode.AppendChild(elemID);
-
-                //            XmlElement elemRepoID = xmlDoc.CreateElement("RepoID");
-                //            elemRepoID.InnerText = 1.ToString();
-                //            //Add the node to the document.
-                //            pullRequestNode.AppendChild(elemRepoID);
-
-
-                //            XmlElement elemTitle = xmlDoc.CreateElement("Title");
-                //            elemTitle.InnerText = m.Title.ToString();
-                //            //Add the node to the document.
-                //            pullRequestNode.AppendChild(elemTitle);
-
-                //            XmlElement elemDescription = xmlDoc.CreateElement("PullRequestDescription");
-                //            elemDescription.InnerText = m.Body.ToString();
-                //            //Add the node to the document.
-                //            pullRequestNode.AppendChild(elemDescription);
-
-                //            XmlElement elemOpenedAt = xmlDoc.CreateElement("CreatedDate");
-                //            elemOpenedAt.InnerText = m.CreatedAt.ToString("dd/MM/yyyy");
-                //            //Add the node to the document.
-                //            pullRequestNode.AppendChild(elemOpenedAt);
-
-                //            XmlElement elemClosedAt = xmlDoc.CreateElement("ClosedDate");
-                //            elemClosedAt.InnerText = m.ClosedAt?.ToString("dd/MM/yyyy");
-                //            //Add the node to the document.
-                //            pullRequestNode.AppendChild(elemClosedAt);
-
-
-                //            rootNode.AppendChild(pullRequestNode);
-
-                //        }
-
-                //    }
-                //    xmlDoc.Save("C:\\PhD\\Research Play Zone\\PCI_WebTrace\\Roslyn\\PullResults.xml");
-                //}
-                //#endregion Pull Requests
-
-                #region Issues 
+            /// <summary>
+            /// Export PullRequest To XML
+            /// </summary>
+            /// <param name="items"></param>
+            public async void ExportPullRequestToXML(IReadOnlyList<TItem> items)
+            {
+                #region Pull Requests with More than One Issues 
 
                 XmlDocument xmlDoc = new XmlDocument();
-                xmlDoc.Load("C:\\PhD\\Workbrench\\GitHub_NeturalNetworks\\Datasets\\IssueResultsorleans_19112019.xml");
-                XmlNode rootNode = xmlDoc["Issues"];
+                xmlDoc.Load("C:\\PhD\\My Papers and Studies\\Conference\\ICSME\\Dataset\\PullRequestsroslyn.xml");
+                XmlNode rootNode = xmlDoc["PullRequests"];
 
                 foreach (var item in items)
                 {
@@ -406,39 +334,100 @@ namespace GitHubApiDemo
 
                     if (m != null)
                     {
-                        XmlNode IssueNode = xmlDoc.CreateElement("Issue");
+                        XmlNode PullRequestNode = xmlDoc.CreateElement("PullRequest");
                         XmlElement elemID = xmlDoc.CreateElement("IssueID");
                         elemID.InnerText = m.Number.ToString();
-                        IssueNode.AppendChild(elemID);
+                        PullRequestNode.AppendChild(elemID);
 
-                        //XmlElement elemRepoID = xmlDoc.CreateElement("RepoID");
-                        //elemRepoID.InnerText = 1.ToString();
-                        //IssueNode.AppendChild(elemRepoID);
+                        XmlElement elemTitle = xmlDoc.CreateElement("Title");
+                        elemTitle.InnerText = m.Title?.ToString();
+                        PullRequestNode.AppendChild(elemTitle);
 
-                        //XmlElement elemTitle = xmlDoc.CreateElement("Title");
-                        //elemTitle.InnerText = m.Title?.ToString();
-                        //IssueNode.AppendChild(elemTitle);
+                        XmlElement elemDescription = xmlDoc.CreateElement("Description");
+                        elemDescription.InnerText = m.Body?.ToString();
+                        PullRequestNode.AppendChild(elemDescription);
 
-                        //XmlElement elemDescription = xmlDoc.CreateElement("Description");
-                        //elemDescription.InnerText = m.Body?.ToString();
-                        //IssueNode.AppendChild(elemDescription);
+                        XmlElement elemOpenedAt = xmlDoc.CreateElement("CreatedDate");
+                        elemOpenedAt.InnerText = m.CreatedAt.ToString("dd/MM/yyyy");
+                        PullRequestNode.AppendChild(elemOpenedAt);
 
-                        //XmlElement elemOpenedAt = xmlDoc.CreateElement("CreatedDate");
-                        //elemOpenedAt.InnerText = m.CreatedAt.ToString("dd/MM/yyyy");
-                        //IssueNode.AppendChild(elemOpenedAt);
+                        XmlElement elemClosedAt = xmlDoc.CreateElement("ClosedDate");
+                        elemClosedAt.InnerText = m.ClosedAt?.ToString("dd/MM/yyyy");
+                        PullRequestNode.AppendChild(elemClosedAt);
 
-                        //XmlElement elemClosedAt = xmlDoc.CreateElement("ClosedDate");
-                        //elemClosedAt.InnerText = m.ClosedAt?.ToString("dd/MM/yyyy");
-                        //IssueNode.AppendChild(elemClosedAt);
+                        var issues = MoreThanOneIssuesFix(m.Body?.ToString());
+                        if (issues != null && issues.Count() > 1)
+                        {
+                            /*Get Issue List*/
+                            XmlElement IssuesNodes = xmlDoc.CreateElement("Issues");
+                            foreach (var issue in issues)
+                            {                                
+                                var _tempissue = MainForm.GetIssue("dotnet", "roslyn", Convert.ToInt32(issue.Replace("#", "")));
+                                if (!_tempissue.IsCompleted)
+                                {
+                                    var tempIssue = await _tempissue.ConfigureAwait(false);                           
+                                    Octokit.Issue _issue = tempIssue as Octokit.Issue;
+                                    /*Get Only Class File (*.cs)*/
+                                    if (_issue != null)
+                                    {
+                                        XmlElement IssuesNode = xmlDoc.CreateElement("Issue");
 
-                        rootNode.AppendChild(IssueNode);
+                                        XmlElement issueID = xmlDoc.CreateElement("IssueID");
+                                        issueID.InnerText = _issue.Number.ToString();
+                                        IssuesNode.AppendChild(issueID);
+
+                                        XmlElement issueTitle = xmlDoc.CreateElement("Title");
+                                        issueTitle.InnerText = _issue.Title?.ToString();
+                                        IssuesNode.AppendChild(issueTitle);
+
+                                        XmlElement issueDescription = xmlDoc.CreateElement("Description");
+                                        issueDescription.InnerText = _issue.Body?.ToString();
+                                        IssuesNode.AppendChild(issueDescription);
+
+                                        XmlElement issueOpenedAt = xmlDoc.CreateElement("CreatedDate");
+                                        issueOpenedAt.InnerText = _issue.CreatedAt.ToString("dd/MM/yyyy");
+                                        IssuesNode.AppendChild(issueOpenedAt);
+
+                                        XmlElement issueClosedAt = xmlDoc.CreateElement("ClosedDate");
+                                        issueClosedAt.InnerText = _issue.ClosedAt?.ToString("dd/MM/yyyy");
+                                        IssuesNode.AppendChild(issueClosedAt);
+
+                                        IssuesNodes.AppendChild(IssuesNode);
+                                    }
+                                }
+                            }
+                            PullRequestNode.AppendChild(IssuesNodes);
+
+                            /*Get File List*/
+                            var files = MainForm.GetPullRequestFiles("dotnet", "roslyn", Convert.ToInt32(m.Number));
+                            if (!files.IsCompleted)
+                            {
+                                var tempFiles = await files.ConfigureAwait(false);
+                                IReadOnlyList<PullRequestFile> _Files = tempFiles as IReadOnlyList<PullRequestFile>;
+                                /*Get Only Class File (*.cs)*/
+                                if (_Files != null && _Files.Count() > 0 && _Files.Where(x => x.FileName.EndsWith(".cs")).Any())
+                                {
+                                    _Files = _Files.Where(x => x.FileName.EndsWith(".cs")).ToList();
+                                    XmlElement FilesNode = xmlDoc.CreateElement("Files");
+                                    foreach (var file in _Files)
+                                    {
+                                        if (file != null)
+                                        {
+                                            XmlElement File = xmlDoc.CreateElement("File");
+                                            File.InnerText = file.FileName;
+                                            FilesNode.AppendChild(File);
+                                        }
+                                    }
+                                    PullRequestNode.AppendChild(FilesNode);
+                                }
+                                rootNode.AppendChild(PullRequestNode);
+                            }
+                        }
                     }
                 }
-                xmlDoc.Save("C:\\PhD\\Workbrench\\GitHub_NeturalNetworks\\Datasets\\IssueResultsorleans_19112019.xml");
-                #endregion Issues
+                xmlDoc.Save("C:\\PhD\\My Papers and Studies\\Conference\\ICSME\\Dataset\\PullRequestsroslyn.xml");
+                #endregion Pull Requests with More than One Issues
             }
-            #endregion // Constructors
-
             #region Properties
             /// <summary>
             /// Gets the total number of matching items from the search.
@@ -457,5 +446,23 @@ namespace GitHubApiDemo
             #endregion // Properties
         }
         #endregion // Protected structures
+
+        private static List<string> MoreThanOneIssuesFix(string content)
+        {
+            var pattern = @"#\d+";
+            List<string> result = new List<string>();
+            if (!string.IsNullOrEmpty(content))
+            {
+                Regex rgx = new Regex(pattern, RegexOptions.IgnoreCase);
+                if (rgx.Matches(content).Count > 1)
+                {
+                    foreach (Match match in rgx.Matches(content))
+                    {
+                        result.Add(match.Value);
+                    }
+                }
+            }
+            return result;
+        }
     }
 }
