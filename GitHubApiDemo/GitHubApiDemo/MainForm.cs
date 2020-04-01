@@ -702,7 +702,7 @@ namespace GitHubApiDemo
             //string name = "coreclr";
 
             //string owner = "dotnet";
-            //string name = "orleans";
+            //string name = "sdk";
 
             string owner = "dotnet";
             string name = "cli";
@@ -952,7 +952,7 @@ namespace GitHubApiDemo
 
         public void CounteNoofIssueswithCodes()
         {
-            string xmlPath = @"C:\PhD\Workbrench\GitHub_NeturalNetworks\Datasets\IssueDetailsorleans_19112019.xml";
+            string xmlPath = @"C:\PhD\Workbrench\GitHub_NeturalNetworks\Datasets\IssueDetailssdk_19112019.xml";
             System.IO.StreamReader xmlStreamReader =
                 new System.IO.StreamReader(xmlPath);
             System.Xml.XmlDocument xmlDoc = new System.Xml.XmlDocument();

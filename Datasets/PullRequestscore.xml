@@ -1,0 +1,755 @@
+<PullRequests>
+  <PullRequest>
+    <IssueID>3959</IssueID>
+    <RepoID>core</RepoID>
+    <FixedByID>mairaw</FixedByID>
+    <Title>Update docs links</Title>
+    <Description>Related to #3945 </Description>
+    <CreatedDate>04/12/2019</CreatedDate>
+    <ClosedDate>05/12/2019</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>core</RepoID>
+        <PullRequestID>3959</PullRequestID>
+        <IssueID>3945</IssueID>
+        <Title>Linux prereq link is broken</Title>
+        <Description># Issue Title
+
+Be as descriptive as you can with your title.
+
+# General
+
+Provide details on the problem you are experiencing including the .NET Core version, operating system version and anything else that is relevant.
+
+Please provide a code sample for your issue if it is relevant, either inline, link to a gist (or similar) or add it as a zipped attachment.
+
+For some issues, you will get a quicker and better response if you file it at a more specific [.NET repo](https://github.com/dotnet/core/blob/master/Documentation/core-repos.md). For example, if the problem is with ASP.NET Core, you are encouraged to use the [aspnet/home repo](https://github.com/aspnet/home/issues).
+
+
+I am having an issue with the link in this part of the documentation: https://github.com/dotnet/core/blob/master/Documentation/prereqs.md
+
+When I click on the Linux prerequisites, I do not see anything.</Description>
+        <CreatedDate>02/12/2019</CreatedDate>
+        <ClosedDate>05/12/2019</ClosedDate>
+        <Labels>
+          <Label>documentation</Label>
+          <Label>needs more info</Label>
+        </Labels>
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>3749</IssueID>
+    <RepoID>core</RepoID>
+    <FixedByID>dependabot-preview[bot]</FixedByID>
+    <Title>Bump Microsoft.SourceLink.GitHub from 1.0.0-beta2-19367-01 to 1.0.0-beta2-19554-01 in /samples/dotnetsay</Title>
+    <Description>Bumps [Microsoft.SourceLink.GitHub](https://github.com/dotnet/sourcelink) from 1.0.0-beta2-19367-01 to 1.0.0-beta2-19554-01.
+&lt;details&gt;
+&lt;summary&gt;Commits&lt;/summary&gt;
+
+- [`afa9aa7`](https://github.com/dotnet/sourcelink/commit/afa9aa7032f810ad91d84857b95ad1d071192afa) Allow empty Virtual Directory ([#480](https://github-redirect.dependabot.com/dotnet/sourcelink/issues/480))
+- [`80135fa`](https://github.com/dotnet/sourcelink/commit/80135fade05579c8057f45e86b9a50ad7357654d) FIx parsing of Azure Repos URLs whose project name is the same as repo name (...
+- [`b32f565`](https://github.com/dotnet/sourcelink/commit/b32f5657335f277220e80c7133dbf63c46bed98d) Update dependencies from https://github.com/dotnet/arcade build 20191102.1 (#...
+- [`16ad3a9`](https://github.com/dotnet/sourcelink/commit/16ad3a958af896f23b441dd1edb1ef417b024ed7) Update dependencies from https://github.com/dotnet/arcade build 20191101.3 (#...
+- [`16fa3ff`](https://github.com/dotnet/sourcelink/commit/16fa3fff4e3b111b6252fa10b341a4d76da37b30) Normalize git commondir path. ([#463](https://github-redirect.dependabot.com/dotnet/sourcelink/issues/463))
+- [`751d216`](https://github.com/dotnet/sourcelink/commit/751d216e33727e0f788f53bafe2ec3ef726e9dd5) Update dependencies from https://github.com/dotnet/arcade build 20191031.14 (...
+- [`d5ae980`](https://github.com/dotnet/sourcelink/commit/d5ae980bf040ffcfbbf8f15c9ea123c2ea8aca55) Support base URL in BitBucket Enterprise URL format ([#475](https://github-redirect.dependabot.com/dotnet/sourcelink/issues/475))
+- [`446d5be`](https://github.com/dotnet/sourcelink/commit/446d5be0edbb19acd3d3e39a07962b00ace6ecc5) Fix test ([#474](https://github-redirect.dependabot.com/dotnet/sourcelink/issues/474))
+- [`765a615`](https://github.com/dotnet/sourcelink/commit/765a61529b80e88541f485c200ab245fc8745477) LOC CHECKIN | dotnet/sourcelink master | 20191031 ([#471](https://github-redirect.dependabot.com/dotnet/sourcelink/issues/471))
+- [`16fb7fd`](https://github.com/dotnet/sourcelink/commit/16fb7fd352bdcad2e5b194df59429aeb5fc51ee8) Update dependencies from https://github.com/dotnet/arcade build 20191030.15 (...
+- Additional commits viewable in [compare view](https://github.com/dotnet/sourcelink/compare/1.0.0-beta2-19367-01...1.0.0-beta2-19554-01)
+&lt;/details&gt;
+&lt;br /&gt;
+
+[![Dependabot compatibility score](https://api.dependabot.com/badges/compatibility_score?dependency-name=Microsoft.SourceLink.GitHub&amp;package-manager=nuget&amp;previous-version=1.0.0-beta2-19367-01&amp;new-version=1.0.0-beta2-19554-01)](https://dependabot.com/compatibility-score.html?dependency-name=Microsoft.SourceLink.GitHub&amp;package-manager=nuget&amp;previous-version=1.0.0-beta2-19367-01&amp;new-version=1.0.0-beta2-19554-01)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[//]: # (dependabot-automerge-start)
+[//]: # (dependabot-automerge-end)
+
+---
+
+&lt;details&gt;
+&lt;summary&gt;Dependabot commands and options&lt;/summary&gt;
+&lt;br /&gt;
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot badge me` will comment on this PR with code to add a "Dependabot enabled" badge to your readme
+
+Additionally, you can set the following in the `.dependabot/config.yml` file in this repo:
+- Update frequency
+- Automerge options (never/patch/minor, and dev/runtime dependencies)
+- Out-of-range updates (receive only lockfile updates, if desired)
+- Security updates (receive only security updates, if desired)
+
+
+
+&lt;/details&gt;</Description>
+    <CreatedDate>05/11/2019</CreatedDate>
+    <ClosedDate>27/11/2019</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>3657</IssueID>
+    <RepoID>core</RepoID>
+    <FixedByID>wenz</FixedByID>
+    <Title>Update main releases.json file</Title>
+    <Description>Fixes #3656
+
+Adds the latest released stable .NET Core versions </Description>
+    <CreatedDate>18/10/2019</CreatedDate>
+    <ClosedDate>18/10/2019</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>core</RepoID>
+        <PullRequestID>3657</PullRequestID>
+        <IssueID>3656</IssueID>
+        <Title>releases.json not current for Azure DevOps Server installer</Title>
+        <Description>We are using the .net core build tasks from within the Azure DevOps Server. The ".NET Core SDK Installer" Task uses the "releases.json" file from this Repo to get Version information but it seems to be not current.</Description>
+        <CreatedDate>18/10/2019</CreatedDate>
+        <ClosedDate>18/10/2019</ClosedDate>
+        <Labels />
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>3471</IssueID>
+    <RepoID>core</RepoID>
+    <FixedByID>rainersigwald</FixedByID>
+    <Title>Remove resx-in-subfolder known issue</Title>
+    <Description>This was resolved before RTW by microsoft/msbuild#4702.</Description>
+    <CreatedDate>25/09/2019</CreatedDate>
+    <ClosedDate>30/09/2019</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>3324</IssueID>
+    <RepoID>core</RepoID>
+    <FixedByID>rainersigwald</FixedByID>
+    <Title>preview9 known issue: resx DependentUpon</Title>
+    <Description>Add known issue for microsoft/msbuild#4695.
+
+cc @leecow </Description>
+    <CreatedDate>06/09/2019</CreatedDate>
+    <ClosedDate>06/09/2019</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>3280</IssueID>
+    <RepoID>core</RepoID>
+    <FixedByID>mairaw</FixedByID>
+    <Title>Remove telemetry file</Title>
+    <Description>@KathleenDollard please check if this is how you wanted to approach this. The other option would be to just replace the links in the CLI usage data.
+
+/cc @timheuer @richlander 
+
+Closes #2213 </Description>
+    <CreatedDate>29/08/2019</CreatedDate>
+    <ClosedDate>24/10/2019</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>core</RepoID>
+        <PullRequestID>3280</PullRequestID>
+        <IssueID>2213</IssueID>
+        <Title>Missing 2018 usage data</Title>
+        <Description># Missing 2018 usage data
+
+https://github.com/dotnet/core/blob/master/release-notes/cli-usage-data.md</Description>
+        <CreatedDate>09/01/2019</CreatedDate>
+        <ClosedDate>24/10/2019</ClosedDate>
+        <Labels />
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>2771</IssueID>
+    <RepoID>core</RepoID>
+    <FixedByID>KexyBiscuit</FixedByID>
+    <Title>Add F# back to the list.</Title>
+    <Description>This supersedes #2310.</Description>
+    <CreatedDate>22/05/2019</CreatedDate>
+    <ClosedDate>22/05/2019</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>core</RepoID>
+        <PullRequestID>2771</PullRequestID>
+        <IssueID>2310</IssueID>
+        <Title>Remove netcorecli-fsc from the list.</Title>
+        <Description>The netcorecli-fsc repo is now archived, see https://github.com/dotnet/netcorecli-fsc/commit/669730b920ae9d256f75705ccade40dc9b5f20d9.</Description>
+        <CreatedDate>14/02/2019</CreatedDate>
+        <ClosedDate>14/03/2019</ClosedDate>
+        <Labels />
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>2339</IssueID>
+    <RepoID>core</RepoID>
+    <FixedByID>KexyBiscuit</FixedByID>
+    <Title>Update ASP.NET Core Shared Framework links</Title>
+    <Description>Following dotnet/core-sdk#672, deprecate #2306.</Description>
+    <CreatedDate>25/02/2019</CreatedDate>
+    <ClosedDate>27/02/2019</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>core</RepoID>
+        <PullRequestID>2339</PullRequestID>
+        <IssueID>672</IssueID>
+        <Title>Need to document the versions of dependencies that can be resolved by the linux-* runtimes.</Title>
+        <Description>
+        </Description>
+        <CreatedDate>01/06/2017</CreatedDate>
+        <ClosedDate>06/10/2017</ClosedDate>
+        <Labels />
+      </Issue>
+      <Issue>
+        <RepoID>core</RepoID>
+        <PullRequestID>2339</PullRequestID>
+        <IssueID>2306</IssueID>
+        <Title>Remove ASP.NET Core Shared Framework links.</Title>
+        <Description>https://github.com/aspnet/AspNetCore/pull/6955 removed these links.</Description>
+        <CreatedDate>13/02/2019</CreatedDate>
+        <ClosedDate>25/02/2019</ClosedDate>
+        <Labels />
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>2142</IssueID>
+    <RepoID>core</RepoID>
+    <FixedByID>vivmishra</FixedByID>
+    <Title> Fixes for 3.0 Preview 1 GS file</Title>
+    <Description>For fixing #2140 </Description>
+    <CreatedDate>12/12/2018</CreatedDate>
+    <ClosedDate>12/12/2018</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>core</RepoID>
+        <PullRequestID>2142</PullRequestID>
+        <IssueID>2140</IssueID>
+        <Title>3.0 osx-gs names are incorrect in the v2 json</Title>
+        <Description>Should be `dotnet-sdk-osx-gs-x64.pkg` and `dotnet-sdk-3.0.100-preview-009812-osx-gs-x64.pkg`.
+
+``</Description>
+        <CreatedDate>12/12/2018</CreatedDate>
+        <ClosedDate>14/12/2018</ClosedDate>
+        <Labels>
+          <Label>bug</Label>
+        </Labels>
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>2006</IssueID>
+    <RepoID>core</RepoID>
+    <FixedByID>arthurrump</FixedByID>
+    <Title>Fixes in the new releases.json format</Title>
+    <Description>Fixes for the issues I raised in #1986.
+
+Note that for 2.2.0-preview1 and 2.2.0-preview2 I could not find some of the symbol files that are listed for preview3, so I removed those entries.
+
+TODO:
+- [ ] Add SDK release 2.1.400</Description>
+    <CreatedDate>18/10/2018</CreatedDate>
+    <ClosedDate>20/12/2018</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>core</RepoID>
+        <PullRequestID>2006</PullRequestID>
+        <IssueID>1986</IssueID>
+        <Title>.NET Core Release Data (releases.json) Redesign and Deprecation </Title>
+        <Description># .NET Core Release Data (releases.json) Redesign and Deprecation
+
+The releases.json and releases.csv files began life as helper tools for some of our internal release work, some experimentation and to possibly be useful to the community. It has been great to learn the files are indeed in use and many folks depend on them as a trigger for a number of activities.
+
+* [release-notes/releases.json](https://github.com/dotnet/core/blob/master/release-notes/releases.json)
+* [release-notes/releases.csv](https://github.com/dotnet/core/blob/master/release-notes/releases.csv)
+
+Between the usages which we have become aware and in considering further activities that could be enabled to reason about things such as checking .NET Core version availability and support status, it became clear the current format is inadequate.
+
+An updated format has been designed and tested which will replace the current files. The timeline below describes the path to obsoleting the current files.
+
+## The Plan
+
+| Date | Action |
+| :--- | :----- |
+| Oct 2018 | Notify the community of the coming change |
+| Oct 2018 | Release the new json format into dotnet/core |
+| Oct 2018 - Feb 2019 | Maintain the old json and csv files |
+| Feb 2019 | Reminder announcement that old format file is coming soon |
+| Mar 2019 | Old json and csv files are obsoleted and removed from dotnet/core |
+
+## Breaking change
+
+If you are currently utilizing the old version json or csv, you will need to update the relevant code to work with the new format. If you are just getting started with consuming this data, use the new version.
+
+## The Format
+
+Below are fragments of the files from our most recent .NET Core release.
+
+### release-index.json
+
+This file consists of a top level array with data on the latest release versions and a property for locating the more detailed channel-specific releases.json. This file is found in [dotnet/core/release-notes](https://github.com/dotnet/core/tree/new-json/release-notes/)
+
+[releases-index.json](https://github.com/dotnet/core/blob/new-json/release-notes/releases-index.json)
+
+``</Description>
+        <CreatedDate>05/10/2018</CreatedDate>
+        <ClosedDate>30/03/2019</ClosedDate>
+        <Labels>
+          <Label>Announcement</Label>
+        </Labels>
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1935</IssueID>
+    <RepoID>core</RepoID>
+    <FixedByID>SpaceShot</FixedByID>
+    <Title>Change microsoft-support doc to list .NET Core 2.1 patch version as 2.1.4</Title>
+    <Description>In light of security advisory: https://github.com/dotnet/announcements/issues/83 and subsequent release.
+
+Updated microsoft-support.md
+
+Issue: #1932 </Description>
+    <CreatedDate>12/09/2018</CreatedDate>
+    <ClosedDate>17/09/2018</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>core</RepoID>
+        <PullRequestID>1935</PullRequestID>
+        <IssueID>1932</IssueID>
+        <Title>.NET Core September Update - 2.1.4</Title>
+        <Description>[Release Notes](https://github.com/dotnet/core/blob/master/release-notes/2.1/2.1.4/2.1.4.md)
+[Download 2.1.4](https://github.com/dotnet/core/blob/master/release-notes/2.1/2.1.4/2.1.4-download.md)
+
+Please report any issues you find with 2.1.4, either responding to this issue, creating a new issue or creating a new issue in one of the following repos:
+
+* [aspnet/Home](https://github.com/aspnet/Home) - for ASP.NET Core questions
+* [aspnet/EntityFrameworkCore](https://github.com/aspnet/EntityFrameworkCore) - for Entity Framework Core questions
+* [dotnet/cli](https://github.com/dotnet/cli/issues) - for CLI tools and questions
+* [dotnet/corefx](https://github.com/dotnet/corefx/issues) - for API issues and questions
+* [dotnet/coreclr](https://github.com/dotnet/coreclr/issues) - for runtime issues
+* [dotnet/core-setup](https://github.com/dotnet/core-setup/issues) - for installer issues
+* [nuget/home](https://github.com/nuget/home/issues) - for NuGet questions and issues
+</Description>
+        <CreatedDate>11/09/2018</CreatedDate>
+        <ClosedDate>02/10/2018</ClosedDate>
+        <Labels>
+          <Label>Announcement</Label>
+        </Labels>
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1893</IssueID>
+    <RepoID>core</RepoID>
+    <FixedByID>terrajobst</FixedByID>
+    <Title>Improve wording on comment editing</Title>
+    <Description>GitHub supports editing comments now, so need to update our guidance to reflect this. However, we also believe a ful edit log doesn't take away all the concerns that come with editing someone else's comment.
+
+Fixes #1885.</Description>
+    <CreatedDate>24/08/2018</CreatedDate>
+    <ClosedDate>24/08/2018</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>core</RepoID>
+        <PullRequestID>1893</PullRequestID>
+        <IssueID>1885</IssueID>
+        <Title>Outdated statement about comment edit histories</Title>
+        <Description>https://github.com/dotnet/core/blob/master/Documentation/contributing/maintainers.md
+
+Currently states:
+
+&gt; **Maintainers won't**
+&gt;
+&gt; * Edit contributor comments as a general rule. GitHub comments don't provide edit history and therefore don't offer maintainers a transparent and accurate way to describe changes made to contributor comments. Transparency is a cornerstone of effective discourse and its absence undermines trust.
+
+This was changed in May. 
+
+https://blog.github.com/changelog/2018-05-24-comment-edit-history/
+
+I'm not advocating that maintainers should or should not edit contributor comments, but this statement as it stands is no longer correct.</Description>
+        <CreatedDate>23/08/2018</CreatedDate>
+        <ClosedDate>24/08/2018</ClosedDate>
+        <Labels />
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1438</IssueID>
+    <RepoID>core</RepoID>
+    <FixedByID>rmkerr</FixedByID>
+    <Title>Document issue in Preview 2 with SocketsHttpHandler on single core machines</Title>
+    <Description>Documenting corefx issue [#28979](https://github.com/dotnet/corefx/issues/28979). The instructions on switching to the platform handler are taken from the [Preview 2 release blog post](https://blogs.msdn.microsoft.com/dotnet/2018/04/11/announcing-net-core-2-1-preview-2/).</Description>
+    <CreatedDate>12/04/2018</CreatedDate>
+    <ClosedDate>08/05/2018</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1053</IssueID>
+    <RepoID>core</RepoID>
+    <FixedByID>TomasHubelbauer</FixedByID>
+    <Title>Make Raspberry Pi publishing information pop out to reduce confusion</Title>
+    <Description>Although the current wording is sufficient for anytime who takes time to actually read the thing, I think it could be improved for impatient and inattentive such as myself. See #953</Description>
+    <CreatedDate>30/10/2017</CreatedDate>
+    <ClosedDate>08/11/2017</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>core</RepoID>
+        <PullRequestID>1053</PullRequestID>
+        <IssueID>953</IssueID>
+        <Title>Net Core 2 not install on Raspberry PI 3 with Debian 9 (Stretch)</Title>
+        <Description># Net Core 2 not install on Raspberry PI 3 with Debian 9 (Stretch)
+
+I have installed last Raspbian on my Raspberry PI 3.
+I format my SD card and use instruction at this link: [Install](https://www.microsoft.com/net/core#linuxdebian) 
+and [this](https://github.com/dotnet/core/blob/master/samples/RaspberryPiInstructions.md)
+
+# SSH session 
+
+pi@raspberrypi:~ $ **sudo apt-get update**
+Get:1 http://mirrordirector.raspbian.org/raspbian stretch InRelease [15.0 kB]
+Hit:2 http://archive.raspberrypi.org/debian stretch InRelease
+Get:3 http://mirrordirector.raspbian.org/raspbian stretch/main armhf Packages [1                                          1.7 MB]
+Fetched 11.7 MB in 19s (613 kB/s)
+Reading package lists... Done
+pi@raspberrypi:~ $ **sudo apt-get install curl libunwind8 gettext apt-transport-ht                                          tps**
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+apt-transport-https is already the newest version (1.4.7).
+curl is already the newest version (7.52.1-5).
+Suggested packages:
+  gettext-doc autopoint libasprintf-dev libgettextpo-dev
+The following NEW packages will be installed:
+  gettext libunwind8
+0 upgraded, 2 newly installed, 0 to remove and 0 not upgraded.
+Need to get 1,478 kB of archives.
+After this operation, 7,129 kB of additional disk space will be used.
+Do you want to continue? [Y/n] **Y**
+Get:1 http://mirrordirector.raspbian.org/raspbian stretch/main armhf gettext arm                                          hf 0.19.8.1-2 [1,434 kB]
+Get:2 http://mirrordirector.raspbian.org/raspbian stretch/main armhf libunwind8                                           armhf 1.1-4.1 [44.0 kB]
+Fetched 1,478 kB in 1s (1,133 kB/s)
+Selecting previously unselected package gettext.
+(Reading database ... 122683 files and directories currently installed.)
+Preparing to unpack .../gettext_0.19.8.1-2_armhf.deb ...
+Unpacking gettext (0.19.8.1-2) ...
+Selecting previously unselected package libunwind8.
+Preparing to unpack .../libunwind8_1.1-4.1_armhf.deb ...
+Unpacking libunwind8 (1.1-4.1) ...
+Setting up gettext (0.19.8.1-2) ...
+Processing triggers for install-info (6.3.0.dfsg.1-1+b1) ...
+Setting up libunwind8 (1.1-4.1) ...
+Processing triggers for libc-bin (2.24-11+deb9u1) ...
+Processing triggers for man-db (2.7.6.1-2) ...
+pi@raspberrypi:~ $ **curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor &gt; microsoft.gpg**
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   983  100   983    0     0   2467      0 --:--:-- --:--:-- --:--:--  2469
+pi@raspberrypi:~ $ **sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg**
+pi@raspberrypi:~ $ **sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch main" &gt; /etc/apt/sources.list.d/dotnetdev.list'**
+pi@raspberrypi:~ $ **sudo apt-get update**
+Hit:1 http://mirrordirector.raspbian.org/raspbian stretch InRelease
+Hit:2 http://archive.raspberrypi.org/debian stretch InRelease
+Get:3 https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch InRelease [2,852 B]
+Get:4 https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch/main amd64 Packages [2,093 B]
+Fetched 4,945 B in 4s (1,143 B/s)
+Reading package lists... Done
+pi@raspberrypi:~ $ **sudo apt-get install dotnet-sdk-2.0.0**
+
+# SSH Errors:
+**Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+E: Unable to locate package dotnet-sdk-2.0.0
+E: Couldn't find any package by glob 'dotnet-sdk-2.0.0'
+E: Couldn't find any package by regex 'dotnet-sdk-2.0.0'**
+
+
+Why can not I install it?
+What mistakes did I commit?
+
+Thanks
+Andrea</Description>
+        <CreatedDate>10/09/2017</CreatedDate>
+        <ClosedDate>10/09/2017</ClosedDate>
+        <Labels />
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1033</IssueID>
+    <RepoID>core</RepoID>
+    <FixedByID>johnnyasantoss</FixedByID>
+    <Title>Added Fedora 24 binaries to the download table</Title>
+    <Description>Hello!
+I've found the binaries for Fedora 24 and added them to the download archive of dotnet 1.1.4 LTS!
+😄 
+
+Fixes #1032 </Description>
+    <CreatedDate>18/10/2017</CreatedDate>
+    <ClosedDate>19/10/2017</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>core</RepoID>
+        <PullRequestID>1033</PullRequestID>
+        <IssueID>1032</IssueID>
+        <Title>Missing download for dotnet 1.1.4 for Fedora</Title>
+        <Description>Hello!
+Shouldn't this [page][download-archive] have a link to download the SDK for Fedora 24?
+There's info about the tar file in the [checksums][checksums], but there's no download link.
+
+[download-archive]: https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.4-download.md
+[checksums]: https://dotnetcli.blob.core.windows.net/dotnet/checksums/1.1.4-sdk-sha.txt</Description>
+        <CreatedDate>18/10/2017</CreatedDate>
+        <ClosedDate>18/10/2017</ClosedDate>
+        <Labels />
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>882</IssueID>
+    <RepoID>core</RepoID>
+    <FixedByID>karelz</FixedByID>
+    <Title>Reflect shipped 2.0 in roadmap</Title>
+    <Description>* Add .NET Core 2.0 ship date
+* Update .NET Core 2.1 ship date estimate (can change in future)
+* Delete irrelevant .NET Core 2.0 information
+* Update next focus
+
+Fixes #882</Description>
+    <CreatedDate>22/08/2017</CreatedDate>
+    <ClosedDate>23/08/2017</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>core</RepoID>
+        <PullRequestID>882</PullRequestID>
+        <IssueID>882</IssueID>
+        <Title>Reflect shipped 2.0 in roadmap</Title>
+        <Description>* Add .NET Core 2.0 ship date
+* Update .NET Core 2.1 ship date estimate (can change in future)
+* Delete irrelevant .NET Core 2.0 information
+* Update next focus
+
+Fixes #882</Description>
+        <CreatedDate>22/08/2017</CreatedDate>
+        <ClosedDate>23/08/2017</ClosedDate>
+        <Labels>
+          <Label>documentation</Label>
+        </Labels>
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>868</IssueID>
+    <RepoID>core</RepoID>
+    <FixedByID>mrward</FixedByID>
+    <Title>Update known issues for Visual Studio for Mac</Title>
+    <Description>VS for Mac 7.1 (build 1297) is now a stable release and supports
+.NET Core 2.0 RTM.
+
+Removed reference to VS for Mac known issues which only applies
+to VS for Mac 7.0.
+
+Fixes #864</Description>
+    <CreatedDate>19/08/2017</CreatedDate>
+    <ClosedDate>22/08/2017</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>core</RepoID>
+        <PullRequestID>868</PullRequestID>
+        <IssueID>864</IssueID>
+        <Title>Visual Studio for Mac .NET Core 2.0 issues are out of date</Title>
+        <Description># Visual Studio for Mac .NET Core 2.0 issues are no longer true with VS for Mac 7.1
+
+[Known issues for .NET Core 2.0 document](https://github.com/dotnet/core/blob/master/release-notes/2.0/2.0.0-known-issues.md) has a couple of references to Visual Studio for Mac which are out of date:
+
+``
+
+The above section links to a set of [issues](https://gist.github.com/mrward/70b8132003ef77d893111ecbea3e2225) which only apply to VS for Mac 7.0 so we should probably remove the above section.
+
+</Description>
+        <CreatedDate>18/08/2017</CreatedDate>
+        <ClosedDate>22/08/2017</ClosedDate>
+        <Labels />
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>764</IssueID>
+    <RepoID>core</RepoID>
+    <FixedByID>richlander</FixedByID>
+    <Title>Add build pages</Title>
+    <Description>The feedback on #761 made me re-think my approach. I like this idea better.
+
+/cc @Petermarcu @livarcocc </Description>
+    <CreatedDate>20/07/2017</CreatedDate>
+    <ClosedDate>21/07/2017</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>core</RepoID>
+        <PullRequestID>764</PullRequestID>
+        <IssueID>761</IssueID>
+        <Title>Update daily build links</Title>
+        <CreatedDate>19/07/2017</CreatedDate>
+        <ClosedDate>20/07/2017</ClosedDate>
+        <Labels />
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>621</IssueID>
+    <RepoID>core</RepoID>
+    <FixedByID>leecow</FixedByID>
+    <Title>add Win binary links to 1.0.3 SDK page</Title>
+    <Description>Fixes #618 </Description>
+    <CreatedDate>09/05/2017</CreatedDate>
+    <ClosedDate>09/05/2017</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>core</RepoID>
+        <PullRequestID>621</PullRequestID>
+        <IssueID>618</IssueID>
+        <Title>Add link to the Windows SDK zip archive</Title>
+        <Description>Also add a link to the SDK zip archive (e.g. to dotnet-dev-win-x64.1.0.3.zip) at https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.0.3-sdk-download.md</Description>
+        <CreatedDate>08/05/2017</CreatedDate>
+        <ClosedDate>09/05/2017</ClosedDate>
+        <Labels />
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>544</IssueID>
+    <RepoID>core</RepoID>
+    <FixedByID>blackdwarf</FixedByID>
+    <Title>Create rc4-download.md</Title>
+    <Description>Added the page to unblock #541. The link points to the official pages for download to avoid people getting stuck on older versions of the CLI/SDK.
+
+/cc @richlander </Description>
+    <CreatedDate>10/03/2017</CreatedDate>
+    <ClosedDate>11/03/2017</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>core</RepoID>
+        <PullRequestID>544</PullRequestID>
+        <IssueID>541</IssueID>
+        <Title>Visual Studio Preview 4 (7.0 Build 1566) has broken link for downloading .NET core</Title>
+        <Description>Just installed Visual Studio Preview 4 on my Mac and attempted to create a .NET Core Web API project, it detected that I don't have .NET core installed and directed me to Github link below to download it which is broken:
+https://github.com/dotnet/core/blob/master/release-notes/rc4-download.md
+
+I know this is not strictly a .NET core issue, but I'm not sure about the repository to report this into.  If you let me know, I will report it accordingly.</Description>
+        <CreatedDate>08/03/2017</CreatedDate>
+        <ClosedDate>11/03/2017</ClosedDate>
+        <Labels />
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>407</IssueID>
+    <RepoID>core</RepoID>
+    <FixedByID>jpierson</FixedByID>
+    <Title>Add .csproj based samples</Title>
+    <Description>The csproj based samples were added which were derived by running the `dotnet migrate` command. I've also updated the Markdown documentation to mention specific usage of the .NET Tooling versions as I understand them and how the relate to the two main existing project file formats for .NET Core.
+
+This PR was created to resolve [issue #5154](https://github.com/dotnet/cli/issues/5154) which points out an inconsistency that I noticed in the documentation which points out that the newer builds of the CLI Tools only work with .csproj based projects but then goes on to suggest the reader follow the project.json samples.</Description>
+    <CreatedDate>27/12/2016</CreatedDate>
+    <ClosedDate>15/01/2017</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>195</IssueID>
+    <RepoID>core</RepoID>
+    <FixedByID>svick</FixedByID>
+    <Title>Fixed links in READMEs</Title>
+    <Description>Fixes #179
+</Description>
+    <CreatedDate>01/07/2016</CreatedDate>
+    <ClosedDate>03/07/2016</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>core</RepoID>
+        <PullRequestID>195</PullRequestID>
+        <IssueID>179</IssueID>
+        <Title>links in core/cli/README.md are broken</Title>
+        <Description>links in core/cli/README.md are broken.
+</Description>
+        <CreatedDate>29/06/2016</CreatedDate>
+        <ClosedDate>03/07/2016</ClosedDate>
+        <Labels />
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>115</IssueID>
+    <RepoID>core</RepoID>
+    <FixedByID>mairaw</FixedByID>
+    <Title>Update roadmap.md</Title>
+    <Description>Fixes broken link. Fixes #114. 
+</Description>
+    <CreatedDate>01/06/2016</CreatedDate>
+    <ClosedDate>25/06/2016</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>core</RepoID>
+        <PullRequestID>115</PullRequestID>
+        <IssueID>114</IssueID>
+        <Title>Broken Link</Title>
+        <Description>On this page:
+https://github.com/dotnet/core/blob/master/roadmap.md
+
+Link to: ".NET Core Tools/CLI" under technology roadmaps brings me to a 404 page.
+</Description>
+        <CreatedDate>01/06/2016</CreatedDate>
+        <ClosedDate>25/06/2016</ClosedDate>
+        <Labels />
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>103</IssueID>
+    <RepoID>core</RepoID>
+    <FixedByID>mrts</FixedByID>
+    <Title>Use dotnet command to run binary</Title>
+    <Description>See issue #102.
+</Description>
+    <CreatedDate>20/05/2016</CreatedDate>
+    <ClosedDate>21/05/2016</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>core</RepoID>
+        <PullRequestID>103</PullRequestID>
+        <IssueID>102</IssueID>
+        <Title>"How to run the samples?" is misleading</Title>
+        <Description>`samples/README.md` contains the following instructions:
+
+---
+- _Compile and run using the following commands_
+  - _dotnet restore_
+  - _dotnet build_
+  - _./bin/Debug/[framework]/[binary name]_
+
+---
+
+When I launch the `microsoft/dotnet:latest` Docker container, clone this repository and run `dotnet restore` and `dotnet build` in `samples/helloworld`, then I get the following tree in `bin`:
+
+``
+</Description>
+        <CreatedDate>20/05/2016</CreatedDate>
+        <ClosedDate>21/05/2016</ClosedDate>
+        <Labels />
+      </Issue>
+    </Issues>
+  </PullRequest>
+</PullRequests>

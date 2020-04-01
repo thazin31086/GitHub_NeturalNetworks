@@ -119,11 +119,6 @@ namespace GitHubApiDemo
             //}
             return new SearchResultsPage(result.TotalCount, result.IncompleteResults, result.Items);
         }
-
-
-
-   
-
         #endregion // Protected methods
     }
 }
