@@ -1,0 +1,2448 @@
+<PullRequests>
+  <PullRequest>
+    <IssueID>19423</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>201912ForcePython3.xfromenvinshebanglines</Title>
+    <Description>Extractedfrom18284Backportof18285and18197.cclewurmNattyNarwhal</Description>
+    <CreatedDate>02/04/2020</CreatedDate>
+    <ClosedDate>03/04/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19419</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>vargaz</FixedByID>
+    <Title>202002runtimeAllocatethememoryforgsharedgparamsfromimagesets.</Title>
+    <Description>19361Fixeshttpsgithub.commonomonoissues18127.runtimeFixaproblemwithPR19361.19374ThankyouforyourPullRequestIfyouarenewtocontributingtoMonopleasetrytodoyourbestatconformingtoourcodingguidelineshttpwww.monoproject.comcommunitycontributingcodingguidelinesbutdontworryifyougetsomethingwrong.Oneoftheprojectmemberswillhelpyoutogetthingslanded.DoesyourpullrequestfixanyoftheexistingissuesPleaseusethefollowingformatFixesissuenumber</Description>
+    <CreatedDate>02/04/2020</CreatedDate>
+    <ClosedDate>02/04/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19415</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>202002metaAddmono_type_get_name_fulltopublicAPI</Title>
+    <Description>ThisPRisacopyofdotnetruntime34436pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrThisisneededbyXamarin.AndroidtobeabletoroundtripwithnamesfetchedviareflectionastheonlypublicAPIforthismono_type_get_nameusestheILformatinstead.Fixeshttpsgithub.commonomonoissues19377Backportof19414.ccCoffeeFluxmonojenkins</Description>
+    <CreatedDate>02/04/2020</CreatedDate>
+    <ClosedDate>02/04/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19414</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>metaAddmono_type_get_name_fulltopublicAPI</Title>
+    <Description>ThisPRisacopyofdotnetruntime34436pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrThisisneededbyXamarin.AndroidtobeabletoroundtripwithnamesfetchedviareflectionastheonlypublicAPIforthismono_type_get_nameusestheILformatinstead.Fixeshttpsgithub.commonomonoissues19377</Description>
+    <CreatedDate>02/04/2020</CreatedDate>
+    <ClosedDate>02/04/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19407</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>sgenImplementapiforallocatingpinnedarrays</Title>
+    <Description>ThisPRisacopyofdotnetruntime34398pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrhttpsgithub.comdotnetruntimeissues33583</Description>
+    <CreatedDate>01/04/2020</CreatedDate>
+    <ClosedDate>03/04/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19403</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>monoFixsetMArchgetArchNamedoesntworkasexpected</Title>
+    <Description>ThisPRisacopyofdotnetruntime34368pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrTurnsoutllvmTriplellvmsysgetDefaultTargetTriple.getArchNamedoesntworkasexpectedonalltargetssotheonlyoptionistosetarchviadefines.NOTEitacceptsx8664notx86_64</Description>
+    <CreatedDate>01/04/2020</CreatedDate>
+    <ClosedDate>01/04/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19397</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>monoFixLLVMJITonArm64</Title>
+    <Description>ThisPRisacopyofdotnetruntime34350pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrEB.selectTargetusedtoreturnNULLonarm64andhitanassertlaterTurnsoutitneedsMArchonarme.g.aarch64set.Noideawhyitdoesntusehostarchbydefaultonarmbutworksonx86.</Description>
+    <CreatedDate>31/03/2020</CreatedDate>
+    <ClosedDate>01/04/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19391</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>202002debuggerAddingstatictoss_req_acquireandss_req_count</Title>
+    <Description>Addingstatictoss_req_acquireandss_req_countFixes19389Backportof19390.ccthaystg</Description>
+    <CreatedDate>31/03/2020</CreatedDate>
+    <ClosedDate>31/03/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19390</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>thaystg</FixedByID>
+    <Title>debuggerAddingstatictoss_req_acquireandss_req_count</Title>
+    <Description>Addingstatictoss_req_acquireandss_req_countFixes19389</Description>
+    <CreatedDate>31/03/2020</CreatedDate>
+    <ClosedDate>31/03/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19387</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>monofixSIMDinstructionsavailability</Title>
+    <Description>ThisPRisacopyofdotnetruntime34319pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrFixeshttpsgithub.comdotnetruntimeissues34304tannergoodingdavidwrightonNowitfullymatchesclangLLVMbehaviore.g.evenmattravx2ormavx2inclangdoesntenablepcmulandaes.Howevermattrsse4.2msse4.2enablespopcntseehttpsgodbolt.orgzRWAp_D.Theintelmanualsaysimagehttpsuserimages.githubusercontent.com5232217801565259d70e00735211ea9f8864772e76f842.pngSoisthereaCPUwithAVXsetbutwithoutpopcntTheinstructionisprettyusefulitisusedinBCLusersmightforgettodefineitwhentheyusemattravxormattravx2.</Description>
+    <CreatedDate>31/03/2020</CreatedDate>
+    <ClosedDate>01/04/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19371</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>loaderAddappendoptiontoloaderhookinstallationfunctions</Title>
+    <Description>ThisPRisacopyofdotnetruntime34284pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrFixeshttpsgithub.comdotnetruntimeissues34273WhilethisspecificissueonlyaffectsthepreloadhookIveaddedtheappendoptiontoalltheinstallationfunctionssincethisseemslikeagenerallyusefulcapabilitybothforinternaluseandembedders.BrzVladtestedlocallyandconfirmedthispatchsolvestheproblem.</Description>
+    <CreatedDate>30/03/2020</CreatedDate>
+    <ClosedDate>02/04/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19370</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>Removeduplicatedgitignorepatterns</Title>
+    <Description>ThisPRisacopyofdotnetruntime34281pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrShouldforanyreasonweneedtoremove.stderror.aotlogfromgitignoretherearetwoplacestoremoveitfrominthegitignore.SoIremovedtheduplicatedentries.</Description>
+    <CreatedDate>30/03/2020</CreatedDate>
+    <ClosedDate>01/04/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19368</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>201912amd64alignapplicationstackpointerinsignalhandler</Title>
+    <Description>16bytestackpointeralignmentisonlyrequiredincertainplacesbytheABIsotheassumptionthatitholdsallthetimeiswrongthoughitpassedCI.Wehavetosetuptheframeproperlyi.e.wehavetoensurethestackpointerisproperlyaligned.Thatswhatwehavedonepreviouslytoo.Regressionofhttpsgithub.commonomonopull17922Fixeshttpsgithub.commonomonoissues18006Backportof18021.cclewurm</Description>
+    <CreatedDate>30/03/2020</CreatedDate>
+    <ClosedDate>03/04/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19366</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>monoRemoveCoreFX.issues_windows.rspfile</Title>
+    <Description>ThisPRisacopyofdotnetruntime32592pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrPartofdotnetruntime1980</Description>
+    <CreatedDate>30/03/2020</CreatedDate>
+    <ClosedDate>30/03/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19364</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>202002runtimeAllocatethememoryforgsharedgparamsfromimagesets.</Title>
+    <Description>Fixeshttpsgithub.commonomonoissues18127.ThankyouforyourPullRequestIfyouarenewtocontributingtoMonopleasetrytodoyourbestatconformingtoourcodingguidelineshttpwww.monoproject.comcommunitycontributingcodingguidelinesbutdontworryifyougetsomethingwrong.Oneoftheprojectmemberswillhelpyoutogetthingslanded.DoesyourpullrequestfixanyoftheexistingissuesPleaseusethefollowingformatFixesissuenumberBackportof19361.ccvargaz</Description>
+    <CreatedDate>30/03/2020</CreatedDate>
+    <ClosedDate>02/04/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19351</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>interpOptimizeSpanbyte.Fill</Title>
+    <Description>ThisPRisacopyofdotnetruntime34219pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbr</Description>
+    <CreatedDate>27/03/2020</CreatedDate>
+    <ClosedDate>30/03/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19349</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>monosreAddanexpectedattributeonunderlyingfieldsofenumcl</Title>
+    <Description>ThisPRisacopyofdotnetruntime34212pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrassesFollowCoreCLRsexampleandaddtheRTSpecialNametypeattributetoanyclassfieldwiththevalue__namewhenusedasthevaluestoreforenumerationclassinstances.SecondpartoftheRTSpecialNamefixthatstartedwithhttpsgithub.comdotnetruntimepull33389beforeourbehaviorwastoaddtheRTSpecialNameimmediatelyassoonastheEnumBuilderwasconstructed.Contributestohttpsgithub.comdotnetruntimeissues2389</Description>
+    <CreatedDate>27/03/2020</CreatedDate>
+    <ClosedDate>03/04/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19344</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>interpFixissuesaroundnotyetsupportedSystem.Runtime.Intrinsics</Title>
+    <Description>ThisPRisacopyofdotnetruntime34190pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrSpecialcasesaroundinfiniterecursivenesswerenothandledbytheinterpreter.</Description>
+    <CreatedDate>27/03/2020</CreatedDate>
+    <ClosedDate>27/03/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19343</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>thaystg</FixedByID>
+    <Title>202002debuggerImplementingstepthroughmultithreadedcode.</Title>
+    <Description>Backport19103</Description>
+    <CreatedDate>27/03/2020</CreatedDate>
+    <ClosedDate>27/03/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19340</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>monollvmImproveLLVM9compatibility.</Title>
+    <Description>ThisPRisacopyofdotnetruntime34182pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrSeveralintrinsicswereremovedinLLVM7andabovereplacethemwithIRsequencesthatgeneratethedesiredinstructions.FixsometypemismatchproblemswiththegeneratedIRinSse2.StoreAlignedNonTemporalandVector128.CreateScalarUnsafethesewerecaughtbyrunningthecoreclrhardwareintrinsicJITtests.SupportthetwoargumentformsofSse.SqrtScalarSse.ReciprocalScalarandSse.ReciprocalSqrtScalar.llvmlinkCoreCLRGCinllvmCodeGenGCs.hwasremovedandreplacedwithllvmlinkAllBuiltinGCsinllvmCodeGenBuiltinGCs.h.Inmono_llvm_dump_valueandmono_llvm_dump_moduleflushtheclibrarysstdoutstreambeforeusingandflushingLLVMsownbufferedoutputfunctions.</Description>
+    <CreatedDate>27/03/2020</CreatedDate>
+    <ClosedDate>30/03/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19332</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>202002llvmDisablerunningthellvmverifierbydefaultitwasenabledbymistakeandittakesalongtime.</Title>
+    <Description>ThankyouforyourPullRequestIfyouarenewtocontributingtoMonopleasetrytodoyourbestatconformingtoourcodingguidelineshttpwww.monoproject.comcommunitycontributingcodingguidelinesbutdontworryifyougetsomethingwrong.Oneoftheprojectmemberswillhelpyoutogetthingslanded.DoesyourpullrequestfixanyoftheexistingissuesPleaseusethefollowingformatFixesissuenumberBackportof19319.ccvargaz</Description>
+    <CreatedDate>26/03/2020</CreatedDate>
+    <ClosedDate>27/03/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19330</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>thaystg</FixedByID>
+    <Title>202002debuggerFixsuspend_policythatwillbesendtodebuggerlibs</Title>
+    <Description>Fixsuspend_policythatwillbesendtodebuggerlibsbecauseondebuggerlibswewanttoresumetheVMonlywhenitssuspendedbutweweresendingthewrongsuspend_policyinthecaseofEVENT_KIND_VM_STARTandmonoisstartedwithsuspendy.WiththisfixwecandothisPRagainmonodebuggerlibs264Fixeshttpsdevdiv.visualstudio.comDevDiv_workitemsedit999375Relatedmonodebuggerlibs302Backporthttpsgithub.commonomonopull19317</Description>
+    <CreatedDate>26/03/2020</CreatedDate>
+    <ClosedDate>26/03/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19329</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>monoFixEnvironment.GetEnvironmentVariablesforiOS</Title>
+    <Description>ThisPRisacopyofdotnetruntime34120pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrItlookslikeEnvironment.GetEnvironmentVariablesusedtoalwaysreturnanemptylistonXamarin.iOS.WiththisfixitworksnormallyoniOSandreturnsacorrectlistofactualenv.variables.</Description>
+    <CreatedDate>26/03/2020</CreatedDate>
+    <ClosedDate>26/03/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19322</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>202002Donotaccessunloadingdomainsindebugger</Title>
+    <Description>Therewasaracewhereadomainwasbeingunloadedwhiledebuggerwouldaccessit.Adomainwasonlyremovedfromtheappdomains_listasaverylaststep.Thedomainwasalreadyinvalidtoaccessatthispointlocksfreedforexample.Worseimageswouldbeunloadedifonlyreferencedbythatdomain.Allplacesthedebuggeriteratesdomainsholdtheloaderlock.Theloaderlockisacquiredbythedomainunloadingprocesssoaslongasadomainisnotunloadingwhenweaccessitinsideoftheloaderlockwearesafe.ThankyouforyourPullRequestIfyouarenewtocontributingtoMonopleasetrytodoyourbestatconformingtoourcodingguidelineshttpwww.monoproject.comcommunitycontributingcodingguidelinesbutdontworryifyougetsomethingwrong.Oneoftheprojectmemberswillhelpyoutogetthingslanded.DoesyourpullrequestfixanyoftheexistingissuesPleaseusethefollowingformatFixesissuenumberBackportof19299.ccthaystgUnityAlex</Description>
+    <CreatedDate>25/03/2020</CreatedDate>
+    <ClosedDate>26/03/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19305</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>metaMakemonovm_initializepublic</Title>
+    <Description>ThisPRisacopyofdotnetruntime34047pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbr</Description>
+    <CreatedDate>24/03/2020</CreatedDate>
+    <ClosedDate>26/03/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19304</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>loaderInitialworktosupportALCcollectability</Title>
+    <Description>ThisPRisacopyofdotnetruntime34038pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrThisshouldenablecreationofacollectibleALCfrommanagedthoughitwillnotactuallyunloadproperlywhenUnloadiscalled.ThisshouldbeenoughtounblockXamarinportingwork.Ifyouthinkthemono_alc_cleanupworkisjustnoiseIcanremovethatbutIthoughtithelpfultocheckintomakefuturediffsclearerasIsplititupwiththeLoaderAllocatorwork.</Description>
+    <CreatedDate>24/03/2020</CreatedDate>
+    <ClosedDate>26/03/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19303</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>loaderClearfilenamewhendebuggingassemblyunloading</Title>
+    <Description>ThisPRisacopyofdotnetruntime34037pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbr</Description>
+    <CreatedDate>24/03/2020</CreatedDate>
+    <ClosedDate>25/03/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19296</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>AddstackguaranteeonMonoWindowstohandlestackoverflow.</Title>
+    <Description>ThisPRisacopyofdotnetruntime34005pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrWhenhittingstackoverflowonWindowstheamountofstackavailabletoexceptionhandleristoosmall.WindowsdoesntsupportaltstackasotherplatformsbutthereisawaytoguaranteeacertainamountofavailablestackduringstackoverflowexceptionsusingSetThreadStackGuarantee.FixaddsupportonWindowsplatformsincludingSetThreadStackGuaranteeAPItoreservespaceneededtohandlestackoverflowexceptions.OnWindowsdebugbuildthesizeneedstobelargersincewemightendupcallingJITthatcouldhavequitedeepcallstackthatonunoptimizedbuildswillneedmorestack.</Description>
+    <CreatedDate>24/03/2020</CreatedDate>
+    <ClosedDate>26/03/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19291</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>monoretrymono_threads_pthread_killifresultEAGAINonLinux</Title>
+    <Description>ThisPRisacopyofdotnetruntime33966pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrTrytoaddresshttpsgithub.comdotnetruntimeissues32377signalqueueoverflowbysleepingandretryingafewtimes.Thisiskindofahackbutitwoudlbegoodtoseeifitwilladdresstheissue</Description>
+    <CreatedDate>23/03/2020</CreatedDate>
+    <ClosedDate>24/03/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19282</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>loaderFixmistakeinnetcore_load_referencecomment</Title>
+    <Description>ThisPRisacopyofdotnetruntime33941pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrThecodeherewasrightthecommentwrong.AlsoupdatedtomentionthatwenowcheckAPP_PATHS.</Description>
+    <CreatedDate>23/03/2020</CreatedDate>
+    <ClosedDate>23/03/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19281</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>metadataSkipsymbolnamemanglingonnonWindowsfornetcore</Title>
+    <Description>ThisPRisacopyofdotnetruntime33940pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrFixesdotnetruntime33246</Description>
+    <CreatedDate>23/03/2020</CreatedDate>
+    <ClosedDate>25/03/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19280</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>loaderFixsomelogmasksinnativelibrary</Title>
+    <Description>ThisPRisacopyofdotnetruntime33938pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrCopypasteerror</Description>
+    <CreatedDate>22/03/2020</CreatedDate>
+    <ClosedDate>25/03/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19279</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>metadataFixleakincustomattributelookup</Title>
+    <Description>ThisPRisacopyofdotnetruntime33937pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrhttpsgithub.comdotnetruntimecommit9dec6ae2ea81d46884bf49d2df8b26cc1e28eb12r37604565</Description>
+    <CreatedDate>22/03/2020</CreatedDate>
+    <ClosedDate>24/03/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19273</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>fanyang-mono</FixedByID>
+    <Title>Initialperfjitdumpimplementation</Title>
+    <Description>Fixes17024</Description>
+    <CreatedDate>20/03/2020</CreatedDate>
+    <ClosedDate>31/03/2020</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>19273</PullRequestID>
+        <IssueID>17024</IssueID>
+        <Title>[Linux] Add initial perf jitdump support</Title>
+        <Description>ThisisaduplicateofanissuefiledforCoreCLRthatmakesplentyofsenseandwouldhelpustrackdowntheperformanceissuesthatMonohasonLinux.TherestofthistextisacopyoftheoriginalbugLinuxusestheperftoolstoprofileapplication.Thelinux4.10kerneladdedsupportforaperfjitdumpformat.IthasallowsbetterJITsupportforperf.SpecificallyallowingaddingnativecodesoperfcanshowdisassemblyofJITfunctions.addingdebuginfotosupportsourcelineannotation.addingunwindinfotobettersupportstackunwind.TheappmustcreatethejitdumpfileSpecificationInformperfinjectofitspresencebycallingmmapwiththefilename.AddJIT_CODE_LOADrecordsOptionallyaddJIT_DEBUG_INFOrecordsOptionallyaddJIT_CODE_UNWINDING_INFOrecordsItisusedlikethis</Description>
+        <CreatedDate>24/09/2019</CreatedDate>
+        <ClosedDate>31/03/2020</ClosedDate>
+        <Labels>
+          <Label>task</Label>
+        </Labels>
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19272</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>monoAddheadersforunstableAPIs</Title>
+    <Description>ThisPRisacopyofdotnetruntime33869pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrWehavefunctionsthataredefactopartoftheMonoembeddingAPIthatareusedbyXamarin.iOSorXamarin.Androidthatarenotinastatewherewewanttocommittosupportingthemforeverintheircurrentform.Nonethelesswewouldliketomakesurethatthesymbolsforthesefunctionsarevisibleevenifweotherwisecompiletheruntimewithfvisisibilityhiddenandwewouldliketodiscouragedeclaringthefunctionsintheembeddersownheaders.Thefunctionsthatgointothemonoutilsmetadatajitmonoprivateunstable.hheaderswillallbemarkedwithMONO_APIMONO_RT_EXTERNAL_ONLYbutwewillnotguaranteethatthefunctionswillbetherefromonereleasetothenextorthattheywillnotchangetheirsignaturesortheirbehaviors.</Description>
+    <CreatedDate>20/03/2020</CreatedDate>
+    <ClosedDate>23/03/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19271</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>ImplementicallusedbyRuntimeHelpers.EnsureSufficientExecutionStackonnetcoreMono.</Title>
+    <Description>ThisPRisacopyofdotnetruntime33857pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrCurrentimplementationalwaysreturnedtrueforWindowsLinuxAndroid.TherearehoweveruseofthisAPIinTasklibrarytomakesurerecursivetaskswonthitstackoverflow.ThereareseveraltestsinSystem.Threading.TasksthatcurrentlyhitthisatleastonWindowscausingtestfailures.Fixusestacklimitsalreadysetupinregister_threadandusedbyGCwhendoingconservativestackscan.Ifthelimitshavenotbeensetuporisnotsupportedonplatformwewilluseolddefaultsalwaysassumethereisenoughstackspaceavailable.HeuristicsaroundsizeofminimumexecutionstackneededarepickedfromcorrespondingCoreCLRimplementation.WiththisfixalltestsruninSystem.Threading.Tasks.TestspassonWindowsusingMonoruntimeTESTEXECUTIONSUMMARYSystem.Threading.Tasks.TestsTotal682Errors0Failed0Skipped3Time11419send2020032013433572exitcode0BeforefixthefollowingtestshitstackoverflowLongContinuationChain_ContinueWith_DoesNotStackOverflowLongContinuationChain_Unwrap_DoesNotStackOverflowLongContinuationChain_Await_DoesNotStackOverflowRunStackGuardTests</Description>
+    <CreatedDate>20/03/2020</CreatedDate>
+    <ClosedDate>24/03/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19270</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>RemoveMonoruntimevcruntime140.dllreleasebuilddependency.</Title>
+    <Description>ThisPRisacopyofdotnetruntime33853pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrCoreCLRstaticlinkvcruntime140.dllbutdynamiclinkrestofCruntimeusingucrt.libinreleasebuild.CommitalignMonoruntimetofollowsamepatternremovingdependencyonvcruntime140.dll.</Description>
+    <CreatedDate>20/03/2020</CreatedDate>
+    <ClosedDate>24/03/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19263</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>monoreturnfalseforAdvSimd.IsSupportedandfriends</Title>
+    <Description>ThisPRisacopyofdotnetruntime33761pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrFixesStackOverflowinhttpsgithub.comdotnetruntimepull33749issuecomment601271356Intrinsifyallget_IsSupportedunderSystem.Runtime.Intrinsicstojustfalseexceptthesetswesupportseemono_emit_simd_intrinsics.</Description>
+    <CreatedDate>19/03/2020</CreatedDate>
+    <ClosedDate>19/03/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19262</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>202002runtimeEnterGCUnsafemodeinsomestringallocationfunctions</Title>
+    <Description>ThisPRisacopyofdotnetruntime33754pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrAllthesefunctionsareMONO_RT_EXTERNAL_ONLYandtheyallallocatemanagedobjects.FixesacoopstatemachineassertionifanembeddercallsthefunctionanditneedstotaketheGClocktodoacollection.Backportof19261.cclambdageekmonojenkins</Description>
+    <CreatedDate>19/03/2020</CreatedDate>
+    <ClosedDate>20/03/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19261</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>runtimeEnterGCUnsafemodeinsomestringallocationfunctions</Title>
+    <Description>ThisPRisacopyofdotnetruntime33754pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrAllthesefunctionsareMONO_RT_EXTERNAL_ONLYandtheyallallocatemanagedobjects.FixesacoopstatemachineassertionifanembeddercallsthefunctionanditneedstotaketheGClocktodoacollection.</Description>
+    <CreatedDate>19/03/2020</CreatedDate>
+    <ClosedDate>19/03/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19259</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>monoMakesomeAPIfunctionspublicandprivate</Title>
+    <Description>ThisPRisacopyofdotnetruntime33736pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrSeehttpsgithub.comdotnetruntimepull33633andhttpsgithub.comxamarinxamarinmaciosblobmasterruntimeexports.t4mono_install_load_aot_data_hookwasalreadyaMONO_APIbutitwasnotinapublicheader.Itisaddedtomonojitmonoprivateunstable.hmono_gc_init_finalizer_threadwasusedbyXamarin.iOShttpsgithub.comxamarinxamarinmaciosblob63ab48e679716264b33af00f86c24426da1d9f97runtimemonoruntime.h.t4L278foralongtimewithoutbeinginanypublicheader.ItsoneofthereasonswehavetocompileMonoforXIwithdisablevisibilityhidden.MakethefunctionaproperMONO_APIunconditionallybutmakeitdonothingiftheruntimeiscompiledwithoutwithlazythreadcreationthedefault.ItisnowapublicMonoAPIfunction.mono_trace_initwasaMONO_APIfunctioninanonpublicheaderthatwasalreadyusedbyembeddersthatneedtosetuploggerhooks.Itisnownotnecessarytocallthisbeforecallingtheloggerfunctionstosetuploggerhookssuchasmono_trace_set_log_handler</Description>
+    <CreatedDate>18/03/2020</CreatedDate>
+    <ClosedDate>24/03/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19254</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>Ignoreregisterunwindercallbackforemptypatch_infodatatableonWindowsMonoRuntime.</Title>
+    <Description>ThisPRisacopyofdotnetruntime33726pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrRunningSystem.Runtime.Serialization.Xmltestsuitetriggerscallstomono_code_manager_reservewith0sizecodeblock.OnWindowsallocatingcoderegionsfromcodemanagerwillalsoaddcallbackforcoderegionintounwinderfunctiontablebutsinceregioncouldbe0lengthitwillbecausingacrashinRtlInstallFunctionTableCallbackOScall.Fixhardenscodetonottrytoregistercallbacksforcoderegionsofsize0sincethatisconsideredacriticalerrorbyWindowsOSAPI.</Description>
+    <CreatedDate>18/03/2020</CreatedDate>
+    <ClosedDate>19/03/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19253</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>FixwarningbuildingMonousingWintconversion.</Title>
+    <Description>ThisPRisacopyofdotnetruntime33723pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbr</Description>
+    <CreatedDate>18/03/2020</CreatedDate>
+    <ClosedDate>19/03/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19251</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>MonoDISABLE_SIMDstillemitsOPcodesdependingonSIMDsupport.</Title>
+    <Description>ThisPRisacopyofdotnetruntime33717pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrFixmakessureruntimechecksalsoreportthatSIMDhasbeendisabled.ReturningFALSEfromis_simd_supportedwillturnofMONO_OPT_SIMDanddisableallSSEAVXcpufeatureswillpreventcodecheckingcpucapabilitiestoemitSIMDinstructions.</Description>
+    <CreatedDate>18/03/2020</CreatedDate>
+    <ClosedDate>19/03/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19248</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>thaystg</FixedByID>
+    <Title>debuggerFixNOT_IMPLEMENTEDwhiledebugging.</Title>
+    <Description>Changedmono_reflection_parse_type_checkedtoacceptnamesthatincludesandChangedthebehaviorondebuggeragentifwecantparsethenewbehavioristoreturninvalid_argumentandnotassertandstopdebuggingChangedthemono_domain_set_fastbeforereturnfromassembly_commands.Fixes19146</Description>
+    <CreatedDate>18/03/2020</CreatedDate>
+    <ClosedDate>20/03/2020</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>19248</PullRequestID>
+        <IssueID>19146</IssueID>
+        <Title>Crash by hitting NOT_IMPLEMENTED assert during managed debugging</Title>
+        <Description>IfyouarenewtotheprojectgetyourselffamiliarwithbeforefillingtheissueNoteImusingtheUnitydebuggerthatsbuiltintoVisualStudiotoconnecthereStepstoReproduce1.mcsdebugProgram.cs2.monodebugdebuggeragenttransportdt_socketserveryaddress127.0.0.156900Program.exe3.OpenVisualStudioDebugAttachUnityDebugger4.ClickInputIP5.Input127.0.0.156900andpressOk6.Putbreakpointonline11intanyVariable07.Hitanykeyinterminalthatmonowasexecutedintotriggerbreakpoint.8.HoveronanyVariable.IfthisdoesnttriggerthecrashhoverMainandthenanyVariableagain.ItshouldbeprettyquicktogettheCMD_ASSEMBLY_GET_TYPEtotriggerYoumaydragdroptheattachmentreprocodesolutionscreenshotetc.ontotheissue.ExpectedBehaviorNocrashPleasedescribethebehavioryouareexpectingOnwhichplatformsdidyounoticethismacOSLinuxxWindowsVersionUsedMonoJITcompilerversion6.8.0VisualStudiobuiltmonoYoucanusemonoversionorAboutdialogtoobtainthisinformation.Youcanjoinusattodiscussyourreportedissue</Description>
+        <CreatedDate>06/03/2020</CreatedDate>
+        <ClosedDate>20/03/2020</ClosedDate>
+        <Labels>
+          <Label>area-Debugger</Label>
+        </Labels>
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19247</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>.NETCoreto.NETbrandingchanges</Title>
+    <Description>ThisPRisacopyofdotnetruntime33694pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrFixesdotnetruntime33680</Description>
+    <CreatedDate>17/03/2020</CreatedDate>
+    <ClosedDate>01/04/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18947</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>202002sgenDisablemanagedallocatorwhenusingnurserycanaries</Title>
+    <Description>Themanagedallocatorincludedinafullaotimagedoesnotsupportcanariesleadingtoinconsistentobjectlayout.Fixeshttpsgithub.commonomonoissues18925Backportof18932.ccBrzVlad</Description>
+    <CreatedDate>19/02/2020</CreatedDate>
+    <ClosedDate>20/02/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18946</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>201912sgenDisablemanagedallocatorwhenusingnurserycanaries</Title>
+    <Description>Themanagedallocatorincludedinafullaotimagedoesnotsupportcanariesleadingtoinconsistentobjectlayout.Fixeshttpsgithub.commonomonoissues18925Backportof18932.ccBrzVlad</Description>
+    <CreatedDate>19/02/2020</CreatedDate>
+    <ClosedDate>20/02/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18944</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>metadatausedescriptiveconstantsformethodtablecolumns</Title>
+    <Description>ThisPRisacopyofdotnetruntime32567pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbr</Description>
+    <CreatedDate>19/02/2020</CreatedDate>
+    <ClosedDate>20/02/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18940</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>monoIncludefilenameinInvalidimageerrormessages</Title>
+    <Description>ThisPRisacopyofdotnetruntime32560pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrFixesdotnetruntime31649anddotnetruntime31650TestingReproducedErrorviaRuntimeRepoRootbuild.shpRuntimeFlavormonoRemovingActiveIssuehttpsgithub.comdotnetruntimeissues31650TestRuntimes.MonoinAssemblyTests.csRunningdotnetmsbuildtRebuildAndTestpXunitMethodNameSystem.Reflection.Tests.AssemblyTests.LoadFile_NoSuchPath_ThrowsFileNotFoundExceptionFixingissueresultedinnoerrors.</Description>
+    <CreatedDate>19/02/2020</CreatedDate>
+    <ClosedDate>03/03/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18939</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>202002testsDisablebug10127.exeruntimetestonWindowsx64C</Title>
+    <Description>Ithangshttpsgithub.commonomonoissues18827Backportof18828.ccakoeplinger</Description>
+    <CreatedDate>19/02/2020</CreatedDate>
+    <ClosedDate>19/02/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18938</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>loaderAddchecktomono_domain_ensure_entry_assemblyforAOT</Title>
+    <Description>ThisPRisacopyofdotnetruntime32556pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrFixesacrashwithAOTbecausedomainsetupisNULLhere</Description>
+    <CreatedDate>19/02/2020</CreatedDate>
+    <ClosedDate>19/02/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18937</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>cheesionz</FixedByID>
+    <Title>EnsureListViewItemCheckeventcanupdatethecheckedstate18926</Title>
+    <Description>Fixes18926</Description>
+    <CreatedDate>19/02/2020</CreatedDate>
+    <ClosedDate>25/02/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18936</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>bratsche</FixedByID>
+    <Title>BumpbockbuildforPangonilcheckfix.</Title>
+    <Description>Pangonilcheckfix.VSTS1069059httpsdevdiv.visualstudio.comDevDiv_workitemsedit1069059Bringsinhttpsgithub.commonobockbuildpull153</Description>
+    <CreatedDate>19/02/2020</CreatedDate>
+    <ClosedDate>21/02/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18921</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>201912merpCaptureEnvironment.FailFastmessageincrashreport</Title>
+    <Description>IftheprocesscallsSystem.Environment.FailFastmessageexceptionweshouldcapturethemessageinthecrashreportlog.Backportof18920.cclambdageek</Description>
+    <CreatedDate>18/02/2020</CreatedDate>
+    <ClosedDate>19/02/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18920</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>lambdageek</FixedByID>
+    <Title>202002merpCaptureEnvironment.FailFastmessageincrashreport</Title>
+    <Description>Backport18863to202002IftheprocesscallsSystem.Environment.FailFastmessageexceptionweshouldcapturethemessageinthecrashreportlog.</Description>
+    <CreatedDate>18/02/2020</CreatedDate>
+    <ClosedDate>19/02/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18918</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>threadingSwitchdomainassemblieslockfromOStoCoop</Title>
+    <Description>ThisPRisacopyofdotnetruntime32502pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrIdontthinkyoucancreatearootdomainwithoutreachingthethreadinfoattachcallsothisshouldbesafetochangeoutright.Fixesdotnetruntime32177Weshouldcompletehttpsgithub.commonomonoissues18915andthenconvertoverotherlocksasneededbutthisfixestheimmediateCIhang.</Description>
+    <CreatedDate>18/02/2020</CreatedDate>
+    <ClosedDate>02/03/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18913</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>CorrectvaluesforHighMemoryLoadThresholdBytesMemoryLoadBytes.</Title>
+    <Description>ThisPRisacopyofdotnetruntime32494pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrCorrectvaluesfortHighMemoryLoadThresholdBytesMemoryLoadBytes.IlookedinthecodeforCoreCLRandspokewithMaoniStephensandJanKotasaboutthevaluesusedinCoreCLRsoIamconfidenttheyareallcorrectnow.HighMemoryThresholdBytesisasystemwidememoryusagethresholdatwhichCoreCLRchangesitscompactionstrategy.Thereisnodirectcorrespondancetoanythinginmonosgen.Butsinceitusedbysoftwarecachestodeterminewhenmemoryinthesystemisnearlyexhaustemonosgentwilluse.9totalphysicalmemoryasanacceptablevalue.</Description>
+    <CreatedDate>18/02/2020</CreatedDate>
+    <ClosedDate>21/02/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18908</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>201912bclDefaultXmlSerializerstreamserializetoUTF8Encoding</Title>
+    <Description>Fixes16741withregardstousingEncoding.UTF8overEncoding.DefaultasrecommendedintheEncoding.Defaulthttpsdocs.microsoft.comenusdotnetapisystem.text.encoding.defaultviewnetframework4.8remarkstomitigatelossydata.TestingReproducingerrorCreatingVisualStudioXamarin.MacAppusingcodeprovidedin16741RancodeTestwithdefaultencoderxmlversion1.0encodingusasciiInformationxmlnsxsdhttpwww.w3.org2001XMLSchemaxmlnsxsihttpwww.w3.org2001XMLSchemainstanceNameLtherNameDescriptionDscriptionDescriptionInformationTestbyoverridingdefaultencoderwithUTF8xmlversion1.0encodingutf8Informationxmlnsxsdhttpwww.w3.org2001XMLSchemaxmlnsxsihttpwww.w3.org2001XMLSchemainstanceNameLtherNameDescriptionDscriptionDescriptionInformationFixingIssueModifiedlocaldesktopmonowchanges.Builtassemblyfilesviamakej8mcsclassPROFILExammacCopiedoverrelevantfilesSystem.Xml.dllSystem.Xml.pdbSystem.Xml.Serialization.dllovertolocalinstallationofXamarin.MacCleanedandRebuiltXamarin.MacAppRanCodeTestwithdefaultencoderxmlversion1.0encodingutf8Informationxmlnsxsdhttpwww.w3.org2001XMLSchemaxmlnsxsihttpwww.w3.org2001XMLSchemainstanceNameLtherNameDescriptionDscriptionDescriptionInformationTestbyoverridingdefaultencoderwithUTF8xmlversion1.0encodingutf8Informationxmlnsxsdhttpwww.w3.org2001XMLSchemaxmlnsxsihttpwww.w3.org2001XMLSchemainstanceNameLtherNameDescriptionDscriptionDescriptionInformationBackportof18836.ccmdh1418</Description>
+    <CreatedDate>18/02/2020</CreatedDate>
+    <ClosedDate>19/02/2020</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>18908</PullRequestID>
+        <IssueID>16741</IssueID>
+        <Title>XmlSerializer not Using UTF-8 as Default Encoding (.NET 4.8 Mac)</Title>
+        <Description>_FromvsfeedbackonMon09Sep2019183019GMT__ThisissuehasbeenmovedfromaticketonDeveloperCommunityIvebeenusing.NETFramework4.7.xformyXamarin.Macappquiteawhile.AndmyappsareusingXmlSerializerforstoringconfigurationsandotherdata.CoupleofdaysagoIupgradedthemto.NETFramework4.8hopingthatwillsomehoweasefuturemigrationpathtotheupcoming.NET5SincethenallXMLscreatedbyXmlSerializerareencodedasusasciiinsteadofutf8resultingentiredatabrokene.g.allasiantextsareunanimouslyreplacedbyquestionmarkCurrentlyIhotfixedtheissuebyimplementingXmlWritersSettingsmanuallybutthisshouldabsolutelybeaddressedASAPBythewayIamfortunatethatIhadimplementedautobackupsolutionamonthagosoIwasabletorestoretheimportantayearworthdata.OriginalCommentsVisualStudioFeedbackSystemon9520190111AMpWehavedirectedyourfeedbacktotheappropriateengineeringteamforfurtherevaluation.Theteamwillreviewthefeedbackandnotifyyouaboutthenextsteps.pOriginalSolutionsnosolutions_Copiedfromoriginalissuexamarinxamarinmacios6944_</Description>
+        <CreatedDate>09/09/2019</CreatedDate>
+        <ClosedDate>19/02/2020</ClosedDate>
+        <Labels>
+          <Label>area-BCL: System.Xml</Label>
+          <Label>needs more info</Label>
+        </Labels>
+      </Issue>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>18908</PullRequestID>
+        <IssueID>16741</IssueID>
+        <Title>XmlSerializer not Using UTF-8 as Default Encoding (.NET 4.8 Mac)</Title>
+        <Description>_FromvsfeedbackonMon09Sep2019183019GMT__ThisissuehasbeenmovedfromaticketonDeveloperCommunityIvebeenusing.NETFramework4.7.xformyXamarin.Macappquiteawhile.AndmyappsareusingXmlSerializerforstoringconfigurationsandotherdata.CoupleofdaysagoIupgradedthemto.NETFramework4.8hopingthatwillsomehoweasefuturemigrationpathtotheupcoming.NET5SincethenallXMLscreatedbyXmlSerializerareencodedasusasciiinsteadofutf8resultingentiredatabrokene.g.allasiantextsareunanimouslyreplacedbyquestionmarkCurrentlyIhotfixedtheissuebyimplementingXmlWritersSettingsmanuallybutthisshouldabsolutelybeaddressedASAPBythewayIamfortunatethatIhadimplementedautobackupsolutionamonthagosoIwasabletorestoretheimportantayearworthdata.OriginalCommentsVisualStudioFeedbackSystemon9520190111AMpWehavedirectedyourfeedbacktotheappropriateengineeringteamforfurtherevaluation.Theteamwillreviewthefeedbackandnotifyyouaboutthenextsteps.pOriginalSolutionsnosolutions_Copiedfromoriginalissuexamarinxamarinmacios6944_</Description>
+        <CreatedDate>09/09/2019</CreatedDate>
+        <ClosedDate>19/02/2020</ClosedDate>
+        <Labels>
+          <Label>area-BCL: System.Xml</Label>
+          <Label>needs more info</Label>
+        </Labels>
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18907</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>202002bclDefaultXmlSerializerstreamserializetoUTF8Encoding</Title>
+    <Description>Fixes16741withregardstousingEncoding.UTF8overEncoding.DefaultasrecommendedintheEncoding.Defaulthttpsdocs.microsoft.comenusdotnetapisystem.text.encoding.defaultviewnetframework4.8remarkstomitigatelossydata.TestingReproducingerrorCreatingVisualStudioXamarin.MacAppusingcodeprovidedin16741RancodeTestwithdefaultencoderxmlversion1.0encodingusasciiInformationxmlnsxsdhttpwww.w3.org2001XMLSchemaxmlnsxsihttpwww.w3.org2001XMLSchemainstanceNameLtherNameDescriptionDscriptionDescriptionInformationTestbyoverridingdefaultencoderwithUTF8xmlversion1.0encodingutf8Informationxmlnsxsdhttpwww.w3.org2001XMLSchemaxmlnsxsihttpwww.w3.org2001XMLSchemainstanceNameLtherNameDescriptionDscriptionDescriptionInformationFixingIssueModifiedlocaldesktopmonowchanges.Builtassemblyfilesviamakej8mcsclassPROFILExammacCopiedoverrelevantfilesSystem.Xml.dllSystem.Xml.pdbSystem.Xml.Serialization.dllovertolocalinstallationofXamarin.MacCleanedandRebuiltXamarin.MacAppRanCodeTestwithdefaultencoderxmlversion1.0encodingutf8Informationxmlnsxsdhttpwww.w3.org2001XMLSchemaxmlnsxsihttpwww.w3.org2001XMLSchemainstanceNameLtherNameDescriptionDscriptionDescriptionInformationTestbyoverridingdefaultencoderwithUTF8xmlversion1.0encodingutf8Informationxmlnsxsdhttpwww.w3.org2001XMLSchemaxmlnsxsihttpwww.w3.org2001XMLSchemainstanceNameLtherNameDescriptionDscriptionDescriptionInformationBackportof18836.ccmdh1418</Description>
+    <CreatedDate>18/02/2020</CreatedDate>
+    <ClosedDate>19/02/2020</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>18907</PullRequestID>
+        <IssueID>16741</IssueID>
+        <Title>XmlSerializer not Using UTF-8 as Default Encoding (.NET 4.8 Mac)</Title>
+        <Description>_FromvsfeedbackonMon09Sep2019183019GMT__ThisissuehasbeenmovedfromaticketonDeveloperCommunityIvebeenusing.NETFramework4.7.xformyXamarin.Macappquiteawhile.AndmyappsareusingXmlSerializerforstoringconfigurationsandotherdata.CoupleofdaysagoIupgradedthemto.NETFramework4.8hopingthatwillsomehoweasefuturemigrationpathtotheupcoming.NET5SincethenallXMLscreatedbyXmlSerializerareencodedasusasciiinsteadofutf8resultingentiredatabrokene.g.allasiantextsareunanimouslyreplacedbyquestionmarkCurrentlyIhotfixedtheissuebyimplementingXmlWritersSettingsmanuallybutthisshouldabsolutelybeaddressedASAPBythewayIamfortunatethatIhadimplementedautobackupsolutionamonthagosoIwasabletorestoretheimportantayearworthdata.OriginalCommentsVisualStudioFeedbackSystemon9520190111AMpWehavedirectedyourfeedbacktotheappropriateengineeringteamforfurtherevaluation.Theteamwillreviewthefeedbackandnotifyyouaboutthenextsteps.pOriginalSolutionsnosolutions_Copiedfromoriginalissuexamarinxamarinmacios6944_</Description>
+        <CreatedDate>09/09/2019</CreatedDate>
+        <ClosedDate>19/02/2020</ClosedDate>
+        <Labels>
+          <Label>area-BCL: System.Xml</Label>
+          <Label>needs more info</Label>
+        </Labels>
+      </Issue>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>18907</PullRequestID>
+        <IssueID>16741</IssueID>
+        <Title>XmlSerializer not Using UTF-8 as Default Encoding (.NET 4.8 Mac)</Title>
+        <Description>_FromvsfeedbackonMon09Sep2019183019GMT__ThisissuehasbeenmovedfromaticketonDeveloperCommunityIvebeenusing.NETFramework4.7.xformyXamarin.Macappquiteawhile.AndmyappsareusingXmlSerializerforstoringconfigurationsandotherdata.CoupleofdaysagoIupgradedthemto.NETFramework4.8hopingthatwillsomehoweasefuturemigrationpathtotheupcoming.NET5SincethenallXMLscreatedbyXmlSerializerareencodedasusasciiinsteadofutf8resultingentiredatabrokene.g.allasiantextsareunanimouslyreplacedbyquestionmarkCurrentlyIhotfixedtheissuebyimplementingXmlWritersSettingsmanuallybutthisshouldabsolutelybeaddressedASAPBythewayIamfortunatethatIhadimplementedautobackupsolutionamonthagosoIwasabletorestoretheimportantayearworthdata.OriginalCommentsVisualStudioFeedbackSystemon9520190111AMpWehavedirectedyourfeedbacktotheappropriateengineeringteamforfurtherevaluation.Theteamwillreviewthefeedbackandnotifyyouaboutthenextsteps.pOriginalSolutionsnosolutions_Copiedfromoriginalissuexamarinxamarinmacios6944_</Description>
+        <CreatedDate>09/09/2019</CreatedDate>
+        <ClosedDate>19/02/2020</ClosedDate>
+        <Labels>
+          <Label>area-BCL: System.Xml</Label>
+          <Label>needs more info</Label>
+        </Labels>
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18890</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>202002MoveTestEnvVarSwitchForInnerHttpHandlertonunitfromxunit</Title>
+    <Description>ThexunittestswehaveforthislibusefakeHttpClientHandlerandthetestexpectstherealoneseehttpsgithub.commonocorefxblobmastersrcSystem.Net.HttptestsUnitTestsFakesHttpClientHandler.csBackportof18883.ccEgorBo</Description>
+    <CreatedDate>17/02/2020</CreatedDate>
+    <ClosedDate>18/02/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18889</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>201912MoveTestEnvVarSwitchForInnerHttpHandlertonunitfromxunit</Title>
+    <Description>ThexunittestswehaveforthislibusefakeHttpClientHandlerandthetestexpectstherealoneseehttpsgithub.commonocorefxblobmastersrcSystem.Net.HttptestsUnitTestsFakesHttpClientHandler.csBackportof18883.ccEgorBo</Description>
+    <CreatedDate>17/02/2020</CreatedDate>
+    <ClosedDate>18/02/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18888</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>201910MoveTestEnvVarSwitchForInnerHttpHandlertonunitfromxunit</Title>
+    <Description>ThexunittestswehaveforthislibusefakeHttpClientHandlerandthetestexpectstherealoneseehttpsgithub.commonocorefxblobmastersrcSystem.Net.HttptestsUnitTestsFakesHttpClientHandler.csBackportof18883.ccEgorBo</Description>
+    <CreatedDate>17/02/2020</CreatedDate>
+    <ClosedDate>18/02/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18885</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>202002Bumplinkersubmodule</Title>
+    <Description>Containsfixforoutargument.Backportof18884.ccakoeplinger</Description>
+    <CreatedDate>17/02/2020</CreatedDate>
+    <ClosedDate>17/02/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18867</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>Removingsystem.jsonproject</Title>
+    <Description>ThisPRisacopyofdotnetruntime32329pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbr</Description>
+    <CreatedDate>14/02/2020</CreatedDate>
+    <ClosedDate>17/02/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18866</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>Bracesaroundsubobjectofinitializationwarningfix</Title>
+    <Description>ThisPRisacopyofdotnetruntime32328pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrWhencompilingforMonoApplescompilergivesawarningsayingtoputbracesaroundthe0asitisasubobject.TosilencethecompilerIputbracesaroundthe0.Simplyfix.</Description>
+    <CreatedDate>14/02/2020</CreatedDate>
+    <ClosedDate>26/02/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18860</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>metadataSwitchthedynamicimagesmutexfromOStocoop</Title>
+    <Description>ThisPRisacopyofdotnetruntime32313pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbr</Description>
+    <CreatedDate>14/02/2020</CreatedDate>
+    <ClosedDate>14/02/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18855</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>202002sdksaddanroidinterpreterarm64v8aarmeabiv7ax86x86_64targets</Title>
+    <Description>TheXamarin.Androidteamprefersthatweshiptwodifferentlibmonosgen2.0.soforeachtargete.g.forarm64wewillhavewiththisPR.sdksoutandroidarm64v8areleaseliblibmonosgen2.0.so.sdksoutandroidinterpreterarm64v8areleaseliblibmonosgen2.0.soAsthenamesindicateonehastheinterpreterenabled.ThisiscontrarytowhatwedoforXamarin.iOS.Thereenableminimalinterpreterhasthesideeffectthatthebuildwillproducealibmonoeeinterp.dylibthatcanbelinkednexttolibmonosgen2.0.dylib.We_could_dothesameforAndroidbutthatwouldrequireustoAdddisablevisibilityhiddentotheAndroidMonoruntimebuilds.Thereareconcernshoweverthatthiswillslowdowndlopenlibmonosgen2.0.soontheXamarin.Androidside.Dosomechangestotheinterpreterinfrastructurebecausedisableminimalinterpreterisdesignedtobeusedwithacrosscompilerinmind.Forexamplewewouldneedadifferentsolutionforthishttpsgithub.commonomonoblobd7e6fcbda82639fd5afe106b0e7a65a2a72a4f63monominitramparm64.cL631L634ccgrendelloBackportof18814.cclewurm</Description>
+    <CreatedDate>14/02/2020</CreatedDate>
+    <ClosedDate>17/02/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18852</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>FixbrokenMSDNblogslinks</Title>
+    <Description>ThisPRisacopyofdotnetruntime32273pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrFixesMSDNblogslinksthroughoutourdocsandsourcecodecommentsthatwerebrokenduringthegreatMSDNmigrationof2019.NoteIamchangingthecontentsofthe_davbrBlogArchives_folderbyfixingthebrokenlinks.IfweneedtokeepthesefilesexactlyastheywerewhentheywerecopiedfromtheblogIcanrevert.</Description>
+    <CreatedDate>14/02/2020</CreatedDate>
+    <ClosedDate>14/02/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18850</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>loaderParseinmorenetcorehostingproperties</Title>
+    <Description>ThisPRisacopyofdotnetruntime32263pleasedonoteditorreviewitinthisrepobrDonotautomaticallyapprovethisPRbrbrConsiderhowthechangesaffectconfigurationsinthisrepobrCheckeffectsonfilesthatarenotmirroredbrIdentifytestcasesthatmaybeneededinthisrepo.brbrMergethePRonlyaftertheoriginalPRismergedbrhrbrThisincludessomeotherminorcleanuptothenetcorehostingfunctions.Settingassemblies_pathwithAPP_PATHSdespiteitalsobeingsetbyMONO_PATHdoesntscaremetoomuchbecause1AnyoneusingMONO_PATHisprobablynotgoingthroughthehostingAPIandisusingmonosgendirectly2ThedefaulthostdoesntsetAPP_PATHSandweveworkedfinewithoutitbeingsetatallupuntilnow3Thisisatemporarymeasurewewillhavetorefactorourpreloadhookwhenwewanttoproperlysupporttheotherloaderpropertiesanyway</Description>
+    <CreatedDate>13/02/2020</CreatedDate>
+    <ClosedDate>19/02/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18845</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>202002Bumplinkersubmodule</Title>
+    <Description>BumplinkersubmoduleBackportof18844.ccakoeplingerfanyangmono</Description>
+    <CreatedDate>13/02/2020</CreatedDate>
+    <ClosedDate>14/02/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18839</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>201912merpIncreasebuffersizeforstatedump</Title>
+    <Description>Addresseshttpsgithub.commonomonoissues18796ThankyouforyourPullRequestIfyouarenewtocontributingtoMonopleasetrytodoyourbestatconformingtoourcodingguidelineshttpwww.monoproject.comcommunitycontributingcodingguidelinesbutdontworryifyougetsomethingwrong.Oneoftheprojectmemberswillhelpyoutogetthingslanded.DoesyourpullrequestfixanyoftheexistingissuesPleaseusethefollowingformatFixesissuenumberBackportof18798.ccalexischr</Description>
+    <CreatedDate>13/02/2020</CreatedDate>
+    <ClosedDate>24/02/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18838</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>201910merpIncreasebuffersizeforstatedump</Title>
+    <Description>Addresseshttpsgithub.commonomonoissues18796ThankyouforyourPullRequestIfyouarenewtocontributingtoMonopleasetrytodoyourbestatconformingtoourcodingguidelineshttpwww.monoproject.comcommunitycontributingcodingguidelinesbutdontworryifyougetsomethingwrong.Oneoftheprojectmemberswillhelpyoutogetthingslanded.DoesyourpullrequestfixanyoftheexistingissuesPleaseusethefollowingformatFixesissuenumberBackportof18798.ccalexischr</Description>
+    <CreatedDate>13/02/2020</CreatedDate>
+    <ClosedDate>15/02/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18837</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>202002merpIncreasebuffersizeforstatedump</Title>
+    <Description>Addresseshttpsgithub.commonomonoissues18796ThankyouforyourPullRequestIfyouarenewtocontributingtoMonopleasetrytodoyourbestatconformingtoourcodingguidelineshttpwww.monoproject.comcommunitycontributingcodingguidelinesbutdontworryifyougetsomethingwrong.Oneoftheprojectmemberswillhelpyoutogetthingslanded.DoesyourpullrequestfixanyoftheexistingissuesPleaseusethefollowingformatFixesissuenumberBackportof18798.ccalexischr</Description>
+    <CreatedDate>13/02/2020</CreatedDate>
+    <ClosedDate>24/02/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18836</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>mdh1418</FixedByID>
+    <Title>bclDefaultXmlSerializerstreamserializetoUTF8Encoding</Title>
+    <Description>Fixes16741withregardstousingEncoding.UTF8overEncoding.DefaultasrecommendedintheEncoding.Defaulthttpsdocs.microsoft.comenusdotnetapisystem.text.encoding.defaultviewnetframework4.8remarkstomitigatelossydata.TestingReproducingerrorCreatingVisualStudioXamarin.MacAppusingcodeprovidedin16741RancodeTestwithdefaultencoderxmlversion1.0encodingusasciiInformationxmlnsxsdhttpwww.w3.org2001XMLSchemaxmlnsxsihttpwww.w3.org2001XMLSchemainstanceNameLtherNameDescriptionDscriptionDescriptionInformationTestbyoverridingdefaultencoderwithUTF8xmlversion1.0encodingutf8Informationxmlnsxsdhttpwww.w3.org2001XMLSchemaxmlnsxsihttpwww.w3.org2001XMLSchemainstanceNameLtherNameDescriptionDscriptionDescriptionInformationFixingIssueModifiedlocaldesktopmonowchanges.Builtassemblyfilesviamakej8mcsclassPROFILExammacCopiedoverrelevantfilesSystem.Xml.dllSystem.Xml.pdbSystem.Xml.Serialization.dllovertolocalinstallationofXamarin.MacCleanedandRebuiltXamarin.MacAppRanCodeTestwithdefaultencoderxmlversion1.0encodingutf8Informationxmlnsxsdhttpwww.w3.org2001XMLSchemaxmlnsxsihttpwww.w3.org2001XMLSchemainstanceNameLtherNameDescriptionDscriptionDescriptionInformationTestbyoverridingdefaultencoderwithUTF8xmlversion1.0encodingutf8Informationxmlnsxsdhttpwww.w3.org2001XMLSchemaxmlnsxsihttpwww.w3.org2001XMLSchemainstanceNameLtherNameDescriptionDscriptionDescriptionInformation</Description>
+    <CreatedDate>13/02/2020</CreatedDate>
+    <ClosedDate>19/02/2020</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>18836</PullRequestID>
+        <IssueID>16741</IssueID>
+        <Title>XmlSerializer not Using UTF-8 as Default Encoding (.NET 4.8 Mac)</Title>
+        <Description>_FromvsfeedbackonMon09Sep2019183019GMT__ThisissuehasbeenmovedfromaticketonDeveloperCommunityIvebeenusing.NETFramework4.7.xformyXamarin.Macappquiteawhile.AndmyappsareusingXmlSerializerforstoringconfigurationsandotherdata.CoupleofdaysagoIupgradedthemto.NETFramework4.8hopingthatwillsomehoweasefuturemigrationpathtotheupcoming.NET5SincethenallXMLscreatedbyXmlSerializerareencodedasusasciiinsteadofutf8resultingentiredatabrokene.g.allasiantextsareunanimouslyreplacedbyquestionmarkCurrentlyIhotfixedtheissuebyimplementingXmlWritersSettingsmanuallybutthisshouldabsolutelybeaddressedASAPBythewayIamfortunatethatIhadimplementedautobackupsolutionamonthagosoIwasabletorestoretheimportantayearworthdata.OriginalCommentsVisualStudioFeedbackSystemon9520190111AMpWehavedirectedyourfeedbacktotheappropriateengineeringteamforfurtherevaluation.Theteamwillreviewthefeedbackandnotifyyouaboutthenextsteps.pOriginalSolutionsnosolutions_Copiedfromoriginalissuexamarinxamarinmacios6944_</Description>
+        <CreatedDate>09/09/2019</CreatedDate>
+        <ClosedDate>19/02/2020</ClosedDate>
+        <Labels>
+          <Label>area-BCL: System.Xml</Label>
+          <Label>needs more info</Label>
+        </Labels>
+      </Issue>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>18836</PullRequestID>
+        <IssueID>16741</IssueID>
+        <Title>XmlSerializer not Using UTF-8 as Default Encoding (.NET 4.8 Mac)</Title>
+        <Description>_FromvsfeedbackonMon09Sep2019183019GMT__ThisissuehasbeenmovedfromaticketonDeveloperCommunityIvebeenusing.NETFramework4.7.xformyXamarin.Macappquiteawhile.AndmyappsareusingXmlSerializerforstoringconfigurationsandotherdata.CoupleofdaysagoIupgradedthemto.NETFramework4.8hopingthatwillsomehoweasefuturemigrationpathtotheupcoming.NET5SincethenallXMLscreatedbyXmlSerializerareencodedasusasciiinsteadofutf8resultingentiredatabrokene.g.allasiantextsareunanimouslyreplacedbyquestionmarkCurrentlyIhotfixedtheissuebyimplementingXmlWritersSettingsmanuallybutthisshouldabsolutelybeaddressedASAPBythewayIamfortunatethatIhadimplementedautobackupsolutionamonthagosoIwasabletorestoretheimportantayearworthdata.OriginalCommentsVisualStudioFeedbackSystemon9520190111AMpWehavedirectedyourfeedbacktotheappropriateengineeringteamforfurtherevaluation.Theteamwillreviewthefeedbackandnotifyyouaboutthenextsteps.pOriginalSolutionsnosolutions_Copiedfromoriginalissuexamarinxamarinmacios6944_</Description>
+        <CreatedDate>09/09/2019</CreatedDate>
+        <ClosedDate>19/02/2020</ClosedDate>
+        <Labels>
+          <Label>area-BCL: System.Xml</Label>
+          <Label>needs more info</Label>
+        </Labels>
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18835</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>201910MakeMonoWebRequestHandlerlinkerfriendly</Title>
+    <Description>Createitusingreflectionsoitwillbealwayslinkedout.HoweverifitssetviaXA_HTTP_CLIENT_HANDLER_TYPElinkerwillpreserveitinaspecialsubstephttpsgithub.comxamarinxamarinandroidblobmastersrcXamarin.Android.Build.TasksLinkerMonoDroid.TunerPreserveHttpAndroidClientHandler.csL72L80IhadtomakeitsctorpublicbecauseLinkerinstantiateitviaActivator.CreateInstancestringherehttpsgithub.comxamarinxamarinandroidblob60363ef45cd6994a322adac1b73d4271b0658c1esrcMono.AndroidAndroid.RuntimeAndroidEnvironment.csL369.ButthewholetyperemainsinternalsoitsnotarealAPIchange.Fixesissuefromhttpsgithub.commonomonopull18818issuecomment585611647Backportof18832.ccEgorBo</Description>
+    <CreatedDate>13/02/2020</CreatedDate>
+    <ClosedDate>18/02/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18834</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>202002MakeMonoWebRequestHandlerlinkerfriendly</Title>
+    <Description>Createitusingreflectionsoitwillbealwayslinkedout.HoweverifitssetviaXA_HTTP_CLIENT_HANDLER_TYPElinkerwillpreserveitinaspecialsubstephttpsgithub.comxamarinxamarinandroidblobmastersrcXamarin.Android.Build.TasksLinkerMonoDroid.TunerPreserveHttpAndroidClientHandler.csL72L80IhadtomakeitsctorpublicbecauseLinkerinstantiateitviaActivator.CreateInstancestringherehttpsgithub.comxamarinxamarinandroidblob60363ef45cd6994a322adac1b73d4271b0658c1esrcMono.AndroidAndroid.RuntimeAndroidEnvironment.csL369.ButthewholetyperemainsinternalsoitsnotarealAPIchange.Fixesissuefromhttpsgithub.commonomonopull18818issuecomment585611647Backportof18832.ccEgorBo</Description>
+    <CreatedDate>13/02/2020</CreatedDate>
+    <ClosedDate>18/02/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18833</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>201912MakeMonoWebRequestHandlerlinkerfriendly</Title>
+    <Description>Createitusingreflectionsoitwillbealwayslinkedout.HoweverifitssetviaXA_HTTP_CLIENT_HANDLER_TYPElinkerwillpreserveitinaspecialsubstephttpsgithub.comxamarinxamarinandroidblobmastersrcXamarin.Android.Build.TasksLinkerMonoDroid.TunerPreserveHttpAndroidClientHandler.csL72L80IhadtomakeitsctorpublicbecauseLinkerinstantiateitviaActivator.CreateInstancestringherehttpsgithub.comxamarinxamarinandroidblob60363ef45cd6994a322adac1b73d4271b0658c1esrcMono.AndroidAndroid.RuntimeAndroidEnvironment.csL369.ButthewholetyperemainsinternalsoitsnotarealAPIchange.Fixesissuefromhttpsgithub.commonomonopull18818issuecomment585611647Backportof18832.ccEgorBo</Description>
+    <CreatedDate>13/02/2020</CreatedDate>
+    <ClosedDate>18/02/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18831</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>akoeplinger</FixedByID>
+    <Title>201910Moveoffsetstoolintomonotools18783</Title>
+    <Description>BackportingthissinceweseeerrorsduringpipinstallontheAndroidMonoSDKsbuildonLinuxandwiththiswereremovingthecalltopipitwasntneeded.Backportof18783.</Description>
+    <CreatedDate>13/02/2020</CreatedDate>
+    <ClosedDate>13/02/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18830</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>201912Moveoffsetstoolintomonotools</Title>
+    <Description>BackportingthissinceweseeerrorsduringpipinstallontheAndroidMonoSDKsbuildonLinuxandwiththiswereremovingthecalltopipitwasntneeded.Backportof18783.ccakoeplinger</Description>
+    <CreatedDate>13/02/2020</CreatedDate>
+    <ClosedDate>13/02/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>18829</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>202002Moveoffsetstoolintomonotools</Title>
+    <Description>BackportingthissinceweseeerrorsduringpipinstallontheAndroidMonoSDKsbuildonLinuxandwiththiswereremovingthecalltopipitwasntneeded.Backportof18783.ccakoeplinger</Description>
+    <CreatedDate>13/02/2020</CreatedDate>
+    <ClosedDate>13/02/2020</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>17424</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>201910ChangingbehaviorofsometestsinWatchOs.</Title>
+    <Description>Needsthisifdefsbecauseofthishttpsgithub.commonomonopull17260.Backportof17423.ccsteveisokthaystg</Description>
+    <CreatedDate>19/10/2019</CreatedDate>
+    <ClosedDate>21/10/2019</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>17422</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>201908profilerFixcoverageprofileronmacos</Title>
+    <Description>Ifwehavecoverageprofilingenabledforamethodmono_profiler_coverage_instrumentation_enabledwithcoverage_filtercallbackthenweshouldbeabletoallocateacoverageinfostructuremono_profiler_coverage_alloc.Afterhttpsgithub.commonomonocommit52429673dc617fd437518757c04c7448211075e9coverage_filterwasreportingwrappermethodsasoktoprofilewhilemono_profiler_coverage_allocwasrefusingtoallocatethenecessarystructureleadingtocrashes.ThankyouforyourPullRequestIfyouarenewtocontributingtoMonopleasetrytodoyourbestatconformingtoourcodingguidelineshttpwww.monoproject.comcommunitycontributingcodingguidelinesbutdontworryifyougetsomethingwrong.Oneoftheprojectmemberswillhelpyoutogetthingslanded.DoesyourpullrequestfixanyoftheexistingissuesPleaseusethefollowingformatFixesissuenumberBackportof17396.ccBrzVlad</Description>
+    <CreatedDate>18/10/2019</CreatedDate>
+    <ClosedDate>22/10/2019</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>17421</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>201910profilerFixcoverageprofileronmacos</Title>
+    <Description>Ifwehavecoverageprofilingenabledforamethodmono_profiler_coverage_instrumentation_enabledwithcoverage_filtercallbackthenweshouldbeabletoallocateacoverageinfostructuremono_profiler_coverage_alloc.Afterhttpsgithub.commonomonocommit52429673dc617fd437518757c04c7448211075e9coverage_filterwasreportingwrappermethodsasoktoprofilewhilemono_profiler_coverage_allocwasrefusingtoallocatethenecessarystructureleadingtocrashes.ThankyouforyourPullRequestIfyouarenewtocontributingtoMonopleasetrytodoyourbestatconformingtoourcodingguidelineshttpwww.monoproject.comcommunitycontributingcodingguidelinesbutdontworryifyougetsomethingwrong.Oneoftheprojectmemberswillhelpyoutogetthingslanded.DoesyourpullrequestfixanyoftheexistingissuesPleaseusethefollowingformatFixesissuenumberBackportof17396.ccBrzVlad</Description>
+    <CreatedDate>18/10/2019</CreatedDate>
+    <ClosedDate>21/10/2019</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>17416</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>201908BeginConnectcompletetoearlywhennotusingcallback.</Title>
+    <Description>Thefollowingcommit068e8fechangedthewaywedoDNSresolveinBeginConnectusinghostname.InsteadofdoingablockingDNSresolveitswitchedtoanasyncDNSresolvefollowedbyanasyncconnect.ThereturnedIAsyncResultwasjustrepresentingthecompletionoftheDNSresolvetaskandnottheunderlyingconnect.ItalsoturnsoutthatpartofdoingEndConnectwedidsomevalidationoftheusedIAsyncResultmakingsureitwasaninstanceofSocketAsyncResultmeaningthatifEndConnectwascalledonthereturnedIAsyncResultfromBeginConnectEndConnectwouldthrowandexception.NOTEthisonlyhappensifyouusepatternlikethisvarresultsock.BeginConnecthostNameportnullnullresult.AsyncWaitHandle.WaitOne2000sock.EndConnectresultItdidnothappenedifyouusedcallbackssincethenEndConnectwouldbecalledaspartofcallbackandthatIAsyncResultwasofcorrecttypeorifyoudidaBeginConnectwithanEndPointorIPAddresssincethatwonttriggertheDNSresolve.FixistomakesurewehandouttheSocketAsyncResultinstancethatwillbeusedinourinternalconnectcallsfromBeginConnect.WealsomakesurewechaintheDNSresolvetasktogetherwithataskdoingtheasyncconnectusingthesameSocketAsyncResultinstance.ThiswillmakesuretheIAsyncResultreturnedfromBeginConnectisthesameoneasusedininternalconnectcallsoitwillonlycompletewhentheconnectcallcompletes.Backportof17035.ccsteveisoklateralusX</Description>
+    <CreatedDate>18/10/2019</CreatedDate>
+    <ClosedDate>21/10/2019</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>17416</PullRequestID>
+        <IssueID>17035</IssueID>
+        <Title>  BeginConnect complete to early when not using callback.</Title>
+        <Description>Thefollowingcommit068e8fechangedthewaywedoDNSresolveinBeginConnectusinghostname.InsteadofdoingablockingDNSresolveitswitchedtoanasyncDNSresolvefollowedbyanasyncconnect.ThereturnedIAsyncResultwasjustrepresentingthecompletionoftheDNSresolvetaskandnottheunderlyingconnect.ItalsoturnsoutthatpartofdoingEndConnectwedidsomevalidationoftheusedIAsyncResultmakingsureitwasaninstanceofSocketAsyncResultmeaningthatifEndConnectwascalledonthereturnedIAsyncResultfromBeginConnectEndConnectwouldthrowandexception.NOTEthisonlyhappensifyouusepatternlikethisvarresultsock.BeginConnecthostNameportnullnullresult.AsyncWaitHandle.WaitOne2000sock.EndConnectresultItdidnothappenedifyouusedcallbackssincethenEndConnectwouldbecalledaspartofcallbackandthatIAsyncResultwasofcorrecttypeorifyoudidaBeginConnectwithanEndPointorIPAddresssincethatwonttriggertheDNSresolve.FixistomakesurewehandouttheSocketAsyncResultinstancethatwillbeusedinourinternalconnectcallsfromBeginConnect.WealsomakesurewechaintheDNSresolvetasktogetherwithataskdoingtheasyncconnectusingthesameSocketAsyncResultinstance.ThiswillmakesuretheIAsyncResultreturnedfromBeginConnectisthesameoneasusedininternalconnectcallsoitwillonlycompletewhentheconnectcallcompletes.</Description>
+        <CreatedDate>25/09/2019</CreatedDate>
+        <ClosedDate>26/09/2019</ClosedDate>
+        <Labels>
+          <Label>area-BCL: System</Label>
+        </Labels>
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>17415</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>201908jitFixis_referencechecksforintrinsicswithbyrefparameters.</Title>
+    <Description>Foundbyhttpsgithub.commonomonoissues17335.Backportof17338.ccmareksafarvargaz</Description>
+    <CreatedDate>18/10/2019</CreatedDate>
+    <ClosedDate>24/10/2019</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>17410</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>201908EnableGSSonLinux</Title>
+    <Description>testonciBackportof17223.ccsteveisokEgorBo</Description>
+    <CreatedDate>17/10/2019</CreatedDate>
+    <ClosedDate>18/10/2019</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>17409</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>201910EnableGSSonLinux</Title>
+    <Description>testonciBackportof17223.ccsteveisokEgorBo</Description>
+    <CreatedDate>17/10/2019</CreatedDate>
+    <ClosedDate>18/10/2019</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>17401</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>201910jitFixis_referencechecksforintrinsicswithbyrefparameters.</Title>
+    <Description>Foundbyhttpsgithub.commonomonoissues17335.Backportof17338.cclambdageekvargaz</Description>
+    <CreatedDate>17/10/2019</CreatedDate>
+    <ClosedDate>18/10/2019</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>17399</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>thaystg</FixedByID>
+    <Title>debuggerChanginghowdebuggerhandlesexceptionwhenhybridsuspendisenabled</Title>
+    <Description>Removingallfixestofix15203and17083andtryinganewapproachtofixthis17084together.Thethingiswhenweareexecutingonhybridsuspendthereisanextratrycatchintheruntime_invoke_methodthatisgenerated.Andthisextratrycatchshouldbeignoredbecausethiswillgeneratemoreexceptionstodebuggerthanexpectedandremovepartofthestacktrace.Somynewtryisignorethistrycatchthatisgeneratedinruntime_invoke_whenhybridsuspendisbeingused.Withthisallthethreeissuesarefixed.Fixes17084ThankyouforyourPullRequestIfyouarenewtocontributingtoMonopleasetrytodoyourbestatconformingtoourcodingguidelineshttpwww.monoproject.comcommunitycontributingcodingguidelinesbutdontworryifyougetsomethingwrong.Oneoftheprojectmemberswillhelpyoutogetthingslanded.DoesyourpullrequestfixanyoftheexistingissuesPleaseusethefollowingformatFixesissuenumber</Description>
+    <CreatedDate>17/10/2019</CreatedDate>
+    <ClosedDate>17/10/2019</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>17399</PullRequestID>
+        <IssueID>15203</IssueID>
+        <Title>Debugger doesn't break on unhandled exceptions</Title>
+        <Description>StepstoReproduce1.WritesimpleconsoleapplicationthrowingunhandledexceptionAlsoreproducesonMono6.0.0.299.WorksasexpectedwhenusingMono5.18.1.3.ItrieditwithJetBrainsRiderandVSCodeandbothdontbreakonunhandledexceptions.IalsotriedtoreproducethescenarioonWindowswithMono5.20.1.19andeverythingworksasexpected.</Description>
+        <CreatedDate>17/06/2019</CreatedDate>
+        <ClosedDate>20/06/2019</ClosedDate>
+        <Labels>
+          <Label>area-Debugger</Label>
+          <Label>regression</Label>
+        </Labels>
+      </Issue>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>17399</PullRequestID>
+        <IssueID>17083</IssueID>
+        <Title>Regression: when debugger encounters a not-unhandled exception, it stops and shows "Dns.cs file not found" (Dns being the BCL class used)</Title>
+        <Description>IbelievethisisaregressionbecauseIhaventseenthisbehaviourinpreviousversionsofVisualStudioforMacnowusing8.2.4notsuretheexactversionwhenthisstartedhappeningpossiblywhenMono6.0wasbundled.Stepstoreproduce1.OpenVS4MaccreatenewprojectsolutionConsoletypelanguageC.2.Usethissimplesnippet3.Compileit.IfyourunitoutsideVS4Macresultshouldjustbetheprintingofthestringcorrectlyhandled.4.RunitwiththedebuggerinsideVS4Mac.ExpectedresultsShouldjustrunitandnotstopfinishexecutionattheendlikeitsthecasewhenbeingrunoutsideofVS4Mac.CurrentresultsDebuggerseemstobombwhenaSocketExceptionisthrownevenifitsproperlyhandledwithatrycatchthisisthefirstbug.ThenittriestoopenthesourcecodeoftheBCLwherethisexceptionhappenedDns.cstellingtheweirderrorSourceNotFoundtotheuser.Seescreenshotimgwidth1270altScreenshot20190828at35616PMsrcVSbug973786VSbug989287</Description>
+        <CreatedDate>28/08/2019</CreatedDate>
+        <ClosedDate>07/10/2019</ClosedDate>
+        <Labels>
+          <Label>area-Debugger</Label>
+        </Labels>
+      </Issue>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>17399</PullRequestID>
+        <IssueID>17084</IssueID>
+        <Title>Marshalling managed exception contains cut off stacktraces</Title>
+        <Description>_FromTherzokonThu26Sep2019151234GMT_StepstoReproduce1.Runthesamplezip2.Clickonthewindow.ExpectedBehaviorThereshouldbeanexceptionloggedbytheapplicationBuildLogs1.Placecursorbelowthiscommentblock.2.Attachbuildlogorlinktogistofthelog.3.LogscanbefoundintheBuildOutputtaboftheErrorspadinVisualStudioTogetfullbuildlogssetthelogverbositytodiagnosticatthefollowinglocationsOnVisualStudioforMacPreferencesProjectsBuildOnVisualStudioforWindowsToolsOptionsProjectsandSolutionsBuildandRunOnVisualStudioforWindowsyoualsowanttoaddvvvvtothemtouchadditionalargumentsbyrightclickingtheprojectinthesolutionexplorerandselectingProperties.ExampleProjectIfPossible1.Placecursorbelowthiscommentblock.2.Draganddropthecompressedprojectorfilesneededtoreproduce.SwitchtothePreviewtabtoensureyourissuerenderscorrectly.bubbleexception.zip_Copiedfromoriginalissuexamarinxamarinmacios7117_</Description>
+        <CreatedDate>26/09/2019</CreatedDate>
+        <ClosedDate>24/10/2019</ClosedDate>
+        <Labels>
+          <Label>area-Debugger</Label>
+        </Labels>
+      </Issue>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>17399</PullRequestID>
+        <IssueID>17084</IssueID>
+        <Title>Marshalling managed exception contains cut off stacktraces</Title>
+        <Description>_FromTherzokonThu26Sep2019151234GMT_StepstoReproduce1.Runthesamplezip2.Clickonthewindow.ExpectedBehaviorThereshouldbeanexceptionloggedbytheapplicationBuildLogs1.Placecursorbelowthiscommentblock.2.Attachbuildlogorlinktogistofthelog.3.LogscanbefoundintheBuildOutputtaboftheErrorspadinVisualStudioTogetfullbuildlogssetthelogverbositytodiagnosticatthefollowinglocationsOnVisualStudioforMacPreferencesProjectsBuildOnVisualStudioforWindowsToolsOptionsProjectsandSolutionsBuildandRunOnVisualStudioforWindowsyoualsowanttoaddvvvvtothemtouchadditionalargumentsbyrightclickingtheprojectinthesolutionexplorerandselectingProperties.ExampleProjectIfPossible1.Placecursorbelowthiscommentblock.2.Draganddropthecompressedprojectorfilesneededtoreproduce.SwitchtothePreviewtabtoensureyourissuerenderscorrectly.bubbleexception.zip_Copiedfromoriginalissuexamarinxamarinmacios7117_</Description>
+        <CreatedDate>26/09/2019</CreatedDate>
+        <ClosedDate>24/10/2019</ClosedDate>
+        <Labels>
+          <Label>area-Debugger</Label>
+        </Labels>
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>17390</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>201910corlibMarkYieldAwaitablestructreadonly</Title>
+    <Description>Makeitconsistentwith.NETStandardCorewhichmakesfutureAPICompatrunsreportonelessdifference.Backportof17386.ccakoeplinger</Description>
+    <CreatedDate>17/10/2019</CreatedDate>
+    <ClosedDate>17/10/2019</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>17372</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>lambdageek</FixedByID>
+    <Title>201910bcljitimplementInterlocked.ExchangeTintermsofobject</Title>
+    <Description>Backportof17341to201910ExchangeTissupposedtobepickedupasanintrinsic.Butifitisntuntil17338ismergedsinceThasaclassconstraintcalltheExchangerefobjectrefobjectrefobjectoverloadinstead.ThisworksaroundalimitationintheJIThttpsgithub.commonomonoblob82a07273c22b996b08fa88ee2e6632d782ac2242monominiminitrampolines.cL704L713ifwereinthecommoncalltrampolineandthecallerisgenericmethodandthecalleeisagenericmethodifwereusinggenericsharingforthecallerbuttheresnogenericjitinfoforthecalleewewillnotpatchthecallsite.InthiscasewehadExchangeTcallingExchange_TTwherethecalleeisanicallandevidentlydidnthavegenericjitinfo.SoeverytimewecalledExchangeTwewouldgothroughthetrampolinewhentryingtocallExchange_TTwithoutpatchingthecallsite.Addressespartofhttpsgithub.commonomonoissues17334</Description>
+    <CreatedDate>16/10/2019</CreatedDate>
+    <ClosedDate>23/10/2019</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>17368</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>steveisok</FixedByID>
+    <Title>201908Bumpscorefxtomonocorefx8e3b279</Title>
+    <Description>Resolves17288whereRequestUriinHttpRequestMessagedidnotallowfilebasedUristhesamewayitsconstructordid.Backportofhttpsgithub.commonomonopull17307</Description>
+    <CreatedDate>16/10/2019</CreatedDate>
+    <ClosedDate>07/11/2019</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>17368</PullRequestID>
+        <IssueID>17288</IssueID>
+        <Title>Redirect fails in HttpClient</Title>
+        <Code>
+			var handler = new HttpClientHandler ();
+			var baseAddress = new Uri ("http://192.168.195.155:5000/");
+			var client = new HttpClient (handler) { BaseAddress = baseAddress };
+			var loginResult = await client.PostAsync ("/login", null); 
+        </Code>
+        <Description>ThiscommitfixedanissuewhereHttpClientwasfailingwithOnlyandschemesareallowed.Howeveritonlyfixescasesexplicitlycalledbytheuser.IftheuserdoesaPOSTwhichreturnsa302RedirecttoadifferentURLtheerrorisstillhit.ThisisacommonscenariowhereuserswillPOSTtologinandgetredirectedbacktoanotherpage.ReportsStepstoReproduceCallingcodeVersionUsedVS201916.3.3XA10.0.0.3Attachedthe.NetCore3.0serverIusedtorepro.Program.txt</Description>
+        <CreatedDate>11/10/2019</CreatedDate>
+        <ClosedDate>15/10/2019</ClosedDate>
+        <Labels>
+          <Label>area-BCL: System.Net.Http</Label>
+        </Labels>
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>17359</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>201910RemovingexecutionofnetworktestsfromWatchOs.</Title>
+    <Description>RemovingexecutionofnetworktestsfromWatchOs.Backportof17358.ccthaystg</Description>
+    <CreatedDate>16/10/2019</CreatedDate>
+    <ClosedDate>16/10/2019</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>17341</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>lambdageek</FixedByID>
+    <Title>bcljitimplementInterlocked.ExchangeTintermsofobject</Title>
+    <Description>ExchangeTissupposedtobepickedupasanintrinsic.Butifitisntuntil17338ismergedsinceThasaclassconstraintcalltheExchangerefobjectrefobjectrefobjectoverloadinstead.ThisworksaroundalimitationintheJIThttpsgithub.commonomonoblob82a07273c22b996b08fa88ee2e6632d782ac2242monominiminitrampolines.cL704L713ifwereinthecommoncalltrampolineandthecallerisgenericmethodandthecalleeisagenericmethodifwereusinggenericsharingforthecallerbuttheresnogenericjitinfoforthecalleewewillnotpatchthecallsite.InthiscasewehadExchangeTcallingExchange_TTwherethecalleeisanicallandevidentlydidnthavegenericjitinfo.SoeverytimewecalledExchangeTwewouldgothroughthetrampolinewhentryingtocallExchange_TTwithoutpatchingthecallsite.Addressespartofhttpsgithub.commonomonoissues17334</Description>
+    <CreatedDate>15/10/2019</CreatedDate>
+    <ClosedDate>16/10/2019</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>17337</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>201910bcladdWriteLinestringoverridetoCStreamWriterneededduetocorefximport</Title>
+    <Description>Inhttpsgithub.commonomonocommitfd424c5dd07b2dbbd4aafbf9165a42166d789438weswitchedovertotheTextWriter.csStreamWriter.csimplementationofcorefx.OnesubtledifferenceisthatanoverrideforWriteLinestringinStreamWriterwasintroducedhttpsgithub.commonocorefxblob8e3b279377d1f01d2d089f24548e33855bf6502esrcCommonsrcCoreLibSystemIOStreamWriter.csL526L531PreviouslythedefinitioninTextWriterwasusedwhichwouldcallthebasecaseWritecharintint.ThenewoverridehoweverwontcallthebaseimplementationatallbutdirectlyusestheSpanvariant.ThisisaproblemforourCStreamWriterimplementationsinceWriteLinestringwontendupinthespecialhandlingforWritecharintintwhichaccountsforterminalcursorchanges.Thisistherealfixforhttpsgithub.commonomonoissues16701Thisalsorevertscommit68f5613422b7e74c2eeea6f5cbe9d76baf4cc8d1.TermInfoDriverupdatetopleftvalueonConsole.CursorTopCursorLeftaccess16745Whileitkindofmaskedtheissueitalsoposedaperformanceissueonsometerminalse.g.GNOMETerminal.Thankstoakoeplingerforhelpingtrackingthisdown.ccalexischrgrendelloBackportof17336.ccakoeplingerlewurm</Description>
+    <CreatedDate>15/10/2019</CreatedDate>
+    <ClosedDate>15/10/2019</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>17336</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>lewurm</FixedByID>
+    <Title>bcladdWriteLinestringoverridetoCStreamWriterneededduetocorefximport</Title>
+    <Description>Inhttpsgithub.commonomonocommitfd424c5dd07b2dbbd4aafbf9165a42166d789438weswitchedovertotheTextWriter.csStreamWriter.csimplementationofcorefx.OnesubtledifferenceisthatanoverrideforWriteLinestringinStreamWriterwasintroducedhttpsgithub.commonocorefxblob8e3b279377d1f01d2d089f24548e33855bf6502esrcCommonsrcCoreLibSystemIOStreamWriter.csL526L531PreviouslythedefinitioninTextWriterwasusedwhichwouldcallthebasecaseWritecharintint.ThenewoverridehoweverwontcallthebaseimplementationatallbutdirectlyusestheSpanvariant.ThisisaproblemforourCStreamWriterimplementationsinceWriteLinestringwontendupinthespecialhandlingforWritecharintintwhichaccountsforterminalcursorchanges.Thisistherealfixforhttpsgithub.commonomonoissues16701Thisalsorevertscommit68f5613422b7e74c2eeea6f5cbe9d76baf4cc8d1.TermInfoDriverupdatetopleftvalueonConsole.CursorTopCursorLeftaccess16745Whileitkindofmaskedtheissueitalsoposedaperformanceissueonsometerminalse.g.GNOMETerminal.Thankstoakoeplingerforhelpingtrackingthisdown.ccalexischrgrendello</Description>
+    <CreatedDate>15/10/2019</CreatedDate>
+    <ClosedDate>15/10/2019</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>17330</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>filipnavara</FixedByID>
+    <Title>FixSafeHandlemarshallinginrefinoutparameters</Title>
+    <Description>Fixes17327</Description>
+    <CreatedDate>15/10/2019</CreatedDate>
+    <ClosedDate>16/10/2019</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>17330</PullRequestID>
+        <IssueID>17327</IssueID>
+        <Title>SafeHandle marshalling bug</Title>
+        <Code>
+void test2(void** ptr)
+{
+    printf("current vall: %p\n", *ptr);
+    *ptr = (void*)0xDEADBEEF;
+}
+unsafe class Program
+{
+    [DllImport("sht", CallingConvention = CallingConvention.Cdecl)]
+    public static extern void test2(void** ptr);
+    
+    // same pinvoke but with SafeHandle
+    [DllImport("sht", CallingConvention = CallingConvention.Cdecl, EntryPoint = "test2")]
+    public static extern void test2_sh(ref MySafeHandle ptr);
+    
+    static void Main(string[] args)
+    {
+        // raw pointers work:
+        long ptr;
+        test2((void**)&amp;ptr); // prints (nil)
+        test2((void**)&amp;ptr); // prints (0xdeadbeef)
+
+        // safehandle doesn't
+        MySafeHandle handle = new MySafeHandle();
+        test2_sh(ref handle); // prints (nil)
+        test2_sh(ref handle); // prints (nil) -- but should be 0xdeadbeef!
+    }
+}
+
+internal sealed class MySafeHandle : SafeHandle
+{
+    public MySafeHandle() : base(IntPtr.Zero, true) {}
+
+    public override bool IsInvalid =&gt; handle == IntPtr.Zero;
+
+    protected override bool ReleaseHandle()
+    {
+        Console.WriteLine("ReleaseHandle()");
+        SetHandle(IntPtr.Zero);
+        return true;
+    }
+}
+</Code>
+        <Description>CompilethefollowingnativecodeasasharedlibThisisthemainreasonwhyNTLMGSSpal_gssapi.cstuffdoesntworkproperlyandfailrandomly.</Description>
+        <CreatedDate>15/10/2019</CreatedDate>
+        <ClosedDate>16/10/2019</ClosedDate>
+        <Labels>
+          <Label>area-Runtime: Interop</Label>
+        </Labels>
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>17329</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>201910Bumpscorefxtomonocorefx8e3b279</Title>
+    <Description>Resolveshttpsgithub.commonomonoissues17288whereRequestUriinHttpRequestMessagedidnotallowfilebasedUristhesamewayitsconstructordid.Backportof17307.ccsteveisok</Description>
+    <CreatedDate>15/10/2019</CreatedDate>
+    <ClosedDate>06/12/2019</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>17318</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>filipnavara</FixedByID>
+    <Title>netcoreAvoidsuspendingthreadsinEnvironment.Exititcanhangprocess</Title>
+    <Description>CoreCLRdoesntsuspendthreadsonexithttpsgithub.comdotnetcorefxpull41450issuecomment536755093httpsgithub.comdotnetcoreclrpull1813.Fixes17317Fixes15006Fixes15010Fixes15181Unblocks17232</Description>
+    <CreatedDate>14/10/2019</CreatedDate>
+    <ClosedDate>14/10/2019</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>17318</PullRequestID>
+        <IssueID>15006</IssueID>
+        <Title>[netcore] Make System.Net.Http.Functional.Tests.SocketsHttpHandler_DiagnosticsTest.SendAsync_ExpectedDiagnosticSourceActivityLoggingRequestId Pass</Title>
+        <Description>ThetestcurrentlyfailswithThisisanoutofproccallsimilartoGoalistomakethetestpass.</Description>
+        <CreatedDate>12/06/2019</CreatedDate>
+        <ClosedDate>14/10/2019</ClosedDate>
+        <Labels>
+          <Label>area-netcore: CoreLib</Label>
+          <Label>epic: CoreFX tests</Label>
+        </Labels>
+      </Issue>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>17318</PullRequestID>
+        <IssueID>15010</IssueID>
+        <Title>[netcore] Make System.Net.Sockets.Tests.CreateSocket.CtorAndAccept_SocketNotKeptAliveViaInheritance Pass</Title>
+        <Description>ThetesthangsandfailswithThisissimilarto</Description>
+        <CreatedDate>12/06/2019</CreatedDate>
+        <ClosedDate>14/10/2019</ClosedDate>
+        <Labels>
+          <Label>area-netcore: CoreLib</Label>
+          <Label>epic: CoreFX tests</Label>
+        </Labels>
+      </Issue>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>17318</PullRequestID>
+        <IssueID>15181</IssueID>
+        <Title>[netcore] Make System.Data.SqlClient.Tests.DiagnosticTest.ExecuteNonQueryAsyncTest Pass</Title>
+        <Description>ThetestcurrentlyhangsandfailswithDeterminewhyandmakethetestpass.</Description>
+        <CreatedDate>15/06/2019</CreatedDate>
+        <ClosedDate>14/10/2019</ClosedDate>
+        <Labels>
+          <Label>area-netcore: CoreLib</Label>
+          <Label>epic: CoreFX tests</Label>
+        </Labels>
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>17316</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>201908merpIncludeanymanagedmethodsintheunmanaged_framesportion</Title>
+    <Description>oftheoutputalsoThiscanhelpcorrelatethetwolistswhenwehavemixedmanagedunmanagedstacksinourcrashoutput.ThankyouforyourPullRequestIfyouarenewtocontributingtoMonopleasetrytodoyourbestatconformingtoourcodingguidelineshttpwww.monoproject.comcommunitycontributingcodingguidelinesbutdontworryifyougetsomethingwrong.Oneoftheprojectmemberswillhelpyoutogetthingslanded.DoesyourpullrequestfixanyoftheexistingissuesPleaseusethefollowingformatFixesissuenumberBackportof17090.cclambdageekalexischr</Description>
+    <CreatedDate>14/10/2019</CreatedDate>
+    <ClosedDate>14/10/2019</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>17311</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>201910merpDontinstallSIGTERMhandlerinEnableMicrosoftTelemetry</Title>
+    <Description>install_state_summarizerinstallsaSIGTERMhandler.Unfortunatelysigterm_signal_handlerassumesthatitwillonlybecalledwhenacrashisalreadyinprogressitassumesitwontbethesupervisorandsoitdoesntsetupthememoryforcapturingacrashreportamongotherthings.Addresses17271Backportof17296.cclambdageek</Description>
+    <CreatedDate>14/10/2019</CreatedDate>
+    <ClosedDate>15/10/2019</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>17311</PullRequestID>
+        <IssueID>17271</IssueID>
+        <Title>Assert when initializing `summarizer_state_init`</Title>
+        <Description>ThislookslikeitshappeningonCatalinaonlywherewegotalotofreportsofwherewearehittingthis</Description>
+        <CreatedDate>10/10/2019</CreatedDate>
+        <ClosedDate>31/10/2019</ClosedDate>
+        <Labels>
+          <Label>area-Runtime: Crash Reporting</Label>
+          <Label>os-macOS</Label>
+        </Labels>
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>17310</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>mastermerpDontinstallSIGTERMhandlerinEnableMicrosoftTelemetry</Title>
+    <Description>install_state_summarizerinstallsaSIGTERMhandler.Unfortunatelysigterm_signal_handlerassumesthatitwillonlybecalledwhenacrashisalreadyinprogressitassumesitwontbethesupervisorandsoitdoesntsetupthememoryforcapturingacrashreportamongotherthings.Addresses17271Backportof17296.cclambdageek</Description>
+    <CreatedDate>14/10/2019</CreatedDate>
+    <ClosedDate>29/10/2019</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>17310</PullRequestID>
+        <IssueID>17271</IssueID>
+        <Title>Assert when initializing `summarizer_state_init`</Title>
+        <Description>ThislookslikeitshappeningonCatalinaonlywherewegotalotofreportsofwherewearehittingthis</Description>
+        <CreatedDate>10/10/2019</CreatedDate>
+        <ClosedDate>31/10/2019</ClosedDate>
+        <Labels>
+          <Label>area-Runtime: Crash Reporting</Label>
+          <Label>os-macOS</Label>
+        </Labels>
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>17309</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>201906201906merpDontinstallSIGTERMhandlerinEnableMicrosoftTelemetry</Title>
+    <Description>install_state_summarizerinstallsaSIGTERMhandler.Unfortunatelysigterm_signal_handlerassumesthatitwillonlybecalledwhenacrashisalreadyinprogressitassumesitwontbethesupervisorandsoitdoesntsetupthememoryforcapturingacrashreportamongotherthings.Addresses17271Backportof17296.cclambdageek</Description>
+    <CreatedDate>14/10/2019</CreatedDate>
+    <ClosedDate>14/10/2019</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>17309</PullRequestID>
+        <IssueID>17271</IssueID>
+        <Title>Assert when initializing `summarizer_state_init`</Title>
+        <Description>ThislookslikeitshappeningonCatalinaonlywherewegotalotofreportsofwherewearehittingthis</Description>
+        <CreatedDate>10/10/2019</CreatedDate>
+        <ClosedDate>31/10/2019</ClosedDate>
+        <Labels>
+          <Label>area-Runtime: Crash Reporting</Label>
+          <Label>os-macOS</Label>
+        </Labels>
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>17308</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>201908merpDontinstallSIGTERMhandlerinEnableMicrosoftTelemetry</Title>
+    <Description>install_state_summarizerinstallsaSIGTERMhandler.Unfortunatelysigterm_signal_handlerassumesthatitwillonlybecalledwhenacrashisalreadyinprogressitassumesitwontbethesupervisorandsoitdoesntsetupthememoryforcapturingacrashreportamongotherthings.Addresses17271Backportof17296.cclambdageek</Description>
+    <CreatedDate>14/10/2019</CreatedDate>
+    <ClosedDate>14/10/2019</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>17308</PullRequestID>
+        <IssueID>17271</IssueID>
+        <Title>Assert when initializing `summarizer_state_init`</Title>
+        <Description>ThislookslikeitshappeningonCatalinaonlywherewegotalotofreportsofwherewearehittingthis</Description>
+        <CreatedDate>10/10/2019</CreatedDate>
+        <ClosedDate>31/10/2019</ClosedDate>
+        <Labels>
+          <Label>area-Runtime: Crash Reporting</Label>
+          <Label>os-macOS</Label>
+        </Labels>
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>17299</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>filipnavara</FixedByID>
+    <Title>miniRemovebrokensincosoptimizationforx86x64</Title>
+    <Description>Thefsinhttpswww.felixcloutier.comx86fsinandfcoshttpswww.felixcloutier.comx86fcosinstructionsworkonlywithinthe263to263range.Evenwithinthisrangetheyaredocumenttobeaccurateonlyforvaluesbetween34and34.JustkillthewholeoptimizationcompletelyandusetheCruntimecossininstead.Fixes15106Fixes15107Fixes15108Fixes15109Fixes15110ccMaximLipnin</Description>
+    <CreatedDate>12/10/2019</CreatedDate>
+    <ClosedDate>14/10/2019</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>17299</PullRequestID>
+        <IssueID>15106</IssueID>
+        <Title>[netcore] Make System.Numerics.Tests.ComplexTests.Sin_Advanced Pass</Title>
+        <Description>ThetestcurrentlyfailswithDeterminewhyandmakethetestpass.</Description>
+        <CreatedDate>13/06/2019</CreatedDate>
+        <ClosedDate>14/10/2019</ClosedDate>
+        <Labels>
+          <Label>area-netcore: CoreLib</Label>
+          <Label>epic: CoreFX tests</Label>
+        </Labels>
+      </Issue>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>17299</PullRequestID>
+        <IssueID>15107</IssueID>
+        <Title>[netcore] Make System.Numerics.Tests.ComplexTests.Sinh_Advanced Pass</Title>
+        <Description>ThetestcurrentlyfailswithDeterminewhyandmakethetestpass.</Description>
+        <CreatedDate>13/06/2019</CreatedDate>
+        <ClosedDate>14/10/2019</ClosedDate>
+        <Labels>
+          <Label>area-netcore: CoreLib</Label>
+          <Label>epic: CoreFX tests</Label>
+        </Labels>
+      </Issue>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>17299</PullRequestID>
+        <IssueID>15108</IssueID>
+        <Title>[netcore] Make System.Numerics.Tests.ComplexTests.Cos_Advanced Pass</Title>
+        <Description>ThetestcurrentlyfailswithDeterminewhyandmakethetestpass.</Description>
+        <CreatedDate>13/06/2019</CreatedDate>
+        <ClosedDate>14/10/2019</ClosedDate>
+        <Labels>
+          <Label>area-netcore: CoreLib</Label>
+          <Label>epic: CoreFX tests</Label>
+        </Labels>
+      </Issue>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>17299</PullRequestID>
+        <IssueID>15109</IssueID>
+        <Title>[netcore] Make System.Numerics.Tests.ComplexTests.Cosh_Advanced Pass</Title>
+        <Description>ThetestcurrentlyfailswithDeterminewhyandmakethetestpass.</Description>
+        <CreatedDate>13/06/2019</CreatedDate>
+        <ClosedDate>14/10/2019</ClosedDate>
+        <Labels>
+          <Label>area-netcore: CoreLib</Label>
+          <Label>epic: CoreFX tests</Label>
+        </Labels>
+      </Issue>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>17299</PullRequestID>
+        <IssueID>15110</IssueID>
+        <Title>[netcore] Make System.Numerics.Tests.ComplexTests.Exp Pass</Title>
+        <Description>ThetestcurrentlyfailswithDeterminewhyandmakethetestpass.</Description>
+        <CreatedDate>13/06/2019</CreatedDate>
+        <ClosedDate>14/10/2019</ClosedDate>
+        <Labels>
+          <Label>area-netcore: CoreLib</Label>
+          <Label>epic: CoreFX tests</Label>
+        </Labels>
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>17296</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>lambdageek</FixedByID>
+    <Title>201906merpDontinstallSIGTERMhandlerinEnableMicrosoftTelemetry</Title>
+    <Description>install_state_summarizerinstallsaSIGTERMhandler.Unfortunatelysigterm_signal_handlerassumesthatitwillonlybecalledwhenacrashisalreadyinprogressitassumesitwontbethesupervisorandsoitdoesntsetupthememoryforcapturingacrashreportamongotherthings.Addresses17271</Description>
+    <CreatedDate>11/10/2019</CreatedDate>
+    <ClosedDate>14/10/2019</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>17296</PullRequestID>
+        <IssueID>17271</IssueID>
+        <Title>Assert when initializing `summarizer_state_init`</Title>
+        <Description>ThislookslikeitshappeningonCatalinaonlywherewegotalotofreportsofwherewearehittingthis</Description>
+        <CreatedDate>10/10/2019</CreatedDate>
+        <ClosedDate>31/10/2019</ClosedDate>
+        <Labels>
+          <Label>area-Runtime: Crash Reporting</Label>
+          <Label>os-macOS</Label>
+        </Labels>
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>17293</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>201910sdksAndroidrunnerproperlyshutdownruntimeforMono.Debugger.Softtestapp</Title>
+    <Description>mini_jit_cleanupwillcausemono_runtime_try_shutdowntobecalledbeforemono_runtime_quitwhichwillsettheshuttingdownflagsintheruntime.Fixes17256Backportof17261.cclambdageek</Description>
+    <CreatedDate>11/10/2019</CreatedDate>
+    <ClosedDate>14/10/2019</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>17293</PullRequestID>
+        <IssueID>17256</IssueID>
+        <Title>[sre][debugger][sdks] Fix disabled dynamic assembly debugger tests</Title>
+        <Description>FixandreenableIsDynamicAssemblyandRefEmittestsintheMono.Debugger.Softtestsuitesthatweredisabledaspartof17255ontheAndroidSDKlane.</Description>
+        <CreatedDate>09/10/2019</CreatedDate>
+        <ClosedDate>11/10/2019</ClosedDate>
+        <Labels>
+          <Label>area-Debugger</Label>
+          <Label>area-Runtime: Reflection</Label>
+          <Label>target-xamarin-android</Label>
+        </Labels>
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>17292</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>monojenkins</FixedByID>
+    <Title>201906IORemovereadonlylogicinmono_w32_get_disk_free_space</Title>
+    <Description>Fixes17151ThisbringsusinlinewithGetDiskFreeSpaceExWonWindowsaswellas.NETCore.IcheckedwiththeAndroidfolksanditseemslikethiswontfailtheirtestalltheycheckisthatthereturnedvalueisntlong.MaxValue.Backportof17177.ccmareksafarCoffeeFlux</Description>
+    <CreatedDate>11/10/2019</CreatedDate>
+    <ClosedDate>15/10/2019</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>17292</PullRequestID>
+        <IssueID>17151</IssueID>
+        <Title>DriveInfo return empty space for system volume on MacOS 10.15 Catalina</Title>
+        <Description>IfyouarenewtotheprojectgetyourselffamiliarwithbeforefillingtheissueStepstoReproduce1.CreateinstanceofDriveInfoclasswithpath.2.Check.AvailableFreeSpacepropertyaswellasallotherdiskspacerelatedpropertiesTest.cswithtestcaseattachedYoumaydragdroptheattachmentreprocodesolutionscreenshotetc.ontotheissue.CurrentBehavioravailablespaceissetto0.Test.exeoutput0dev0SystemVolumesData54000906240privatevarvm54000906240SystemVolumesDatahome0WhatisthecurrentbehaviorExpectedBehaviorappropriateavailablesizeshouldbereturnedAdditionalInfoPleasenotethatinmacOSCatalinaAppleintroducednewfilesystemsecurityfeaturecalledvolumereplication.ItmeansthatSystemvolumenowmountswithreadonlypermissions.AndrealsystemvolumewithwritepermissionsismountedasmirrorvolumeatSystemVolumesDatalocationamditshowsreal.IvealsotriedtorunsimpleCprogrammtofigureoutifstatfsandstatvfssystemcallsareworkingfine.Thistestcodeattachedastest.candoutput5400673484854006734848soPOSIXcallsareworkingjustfineAttachmentTests.zipOnwhichplatformsdidyounoticethisxmacOSLinuxWindowsVersionUsed6.4.0.198macOS10.15beta10</Description>
+        <CreatedDate>02/10/2019</CreatedDate>
+        <ClosedDate>07/10/2019</ClosedDate>
+        <Labels>
+          <Label>area-BCL: mscorlib</Label>
+          <Label>os-macOS</Label>
+        </Labels>
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>17291</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>lambdageek</FixedByID>
+    <Title>201910UpdateMERPeventtypetoMonoAppCrash</Title>
+    <Description>Backportof17131to201910UpdateparametersinMERPWerReportMetadataxmlToenablebackendanalysisweneedtoupdateourparameterstomatchourbackendeventtypewhichisMonoAppCrash.ItdoesntmakesensetomethatthepreviousimplementationconstructedtheXMLhereinMonobutdependedontheuserVSMacinthiscasetoaddthecorrecteventtype.TheparametersintheXMLmustmatchexactlywhatisexpectedforthegivenEventTypeandsoweshouldensuretheyarealwaysinsyncbydefiningthemhere.ThusIremovedtheusageofeventTypeinmono_merp_enableandhardcodedtheexpectedeventType.merpDontpasseventTypefrommanagedTheeventTypemustmeMONO_MERP_EVENT_TYPE_STRMonoAppCrashthebackenddeterminestheformatoftheotherfieldsbasedontheeventtypesoitdoesntmakesensetopassothervaluesfrommanagedsincetheruntimecontrolstheotherfields.ForcompatabilityMono.Runtime.EnableMicrosoftTelemetrywillstilltakeastringparameternowcalledunusedinsteadofeventType_strbutitwillnotpassitdowntotheinternalcall.BumpcorlibversionmerpRevertparamertersinWerReportMetadata.xmlStillneedeventtypetobeMonoAppCrashbuttheparameterswillbethesameasbefore.ThankyouforyourPullRequestIfyouarenewtocontributingtoMonopleasetrytodoyourbestatconformingtoourcodingguidelineshttpwww.monoproject.comcommunitycontributingcodingguidelinesbutdontworryifyougetsomethingwrong.Oneoftheprojectmemberswillhelpyoutogetthingslanded.DoesyourpullrequestfixanyoftheexistingissuesPleaseusethefollowingformatFixesissuenumber</Description>
+    <CreatedDate>11/10/2019</CreatedDate>
+    <ClosedDate>15/10/2019</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>17290</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>lambdageek</FixedByID>
+    <Title>201908UpdateMERPeventtypetoMonoAppCrash</Title>
+    <Description>Backportof17131to201908UpdateparametersinMERPWerReportMetadataxmlToenablebackendanalysisweneedtoupdateourparameterstomatchourbackendeventtypewhichisMonoAppCrash.ItdoesntmakesensetomethatthepreviousimplementationconstructedtheXMLhereinMonobutdependedontheuserVSMacinthiscasetoaddthecorrecteventtype.TheparametersintheXMLmustmatchexactlywhatisexpectedforthegivenEventTypeandsoweshouldensuretheyarealwaysinsyncbydefiningthemhere.ThusIremovedtheusageofeventTypeinmono_merp_enableandhardcodedtheexpectedeventType.merpDontpasseventTypefrommanagedTheeventTypemustmeMONO_MERP_EVENT_TYPE_STRMonoAppCrashthebackenddeterminestheformatoftheotherfieldsbasedontheeventtypesoitdoesntmakesensetopassothervaluesfrommanagedsincetheruntimecontrolstheotherfields.ForcompatabilityMono.Runtime.EnableMicrosoftTelemetrywillstilltakeastringparameternowcalledunusedinsteadofeventType_strbutitwillnotpassitdowntotheinternalcall.BumpcorlibversionmerpRevertparamertersinWerReportMetadata.xmlStillneedeventtypetobeMonoAppCrashbuttheparameterswillbethesameasbefore.ThankyouforyourPullRequestIfyouarenewtocontributingtoMonopleasetrytodoyourbestatconformingtoourcodingguidelineshttpwww.monoproject.comcommunitycontributingcodingguidelinesbutdontworryifyougetsomethingwrong.Oneoftheprojectmemberswillhelpyoutogetthingslanded.DoesyourpullrequestfixanyoftheexistingissuesPleaseusethefollowingformatFixesissuenumber</Description>
+    <CreatedDate>11/10/2019</CreatedDate>
+    <ClosedDate>15/10/2019</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1728</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>akoeplinger</FixedByID>
+    <Title>RevertmsvcChangetargetMSVCreleasefromv120tov120_xp</Title>
+    <Description>WedroppedXPsupportin1723sothisisnolongernecessary.AlsofixacommentthatstillreferredtoXP.</Description>
+    <CreatedDate>22/04/2015</CreatedDate>
+    <ClosedDate>22/04/2015</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1716</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>esdrubal</FixedByID>
+    <Title>System.Web.ExtensionFixesJavaScriptSerializer.Deserialize.</Title>
+    <Description>FixesJavaScriptSerializer.Deserializeofvalueswithtrailingspaces.Fixes4148httpsbugzilla.xamarin.comshow_bug.cgiid4148.</Description>
+    <CreatedDate>16/04/2015</CreatedDate>
+    <ClosedDate>17/04/2015</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1691</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>esdrubal</FixedByID>
+    <Title>ImprovedProcess.Exited</Title>
+    <Description>ProcessnolongercallsOnExitifHasExitedisfalse.Process.WaitForExitnowtriggerseventExited.Fixes26362httpsbugzilla.xamarin.comshow_bug.cgiid26362</Description>
+    <CreatedDate>08/04/2015</CreatedDate>
+    <ClosedDate>20/04/2015</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1685</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>esdrubal</FixedByID>
+    <Title>ParseNumber.StringToIntnowcheckforoverflows.</Title>
+    <Description>ParseNumber.StringToIntnowcheckforoverflows.Theoverflowcheckisonlyperformedwhentheresultisbigenough.Theoverflowcheckisdonebydecomposing64bitoperationsinto32bitoperations.Fixes17817httpsbugzilla.xamarin.comshow_bug.cgiid17817.</Description>
+    <CreatedDate>06/04/2015</CreatedDate>
+    <ClosedDate>13/04/2015</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>1685</PullRequestID>
+        <IssueID>17817</IssueID>
+        <Title>DataContractSerializer does not call custom DataContractResolver for properties of type Object</Title>
+        <Description>StepstoReproduce1.MakeaDataContractserializableclasswithaDataMemberpropertyoftypeObject.2.MakeacustomDataContractResolvertoencodedecodetypeinfowhenserializing.3.UsecustomDataContractResolvertoserializeinstanceofclass.CurrentBehaviorResultTryResolveTypewillnotbecalledoncustomDataContractResolvertospecifythenamespaceandtypestringfortheXML.Insteadthedefaultnamespaceandtypeforthetypeofthecontainedobjectwillbewritten.ThisisnotcorrectExpectedBehaviorTryResolveTypeshouldbecalledforanyobjectthatisnottheexacttypeofthepropertycontainingit.OnwhichplatformsdidyounoticethismacOSXLinuxWindowsThisproblemwasnoticedundermonorunningonlinux.IhavenottriedtoreproduceitusingmonoonotherplatformsbutIcanconfirmthat.netframeworkonWindowsdoesnothavetheissue.AssociatedLineofCodeCommitandIssueIhavetrackeditdowntothislineofcodeAssociatedBlameCommitAssociatedIssueDiscussionThecommitstatesthatthechangewasmadebecauseWhileserializinganytypeintoacontractmemberoftypeobjectanexceptionwouldbethrown.ThisappearstobebasedonamisunderstandingofhowDataContractsareintendedtoworkbecausethedescribedproblemisinfactthecorrectbehaviour.IfthetypeofanobjectreferencedbyagivenpropertyisnotexactlythedeclaredtypeofthatpropertytheserializerissupposedtothrowanexceptionunlessatheobjecttypewassuppliedasaknowntypebacustomDataContractResolverwassuppliedanditreturnstruefromTryResolveTypeMyguessisthatthecodethatwasfailingbeforethiscommitwaswrittenagainstamorepermissiveimplementationofDataContractSerializerandthenstartedtofailwhentheimplementationwasbroughtinlinewiththeMSsource.InsteadoffixingthefailingcodetocorrectlyuseDataContractSerializerDCSwaschangedtoallowittosucceed.IntheprocessitbrokecustomDataContractResolversforpropertiesoftypeobject.SuggestedSolutionThesimplestsolutionwouldbetosimplyrollbackthecommitaboveandreturnthemonoimplementationtofollowtheMSone.Isuspectthiswouldbreakcodeinotherprojectshowever.TheremaynotbeanyproblemkeepingDCSmorepermissiveundermonoifthatisdesiredbutnotcallingthecustomresolvershouldbefixed.Thisproblemwasfoundwhileportinganapplicationtomonofrom.netframeworksoagainIcanpositivelyconfirmthatthecustomresolveriscalledinthesamescenariointheMSimplementation.Customresolversaresimplybrokenundermonowithoutafixtothisissue.ItwouldbeniceifwecouldconditionthelineelseifmemberTypeGlobals.TypeOfObject...onwhetherornotacustomresolverhadbeenspecified.Unfortunatelythereisnoaccesstothisinformationatthispoint.Onlythecontextobjectknowsabouttheresolverandithasitasaprotectedproperty.TomakethedecisionherewedhavetochangeXmlObjectSerializerContexttoexposeinformationaboutthepresenceorabsenceofaresolver.ItthuslikelymakessensetorevertthechangefromthecommitandinsteadimplementthefixinXmlObjectSerializerWriteContext.InternalSerializeReference.Thecodetherecouldbenearlyidenticaltotheblockinsidetheelseiffromthecommitbutcouldalsocheckforthepresenceofacustomresolver.Iamhappytoimplementtestandsubmitthischangeifthereisagreementaboutit.ManyThanksRobMcCreadyNoteWhenitcomestothequestionofwhetherornottokeeptheexistingpermissivenessitsworthconsideringthattheimplementationisinconsistent.ItonlyallowsderivedtypestobeserializedwithadefaultnamspacenamewhenthedeclaredtypeisObject.Propertiesofanyotherdeclaredtypewillstillthrowanexceptioniftheserializerfindsaderivedtypeinstead.</Description>
+        <CreatedDate>15/11/2019</CreatedDate>
+        <ClosedDate>
+        </ClosedDate>
+        <Labels>
+          <Label>area-BCL: System.Runtime.Serialization</Label>
+        </Labels>
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1638</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>esdrubal</FixedByID>
+    <Title>SystemFixedRemoveConnectionGroupconcurrentissue.</Title>
+    <Description>CloseConnectionGroupcanconcurrentlycallRemoveConnectionGroupandremoveagroupthathasaddedtoremoveList.Wenowcheckthatthegroupstillexistsbeforeremovingit.Fixes19823httpsbugzilla.xamarin.comshow_bug.cgiid19823.WorkaroundThecrashesshouldnotoccurforaperiodofatleastServicePointManager.MaxServicePointIdleTimewhichbydefaultis100secs.csharpServicePointManager.MaxServicePointIdleTime1000360024Thisworkaroundgivestheappatleastonedaywithoutcrashes.NoteaboutthetestThereisnowaytheaddedtestcanfailwhilerunningonnunitbecausetheexceptionisthrownbyaTimercallbackandnunitdoesnotseemtocheckthose.Iwilllookintoitinanotherpullrequest.</Description>
+    <CreatedDate>18/03/2015</CreatedDate>
+    <ClosedDate>24/03/2015</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1635</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>alexrp</FixedByID>
+    <Title>ImplementCoreCLRsecuritypropertiesonreflectioninfotypes.</Title>
+    <Description>Supersedes1158.</Description>
+    <CreatedDate>17/03/2015</CreatedDate>
+    <ClosedDate>17/03/2015</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1633</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>BrzVlad</FixedByID>
+    <Title>x86Handlestackpopdonebynativestdcalls.</Title>
+    <Description>Fixes27597</Description>
+    <CreatedDate>16/03/2015</CreatedDate>
+    <ClosedDate>17/03/2015</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1601</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>loganek</FixedByID>
+    <Title>CFixidentifierschecking.</Title>
+    <Description>Thiscommitfixesbug24968.</Description>
+    <CreatedDate>26/02/2015</CreatedDate>
+    <ClosedDate>23/09/2015</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1598</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>kumpera</FixedByID>
+    <Title>RevertThisintroducesthenewsuspendmachinery.Rightnowtheunified...</Title>
+    <Description>Revertsmonomono1593Alotofunstabilityhasstruckmasterandthismightbeaculpritsoletsdisableitfornow.</Description>
+    <CreatedDate>25/02/2015</CreatedDate>
+    <ClosedDate>25/02/2015</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1592</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>akoeplinger</FixedByID>
+    <Title>RemoveNpgsqlfromclasslibsmono4.0.0branch</Title>
+    <Description>Like1591butagainstthe4.0branch.</Description>
+    <CreatedDate>24/02/2015</CreatedDate>
+    <ClosedDate>24/02/2015</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1582</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>jcarrenog</FixedByID>
+    <Title>Maketheclassthreadsafe</Title>
+    <Description>IftwothreadsrequestthesamesectionwhichisntyetcachedbothtrytoinsertitintothecachecausingaKeyduplicationwhenadding....Itsneccesarytolockthegetter.Thissolvesbugs5263778518303</Description>
+    <CreatedDate>20/02/2015</CreatedDate>
+    <ClosedDate>20/02/2015</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>1582</PullRequestID>
+        <IssueID>7785</IssueID>
+        <Title>Dead link (404) in a runtime execution engine exception</Title>
+        <Description>GotthiserrormessagefromaFullAOTtestwhereIhavesomenativecodethatwantstoinvokeamanageddelegate.Followingthelinkgivesa404.</Description>
+        <CreatedDate>23/03/2018</CreatedDate>
+        <ClosedDate>10/04/2018</ClosedDate>
+        <Labels>
+          <Label>documentation</Label>
+          <Label>good first issue</Label>
+        </Labels>
+      </Issue>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>1582</PullRequestID>
+        <IssueID>18303</IssueID>
+        <Title>System.Net.WebException: Error: SecureChannelFailure / System.Net.WebException: Error: TrustFailure</Title>
+        <Description>StepstoReproduce1.GenerateakeyfortheCAseecodebelow2.GenerateaCSRusingthekeyseecodebelow3.GeneratetheCAcertificatefromtheCSRseecodebelow4.GenerateakeyfortheEECseecodebelow5.GenerateaCSRusingthekeyseecodebelow6.GeneratetheEECfromtheCSRseecodebelow7.Createabundleofthetwocertificatesseecodebelow8.PutthecertificatebundleonawebserverANginxinmycase9.InstallthelatestMonoonserverBcentosrelease77.1908.0.el7.centos.x86_6410.Putthefilemy_root_ca.crtonserverBunderetcpkicatrustsourceanchors11.Runupdatecatrustextract12.Runcertsyncetcsslcertscabundle.crt13.Verifythattheresultofupdatecatrustextracthasputyournewlyaddedtrustanchortothestorecorrectlyinmycasethiswashead38etcsslcertscabundle.crttmpmy_extracted_root_ca.crt14.Checkthatthecertificateisidenticaltotheoneunderthetrustanchorsviadiffqstmpmy_extracted_root_ca.crtetcpkicatrustsourceanchorsmy_root_ca.crt15.RuncertsyncsothatMonotakesnoticeofyournewCAviacertsyncetcsslcertscabundle.crt16.PerhapsevenruncertmgrtocheckifMonoimportedthecertificatecorrectlytooviacertmgrlistcvTrust17.RunthecommandcertmgrsslandnoticethatitrunsOKviaBoringSSLandfailswhenusingOpenSSLMONO_TLS_PROVIDERsettolegacy.18.ThenruncsharpenewSystem.Net.WebClient.DownloadStringandnoticethatregardlessoftheMONO_TLS_PROVIDERflagtheconnectionwillfail.</Description>
+        <CreatedDate>27/12/2019</CreatedDate>
+        <ClosedDate>
+        </ClosedDate>
+        <Labels>
+          <Label>area-BCL: System</Label>
+        </Labels>
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1576</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>McSherry</FixedByID>
+    <Title>revisesGZipStreamctorparameternames</Title>
+    <Description>Bychangingthenamesoftheparameterscodethatuses.NETGZipStreamconstructors1httpsmsdn.microsoft.comenuslibraryas1ff51s28vvs.11029.aspx2httpsmsdn.microsoft.comenuslibrary27ck2z1y28vvs.11029.aspxwithnamedparameterscanusethisGZipStreamwithoutchange.Imadeamistakewhensubmitting1574soImresubmittingwiththemistakecorrected.</Description>
+    <CreatedDate>18/02/2015</CreatedDate>
+    <ClosedDate>18/02/2015</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1575</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>tritao</FixedByID>
+    <Title>RevertrevisesGZipStreamctorparameternames</Title>
+    <Description>Revertsmonomono1574</Description>
+    <CreatedDate>18/02/2015</CreatedDate>
+    <ClosedDate>18/02/2015</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1278</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>esdrubal</FixedByID>
+    <Title>GMTDateTimeOffsetisnowproperlyparsed.</Title>
+    <Description>Fixes22851httpsbugzilla.xamarin.comshow_bug.cgiid22851.GMTdateformatssetuseutctotruesonowuseutcischeckedtoinitDateTimeOffsetwithazerooffset.</Description>
+    <CreatedDate>11/09/2014</CreatedDate>
+    <ClosedDate>11/09/2014</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1277</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>esdrubal</FixedByID>
+    <Title>ImprovedCalendricalCalculationsfixed_from_dmymethods.</Title>
+    <Description>Fixes21930httpsbugzilla.xamarin.comshow_bug.cgiid21930Insomecasesfixed_from_dmyisusedwiththemonthparametergreaterthanthenumberofmonthsofthatyear.Yearisnowincrementeduntilmonthparameterisvalid.</Description>
+    <CreatedDate>11/09/2014</CreatedDate>
+    <ClosedDate>11/09/2014</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1274</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>akoeplinger</FixedByID>
+    <Title>SystemAddeddTRACEtoTEST_MCS_FLAGS</Title>
+    <Description>ThisisrequiredforthetestsaddedinPR1267.TheTraceSourcesTraceEventmethodhasaConditionalTRACEattributewhichmeansitisonlyinvokedwhenthatconditionalisdefined.</Description>
+    <CreatedDate>10/09/2014</CreatedDate>
+    <ClosedDate>11/09/2014</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1270</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>esdrubal</FixedByID>
+    <Title>Whenneededserializedobjectsarenowimplicitlyconverted.</Title>
+    <Description>Fixes20403httpsbugzilla.xamarin.comshow_bug.cgiid20403</Description>
+    <CreatedDate>10/09/2014</CreatedDate>
+    <ClosedDate>10/09/2014</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1266</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>esdrubal</FixedByID>
+    <Title>Addedtimeformatwithonlyoffset.</Title>
+    <Description>Fixes22558httpsbugzilla.xamarin.comshow_bug.cgiid22558</Description>
+    <CreatedDate>09/09/2014</CreatedDate>
+    <ClosedDate>09/09/2014</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1262</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>esdrubal</FixedByID>
+    <Title>AddedsupportforUriComponents.SerializationInfoString.</Title>
+    <Description>Fixes21571httpsbugzilla.xamarin.comshow_bug.cgiid21571.Thispullrequestreplaces1175.</Description>
+    <CreatedDate>08/09/2014</CreatedDate>
+    <ClosedDate>08/09/2014</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1257</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>esdrubal</FixedByID>
+    <Title>AddedoptionalserializationbasedonShouldSerializeV.</Title>
+    <Description>XmlSerializationCodeGeneratorandXmlSerializationWriterInterpreterwillnolongerserializeanattributenamedVifitsobjecthasamethodnamedShouldSerializeVthatreturnsfalse.VSpecifiednowisalsocheckedtobetruebeforeserializatingtheattributeevenifitisapropertythatisnotsettable.Fixes1852httpsbugzilla.xamarin.comshow_bug.cgiid1852.</Description>
+    <CreatedDate>05/09/2014</CreatedDate>
+    <ClosedDate>15/09/2014</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1253</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>esdrubal</FixedByID>
+    <Title>DateTime.Parsenowhandlesunlimitednumberoffractionaldigits.</Title>
+    <Description>Thischangewasmadebecause.NETcanparseISO8601formatwithanunlimitednumberoffractionaldigits.Fixes22417httpsbugzilla.xamarin.comshow_bug.cgiid22417.</Description>
+    <CreatedDate>03/09/2014</CreatedDate>
+    <ClosedDate>08/09/2014</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1251</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>esdrubal</FixedByID>
+    <Title>UTF8EncodingFallback</Title>
+    <Description>ChangedUTF8Encodingtocallfallbackwithwholebytesequences.Fixes18524httpsbugzilla.xamarin.comshow_bug.cgiid18524</Description>
+    <CreatedDate>02/09/2014</CreatedDate>
+    <ClosedDate>02/09/2014</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>1251</PullRequestID>
+        <IssueID>18524</IssueID>
+        <Title>Missing Tatar CultureInfo `tt` and `tt-RU`</Title>
+        <Description>IfyouarenewtotheprojectgetyourselffamiliarwithbeforefillingtheissueStepstoReproduce1.varcultureSystem.Globalization.CultureInfo.GetCultureInfott2.varcultureSystem.Globalization.CultureInfo.GetCultureInfottRU3.Youmaydragdroptheattachmentreprocodesolutionscreenshotetc.ontotheissue.CurrentBehaviorThrowsSystem.Globalization.CultureNotFoundExceptionCulturenamettisnotsupportedExpectedBehaviorReturnsaTatarorTatarRussiaCultureInfoinstancetobeconsistentwith.NetCoreand.NetFramework.OnwhichplatformsdidyounoticethisxmacOSxLinuxWindowsVersionUsed6.6.06.8.0Stacktrace</Description>
+        <CreatedDate>21/01/2020</CreatedDate>
+        <ClosedDate>27/01/2020</ClosedDate>
+        <Labels>
+          <Label>area-BCL: mscorlib</Label>
+        </Labels>
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1242</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>esdrubal</FixedByID>
+    <Title>FixesXContainerattempttocreateaXNodefromanullvalue.</Title>
+    <Description>Fixes20151httpsbugzilla.xamarin.comshow_bug.cgiid20151</Description>
+    <CreatedDate>29/08/2014</CreatedDate>
+    <ClosedDate>29/08/2014</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1239</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>StephenMcConnel</FixedByID>
+    <Title>Fixbug22483improperhorizontalscrollingbyListView.EnsureVisibleintindex</Title>
+    <Description>ThisfixesXamarinbug22483withaminimalchangetothecode.Thecurrentbehaviorispresumablyokayforrighttoleftlayoutsinceitendsupshowingtherightmostendsofthestrings.</Description>
+    <CreatedDate>28/08/2014</CreatedDate>
+    <ClosedDate>29/08/2014</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1237</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>esdrubal</FixedByID>
+    <Title>ChangedXObjectOnChangedandOnChangingtouseOwner.</Title>
+    <Description>WhenXObject.OwnerisnotaXElementXObject.Parentreturnsnullandtheownerwouldnotbenotifiedofchangingandchangedevents.Fixes18772httpsbugzilla.xamarin.comshow_bug.cgiid18772</Description>
+    <CreatedDate>28/08/2014</CreatedDate>
+    <ClosedDate>29/08/2014</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1234</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>esdrubal</FixedByID>
+    <Title>DateTime.CoreParseExact.</Title>
+    <Description>DateTimeandDateTimeOffsetParseExactwasdoneindiferentplaces.SoDateTimeOffset.ParseExactwasrefactoredtousenewmethodDateTime.CoreParseExact.AndDateTime._DoParsewaschangedtoreturncorrectDataTimeOffsetvalues.Fixes17818httpsbugzilla.xamarin.comshow_bug.cgiid17818</Description>
+    <CreatedDate>28/08/2014</CreatedDate>
+    <ClosedDate>28/08/2014</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>1234</PullRequestID>
+        <IssueID>17818</IssueID>
+        <Title>Parse Control #line directive error  CS1576: The line number specified for #line directive is missing or invalid</Title>
+        <Description>IfyouarenewtotheprojectgetyourselffamiliarwithbeforefillingtheissueStepstoReproduce1.servetest.apsxcontainingParseControlexamplecodefrom2.attempttoloadthefile.Youmaydragdroptheattachmentreprocodesolutionscreenshotetc.ontotheissue.CurrentBehaviorGetCompiledTypethrowsCompilationExceptionduetomalformedlinepragmasSystem.Web.Compilation.CompilationExceptionCS1576ThelinenumberspecifiedforlinedirectiveismissingorinvalidDescriptionErrorcompilingaresourcerequiredtoservicethisrequest.Reviewyoursourcefileandmodifyittofixthiserror.DetailsCS1576ThelinenumberspecifiedforlinedirectiveismissingorinvalidErrororiginCompilerErrorsourcefiletmpwwwdatatempaspnet048daf87ah8m7qu7f.0.csprivatevoid__BuildControlTreetest2_aspx_1eecd89b__ctrl7475line076this.__BuildControl__bctrl_387778linedefault79linehidden80System.Web.UI.IParserAccessor__parserSystem.Web.UI.IParserAccessor__ctrl8182line083__parser.AddParsedSubObjectthis._bctrl_388485linedefault86linehidden8788WhatisthecurrentbehaviorExpectedBehaviorIexpectcreatingthecontroltosucceedOnwhichplatformsdidyounoticethismacOSXLinuxWindowsVersionUsedMonoJITcompilerversion6.6.0.156tarballFriNov15103728UTC2019CopyrightC20022014NovellIncXamarinIncandContributors.www.monoproject.comTLS__threadSIGSEGValtstackNotificationsepollArchitectureamd64DisablednoneMiscsoftdebugInterpreteryesLLVMyes610SuspendhybridGCsgenconcurrentbydefaultcatetcaptsources.list.dmonoofficialpreview.listdebpreviewbionicmaindebsrcpreviewbionicmainStacktraceExceptionstacktraceatSystem.Web.Compilation.BaseCompiler.CheckCompilerErrorsSystem.CodeDom.Compiler.CompilerResultsresults0x00099in75f607ca01cc48d8ae78351264b97eaa0atSystem.Web.Compilation.BaseCompiler.GetCompiledType0x00112in75f607ca01cc48d8ae78351264b97eaa0atSystem.Web.Compilation.AspGenerator.GetCompiledType0x0003cin75f607ca01cc48d8ae78351264b97eaa0atSystem.Web.UI.UserControlParser.CompileIntoType0x00006in75f607ca01cc48d8ae78351264b97eaa0atSystem.Web.UI.UserControlParser.GetCompiledTypeSystem.IO.TextReaderreaderSystem.Nullable1TinputHashCodeSystem.Web.HttpContextcontext0x00008in75f607ca01cc48d8ae78351264b97eaa0atSystem.Web.UI.TemplateControl.ParseControlSystem.Stringcontent0x00024in75f607ca01cc48d8ae78351264b97eaa0atASP.test2_aspx.Page_LoadSystem.ObjectsenderSystem.EventArgse0x00007inhomekfazzoneProjectsFamilyconnectFamilyconnecttest2.aspx16atSystem.Web.UI.Control.OnLoadSystem.EventArgse0x00023in75f607ca01cc48d8ae78351264b97eaa0atSystem.Web.UI.Control.LoadRecursive0x00028in75f607ca01cc48d8ae78351264b97eaa0atSystem.Web.UI.Page.ProcessLoad0x0004ain75f607ca01cc48d8ae78351264b97eaa0atSystem.Web.UI.Page.ProcessPostData0x00047in75f607ca01cc48d8ae78351264b97eaa0atSystem.Web.UI.Page.InternalProcessRequest0x001a1in75f607ca01cc48d8ae78351264b97eaa0atSystem.Web.UI.Page.ProcessRequestSystem.Web.HttpContextcontext0x0005fin75f607ca01cc48d8ae78351264b97eaa0Possiobleworkaround.mcsclassSystem.WebSystem.Web.CompilationBaseCompiler.cs.orig20191115152031.4979063370500.mcsclassSystem.WebSystem.Web.CompilationBaseCompiler.cs20191115152507.489420908050012771277internalCodeStatementAddLinePragmaCodeStatementstatementintlinestringfileNameifstatementnullIgnoreFilefileNameifstatementnullline0IgnoreFilefileNamereturnstatementstatement.LinePragmanewCodeLinePragmafileNameline15771577internalCodeTypeMemberAddLinePragmaCodeTypeMembermemberintlinestringfileNameifmembernullIgnoreFilefileNameifmembernullline0IgnoreFilefileNamereturnmembermember.LinePragmanewCodeLinePragmafileNameline</Description>
+        <CreatedDate>15/11/2019</CreatedDate>
+        <ClosedDate>
+        </ClosedDate>
+        <Labels>
+          <Label>area-BCL: System.Web</Label>
+        </Labels>
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1232</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>akoeplinger</FixedByID>
+    <Title>MSBuildFixedatestthatfailedwhentheGACwasntavailable</Title>
+    <Description>PR1229addedatestthatreliesontheGACandfailswhenitisntavailablelikewhenbuildingonacleanmachinewithmonolite.Skipthetestinthatcase.Thisshouldfixthetestfailureonjenkins.monoproject.comhttpjenkins.monoproject.comjobtestmonomainline63labeldebianamd64testReportMonoTests.Microsoft.Build.TasksResolveAssemblyReferenceTestTestSystemDll</Description>
+    <CreatedDate>27/08/2014</CreatedDate>
+    <ClosedDate>28/08/2014</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1230</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>esdrubal</FixedByID>
+    <Title>ProcessXslLiteralElementswithonlychildattributesasemptyones.</Title>
+    <Description>Fixes14751httpsbugzilla.xamarin.comshow_bug.cgiid14751</Description>
+    <CreatedDate>27/08/2014</CreatedDate>
+    <ClosedDate>27/08/2014</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1223</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>esdrubal</FixedByID>
+    <Title>TestSerializationCodeGenerator.</Title>
+    <Description>XmlSerializerTestswasmostlytestingXmlSerializationReaderInterpreterandXmlSerializationWriterInterpreter.AddedXmlSerializerGeneratorTestsitforcestheuseofSerializationCodeGeneratorwhilerunningXmlSerializerTests.FixedSerializationCodeGeneratorissuesthatwereproducinginvalidcode.FixedserializationofXmlNodefieldwithattributeXmlAnyElement.Fixes3211httpsbugzilla.xamarin.comshow_bug.cgiid3211</Description>
+    <CreatedDate>22/08/2014</CreatedDate>
+    <ClosedDate>25/08/2014</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1217</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>AndreyAkinshin</FixedByID>
+    <Title>SuppressionofnegativeElapsedinStopwatch</Title>
+    <Description>TherewasabugintheoldMicrosoft.NETversionstheStopwatch.Elapsedpropertycouldreturnnegativevalueforasmalltimeperiod.Itwasbefixedin.NET4.0butitcanbestillreproducedbythecurrentMonoversion.MoreinformationOfficialbugin.NEThttpsconnect.microsoft.comVisualStudiofeedbackdetailview94083stopwatchreturnsnegativeelapsedtimeUsefulcommentintheofficialsourceof.NET4.5.1httpreferencesource.microsoft.comSystemservicesmonitoringsystemdiagnostictsStopwatch.cs92DiscussiononStackOverflowhttpstackoverflow.comquestions1008345systemdiagnosticsstopwatchreturnsnegativenumbersinelapsedproperties</Description>
+    <CreatedDate>19/08/2014</CreatedDate>
+    <ClosedDate>19/08/2014</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1214</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>esdrubal</FixedByID>
+    <Title>XmlSerializationofBaseclasswoaparameterlessconstructor.</Title>
+    <Description>Removedvalidationcodethatdidnotallowedserializationofbaseclasseswithoutaparameterlessconstructor.Fixes6913httpsbugzilla.xamarin.comshow_bug.cgiid6913.</Description>
+    <CreatedDate>18/08/2014</CreatedDate>
+    <ClosedDate>18/08/2014</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1212</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>esdrubal</FixedByID>
+    <Title>FixedXmlSerializertohandleattributeXmlSchemePrivider.IsAny.</Title>
+    <Description>XmlSerializernolongeroutputsarootelementwithclassnamewhentheclasshastheattributeXmlSchemeProviderandIsAnyistrue.Fixes11916httpsbugzilla.xamarin.comshow_bug.cgiid11916</Description>
+    <CreatedDate>18/08/2014</CreatedDate>
+    <ClosedDate>18/08/2014</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1203</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>esdrubal</FixedByID>
+    <Title>KeyPairPresistencenowtriestofixfolderpermissions.</Title>
+    <Description>Anexceptionisnolongerthrownifthefolderpermissionscanbefixed.Fixes19274httpsbugzilla.xamarin.comshow_bug.cgiid19274</Description>
+    <CreatedDate>12/08/2014</CreatedDate>
+    <ClosedDate>23/09/2014</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1199</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>esdrubal</FixedByID>
+    <Title>PackUriHelper</Title>
+    <Description>RemovedCategoryNotWorkingfromPackUriHelperTests.Fixes8981httpsbugzilla.xamarin.comshow_bug.cgiid8981</Description>
+    <CreatedDate>07/08/2014</CreatedDate>
+    <ClosedDate>07/08/2014</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1195</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>akoeplinger</FixedByID>
+    <Title>SystemFixparsingofURIschemeswithdigits</Title>
+    <Description>InitializinganUripreviouslythrowedanexceptionwhentheURIschemecontainedadigite.g.net.p2p.Theloopwasmissingadigitchecksimilartohttpsgithub.commonomonoblob1f1dc988ad7b165603a1175bf0a92156c4372c43mcsclassSystemSystemUri.csL767InoticedthisafterPR1168byesdrubalwasmerged.</Description>
+    <CreatedDate>06/08/2014</CreatedDate>
+    <ClosedDate>06/08/2014</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1193</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>esdrubal</FixedByID>
+    <Title>Decimal.Roundtrailingzeros</Title>
+    <Description>Fixes21764httpsbugzilla.xamarin.comshow_bug.cgiid21764</Description>
+    <CreatedDate>05/08/2014</CreatedDate>
+    <ClosedDate>06/08/2014</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1191</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>dshvidchenko</FixedByID>
+    <Title>Take2smallimplementationfornotimplementedmemberfunctions.</Title>
+    <Description>Thisistake2thefirstonefailedcodereviewsorrytowasteyourtime.InthisversionImadeitworkingexactlythesamewayasinMS4.5implementation.Thankyou</Description>
+    <CreatedDate>04/08/2014</CreatedDate>
+    <ClosedDate>15/08/2014</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>1190</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>esdrubal</FixedByID>
+    <Title>System.Text.Encoderconvert</Title>
+    <Description>AddedclassesEncodingEncoderandEncodingDecoderthatoverrideEncoder.Convert.TheEncoder.Convertoverridesallowretrievalofcharsbytesbufferswiththesamesizeas.NET.Fixes21659httpsbugzilla.xamarin.comshow_bug.cgiid21659</Description>
+    <CreatedDate>04/08/2014</CreatedDate>
+    <ClosedDate>11/08/2014</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>926</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>ermshiperete</FixedByID>
+    <Title>MWFFixhangifclipboardsourceapplicationclosesdown</Title>
+    <Description>ThischangeaddsatimeouttotheClipboard.Enumeratingloopmakingahanglesslikely.ThisfixesNovellbug674098httpsbugzilla.novell.comshow_bug.cgiid674098.</Description>
+    <CreatedDate>28/02/2014</CreatedDate>
+    <ClosedDate>15/05/2014</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>925</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>ermshiperete</FixedByID>
+    <Title>PrintingFixforNovellbug602934improvevaluesthatprintersettingsreturn</Title>
+    <Description>Currentlytheprintersettingsreturnssomehardcodedvalues.Thischangeimprovesthingssothatthevaluesgetretrieveddirectlyfromtheprinterdriver.Thisfixes602934httpsbugzilla.novell.comshow_bug.cgiid602934.</Description>
+    <CreatedDate>28/02/2014</CreatedDate>
+    <ClosedDate>15/05/2014</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>922</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>ermshiperete</FixedByID>
+    <Title>FixNovellbug599689</Title>
+    <Description>Thischangefixes599689httpsbugzilla.novell.comshow_bug.cgiid599689bymakingtheoutputofXmlSchemaException.ToStringmatchtheoutputunder.NET.</Description>
+    <CreatedDate>27/02/2014</CreatedDate>
+    <ClosedDate>27/02/2014</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>921</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>ermshiperete</FixedByID>
+    <Title>AllowqualifiednamesinXmlAttributeserialization</Title>
+    <Description>ThisfixesNovellbug594490httpsbugzilla.novell.comshow_bug.cgiid594490.</Description>
+    <CreatedDate>27/02/2014</CreatedDate>
+    <ClosedDate>27/02/2014</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>920</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>ermshiperete</FixedByID>
+    <Title>Sys.DataFixforNovellbug519648</Title>
+    <Description>WhenpassingnewobjectnullasargumenttoDataRowCollection.FindwegetaIndexOutOfRangeExceptiononMonowhereasonWindowsitjustreturnshttpsbugzilla.novell.comshow_bug.cgiid519648.Thischangeaddstwounitteststhatdemonstratetheproblemandmodifiesthebehaviourtomatchthaton.NETwhenpassinganullobjectoranarraywithanullobject.Supersedes918</Description>
+    <CreatedDate>27/02/2014</CreatedDate>
+    <ClosedDate>28/04/2014</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>919</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>AxlPr</FixedByID>
+    <Title>FixesTimeZoneInfo.LocalonWindows</Title>
+    <Description>Fixesbug11817.ThereisaproblemwiththebuildwhereLinuxcodeiscompiledfortheWindowsbuildduetotheLIBCflagbeingset.</Description>
+    <CreatedDate>27/02/2014</CreatedDate>
+    <ClosedDate>15/06/2019</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>913</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>Daniel15</FixedByID>
+    <Title>FixroutingofCatchAlltokensBug17960onmaster</Title>
+    <Description>Thisfixeshttpsbugzilla.xamarin.comshow_bug.cgiid17960wherecatchallURLparameterswerenotbeinghandledcorrectly.Thisisthesamechangeas911exceptonmasterratherthanmono3.2.8branch.</Description>
+    <CreatedDate>24/02/2014</CreatedDate>
+    <ClosedDate>25/02/2014</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>884</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>akoeplinger</FixedByID>
+    <Title>SystemFixedanerrorintheimplementationofSystem.Net.IPAddress.IsIPv6Teredo</Title>
+    <Description>ThepropertywasintroducedwithPR870butitmissedtoconvertnetworkbyteordertohostbyteordersothecomparisonwasntworkingcorrectlyandthecorrespondingunittestfailed.mareksafarerroneouslyfixedthetestin27e07c7.Thisisthecorrectedimplementationandtheoriginaltestnowworksasintended.ChangesreleasedunderMITX11.</Description>
+    <CreatedDate>01/02/2014</CreatedDate>
+    <ClosedDate>02/02/2014</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>861</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>RobertZenz</FixedByID>
+    <Title>NotedthatthefullnameattributeisnotthesameasType.FullName.</Title>
+    <Description>BecauseofCecilthefullnameattributedoesexpectthefullnameattributetobeintheformatofECMA335.ThisisincertaincasesnotthesameasthenamereportedbyType.FullName.Seejbevaincecil150forsomedetailsonthis.</Description>
+    <CreatedDate>04/01/2014</CreatedDate>
+    <ClosedDate>17/01/2014</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>846</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>abatishchev</FixedByID>
+    <Title>String.JoincallsListIEnuminsteadoflooping</Title>
+    <Description>String.JoininsteadofloopingoverIEnumerableTcallstheconstructorofListTacceptingIEnumerableT.AccordingtoList.cshttpsgithub.commonomonoblobmastermcsclasscorlibSystem.Collections.GenericList.csL67itshouldbemoreefficient.BecauseJoinUncheckedacceptsstringtheoption2istocallToArrayhttpsgithub.commonomonoblobmastermcsclassSystem.CoreSystem.LinqEnumerable.csL2886extensionmethod</Description>
+    <CreatedDate>24/12/2013</CreatedDate>
+    <ClosedDate>24/12/2013</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>829</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>bassam</FixedByID>
+    <Title>ConvertblockingoperationsinHttpWebRequestandSslClientStreamtononblocking</Title>
+    <Description>Thisfixes15451.MoredetailsHttpWebRequestnowwritestheHTTPrequestheadersasynchronously.Thiswillavoidblockingathreadpoolthreaduntiltheheadersarewritten.SslClientStreamwasdoingtheTLShandshakeinablockingmanner.Convertedthehandshaketoanasyncstatemachinewherealloperationsaredoneasynchronously.Thetestcaseidentifiedin15451nowcompletesquicklywithlessthan15threadscreatedvs.100softhreadsusedbeforethisfix.FutureworkifneededIdidnotconvertSslServerStreambutthesamepatterncouldbeusedhere.SendAlertisstillblocking.Ithoughtitwasnotworthconvertingittononblocking.Ivetestedthisinourproductanditseemstoworkwellunderstress.Iranthesystemnunittestsaswell.HoweverImunabletofindaunittestsuiteforSslStream.TherearefewtesttoolsbutinMono.SecurityTestbutIdontseeactualtestcases.Pleaseadvise.</Description>
+    <CreatedDate>06/12/2013</CreatedDate>
+    <ClosedDate>07/02/2014</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>761</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>ondrejmyska</FixedByID>
+    <Title>Wcffix</Title>
+    <Description>SuggestiontofixBug14473WCFSerializationException.IncaseusinginterfaceandInheritanceinservicemethodwasthrownSystem.Runtime.Serialization.SerializationExceptionTypeDante.Contracts.Authentication.PinAuthenticationCommandisunexpected.ThetypeshouldeitherberegisteredasaknowntypeorDataContractResolvershouldbeused.KnowntypeswasregistredbutnotusedinSerialization.</Description>
+    <CreatedDate>17/09/2013</CreatedDate>
+    <ClosedDate>29/03/2016</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>756</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>akoeplinger</FixedByID>
+    <Title>FixinginconsistencyinXmlSchemaValidatingReaderbetweenMonoandMS.NET</Title>
+    <Description>WhileworkingongettingEF6codefirsttoworkonMonoIdiscoveredaninconsistencyinhowMonohandlesaninvalidi.e.nonabsolutebaseUriparameterpassedtoXmlReader.Createwhenusingschemavalidationcomparedto.NET.LogicallyIwouldexpectthataninvalidUriwouldthrowanexceptionbut.NETdoesntdoitthoughtheresverylittledocumentationonMSDNwhatthecorrectbehavioris.ThisPRfixestheinconsistencyhoweverImnot100surethisisthecorrectapproach.Anyfeedbackwouldbegreatlyappreciated.ChangesreleasedunderMITX11.NoteIveopenedabugonEFsotheystoppassinganinvalidbaseUritoXmlReaderEF1632httpsentityframework.codeplex.comworkitem1632</Description>
+    <CreatedDate>11/09/2013</CreatedDate>
+    <ClosedDate>17/09/2013</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>743</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>gvillanueva</FixedByID>
+    <Title>RewroteFont.GetHashCodetoimproveuniqueness</Title>
+    <Description>AddedtestcasestopreventreintroductionofcollisionscenariosobservedinFont.GetHashCode.Changesareperrequestinbug14016.httpsbugzilla.xamarin.comshow_bug.cgiid14016</Description>
+    <CreatedDate>28/08/2013</CreatedDate>
+    <ClosedDate>28/08/2013</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>726</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>pruiz</FixedByID>
+    <Title>Fixedxamarinbug13708ASP.NETroutingconstraintsshouldbetreatedasconvertibletostringinordertobecompatwithMS.NET</Title>
+    <Description>DanielLoNigroDaniel15foundaproblemwithASP.NETroutinglogicbywhichroutevalueswhenmatchedagainstconstraintswherenotbeingconvertedintostringsresultinginanincompatibilitywithMS.NETsroutingimplementation.ThispullreqfixesthisissuereportedbyDaniel15asxamarins13708.</Description>
+    <CreatedDate>05/08/2013</CreatedDate>
+    <ClosedDate>26/08/2013</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>701</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>steffen-kiess</FixedByID>
+    <Title>FixSyscall.readlinkfornonasciitargets</Title>
+    <Description>Syscall.readlinkcurrentlyreturnsanintegerindicatingthenumberofbytesinthelink.Asbufcontainscharsthisvalueisuselessifthetargetcontainsnonasciicharacterssee11778.ThiscommitdeprecatesthecurrentoverloadsandcreatesanewoverloadwhichusesabytearrayinsteadofaStringBuilder.Thereisalsoanewoverloadwhichdoestheretryuntilbufferislargeenoughstuffandreturnsastringornullonerror.IveputthisintoSyscallbecausebasicallyeverycallerneedsthisanyway.ThisoverloadusesUnixEncodingtheoldcodeusedwhateverencodingwasusedforStringBuilder.Thesamethingsweredoneforreadlinkat.ThiscommitalsocleansupcallersofSyscall.readlinkwhichfixes9611.Fixes11778and9611</Description>
+    <CreatedDate>13/07/2013</CreatedDate>
+    <ClosedDate>28/07/2013</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>684</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>jack-pappas</FixedByID>
+    <Title>Cleanuppreprocessorifdefsinmono_thread_get_stack_boundsandfixthewaythreadstackinformationisretrievedonBSD</Title>
+    <Description>Cleaneduptheheavilynestedpreprocessorifdefs.Thecodewithinthefunctionwasextremelydifficulttounderstandbecauseofthenestedpreprocessordirectiveswhichhasledtoanumberofavoidableconfigurationrelatedbugs.Ivedenestedtheifdefsintoamostlyflatstylewherewecheckforeachplatformjustonceandtheentiretyofthecodeforthatplatformfallsunderthatsinglecheck.Thisimprovesthereadabilityofthecodeandshouldfixtheconfigurationrelatedissuesonsomeplatforms.ThiscodealsofixesanissuewherethreadstackinformationwasntretrievedcorrectlyonBSDbasedsystemsnowtheplatformisdetectedcorrectlyandthepthread_attr_get_npfunctionusedtoretrievetheinformation.Thissubsumespullrequest553whichcouldntbemergedwiththecurrentmasterbranchduetoseveralchangeswhichweremadetothemono_thread_get_stack_boundsfunctionsincethatpullrequestwassubmitted.ThiscommitalsokeepstheOpenBSDrelatedcodeforauditingpurposesthoughitmayberemovedlateriftestingshowsthegenericBSDhandlerworksforOpenBSD.ThecodeinthiscommitisherebyreleasedunderthetermsoftheMITX11license.</Description>
+    <CreatedDate>03/07/2013</CreatedDate>
+    <ClosedDate>04/07/2013</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>643</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>knocte</FixedByID>
+    <Title>HttpConfigurationSystemProxytoprevioussystemifsectionisempty</Title>
+    <Description>IfthenewHttpConfigurationSystemwasputinplacetherewasnowaytoaccesstheoldsystemforaccessingnonSystem.WebsettingseventhoughtheChangeConfigurationSystemmethodwasprovidingitasareturnvalue.Proxyingtoprevioussystemfixesbxc11972httpsbugzilla.xamarin.comshow_bug.cgiid11972Aunittestisaddedaswell.</Description>
+    <CreatedDate>20/05/2013</CreatedDate>
+    <ClosedDate>14/12/2018</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>627</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>abock</FixedByID>
+    <Title>SupportMacOSXforSystem.Net.NetworkInformation.NetworkChange</Title>
+    <Description>RefactorSystem.Net.NetworkingInformationinordertosupportmultipleproviderspreviouslyonlyLinuxwaseversupportedforthisAPI.ThispatchprovidesbasicsupportforMacOSXviatheSystemConfigurationframeworksSCNetworkReachabilityAPI.bxc12038</Description>
+    <CreatedDate>01/05/2013</CreatedDate>
+    <ClosedDate>01/05/2013</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>617</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>knocte</FixedByID>
+    <Title>HttpWebRequestAddtimeoutteststhatcoverBNC317553ximian74177</Title>
+    <Description>Thepullrequestthatwasmerged1intendingtofixBXC11832waslaterreverted3becauseitbrokeascenariothatwasntcoveredbytests.Thiscommitscreatesacoupleofteststhatcoverthisscenariowhichwasimplementedbackin20054sothatwearesurethatanyfurtherproposedfixesforbug11832dontcauseanyregressioninthisarea.1httpsgithub.commonomonocommit8c2167d52cb9acf9582647ebb5f99c92d9127fbd2httpsbugzilla.xamarin.comshow_bug.cgiid118333httpsgithub.commonomonocommit14f0405443693ec2586e73e4b3746134046210d54httpsbugzilla.novell.comshow_bug.cgiid317553</Description>
+    <CreatedDate>20/04/2013</CreatedDate>
+    <ClosedDate>22/04/2013</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>586</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>awinters-fvs</FixedByID>
+    <Title>sgenmarksweepconc64bitpointerarithmeticfixforsegfault</Title>
+    <Description>Iturnedonmarksweepconconmono3.0.6onmy64bitCentOS6.2systemandgotthefollowingsegfaultwhenrunningsomeinhousesoftwareThread7Thread0x7f604e580700LWP1224700x00007f605cd6809din__libc_waitpidpidvalueoptimizedoutstat_locvalueoptimizedoutoptionsvalueoptimizedoutat..sysdepsunixsysvlinuxwaitpid.c4110x000000000049c935inmono_handle_native_sigsegvsignalvalueoptimizedoutctxvalueoptimizedoutatminiexceptions.c233120x00000000004f5cdbinmono_arch_handle_altstack_exceptionsigctx0x7f604e37fc40fault_addrvalueoptimizedoutstack_ovf0atexceptionsamd64.c88430x0000000000415239inmono_sigsegv_signal_handler_dummy11info0x7f604e37fd70context0x7f604e37fc40atmini.c63714signalhandlercalled5sgen_los_update_cardtable_mod_unionatsgenlos.c56960x00000000005c957binmajor_update_or_finish_concurrent_collectionrequested_size8224generation_to_collect1reason0x6f49faFinishconcurrentcollectionwait_to_finish0atsgengc.c33217sgen_perform_collectionrequested_size8224generation_to_collect1reason0x6f49faFinishconcurrentcollectionwait_to_finish0atsgengc.c341580x00000000005db3a3insgen_los_alloc_large_innervtablevtableSystem.Bytesize8224atsgenlos.c34690x00000000005e4383inmono_gc_alloc_obj_nolockvtablevtableSystem.Bytesizevalueoptimizedoutatsgenalloc.c204100x00000000005e48fcinmono_gc_alloc_vectorvtablevtableSystem.Bytesize8224max_length8192atsgenalloc.c472gdbup55sgen_los_update_cardtable_mod_unionatsgenlos.c569569objcardtable_mod_unionistart_cardigdbpobj1next0x7f600ed01000size839360cardtable_mod_union0x1Address0x1outofboundsdata0x7f600eb01000Lookslikecardtable_mod_uniongotsetto1duetosomebadpointerarithmetic.</Description>
+    <CreatedDate>02/03/2013</CreatedDate>
+    <ClosedDate>04/03/2013</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>584</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>martinpotter</FixedByID>
+    <Title>System.Text.DecoderthrowsArgumentOutOfRangeExceptionwhenitshouldno...</Title>
+    <Description>...t.FixesBug10789Similartopreviouslyreportedbug6404accordingtothedocumentationathttpmsdn.microsoft.comenuslibraryh6w985hz.aspxSystem.Text.EncoderthrowsArgumentOutOfRangeExceptionswhenitshouldnot.FromthedocumentationanArgumentOutOfRangeExceptionshouldbethrownwhencharIndexcharCountbyteIndexorbyteCountislessthanzero.orThelengthofcharscharIndexislessthancharCount.orThelengthofbytesbyteIndexislessthanbyteCount.ToreproducerunthefollowingcodeintcharsUsedbytesUsedboolcompletedbytebytesnewbyte4096charcharsnewchar4096System.Text.Encoding.UTF8.GetDecoder.Convertbytes00chars40960falseoutbytesUsedoutcharsUsedoutcompletedExpectedThecoderunscharsUsedequalszerobytesUsedequalszeroandcompletedistrue.ActualMonothrowsanArgumentOutOfRangeExceptionforcharIndex.TherearealsootherbehavioraldifferencesbetweenMonoandMicrosoftsimplementationfortheGetCharsByteInt32Int32CharInt32Booleanmethodsuchasbytebytesnewbyte4096charcharsnewchar10intcharactersWrittenSystem.Text.Encoding.UTF8.GetDecoder.GetCharsbytes00chars10falseOnMonothisresultsinanArgumentOutOfRangeExceptionforcharIndexwhereforMicrosoftcharactersWritten0.Similarlybytebytesnewbyte4096charcharsnewchar10intcharactersWrittenSystem.Text.Encoding.UTF8.GetDecoder.GetCharsbytes04096chars10falseOnMonothisresultsinthesameArgumentOutOfRangeExceptionforcharIndexwhereMicrosoftthrowsandArgumentException.sincecharsdoesnothaveenoughcapacityfromcharIndextotheendofthearraytoaccommodatetheresultingcharacters.</Description>
+    <CreatedDate>01/03/2013</CreatedDate>
+    <ClosedDate>01/03/2013</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>584</PullRequestID>
+        <IssueID>6404</IssueID>
+        <Title>Experimental pull request to explore increasing the inline limit to 100 instructions</Title>
+        <Description>Perthediscussiononthisthread</Description>
+        <CreatedDate>04/01/2018</CreatedDate>
+        <ClosedDate>06/01/2018</ClosedDate>
+        <Labels>
+          <Label>area-Runtime: JIT</Label>
+          <Label>do-not-merge</Label>
+        </Labels>
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>580</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>martinpotter</FixedByID>
+    <Title>System.Text.DecoderthrowsArgumentOutOfRangeExceptionwhenitshouldno...</Title>
+    <Description>...t.FixesBug10789Similartopreviouslyreportedbug6404accordingtothedocumentationathttpmsdn.microsoft.comenuslibraryh6w985hz.aspxSystem.Text.EncoderthrowsArgumentOutOfRangeExceptionswhenitshouldnot.FromthedocumentationanArgumentOutOfRangeExceptionshouldbethrownwhencharIndexcharCountbyteIndexorbyteCountislessthanzero.orThelengthofcharscharIndexislessthancharCount.orThelengthofbytesbyteIndexislessthanbyteCount.ToreproducerunthefollowingcodeintcharsUsedbytesUsedboolcompletedbytebytesnewbyte4096charcharsnewchar4096System.Text.Encoding.UTF8.GetDecoder.Convertbytes00chars40960falseoutbytesUsedoutcharsUsedoutcompletedExpectedThecoderunscharsUsedequalszerobytesUsedequalszeroandcompletedistrue.ActualMonothrowsanArgumentOutOfRangeExceptionforcharIndex.TherearealsootherbehavioraldifferencesbetweenMonoandMicrosoftsimplementationfortheGetCharsByteInt32Int32CharInt32Booleanmethodsuchasbytebytesnewbyte4096charcharsnewchar10intcharactersWrittenSystem.Text.Encoding.UTF8.GetDecoder.GetCharsbytes00chars10falseOnMonothisresultsinanArgumentOutOfRangeExceptionforcharIndexwhereforMicrosoftcharactersWritten0.Similarlybytebytesnewbyte4096charcharsnewchar10intcharactersWrittenSystem.Text.Encoding.UTF8.GetDecoder.GetCharsbytes04096chars10falseOnMonothisresultsinthesameArgumentOutOfRangeExceptionforcharIndexwhereMicrosoftthrowsandArgumentExceptionsincecharsdoesnothaveenoughcapacityfromcharIndextotheendofthearraytoaccommodatetheresultingcharacters.</Description>
+    <CreatedDate>01/03/2013</CreatedDate>
+    <ClosedDate>01/03/2013</ClosedDate>
+    <Issues>
+      <Issue>
+        <RepoID>mono</RepoID>
+        <PullRequestID>580</PullRequestID>
+        <IssueID>6404</IssueID>
+        <Title>Experimental pull request to explore increasing the inline limit to 100 instructions</Title>
+        <Description>Perthediscussiononthisthread</Description>
+        <CreatedDate>04/01/2018</CreatedDate>
+        <ClosedDate>06/01/2018</ClosedDate>
+        <Labels>
+          <Label>area-Runtime: JIT</Label>
+          <Label>do-not-merge</Label>
+        </Labels>
+      </Issue>
+    </Issues>
+  </PullRequest>
+  <PullRequest>
+    <IssueID>579</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>martinpotter</FixedByID>
+    <Title>UTF8Decoder.GetCharsByteInt32Int32CharInt32Booleancanw...</Title>
+    <Description>...ritepastendofchar.FixesBug10788UTF8Decoder.GetCharsByteInt32Int32CharInt32BooleaneventuallycallsintoUTF8Encoding.InternalGetCharswhichdoesnotperformanyboundscheckingonthepassedincharuntilafterthefirstbyte0x80isencountered.Forinstancebytebytesnewbyte4096charcharsnewchar10intcharactersWrittenSystem.Text.Encoding.UTF8.GetDecoder.GetCharsbytes04096chars9falsewillresultinnoerrorsandcharactersWritten4096.</Description>
+    <CreatedDate>01/03/2013</CreatedDate>
+    <ClosedDate>01/03/2013</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>566</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>knocte</FixedByID>
+    <Title>RuntimeDontswallowtheloadererrorifaparenttypecannotbeloaded</Title>
+    <Description>FixesBXC10354.BonusfixesaFIXMEtoo.</Description>
+    <CreatedDate>17/02/2013</CreatedDate>
+    <ClosedDate>22/02/2013</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>551</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>jack-pappas</FixedByID>
+    <Title>FixthreadstackinitializationonBSDplatforms.</Title>
+    <Description>Thisisafixforbug9732reportedontheXamarinBugzilla.BSDusespthread_attr_get_npinsteadofLinuxspthread_getattr_np.WithoutthissgencompilesonFreeBSD9.1andsometimesrunsbutcertainprogramscauseittocrash.UsingtheBSDspecificAPIcalltoinitializethethreadsstackfixesthisproblemandallowssgentoworkasitshould.</Description>
+    <CreatedDate>08/02/2013</CreatedDate>
+    <ClosedDate>08/02/2013</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>385</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>thephred</FixedByID>
+    <Title>Mono210</Title>
+    <Description>Fixforbug4896Incorrectroutingofcatchallparameterhttpsbugzilla.xamarin.comshow_bug.cgiid4896</Description>
+    <CreatedDate>09/07/2012</CreatedDate>
+    <ClosedDate>17/07/2012</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>384</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>miraclespain</FixedByID>
+    <Title>TestspassingregardingmodificationstoSystem.Web.UI.WebControls.CheckboxList</Title>
+    <Description>Seehttpsgithub.commonomonocommit2ff00fae018a18c30d8f2cc251306bfec770879acommitcomment1552676Fixtopreviouslyacceptedpullrequest378</Description>
+    <CreatedDate>09/07/2012</CreatedDate>
+    <ClosedDate>09/07/2012</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>324</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>adbre</FixedByID>
+    <Title>Fixforbug4814</Title>
+    <Description>Thispullrequestwillfixtheissuedescribedinbugreport4814httpsbugzilla.xamarin.comshow_bug.cgiid4814ItalsoincludesNUnittestsfortheissueandthesetestshasbeensuccessfullyrunagainstboththemonocorlibobviouslycodeandonWindows.</Description>
+    <CreatedDate>13/06/2012</CreatedDate>
+    <ClosedDate>14/06/2012</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>308</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>viniciusjarina</FixedByID>
+    <Title>Fix242</Title>
+    <Description>Fixed242httpsbugzilla.xamarin.comshow_bug.cgiid242WasaissuewhenretrievingSerializationMapusingQNameinsteadRuntimeType.Addedunittest.</Description>
+    <CreatedDate>30/05/2012</CreatedDate>
+    <ClosedDate>31/05/2012</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>248</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>pcc</FixedByID>
+    <Title>FixseveralbugsrelatingtoToolStripswithFlowlayout</Title>
+    <Description>SpecificallyDonottakeintoaccountunavailableToolStripItems.UsepreferredsizeofToolStripItemsinsteadofcurrentsize.TakeintoaccounttheToolStripspadding.DonotfilltheToolStripheightduringlayoutwhichiswrongformultirowToolStrips.Thisrevertscommitf124ea39whichfixedNovellbug469196.AsanalternativefixforthatissuesetToolStripSeparatorsDocktoFillinitsconstructor.</Description>
+    <CreatedDate>19/03/2012</CreatedDate>
+    <ClosedDate>19/03/2012</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>234</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>kripper</FixedByID>
+    <Title>FixesBug333898FixesBugoflosingASP.NETsessionsInProcSessionswhenusingPhalangerwithMono</Title>
+    <Description>Forpreviouscommentsseehttpsgithub.commonomonopull229Ok.IidentifiedandfixedthebugThefirstrequestcallsOnReleaseRequestStateforacquiringaexclusivelockontheSessionstore.NextconcurrentrequeststryingtoaccessthesameSessionstorewillwaitinWaitForStoreUnlockWaitForStoreUnlockcallsStoreUnlockWaitCallbackforcheckingiftheSessionstorewasreleasedThisisdonebycallingSessionStateModuleGetStoreDatawhichchangesthesharedSessionStateModulestoreDatavariable.IfthestoreDataislockeditwaslockedbythefirstrequestaNULLvalueisreturnedandstoredinstoreData.WhenthefirstrequestisreleasedonOnReleaseRequestStatestoreDataisNULLandGetItemExclusiveiscalledwithaitemnullsothesessionisdestroyedasreportedinbug333898TofixthisbugIchangedSessionStateModuleGetStoreDatasoitdoesntassignaNULLvaluetostoreDatawhenanitemislocked.SessionStateModuleGetStoreDatawillnowreturnaSessionStateStoreDataobjectwhichwillbeassignedinStoreUnlockWaitCallbackonlywhennotNULLvoidStoreUnlockWaitCallbackobjectsCallbackStatestateCallbackStatesSessionStateStoreDataitemGetStoreDatastate.Contextstate.SessionIdstate.IsReadOnlyifitemnullstoreLockedstoreLockAgeexecutionTimeoutConsole.WriteLineThread.CurrentThread.ManagedThreadIdTimedOuthandler.ReleaseItemExclusivestate.Contextstate.SessionIdstoreLockIdstoreDatanullCreatenewstatestate.AutoEvent.SetelseifitemnullstoreLockedstoreDataitemConsole.WriteLineThread.CurrentThread.ManagedThreadIdStorewasunlockedDespertarwaitingthread.state.AutoEvent.SetSoifthestorewaslockedthatsmostlythecasebecausewearewaitingittounlockstoreDatawillnotbechangedfortheexecutingrequestwhichgotthelockandalsowillnotthedestroythesessionduringOnReleaseRequestState.</Description>
+    <CreatedDate>04/03/2012</CreatedDate>
+    <ClosedDate>08/03/2012</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>137</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>eisnerd</FixedByID>
+    <Title>XPathreverseaxesbug497017</Title>
+    <Description>Ivehadalookintobugreport497017andhavesomerelatedpatchesforthat.Theapproachusedforthexpathnumericpredicatesseemstohavebeentointerpretjustthepredicatesensitivelytoforwardreverseaxisorderingratherthanpresentingtheiterationsinreverseorder.Thisseemstogiveagoodmatchtothe.NetimplementationwhichproducesasfarasIhaveseenaXmlNodeListfromSelectNodesindocumentorderregardlessoftheoutermostaxis.HoweverIthinkthepositionbuiltinfunctionneedsalsotoreflecttheforwardreverseorderingofaxes.IhavealsoincludedsomeadditionaltestcasesafixforancestororselfwhichIwouldbegladforsomeoneelsetofurthertestandanintermediatecommitwithsomeprintingthathelpedwithdebugging.Thesecouldverywellbecondensedintooneortwocommitsoneforpositionandoneforancestororselfifpreferred.</Description>
+    <CreatedDate>22/07/2011</CreatedDate>
+    <ClosedDate>22/07/2011</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>135</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>rmartinho</FixedByID>
+    <Title>checkedcommandlineoption</Title>
+    <Description>ThecheckedcommandlineoptiondidntworkIreportedbug706877.Evenwiththatoptionthecompilerwouldstillemitnoncheckingopcodesconv.i4insteadofconv.ovf.i4etc.ThishappenedbecausewhenconstructingthetheBuilderContextthecommandlineoptionwasnotbeingconsidered.IchangedittosettheBuilderContextflagsaccordingtothevaluefromRootContext.Checked.</Description>
+    <CreatedDate>20/07/2011</CreatedDate>
+    <ClosedDate>20/07/2011</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>102</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>konrad-kruczynski</FixedByID>
+    <Title>Fix635971Fixedthrowingexceptionincaseofusingzerotimeout.Now</Title>
+    <Description>Fix635971Fixedthrowingexceptionincaseofusingzerotimeout.Nowitislegal.Fordetailspleaseseebugdescriptionandcommentsonbugzilla.</Description>
+    <CreatedDate>16/05/2011</CreatedDate>
+    <ClosedDate>20/05/2011</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>92</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>konrad-kruczynski</FixedByID>
+    <Title>FixPatchaddressingbug688940</Title>
+    <Description>Toaddressbug688940inbugzillawhichisaboutusingnonstandardbaudrateonnixaddednewexceptionthrownincaseofusingnonstandardbaudrateonPOSIXboxeswhichisnotsupportedbytermios.OutOfRangeratherthanNotSupportedexceptionduetointerfacecompatibility.</Description>
+    <CreatedDate>01/05/2011</CreatedDate>
+    <ClosedDate>12/05/2011</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>76</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>ztzg</FixedByID>
+    <Title>MIPSbackendfixes2</Title>
+    <Description>AmessagehasbeenpostedtomonodevellistfordiscussionSubjectPATCHESMIPSbackendfixes2MessageID87tyeyiy5z.fsfmini.crosstwine.com</Description>
+    <CreatedDate>19/03/2011</CreatedDate>
+    <ClosedDate>19/03/2011</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>33</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>jdluzen</FixedByID>
+    <Title>Mono28</Title>
+    <Description>Fixfor656021.</Description>
+    <CreatedDate>04/12/2010</CreatedDate>
+    <ClosedDate>05/12/2010</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>25</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>imphasing</FixedByID>
+    <Title>AddsupportfortheCancelKeyPresseventonWindows</Title>
+    <Description>ThispatchaddssupportfortheCancelKeyPresseventonWindows.PreviouslytheeventhandlerwouldneverfireforCancelKeyPressonwindowsbutthisaddsacalltothewin32SetConsoleCtrlHandlerfunctiontoaddtheeventhandlerandremovesitwhentheeventisnull.Thispatchisaffectedbybug651296httpsbugzilla.novell.comshow_bug.cgiid651296.SettingtheCancelpropertyoftheeventargstofalseintheeventhandlerissupposedtocallEnvironment.Exit58butithappensfromathreadpoolthreadcausingonlytheeventhandlerthreadtoterminate.</Description>
+    <CreatedDate>09/11/2010</CreatedDate>
+    <ClosedDate>10/11/2010</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>19</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>imphasing</FixedByID>
+    <Title>DontenforceaminimumbuffersizeforzerolengthbuffersinFileStreamfixfor645193</Title>
+    <Description>ForzerolengthbuffersInitBufferattemptstoforceabuffersizeof8butthiscausesincorrectresults.IaddedbacktheisZeroSizeparametertoInitBufferasthatseemedmuchcleanerthanswitchingbasedoffabuffersizeof1andweneedsomemethodofdeterminingifwereworkingwithabufferthatreallyshouldbezero.Thisfixesbug645193httpsbugzilla.novell.comshow_bug.cgiid645193</Description>
+    <CreatedDate>26/10/2010</CreatedDate>
+    <ClosedDate>30/10/2010</ClosedDate>
+    <Issues />
+  </PullRequest>
+  <PullRequest>
+    <IssueID>7</IssueID>
+    <RepoID>mono</RepoID>
+    <FixedByID>e-tobi</FixedByID>
+    <Title>Etobi645232</Title>
+    <Description>Thisfixes645232httpsbugzilla.novell.comshow_bug.cgiid645232</Description>
+    <CreatedDate>10/10/2010</CreatedDate>
+    <ClosedDate>29/10/2010</ClosedDate>
+    <Issues />
+  </PullRequest>
+</PullRequests>

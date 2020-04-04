@@ -9,10 +9,6 @@ using Octokit;
 using GitHubApiDemo.Properties;
 using System.Xml;
 using System.Threading.Tasks;
-using System.Xml.Linq;
-using System.Text.RegularExpressions;
-using System.Collections;
-
 namespace GitHubApiDemo
 {
     /// <summary>
@@ -33,7 +29,7 @@ namespace GitHubApiDemo
             // Trick to make read-only properties display using regular text color
             // See: https://social.msdn.microsoft.com/Forums/windows/en-US/9fd7591d-8925-43e4-bdf1-988c9bb5ca5e/changing-font-color-on-readonly-fields-in-propertygrid?forum=winforms
             detailPropertyGrid.ViewForeColor = Color.FromArgb(0, 0, 1);
-           
+
         }
         #endregion // Constructors
 
@@ -84,7 +80,24 @@ namespace GitHubApiDemo
         {
             LoadSettings();
             BeginInvoke((MethodInvoker)ShowLoginForm);
+            //UpdateLabels("roslyn");
+            //UpdateLabels("mono");
+            //UpdateLabels("orleans");
+            //UpdateLabels("runtime");
+            //UpdateLabels("core");
+            //UpdateLabels("sdk");
+
+
+            //CreateAST("roslyn");
+            //CreateAST("mono");
+            //CreateAST("orleans");
+            //CreateAST("runtime");
+            //CreateAST("core");
+            //CreateAST("sdk");
+
         }
+
+
 
         private void dataGridSelectColumnsMenuItem_Click(object sender, EventArgs e) =>
             ShowColumnForm();
@@ -95,7 +108,8 @@ namespace GitHubApiDemo
         private void editFindCodeMenuItem_Click(object sender, EventArgs e) =>
             Search<SearchCodeBroker>();
 
-        private void editFindIssueMenuItem_Click(object sender, EventArgs e){
+        private void editFindIssueMenuItem_Click(object sender, EventArgs e)
+        {
             Search<SearchIssuesBroker>();
         }
 
@@ -197,7 +211,7 @@ namespace GitHubApiDemo
                     {
                         mainStatusLabel.Text = $"Searching for {searcher.Type}...";
                         mainProgressBar.Visible = true;
-                        mainProgressBar.Value = 0;                        
+                        mainProgressBar.Value = 0;
                         activeSearcher = searcher;
                     }
                     break;
@@ -343,8 +357,8 @@ namespace GitHubApiDemo
             {
                 case BackgroundType.Search:
                     if (e.Argument is Searcher searcher)
-                    {   
-                      Search(searcher);
+                    {
+                        Search(searcher);
                     }
                     break;
 
@@ -534,8 +548,8 @@ namespace GitHubApiDemo
 
         private void Search(Searcher searcher)
         {
-             searchResult = searcher.Search();
-             this.searcher = searcher;
+            searchResult = searcher.Search();
+            this.searcher = searcher;
         }
 
         private void ShowColumnForm()
@@ -910,7 +924,7 @@ namespace GitHubApiDemo
             System.IO.StreamReader xmlStreamReader =
                 new System.IO.StreamReader(xmlPath);
             System.Xml.XmlDocument xmlDoc = new System.Xml.XmlDocument();
-           
+
 
             xmlDoc.Load(xmlStreamReader);
             xmlStreamReader.Close();
@@ -947,7 +961,7 @@ namespace GitHubApiDemo
                 }
                 xmlDoc.Save(@"C:\PhD\Workbrench\GitHub_NeturalNetworks\Datasets\IssueDetailsRoslyn_02112019_3_RemoveCode.xml");
             }
-            MessageBox.Show("Done!");           
+            MessageBox.Show("Done!");
         }
 
         public void CounteNoofIssueswithCodes()
@@ -962,7 +976,7 @@ namespace GitHubApiDemo
             var rulesDescNodes = xmlDoc.DocumentElement.GetElementsByTagName("IssueDetail");
             int countofcode = 0;
             if (rulesDescNodes != null)
-            {                
+            {
                 foreach (XmlNode node in rulesDescNodes)
                 {
                     /* Code From Title_Description*/
@@ -976,14 +990,122 @@ namespace GitHubApiDemo
                     {
                         _value = _value.Remove(startIndex, length);
                         node.ChildNodes[3].InnerText = _value;
-                        countofcode = countofcode +1;
+                        countofcode = countofcode + 1;
                     }
                 }
 
                 MessageBox.Show("Count : " + countofcode);
             }
-           
-        }             
+
+        }
+
+        #region "My Custom Methods"
+
+        public void CreateAST(string project)
+        {
+            var path = @"C:\\PhD\\Workbrench\\GitHub_NeturalNetworks\\Datasets\\PullRequests" + project + ".xml";
+
+            XmlDocument document = new XmlDocument();
+            document.Load(path);
+
+            XmlNode rootNode = document["PullRequests"];
+            XmlNodeList xnPullRequests = rootNode.SelectNodes("PullRequest");
+            /*Pull Requests*/
+            foreach (XmlNode pxn in xnPullRequests)
+            {
+                /*Issues*/
+                XmlNodeList xnIssues = pxn.SelectNodes("Issues");
+                if (xnIssues != null)
+                {
+                    foreach (XmlNode sxns in xnIssues)
+                    {
+                        /*Issue*/
+                        XmlNodeList xnIssue = sxns.SelectNodes("Issue");
+
+                        foreach (XmlNode sxn in xnIssue)
+                        {
+                            /*Code*/
+                            var codenode = sxn.SelectSingleNode("Code");
+                            if (codenode != null)
+                            {
+                                var resultAST = Extractor.ExtractAST.ExtractASTFromText(codenode.InnerText.Replace("&lt;","<").Replace("&gt;", ">"));
+                                if (resultAST != null)
+                                {
+                                    XmlNode ASTCode = document.CreateElement("ASTCode");
+                                    ASTCode.InnerText = string.Join(Environment.NewLine, resultAST);
+                                    sxn.AppendChild(ASTCode);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            document.Save(path);
+            MessageBox.Show("Create AST for project : " + project);
+        }
+
+        /// <summary>
+        /// Update Labels Section
+        /// </summary>
+        public void UpdateLabels(string project)
+        {
+            var path = @"C:\\PhD\\Workbrench\\GitHub_NeturalNetworks\\Datasets\\PullRequests" + project + ".xml";
+
+            XmlDocument document = new XmlDocument();
+            document.Load(path);
+
+            XmlNode rootNode = document["PullRequests"];
+            XmlNodeList xnPullRequests = rootNode.SelectNodes("PullRequest");
+            /*Pull Requests*/
+            foreach (XmlNode pxn in xnPullRequests)
+            {
+                /*Issues*/
+                XmlNodeList xnIssues = pxn.SelectNodes("Issues");
+                if (xnIssues != null)
+                {
+                    foreach (XmlNode sxns in xnIssues)
+                    {
+                        /*Issue*/
+                        XmlNodeList xnIssue = sxns.SelectNodes("Issue");
+
+                        foreach (XmlNode sxn in xnIssue)
+                        {
+                            /*Labels*/
+                            XmlNodeList xnLabels = sxn.SelectNodes("Labels");
+
+                            foreach (XmlNode slbs in xnLabels)
+                            {
+                                /*Label*/
+                                XmlNodeList xnLabel = slbs.SelectNodes("Label");
+
+                                foreach (XmlNode slb in xnLabel)
+                                {
+                                    var templabel = slb.InnerText;
+                                    slb.InnerText = "";
+
+                                    XmlNode llabel = document.CreateElement("Name");
+                                    llabel.InnerText = templabel;
+                                    slb.AppendChild(llabel);
+
+                                    XmlNode lissueId = document.CreateElement("IssueID");
+                                    lissueId.InnerText = sxn["IssueID"].InnerText;
+                                    slb.AppendChild(lissueId);
+
+                                    XmlElement lRepoID = document.CreateElement("RepoID");
+                                    lRepoID.InnerText = pxn["RepoID"].InnerText;
+                                    slb.AppendChild(lRepoID);
+
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+            document.Save(path);
+            MessageBox.Show("Update Done  for project" + project);
+        }
+        #endregion "XML Class"
 
         #endregion // Private methods
 

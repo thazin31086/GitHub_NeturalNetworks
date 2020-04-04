@@ -1,0 +1,9 @@
+C:\PhD\Workbrench\GitHub_NeturalNetworks\GitHubApiDemo\CSharpASTExtractor\obj\Debug\netstandard2.0\CSharpASTExtractor.csprojAssemblyReference.cache
+C:\PhD\Workbrench\GitHub_NeturalNetworks\GitHubApiDemo\CSharpASTExtractor\obj\Debug\netstandard2.0\CSharpASTExtractor.csproj.CoreCompileInputs.cache
+C:\PhD\Workbrench\GitHub_NeturalNetworks\GitHubApiDemo\CSharpASTExtractor\obj\Debug\netstandard2.0\CSharpASTExtractor.AssemblyInfoInputs.cache
+C:\PhD\Workbrench\GitHub_NeturalNetworks\GitHubApiDemo\CSharpASTExtractor\obj\Debug\netstandard2.0\CSharpASTExtractor.AssemblyInfo.cs
+C:\PhD\Workbrench\GitHub_NeturalNetworks\GitHubApiDemo\CSharpASTExtractor\bin\Debug\netstandard2.0\CSharpASTExtractor.deps.json
+C:\PhD\Workbrench\GitHub_NeturalNetworks\GitHubApiDemo\CSharpASTExtractor\bin\Debug\netstandard2.0\CSharpASTExtractor.dll
+C:\PhD\Workbrench\GitHub_NeturalNetworks\GitHubApiDemo\CSharpASTExtractor\bin\Debug\netstandard2.0\CSharpASTExtractor.pdb
+C:\PhD\Workbrench\GitHub_NeturalNetworks\GitHubApiDemo\CSharpASTExtractor\obj\Debug\netstandard2.0\CSharpASTExtractor.dll
+C:\PhD\Workbrench\GitHub_NeturalNetworks\GitHubApiDemo\CSharpASTExtractor\obj\Debug\netstandard2.0\CSharpASTExtractor.pdb

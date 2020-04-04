@@ -312,10 +312,11 @@ namespace GitHubApiDemo
                 IncompleteResults = incompleteResults;
                 TotalCount = totalCount;
                 Items = items;
-                ExportPullRequestToXML(items);
+                //   ExportPullRequestToXML(items);
+               // UpdatePullRequest();
             }
             #endregion // Constructors
-
+            
             /// <summary>
             /// Export PullRequest To XML
             /// </summary>
@@ -323,7 +324,7 @@ namespace GitHubApiDemo
             public async void ExportPullRequestToXML(IReadOnlyList<TItem> items)
             {
                 #region Pull Requests with More than One Issues 
-                var project = "runtime";
+                var project = "core";
                 var path = "dotnet";
                 XmlDocument xmlDoc = new XmlDocument();
                 xmlDoc.Load("C:\\PhD\\Workbrench\\GitHub_NeturalNetworks\\Datasets\\PullRequests" + project + ".xml");
@@ -345,17 +346,16 @@ namespace GitHubApiDemo
                         elemRepoID.InnerText = project;
                         PullRequestNode.AppendChild(elemRepoID);
 
-
                         XmlElement elemFixedByID = xmlDoc.CreateElement("FixedByID");
                         elemFixedByID.InnerText = m.User.Login;
                         PullRequestNode.AppendChild(elemFixedByID);
 
                         XmlElement elemTitle = xmlDoc.CreateElement("Title");
-                        elemTitle.InnerText = m.Title?.ToString();
+                        elemTitle.InnerText = RemoveSpecialCharacters(m.Title?.ToString());
                         PullRequestNode.AppendChild(elemTitle);
 
                         XmlElement elemDescription = xmlDoc.CreateElement("Description");
-                        elemDescription.InnerText = m.Body?.ToString();
+                        elemDescription.InnerText = RemoveSpecialCharacters(m.Body?.ToString());
                         PullRequestNode.AppendChild(elemDescription);
 
                         XmlElement elemOpenedAt = xmlDoc.CreateElement("CreatedDate");
@@ -382,8 +382,7 @@ namespace GitHubApiDemo
                                     if (_issue != null)
                                     {
                                         XmlElement IssuesNode = xmlDoc.CreateElement("Issue");
-                                        /*Filter out the issues assginee fixed by robot and not labelled*/
-                                        if (!m.User.Login.Contains("bot") && _issue.Labels != null)
+                                        if (_issue.Labels != null && _issue.Labels.Count() > 0)
                                         {
                                             XmlElement issue_RepoID = xmlDoc.CreateElement("RepoID");
                                             issue_RepoID.InnerText = project;
@@ -404,39 +403,61 @@ namespace GitHubApiDemo
                                             if (!string.IsNullOrEmpty(_issue.Body))
                                             {
                                                 XmlElement issueDescription = xmlDoc.CreateElement("Description");
-                                                issueDescription.InnerText = _issue.Body?.ToString();
-                                                /*Remove Code from Description*/
-                                                var _valueD = issueDescription.InnerText;
+                                                issueDescription.InnerText = _issue.Body;
 
-                                                int startIndex_D = _valueD.IndexOf("```");
-                                                int endIndex_D = _valueD.LastIndexOf("```");
-                                                int length_D = endIndex_D - startIndex_D + 1;
-
-                                                if (startIndex_D > -1 && endIndex_D > -1)
+                                                var codeblockcount = Regex.Matches(issueDescription.InnerText, "```").Count;
+                                                if (codeblockcount > 1)
                                                 {
-                                                    _valueD = _valueD.Remove(startIndex_D, length_D);
-                                                    issueDescription.InnerText = _valueD;
-                                                }
-                                                IssuesNode.AppendChild(issueDescription);
-
-                                                /*Extract Code -- if csharp exist*/
-                                                if (startIndex_D > 0 && _issue.Body.ToString().ToLower().Contains("```csharp") && _issue.Body.ToString().ToLower().Contains("class") && _issue.Body.ToString().ToLower().Contains("method"))
-                                                {
-                                                    XmlElement issueCode = xmlDoc.CreateElement("Code"); 
-                                                    /*Extract Code from Description*/
-                                                    var _valueDCode = _issue.Body?.ToString();
-
-                                                    int startIndex_DCode = _valueDCode.IndexOf("```");
-                                                    int endIndex_DCode = _valueDCode.LastIndexOf("```");
-                                                    int length_DCode = endIndex_DCode - startIndex_DCode + 1;
-
-                                                    if (startIndex_DCode > -1 && endIndex_DCode > -1)
+                                                    /*Remove Code from Description*/
+                                                    var noofcodeblock = codeblockcount / 2;
+                                                    for (int i = 0; i <= noofcodeblock; i++)
                                                     {
-                                                        _valueDCode = _valueDCode.Substring(startIndex_DCode, length_DCode);
-                                                        issueCode.InnerText = _valueDCode;
+                                                        var _valueD = issueDescription.InnerText;
+
+                                                        int startIndex_D = _valueD.IndexOf("```");
+                                                        int endIndex_D = _valueD.LastIndexOf("```");
+                                                        int length_D = endIndex_D - startIndex_D + 1;
+                                                        if (startIndex_D > -1 && endIndex_D > -1)
+                                                        {
+                                                            _valueD = _valueD.Remove(startIndex_D, length_D);
+                                                            issueDescription.InnerText = _valueD;
+                                                        }
                                                     }
-                                                    IssuesNode.AppendChild(issueCode);
+
+                                                    XmlElement issueCode = xmlDoc.CreateElement("Code");
+                                                    string tempdata = _issue.Body?.ToString();
+                                                    /*Extract Code -- if csharp exist*/
+                                                    for (int i = 0; i <= noofcodeblock; i++)
+                                                    {
+                                                        /*Extract Code from Description*/
+                                                        var _valueDCode = tempdata;
+                                                        int startIndex_DCode = _valueDCode.IndexOf("```");
+                                                        int endIndex_DCode = _valueDCode.LastIndexOf("```");
+                                                        int length_DCode = endIndex_DCode - startIndex_DCode + 1;
+                                                        if (startIndex_DCode > -1 && endIndex_DCode > -1)
+                                                        {
+                                                            _valueDCode = _valueDCode.Substring(startIndex_DCode, length_DCode);
+                                                            if (_valueDCode.Contains("csharp") || _valueDCode.Contains("c#") || _valueDCode.Contains("cs"))
+                                                            {
+                                                                issueCode.InnerText = issueCode.InnerText + _valueDCode;
+                                                            }
+                                                            tempdata = tempdata.Remove(startIndex_DCode, length_DCode);
+                                                        }
+                                                    }
+                                                    if (!string.IsNullOrEmpty(issueCode.InnerText))
+                                                    {
+                                                        issueCode.InnerText = issueCode.InnerText.Replace("```", string.Empty);
+                                                        issueCode.InnerText = issueCode.InnerText.Replace("&gt;", ">");
+                                                        issueCode.InnerText = issueCode.InnerText.Replace("&lt;", "<");
+                                                        IssuesNode.AppendChild(issueCode);
+                                                    }
+
                                                 }
+
+                                                issueDescription.InnerText = Regex.Replace(issueDescription.InnerText, @"http[^\s]+", ""); /*Removed URL*/
+                                                issueDescription.InnerText = Regex.Replace(issueDescription.InnerText, @"(?<!\r)\n", String.Empty); /*Removed line Break*/
+                                                issueDescription.InnerText = RemoveSpecialCharacters(issueDescription.InnerText);
+                                                IssuesNode.AppendChild(issueDescription);
                                             }
 
                                             XmlElement issueOpenedAt = xmlDoc.CreateElement("CreatedDate");
@@ -456,9 +477,6 @@ namespace GitHubApiDemo
                                             }
                                             IssuesNode.AppendChild(issueLabels);
 
-                                            #region Extract Code snippet
-
-                                            #endregion
                                             /*Add to Parent Issue*/
                                             IssuesNodes.AppendChild(IssuesNode);
                                         }
@@ -510,10 +528,69 @@ namespace GitHubApiDemo
                 xmlDoc.Save("C:\\PhD\\Workbrench\\GitHub_NeturalNetworks\\Datasets\\PullRequests" + project + ".xml");
                 #endregion Pull Requests with More than One Issues
             }
-            #region Properties
+
             /// <summary>
-            /// Gets the total number of matching items from the search.
+            /// Update Pull Requests
             /// </summary>
+            public async void UpdatePullRequest()
+            {
+                string project = "roslyn";
+                var path = @"C:\\PhD\\Workbrench\\GitHub_NeturalNetworks\\Datasets\\PullRequests" + project + ".xml";
+
+                XmlDocument document = new XmlDocument();
+                document.Load(path);
+
+                XmlNode rootNode = document["PullRequests"];
+                XmlNodeList xnPullRequests = rootNode.SelectNodes("PullRequest");
+                /*Pull Requests*/
+                foreach (XmlNode pxn in xnPullRequests)
+                {
+                    /*Issues*/
+                    XmlNodeList xnIssues = pxn.SelectNodes("Issues");
+                    if (xnIssues != null)
+                    {
+                        foreach (XmlNode sxns in xnIssues)
+                        {
+                            /*Issue*/
+                            XmlNodeList xnIssue = sxns.SelectNodes("Issue");
+
+                            foreach (XmlNode sxn in xnIssue)
+                            {
+                                /*Labels*/
+                                XmlNodeList xnLabels = sxn.SelectNodes("Labels");
+                               
+                                foreach (XmlNode slbs in xnLabels)
+                                {
+                                    /*Label*/
+                                    XmlNodeList xnLabel = slbs.SelectNodes("Label");
+
+                                    foreach (XmlNode slb in xnLabel)
+                                    {
+                                        XmlNode llabel = document.CreateElement("Name");
+                                        llabel.InnerText = slb.InnerText;
+                                        slb.AppendChild(llabel);
+
+                                        XmlNode lissueId = document.CreateElement("IssueID");
+                                        lissueId.InnerText = sxn["IssueID"].InnerText;
+                                        slb.AppendChild(lissueId);
+
+                                        XmlElement lRepoID = document.CreateElement("RepoID");
+                                        lRepoID.InnerText = pxn["RepoID"].InnerText;
+                                        slb.AppendChild(lRepoID);
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                }
+                document.Save(path);
+            }
+
+            #region Properties
+                /// <summary>
+                /// Gets the total number of matching items from the search.
+                /// </summary>
             public int TotalCount { get; }
 
             /// <summary>
@@ -563,6 +640,23 @@ namespace GitHubApiDemo
                 }
             }
             return result;
+        }
+
+        private static string RemoveSpecialCharacters(string str)
+        {
+            if (!String.IsNullOrEmpty(str))
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (char c in str)
+                {
+                    if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || c == '.' || c == '_')
+                    {
+                        sb.Append(c);
+                    }
+                }
+                return sb.ToString();
+            }
+            return str;
         }
     }
 }
