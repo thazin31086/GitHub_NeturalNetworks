@@ -80,20 +80,20 @@ namespace GitHubApiDemo
         {
             LoadSettings();
             BeginInvoke((MethodInvoker)ShowLoginForm);
-            //UpdateLabels("roslyn");
-            //UpdateLabels("mono");
-            //UpdateLabels("orleans");
-            //UpdateLabels("runtime");
-            //UpdateLabels("core");
-            //UpdateLabels("sdk");
+            UpdateLabels("roslyn");
+            UpdateLabels("mono");
+            UpdateLabels("orleans");
+            UpdateLabels("runtime");
+            UpdateLabels("core");
+            UpdateLabels("sdk");
 
 
-            //CreateAST("roslyn");
-            //CreateAST("mono");
-            //CreateAST("orleans");
-            //CreateAST("runtime");
-            //CreateAST("core");
-            //CreateAST("sdk");
+            CreateAST("roslyn");
+            CreateAST("mono");
+            CreateAST("orleans");
+            CreateAST("runtime");
+            CreateAST("core");
+            CreateAST("sdk");
 
         }
 
@@ -1031,9 +1031,21 @@ namespace GitHubApiDemo
                                 var resultAST = Extractor.ExtractAST.ExtractASTFromText(codenode.InnerText.Replace("&lt;","<").Replace("&gt;", ">"));
                                 if (resultAST != null)
                                 {
-                                    XmlNode ASTCode = document.CreateElement("ASTCode");
-                                    ASTCode.InnerText = string.Join(Environment.NewLine, resultAST);
-                                    sxn.AppendChild(ASTCode);
+                                    if (resultAST.ASTCode != null)
+                                    {
+                                        XmlNode ASTCode = document.CreateElement("ASTCode");
+                                        ASTCode.InnerText = string.Join(Environment.NewLine, resultAST.ASTCode);
+                                        if(!string.IsNullOrEmpty(ASTCode.InnerText))
+                                           sxn.AppendChild(ASTCode);
+                                    }
+
+                                    if (resultAST.Comment != null)
+                                    {
+                                        XmlNode CodeComments = document.CreateElement("Comment");
+                                        CodeComments.InnerText = string.Join(Environment.NewLine, resultAST.Comment);
+                                        if (!string.IsNullOrEmpty(CodeComments.InnerText))
+                                           sxn.AppendChild(CodeComments);
+                                    }
                                 }
                             }
                         }

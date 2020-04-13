@@ -162,14 +162,14 @@ namespace Extractor
 
         static readonly char[] removeFromComments = new char[] { ' ', '/', '*', '{', '}' };
 
-        public List<String> Extract()
+        public ASTCustomClass Extract()
         {
             var tree = new Tree(CSharpSyntaxTree.ParseText(Code).GetRoot());
 
             IEnumerable<MethodDeclarationSyntax> methods = tree.GetRoot().DescendantNodesAndSelf().OfType<MethodDeclarationSyntax>().ToList();
-
-            List<String> results = new List<string>();
-
+           
+            List<String> ASTCode = new List<string>();
+            List<string> comments = new List<String>();
             foreach (var method in methods)
             {
 
@@ -211,14 +211,15 @@ namespace Extractor
                     for (int i = 0; i < Math.Ceiling((double)parts.Length / (double)5); i++)
                     {
                         var batch = String.Join("|", parts.Skip(i * 5).Take(5));
-                        contexts.Add(batch + "," + "COMMENT" + "," + batch);
+                        //contexts.Add(batch + "," + "COMMENT" + "," + batch);
+                       comments.Add(batch + "," + "COMMENT" + "," + batch);
                     }
                 }
-                results.Add(String.Join("|", subtokensMethodName) + " " + String.Join(" ", contexts));
+                ASTCode.Add(String.Join("|", subtokensMethodName) + " " + String.Join(" ", contexts));
             }
 
            
-            return results;
+            return new ASTCustomClass() { ASTCode = ASTCode, Comment = comments };
         }
 
         /// <summary>
@@ -396,5 +397,11 @@ namespace Extractor
             return
                 String.Equals(literalExpression.Token.ValueText, _attributeValue, StringComparison.OrdinalIgnoreCase);
         }
+    }
+
+    public class ASTCustomClass
+    {
+        public List<string> ASTCode { get; set; }
+        public List<string> Comment { get; set; }
     }
 }
