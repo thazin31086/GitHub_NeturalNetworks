@@ -80,20 +80,20 @@ namespace GitHubApiDemo
         {
             LoadSettings();
             BeginInvoke((MethodInvoker)ShowLoginForm);
-            UpdateLabels("roslyn");
-            UpdateLabels("mono");
-            UpdateLabels("orleans");
-            UpdateLabels("runtime");
-            UpdateLabels("core");
-            UpdateLabels("sdk");
+            //UpdateLabels("roslyn");
+            //UpdateLabels("mono");
+            //UpdateLabels("orleans");
+            //UpdateLabels("runtime");
+            //UpdateLabels("core");
+            //UpdateLabels("sdk");
 
 
-            CreateAST("roslyn");
-            CreateAST("mono");
-            CreateAST("orleans");
-            CreateAST("runtime");
-            CreateAST("core");
-            CreateAST("sdk");
+            //CreateAST("roslyn");
+            //CreateAST("mono");
+            //CreateAST("orleans");
+            //CreateAST("runtime");
+            //CreateAST("core");
+            //CreateAST("sdk");
 
         }
 
@@ -1028,7 +1028,7 @@ namespace GitHubApiDemo
                             var codenode = sxn.SelectSingleNode("Code");
                             if (codenode != null)
                             {
-                                var resultAST = Extractor.ExtractAST.ExtractASTFromText(codenode.InnerText.Replace("&lt;","<").Replace("&gt;", ">"));
+                                var resultAST = Extractor.ExtractAST.ExtractCsharpASTFromText(codenode.InnerText.Replace("&lt;","<").Replace("&gt;", ">"));
                                 if (resultAST != null)
                                 {
                                     if (resultAST.ASTCode != null)

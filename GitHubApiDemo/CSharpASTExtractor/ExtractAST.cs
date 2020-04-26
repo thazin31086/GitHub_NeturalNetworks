@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-
 namespace Extractor
 {
     public class ExtractAST
     {
-        public static ASTCustomClass ExtractASTFromText(string code)
+
+        public static ASTCustomClass ExtractCsharpASTFromText(string code)
         {
             Options opts = new Options();
             opts.MaxContexts = 2000;
@@ -16,5 +16,7 @@ namespace Extractor
             ASTCustomClass result = extractor.Extract();
             return result;
         }
+
+        
     }
 }

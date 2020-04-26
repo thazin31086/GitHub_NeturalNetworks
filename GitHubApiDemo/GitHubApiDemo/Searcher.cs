@@ -312,7 +312,7 @@ namespace GitHubApiDemo
                 IncompleteResults = incompleteResults;
                 TotalCount = totalCount;
                 Items = items;
-                //   ExportPullRequestToXML(items);
+                ExportPullRequestToXML(items);
                // UpdatePullRequest();
             }
             #endregion // Constructors
@@ -324,8 +324,8 @@ namespace GitHubApiDemo
             public async void ExportPullRequestToXML(IReadOnlyList<TItem> items)
             {
                 #region Pull Requests with More than One Issues 
-                var project = "core";
-                var path = "dotnet";
+                var project = "joda-time";
+                var path = "JodaOrg";
                 XmlDocument xmlDoc = new XmlDocument();
                 xmlDoc.Load("C:\\PhD\\Workbrench\\GitHub_NeturalNetworks\\Datasets\\PullRequests" + project + ".xml");
                 XmlNode rootNode = xmlDoc["PullRequests"];
@@ -355,7 +355,8 @@ namespace GitHubApiDemo
                         PullRequestNode.AppendChild(elemTitle);
 
                         XmlElement elemDescription = xmlDoc.CreateElement("Description");
-                        elemDescription.InnerText = RemoveSpecialCharacters(m.Body?.ToString());
+                        //elemDescription.InnerText = RemoveSpecialCharacters(m.Body?.ToString());
+                        elemDescription.InnerText = m.Body?.ToString();
                         PullRequestNode.AppendChild(elemDescription);
 
                         XmlElement elemOpenedAt = xmlDoc.CreateElement("CreatedDate");
@@ -365,6 +366,15 @@ namespace GitHubApiDemo
                         XmlElement elemClosedAt = xmlDoc.CreateElement("ClosedDate");
                         elemClosedAt.InnerText = m.ClosedAt?.ToString("dd/MM/yyyy");
                         PullRequestNode.AppendChild(elemClosedAt);
+
+                        XmlElement pullrequestLabels = xmlDoc.CreateElement("PullRequestLabels");
+                        foreach (var _label in m.Labels)
+                        {
+                            XmlElement label = xmlDoc.CreateElement("PullRequestLabel");
+                            label.InnerText = _label.Name;
+                            pullrequestLabels.AppendChild(label);
+                        }
+                        PullRequestNode.AppendChild(pullrequestLabels);
 
                         var issues = HasIssueNo(m.Body?.ToString());
                         if (issues != null && issues.Count() > 0)
@@ -398,7 +408,7 @@ namespace GitHubApiDemo
 
                                             XmlElement issueTitle = xmlDoc.CreateElement("Title");
                                             issueTitle.InnerText = _issue.Title?.ToString();
-                                            IssuesNode.AppendChild(issueTitle);
+                                            IssuesNode.AppendChild(issueTitle);                                          
 
                                             if (!string.IsNullOrEmpty(_issue.Body))
                                             {
@@ -437,7 +447,7 @@ namespace GitHubApiDemo
                                                         if (startIndex_DCode > -1 && endIndex_DCode > -1)
                                                         {
                                                             _valueDCode = _valueDCode.Substring(startIndex_DCode, length_DCode);
-                                                            if (_valueDCode.Contains("csharp") || _valueDCode.Contains("c#") || _valueDCode.Contains("cs"))
+                                                            if (_valueDCode.Contains("csharp") || _valueDCode.Contains("c#") || _valueDCode.Contains("cs") || _valueDCode.Contains("java"))
                                                             {
                                                                 issueCode.InnerText = issueCode.InnerText + _valueDCode;
                                                             }
@@ -456,7 +466,8 @@ namespace GitHubApiDemo
 
                                                 issueDescription.InnerText = Regex.Replace(issueDescription.InnerText, @"http[^\s]+", ""); /*Removed URL*/
                                                 issueDescription.InnerText = Regex.Replace(issueDescription.InnerText, @"(?<!\r)\n", String.Empty); /*Removed line Break*/
-                                                issueDescription.InnerText = RemoveSpecialCharacters(issueDescription.InnerText);
+                                                //issueDescription.InnerText = RemoveSpecialCharacters(issueDescription.InnerText
+                                                issueDescription.InnerText = issueDescription.InnerText;
                                                 IssuesNode.AppendChild(issueDescription);
                                             }
 
