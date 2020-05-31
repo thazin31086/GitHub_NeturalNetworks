@@ -1,1 +1,1 @@
-<b>GitHub Neural Networks</b> is an developer-label recommendation system based on deep neural networks (DNN)  with  self-attention  mechanisms  to  assist  the allocation of most relevant labels and developers for GitHub issues.
+<b>GitHub Neural Networks</b> is a developer and an issue type recommendation system based on transformer encoder self-attention  mechanisms to assist assignment and labbeling for GitHub issues.
